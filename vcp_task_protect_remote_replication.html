@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>在叢集之間執行遠端複寫</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="在叢集之間執行遠端複寫" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_remote_replication.html" />
+	<meta property="og:description" content="即時複寫可快速建立Volume資料的遠端複本。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/vcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="即時複寫可快速建立Volume資料的遠端複本。">
+  <meta name="keywords" content=" netapp, hci, vcp, vcenter, element, protect, replication, remote, cluster"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/vcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-tw/vcp/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-tw/vcp/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-tw/vcp/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/custom-dropdown.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-tw/vcp/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-tw/vcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/vcp/js/na-search.js'></script><script src='/zh-tw/vcp/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-tw/vcp/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-tw/vcp/js/na-utility.js'></script>
+  <script src='/zh-tw/vcp/js/clouddocs.js'></script>
+  <script src='/zh-tw/vcp/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-tw/vcp/js/toc.js'></script>
+  <script src='/zh-tw/vcp/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/zh-tw/vcp/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/vcp/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip.min.js'></script>
+  <script src='/zh-tw/vcp/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/vcp/issues/new?body=Page%3A%20[在叢集之間執行遠端複寫](https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_remote_replication.html)" class="page-nav-contribute-link" role="button"><img src="/zh-tw/vcp/images/discuss-sm.svg" class="github-icon" />要求變更文件</a><a target="_blank" href="https://github.com/NetAppDocs/vcp/blob/main/vcp_task_protect_remote_replication.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-tw/vcp/images/edit-sm.svg" class="github-icon" />編輯此頁面</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-tw/vcp/images/article-sm.svg" class="github-icon" />瞭解如何作出貢獻</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此頁面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">產品與解決方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支援與訓練</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社群</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">部落格</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客戶成功案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-tw/vcp/search.html"
+          data-type="widget" 
+          data-placeholder="搜尋文件" 
+          data-no-results-found="找不到符合 {query} 的相關結果。" 
+          data-did-you-mean="搜尋 {suggestion}。" 
+          data-no-results-found-did-you-mean="找不到符合 {query} 的相關結果。您是否要找的是{suggestion}？" 
+          data-results-found="找到 {hitCount} 筆結果"  
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/vcp/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">繁體中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/vcp/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/vcp/vcp_task_protect_remote_replication.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/vcp/vcp_task_protect_remote_replication.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/vcp/vcp_task_protect_remote_replication.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/vcp/vcp_task_protect_remote_replication.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_remote_replication.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/zh-tw/vcp/pdfs/fullsite-sidebar/vCenter_Server文件的適用插件NetApp_Element.pdf" >
+          <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>此文件網站（PDF 格式）</a>
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/vCenter_Server文件的適用插件NetApp_Element.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            vCenter Server文件的適用插件NetApp Element
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/版本資訊.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            版本資訊
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式管理儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            使用vCenter外掛程式管理儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/管理叢集硬體和虛擬網路.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            管理叢集硬體和虛擬網路
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統效能.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            監控系統效能
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統警示.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            監控系統警示
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式保護資料.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            使用vCenter外掛程式保護資料
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-tw/vcp/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別 PDF 文件的集合<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class="subfolders "><a href="/zh-tw/vcp/index.html">
+        <div class="na-navbar-padding"> vCenter Server文件的適用插件NetApp Element</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/concept_vcp_product_overview.html">
+        vCenter Server產品概述的適用外掛程式NetApp Element
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 版本資訊</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/rn_whatsnew_vcp.html">
+        vCenter Server的更新功能NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/rn_relatedrn_vcp.html">
+        其他版本資訊
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_config_extension_point.html">
+        部分組態擴充點NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_management_extension_point.html">
+        解決方案管理擴充點NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_accounts.html">
+        使用者帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_protection_domains.html">
+        保護網域
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_linkedmode.html">
+        連結模式和vCenter外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_qossioc.html">
+        QoSSIOC
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_vvols.html">
+        虛擬磁碟區（vVols）
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/reference_requirements_vcp.html">
+        部署前需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_getstarted.html">
+        安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_upgrades.html">
+        升級外掛程式
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用vCenter外掛程式管理儲存設備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_clusters_manage.html">
+        管理叢集
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_datastores_manage.html">
+        管理資料存放區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_volumes_manage.html">
+        管理磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_user_accounts.html">
+        建立及管理使用者帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_access_groups.html">
+        建立及管理存取群組
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_initiators.html">
+        建立及管理啟動器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_qossioc.html">
+        為元素磁碟區和VMware資料存放區設定及管理QoSSIOC
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_qos_policies.html">
+        建立及管理Volume QoS原則
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 管理叢集硬體和虛擬網路</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_manage_cluster_overview.html">
+        管理叢集硬體與虛擬網路總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_add_manage_drive.html">
+        新增及管理磁碟機
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_add_manage_nodes.html">
+        新增及管理節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_vlans.html">
+        建立及管理虛擬網路
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 監控系統效能</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_intro.html">
+        使用報告選項監控系統效能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_overview.html">
+        在「總覽」頁面上監控整體叢集健全狀況
+      </a></li><li class="subfolders "><a href="/zh-tw/vcp/vcp_task_reports_alerts.html">
+        <div class="na-navbar-padding"> 監控系統警示</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_reference_reports_alert_errors.html">
+        系統警示清單
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_event_logs.html">
+        監控事件記錄以進行疑難排解
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_volume_performance.html">
+        監控Volume效能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_iscsi.html">
+        監控iSCSI工作階段以判斷連線狀態
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_qossioc.html">
+        利用QOSSIOC事件監控VM效能
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用vCenter外掛程式保護資料</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_overview.html">
+        利用vCenter外掛程式總覽保護資料
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_volume.html">
+        建立及管理Volume快照
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_group.html">
+        建立及管理群組快照
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_schedules.html">
+        建立快照排程
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_remote_replication.html">
+        在叢集之間執行遠端複寫
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_configure_manage_vvols.html">
+        使用vCenter外掛程式設定及管理虛擬磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_unregister.html">
+        取消註冊外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_remove.html">
+        移除外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_reference_troubleshoot_vcp.html">
+        疑難排解外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/reference_earlier_versions.html">
+        舊版NetApp Element 的不整合外掛程式文件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/legal-notices.html">
+        法律聲明
+      </a></li></ul></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-tw/vcp/">VCP</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">在叢集之間執行遠端複寫</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-05-03 06:13:01 +0000">05/03/2022</time>
+    
+  
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>對於執行NetApp Element Real-Software的叢集、即時複寫功能可讓您快速建立Volume資料的遠端複本。您可以將儲存叢集與最多四個其他儲存叢集配對。</p>
+</div>
+<div class="paragraph">
+<p>您可以從叢集配對中的任一叢集同步或非同步複寫磁碟區資料、以進行容錯移轉和容錯回復。您必須先配對兩NetApp Element 個叢集、然後在每個叢集上配對磁碟區、才能使用即時遠端複寫功能。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>請確定您已將至少一個叢集新增至外掛程式。</p>
+</li>
+<li>
+<p>確保已配對叢集的管理和儲存網路上的所有節點IP位址都會彼此路由傳送。</p>
+</li>
+<li>
+<p>確保所有配對節點的MTU都相同、而且叢集之間支援端點對端點。</p>
+</li>
+<li>
+<p>確保NetApp Element 叢集上的各個版本不超過一個主要版本。如果差異較大、則必須升級其中一個叢集、才能執行資料複寫。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+WAN加速器設備未經NetApp認證、無法在複寫資料時使用。如果在複寫資料的兩個叢集之間部署、這些應用裝置可能會干擾壓縮和重複資料刪除。在正式作業環境中部署任何WAN加速器設備之前、請務必完全符合其效果。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p><a href="#Pair clusters">[Pair clusters]</a></p>
+</li>
+<li>
+<p><a href="#Pair volumes">[Pair volumes]</a></p>
+</li>
+<li>
+<p><a href="#Validate volume replication">[Validate volume replication]</a></p>
+</li>
+<li>
+<p><a href="#Delete a volume relationship after replication">[Delete a volume relationship after replication]</a></p>
+</li>
+<li>
+<p><a href="#Manage volume relationships">[Manage volume relationships]</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="配對叢集">配對叢集</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您必須將兩個叢集配對、作為使用即時複寫功能的第一步。配對並連線兩個叢集之後、您可以將一個叢集上的作用中磁碟區設定為持續複寫到第二個叢集、以提供持續的資料保護（CDP）。</p>
+</div>
+<div class="paragraph">
+<p>如果兩個叢集都有叢集管理存取權、您可以使用目標叢集的MVIP來配對來源與目標叢集。如果叢集配對中的某個叢集僅有叢集可供使用叢集管理存取、則可在目標叢集上使用配對金鑰來完成叢集配對。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>您需要叢集管理權限才能配對一個或兩個叢集。</p>
+</li>
+<li>
+<p>確保叢集之間的往返延遲低於2000毫秒。</p>
+</li>
+<li>
+<p>確保NetApp Element 叢集上的各個版本不超過一個主要版本。</p>
+</li>
+<li>
+<p>確保配對叢集上的所有節點IP都彼此路由傳送。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+叢集配對需要在管理網路上的節點之間建立完整連線。複寫需要在儲存叢集網路上的個別節點之間建立連線。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>您可以將一個NetApp Element 不含任何一個的叢集與最多四個其他叢集配對、以複寫磁碟區。您也可以將叢集群組內的叢集彼此配對。</p>
+</div>
+<div class="paragraph">
+<p>請選擇下列其中一種方法：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Pair clusters using known credentials">[Pair clusters using known credentials]</a></p>
+</li>
+<li>
+<p><a href="#Pair clusters with a pairing key">[Pair clusters with a pairing key]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="使用已知認證配對叢集">使用已知認證配對叢集</h3>
+<div class="paragraph">
+<p>您可以使用一個叢集的MVIP與另一個叢集建立連線、配對兩個叢集以進行即時複寫。若要使用此方法、必須在兩個叢集上存取叢集管理。</p>
+</div>
+<div class="paragraph">
+<p>叢集管理使用者名稱和密碼用於驗證叢集存取、然後才能配對叢集。</p>
+</div>
+<div class="paragraph">
+<p>如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱 <a href="#Pair clusters with a pairing key">[Pair clusters with a pairing key]</a>。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在包含本機叢集的vCenter中、選取* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（保護）*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取*叢集配對*子索引標籤。</p>
+</li>
+<li>
+<p>選取*建立叢集配對*。</p>
+</li>
+<li>
+<p>選取下列其中一項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>已登錄叢集</strong>：如果配對的遠端叢集是由NetApp Element vCenter Server的相同執行個體所控制、請選取此選項。</p>
+</li>
+<li>
+<p><strong>可認證的叢集</strong>：如果遠端叢集的認證資料不在NetApp Element 適用於vCenter Server組態的VMware vCenter外、請選取此選項。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果選擇*已註冊的叢集*、請從可用叢集清單中選取叢集、然後按一下*配對*。</p>
+</li>
+<li>
+<p>如果您選取*可認證的叢集*、請執行下列動作：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>輸入遠端叢集MVIP位址。</p>
+</li>
+<li>
+<p>輸入叢集管理員使用者名稱。</p>
+</li>
+<li>
+<p>輸入叢集管理員密碼。</p>
+</li>
+<li>
+<p>選取*開始配對*。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>工作完成後、您會看到「叢集配對」頁面、請確認叢集配對已連線。</p>
+</li>
+<li>
+<p>（選用）在遠端叢集上、選取* NetApp Element 《支援*》&gt;*《叢集配對*》、或使用元素Web UI來驗證叢集配對是否已連線。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="將叢集與配對金鑰配對">將叢集與配對金鑰配對</h3>
+<div class="paragraph">
+<p>如果您擁有本機叢集的叢集管理存取權、但無法存取遠端叢集、則可使用配對金鑰配對叢集。配對金鑰會在本機叢集上產生、然後安全地傳送至遠端站台的叢集管理、以建立連線並完成叢集配對、以進行即時複寫。</p>
+</div>
+<div class="paragraph">
+<p>本程序說明在本機和遠端站台上使用vCenter的兩個叢集之間進行叢集配對。對於非由vCenter外掛程式控制的叢集、您也可以選擇 <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_cluster_using_pairing_key.html">"啟動或完成叢集配對"</a> 使用元素Web UI。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在包含本機叢集的vCenter中、選取* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（保護）*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取*叢集配對*子索引標籤。</p>
+</li>
+<li>
+<p>選取*建立叢集配對*。</p>
+</li>
+<li>
+<p>選擇*不可存取的叢集*。</p>
+</li>
+<li>
+<p>選取*產生金鑰*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此動作會產生配對的文字金鑰、並在本機叢集上建立未設定的叢集配對。如果您未完成此程序、則需要手動刪除叢集配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>將叢集配對金鑰複製到剪貼簿。</p>
+</li>
+<li>
+<p>選擇*關閉*。</p>
+</li>
+<li>
+<p>讓遠端叢集站台的叢集管理員可以存取配對金鑰。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+叢集配對金鑰包含MVIP的版本、使用者名稱、密碼和資料庫資訊、以允許遠端複寫的磁碟區連線。此金鑰應以安全的方式處理、而非以允許意外或不安全地存取使用者名稱或密碼的方式儲存。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從包含遠端叢集的vCenter中、選取* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（保護）*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您也可以使用Element UI完成配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取*叢集配對*子索引標籤。</p>
+</li>
+<li>
+<p>選取*完整叢集配對*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+等待載入微調器消失、再繼續下一步。如果配對程序期間發生非預期的錯誤、請檢查並手動刪除本機和遠端叢集上任何未設定的叢集配對、然後再次執行配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>將本機叢集的配對金鑰貼到*叢集配對金鑰*欄位。</p>
+</li>
+<li>
+<p>選擇*配對叢集*。</p>
+</li>
+<li>
+<p>工作完成後、您會看到「<strong>叢集配對</strong>」頁面、請確認叢集配對已連線。</p>
+</li>
+<li>
+<p>若要驗證叢集配對是否已連線、請在遠端叢集上選取* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（保護）*、或使用Element UI（元素UI）。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="驗證叢集配對連線">驗證叢集配對連線</h3>
+<div class="paragraph">
+<p>叢集配對完成後、您可能需要驗證叢集配對連線、以確保複寫成功。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在本機叢集上、選取*資料保護*&gt;*叢集配對*。</p>
+</li>
+<li>
+<p>驗證是否已連接叢集配對。</p>
+</li>
+<li>
+<p>瀏覽回本機叢集和*叢集配對*視窗、確認已連接叢集配對。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="配對磁碟區">配對磁碟區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在叢集配對中建立叢集之間的連線之後、您可以將一個叢集上的磁碟區與配對中另一個叢集上的磁碟區配對。</p>
+</div>
+<div class="paragraph">
+<p>您可以使用下列其中一種方法配對Volume：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Pair volumes using known credentials">[Pair volumes using known credentials]</a>：兩個叢集都使用已知的認證資料</p>
+</li>
+<li>
+<p><a href="#Pair volumes using a pairing key">[Pair volumes using a pairing key]</a>：如果叢集認證僅在來源叢集上可用、請使用配對金鑰。</p>
+</li>
+<li>
+<p><a href="#Create target volumes and pair them with local volumes">[Create target volumes and pair them with local volumes]</a>：如果您知道兩個叢集的認證資料、請在遠端叢集上建立複寫目標磁碟區、以便與來源叢集配對。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>建立磁碟區配對關係之後、您必須識別哪個磁碟區是複寫目標：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Assign a replication source and target to paired volumes">[Assign a replication source and target to paired volumes]</a></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>您應該已經在叢集配對中的叢集之間建立連線。</p>
+</li>
+<li>
+<p>您必須擁有叢集管理權限、才能配對一個或兩個叢集。</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="使用已知認證配對磁碟區">使用已知認證配對磁碟區</h3>
+<div class="paragraph">
+<p>您可以將本機磁碟區與遠端叢集上的其他磁碟區配對。如果叢集管理存取權可同時存取要配對磁碟區的兩個叢集、請使用此方法。此方法會使用遠端叢集上磁碟區的Volume ID來啟動連線。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>您擁有遠端叢集的叢集管理認證。</p>
+</li>
+<li>
+<p>請確定包含磁碟區的叢集已配對。</p>
+</li>
+<li>
+<p>除非您打算在此過程中建立新的Volume、否則您知道遠端Volume ID。</p>
+</li>
+<li>
+<p>如果您打算將本機磁碟區設為來源、請確定該磁碟區的存取模式已設為讀取/寫入。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在包含本機叢集的vCenter中、選取* NetApp Element 《Management》<strong>《Management》</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取您要配對之Volume的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取* Volume Pair*。</p>
+</li>
+<li>
+<p>選取下列其中一項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* Volume Creation *：若要在遠端叢集上建立複寫目標磁碟區、請選取此選項。此方法只能用於由NetApp Element vCenter Server的VMware外掛程式所控制的遠端叢集。</p>
+</li>
+<li>
+<p>* Volume selection *：如果目標Volume的遠端叢集是由NetApp Element vCenter Server的VMware vCenter外掛程式所控制、請選取此選項。</p>
+</li>
+<li>
+<p>* Volume ID*：如果目標Volume的遠端叢集擁有NetApp Element 超出適用於vCenter Server組態的VMware外掛程式的已知認證資料、請選取此選項。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選取複寫模式：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>即時（同步）</strong>：寫入作業會在來源叢集和目標叢集上提交後、確認寫入至用戶端。</p>
+</li>
+<li>
+<p><strong>即時（非同步）</strong>：寫入作業在來源叢集上提交後、便會對用戶端進行認可。</p>
+</li>
+<li>
+<p><strong>僅快照</strong>：僅複寫在來源叢集上建立的快照。不會複寫來源Volume的作用中寫入內容。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果您選取*建立Volume *作為配對模式選項、請執行下列步驟：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>從下拉式清單中選取配對的叢集。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此動作會填入叢集上的可用帳戶、以便在下一個步驟中選取。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在目標叢集上選取複寫目標磁碟區的帳戶。</p>
+</li>
+<li>
+<p>輸入複寫目標磁碟區名稱。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+在此程序期間無法調整Volume大小。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>如果您選取* Volume selection *作為配對模式選項、請執行下列步驟：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取配對的叢集。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此動作會填入叢集上要在下一步中選取的可用磁碟區。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>（可選）如果要將遠端Volume設為Volume配對中的目標、請選取*將遠端Volume設為Replication Target <strong>（複寫目標</strong>）選項。本機磁碟區若設為讀取/寫入、即會成為配對中的來源。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您將現有磁碟區指派為複寫目標、則該磁碟區上的資料將會遭到覆寫。最佳實務做法是使用新的磁碟區作為複寫目標。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您也可以稍後在配對程序中從* Volumes <strong>&gt;</strong> Actions <strong>&gt;</strong> Edit *指派複寫來源和目標。您必須指派來源和目標才能完成配對。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>從可用磁碟區清單中選取一個磁碟區。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>如果您選取* Volume ID*作為配對模式選項、請執行下列步驟：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>從下拉式清單中選取配對的叢集。</p>
+</li>
+<li>
+<p>如果叢集未以外掛程式登錄、請輸入叢集管理員使用者ID和叢集管理員密碼。</p>
+</li>
+<li>
+<p>輸入Volume ID。</p>
+</li>
+<li>
+<p>如果要將遠端Volume設為Volume配對中的目標、請選取*將遠端Volume設為Replication Target <strong>（複寫目標</strong>）選項。本機磁碟區若設為讀取/寫入、即會成為配對中的來源。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您將現有磁碟區指派為複寫目標、則該磁碟區上的資料將會遭到覆寫。最佳實務做法是使用新的磁碟區作為複寫目標。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您也可以稍後在配對程序中從* Volumes <strong>&gt;</strong> Actions <strong>&gt;</strong> Edit *指派複寫來源和目標。您必須指派來源和目標才能完成配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*配對*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+確認配對之後、兩個叢集便會開始連接磁碟區的程序。在配對過程中、您可以在Volume Pairs（Volume Pairs）頁面的Volume Status（Volume狀態）欄中看到進度訊息。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您尚未將磁碟區指派為複寫目標、配對組態將不完整。磁碟區配對會顯示PausedMisconfigured、直到指派磁碟區配對來源和目標為止。您必須指派來源和目標、才能完成Volume配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在任一叢集上選取* Protection <strong>&gt;</strong> Volume Pair*。</p>
+</li>
+<li>
+<p>驗證Volume配對的狀態。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="使用配對金鑰配對磁碟區">使用配對金鑰配對磁碟區</h3>
+<div class="paragraph">
+<p>您可以使用配對金鑰、將本機Volume與遠端叢集上的其他Volume配對。如果只有來源叢集的叢集管理存取權、請使用此方法。此方法會產生配對金鑰、可用於遠端叢集以完成Volume配對。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>請確定包含磁碟區的叢集已配對。</p>
+</li>
+<li>
+<p><strong>最佳實務做法</strong>：將來源磁碟區設為「讀取/寫入」、將目標磁碟區設為「複寫目標」。目標磁碟區不應包含任何資料、且應具有來源磁碟區的確切特性、例如大小、512e設定和QoS組態。如果您將現有磁碟區指派為複寫目標、則該磁碟區上的資料將會遭到覆寫。目標Volume的大小可能大於或等於來源Volume、但不能變小。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>本程序說明在本機和遠端站台上使用vCenter的兩個磁碟區之間進行Volume配對。對於非由vCenter外掛程式控制的磁碟區、您可以使用元素Web UI來啟動或完成Volume配對。</p>
+</div>
+<div class="paragraph">
+<p>如需從Element Web UI開始或完成Volume配對的指示、請參閱 <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_volumes_using_a_pairing_key.html" target="_blank" rel="noopener">"軟體文件NetApp Element"</a>。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+Volume配對金鑰包含加密版本的Volume資訊、可能包含敏感資訊。只能以安全的方式共用此金鑰。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在包含本機叢集的vCenter中、選取* NetApp Element 《Management》<strong>《Management》</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取您要配對之Volume的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取* Volume Pair*。</p>
+</li>
+<li>
+<p>選擇*不可存取的叢集*。</p>
+</li>
+<li>
+<p>選取複寫模式：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>即時（同步）</strong>：寫入作業會在來源叢集和目標叢集上提交後、確認寫入至用戶端。</p>
+</li>
+<li>
+<p><strong>即時（非同步）</strong>：寫入作業在來源叢集上提交後、便會對用戶端進行認可。</p>
+</li>
+<li>
+<p><strong>僅快照</strong>：僅複寫在來源叢集上建立的快照。不會複寫來源Volume的作用中寫入內容。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選取*產生金鑰*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此動作會產生配對的文字金鑰、並在本機叢集上建立未設定的Volume配對。如果您不這麼做、則需要手動刪除Volume配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>將配對金鑰複製到剪貼簿。</p>
+</li>
+<li>
+<p>選擇*關閉*。</p>
+</li>
+<li>
+<p>讓遠端叢集站台的叢集管理員可以存取配對金鑰。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+Volume配對金鑰應以安全的方式處理、而非以允許意外或不安全存取的方式儲存。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在包含遠端叢集的vCenter中、選取* NetApp Element 《Management》（<strong>《VMware vCenter管理》</strong>）&gt;*《Management》（管理）*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取您要配對之磁碟區的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取* Volume Pair*。</p>
+</li>
+<li>
+<p>選取*完整叢集配對*。</p>
+</li>
+<li>
+<p>將另一個叢集的配對金鑰貼到*配對金鑰*方塊中。</p>
+</li>
+<li>
+<p>選取*完整配對*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+確認配對之後、兩個叢集便會開始連接磁碟區的程序。在配對過程中、您可以在Volume Pairs（Volume Pairs）頁面的Volume Status（Volume狀態）欄中看到進度訊息。如果配對程序期間發生非預期的錯誤、請檢查並手動刪除本機和遠端叢集上任何未設定的叢集配對、然後再次執行配對。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您尚未將磁碟區指派為複寫目標、配對組態將不完整。磁碟區配對會顯示「PausedMisconfigured」、直到指派磁碟區配對來源和目標為止。您必須指派來源和目標、才能完成Volume配對。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在任一叢集上選取* Protection <strong>&gt;</strong> Volume Pair*。</p>
+</li>
+<li>
+<p>驗證Volume配對的狀態。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+使用配對金鑰配對的Volume會在遠端位置完成配對程序後顯示。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="建立目標磁碟區並將其與本機磁碟區配對">建立目標磁碟區、並將其與本機磁碟區配對</h3>
+<div class="paragraph">
+<p>您可以將兩個或多個本機磁碟區與遠端叢集上的相關目標磁碟區配對。此程序會針對您選取的每個本機來源Volume、在遠端叢集上建立複寫目標磁碟區。如果叢集管理存取權可同時存取要配對磁碟區的兩個叢集、且遠端叢集由外掛程式控制、請使用此方法。</p>
+</div>
+<div class="paragraph">
+<p>此方法使用遠端叢集上每個磁碟區的Volume ID來起始一或多個連線。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>確保您擁有遠端叢集的叢集管理認證。</p>
+</li>
+<li>
+<p>請確定內含磁碟區的叢集已使用外掛程式配對。</p>
+</li>
+<li>
+<p>確保遠端叢集由外掛程式控制。</p>
+</li>
+<li>
+<p>確保每個本機磁碟區的存取模式均設定為讀取/寫入。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在包含本機叢集的vCenter中、選取* NetApp Element 《Management》<strong>《Management》</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取兩個或多個您要配對的磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取* Volume Pair*。</p>
+</li>
+<li>
+<p>選擇*複寫模式*：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>即時（同步）</strong>：寫入作業會在來源叢集和目標叢集上提交後、確認寫入至用戶端。</p>
+</li>
+<li>
+<p><strong>即時（非同步）</strong>：寫入作業在來源叢集上提交後、便會對用戶端進行認可。</p>
+</li>
+<li>
+<p><strong>僅快照</strong>：僅複寫在來源叢集上建立的快照。不會複寫來源Volume的作用中寫入內容。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>從下拉式清單中選取配對的叢集。</p>
+</li>
+<li>
+<p>在目標叢集上選取複寫目標磁碟區的帳戶。</p>
+</li>
+<li>
+<p>（選用）在目標叢集上輸入新磁碟區名稱的前置或後置字元。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此時會出現一個含有修改名稱的範例Volume名稱。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取*建立配對*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+確認配對之後、兩個叢集便會開始連接磁碟區的程序。在配對過程中、您可以在Volume Pairs（Volume Pairs）頁面的Volume Status（Volume狀態）欄中看到進度訊息。程序完成後、會在遠端叢集上建立並連線新的目標磁碟區。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在任一叢集上選取* Protection <strong>&gt;</strong> Volume Pair*。</p>
+</li>
+<li>
+<p>驗證Volume配對的狀態。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="將複寫來源和目標指派給配對的磁碟區">將複寫來源和目標指派給配對的磁碟區</h3>
+<div class="paragraph">
+<p>如果您在磁碟區配對期間未將磁碟區指派為複寫目標、則組態不會完成。您可以使用此程序來指派來源Volume及其複寫目標Volume。複寫來源或目標可以是Volume配對中的任一Volume。</p>
+</div>
+<div class="paragraph">
+<p>您也可以使用此程序、在來源Volume無法使用時、將資料從來源Volume重新導向至遠端目標Volume。</p>
+</div>
+<div class="paragraph">
+<p>您可以存取包含來源和目標磁碟區的叢集。</p>
+</div>
+<div class="paragraph">
+<p>本程序說明如何在本機和遠端站台上使用vCenter、在兩個叢集之間指派來源和複寫磁碟區。對於不受vCenter外掛程式控制的磁碟區、您可以選擇 <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html">"指派來源或複寫磁碟區"</a> 使用元素Web UI。</p>
+</div>
+<div class="paragraph">
+<p>複寫來源磁碟區具有讀寫帳戶存取權。複寫目標磁碟區只能由複寫來源以讀取/寫入方式存取。</p>
+</div>
+<div class="paragraph">
+<p><strong>最佳實務做法</strong>：目標磁碟區不應包含任何資料、且應具有來源磁碟區的確切特性、例如大小、512e設定和QoS組態。目標Volume的大小可能大於或等於來源Volume、但不能變小。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter Server * NetApp Element 的*《S廳 管理*》擴充點中、選取包含您要作為複寫來源之配對磁碟區的叢集。</p>
+</li>
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>《管理</strong>》）&gt;*《Management》（管理*）</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取您要編輯之Volume的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*編輯*。</p>
+</li>
+<li>
+<p>從存取下拉式清單中、選取*讀取/寫入*。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您要反轉來源和目標指派、此動作會導致磁碟區配對顯示「暫停已設定的項目」、直到指派新的複寫目標為止。變更存取會暫停磁碟區複寫、並導致資料傳輸停止。請確定您已在兩個站台協調這些變更。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+<li>
+<p>從* NetApp Element 《Management》*擴充點中、選取包含您要用作複寫目標之配對磁碟區的叢集。</p>
+</li>
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>《管理</strong>》）&gt;*《Management》（管理*）</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取您要編輯之Volume的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*編輯*。</p>
+</li>
+<li>
+<p>在*存取*下拉式清單中、選取*複寫目標*。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您將現有磁碟區指派為複寫目標、則該磁碟區上的資料將會遭到覆寫。最佳實務做法是使用新的磁碟區作為複寫目標。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="驗證volume複寫">驗證Volume複寫</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>複寫磁碟區之後、您應該確定來源與目標磁碟區處於作用中狀態。處於「作用中」狀態時、磁碟區會配對、資料會從來源傳送至目標磁碟區、而且資料會同步。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在配對的任一叢集中、選取* NetApp Element 《<strong>》《Management》（</strong>《<strong>*保護</strong>》）。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volume Pair*子索引標籤。</p>
+</li>
+<li>
+<p>驗證Volume狀態是否為「Active（作用中）」。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="複寫後刪除磁碟區關係">複寫後刪除磁碟區關係</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>複寫完成且不再需要磁碟區配對關係之後、您可以刪除磁碟區關係。</p>
+</div>
+<div class="paragraph">
+<p>請參閱 <a href="#Delete a volume pair">[Delete a volume pair]</a>。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="管理volume關係">管理Volume關係</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以透過多種方式來管理磁碟區關係、例如暫停複寫、反轉磁碟區配對、變更複寫模式、刪除磁碟區配對、或刪除叢集配對。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Pause replication">[Pause replication]</a></p>
+</li>
+<li>
+<p><a href="#Change the mode of replication">[Change the mode of replication]</a></p>
+</li>
+<li>
+<p><a href="#Delete a volume pair">[Delete a volume pair]</a></p>
+</li>
+<li>
+<p><a href="#Delete a cluster pair">[Delete a cluster pair]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="暫停複寫">暫停複寫</h3>
+<div class="paragraph">
+<p>您可以編輯Volume Pair內容以手動暫停複寫。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（<strong>保護）</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volume Pair*子索引標籤。</p>
+</li>
+<li>
+<p>選取您要編輯之Volume配對的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*編輯*。</p>
+</li>
+<li>
+<p>手動暫停或啟動複寫程序。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+手動暫停或恢復磁碟區複寫會導致資料傳輸停止或恢復。請確定您已在兩個站台協調這些變更。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取*儲存變更*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="變更複寫模式">變更複寫模式</h3>
+<div class="paragraph">
+<p>您可以編輯Volume配對內容、以變更Volume配對關係的複寫模式。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（<strong>保護）</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volume Pair*子索引標籤。</p>
+</li>
+<li>
+<p>選取您要編輯之Volume配對的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*編輯*。</p>
+</li>
+<li>
+<p>選取新的複寫模式：</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+變更複寫模式會導致模式立即變更。請確定您已在兩個站台協調這些變更。
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>即時（同步）</strong>：寫入作業會在來源叢集和目標叢集上提交後、確認寫入至用戶端。</p>
+</li>
+<li>
+<p><strong>即時（非同步）</strong>：寫入作業在來源叢集上提交後、便會對用戶端進行認可。</p>
+</li>
+<li>
+<p><strong>僅快照</strong>：僅複寫在來源叢集上建立的快照。不會複寫來源Volume的作用中寫入內容。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選取*儲存變更*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="刪除volume配對">刪除Volume配對</h3>
+<div class="paragraph">
+<p>若要移除兩個磁碟區之間的配對關聯、您可以刪除一個磁碟區配對。</p>
+</div>
+<div class="paragraph">
+<p>本程序說明如何在本機和遠端站台上、使用vCenter刪除兩個磁碟區之間的Volume配對關係。</p>
+</div>
+<div class="paragraph">
+<p>對於不受vCenter外掛程式控制的磁碟區、您也可以選擇 <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_volume_relationship_after_replication.html">"刪除磁碟區配對結束"</a> 使用元素Web UI。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（<strong>保護）</strong>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取* Volume Pair*子索引標籤。</p>
+</li>
+<li>
+<p>選取一或多個您要刪除的Volume配對。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*刪除*。</p>
+</li>
+<li>
+<p>確認每個Volume配對的詳細資料。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+對於未由外掛程式管理的叢集、此動作只會刪除本機叢集上的磁碟區配對端點。您必須手動刪除遠端叢集的Volume配對、才能完全移除配對關係。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>（對於由外掛程式管理的叢集而言為選用）選取「Change Replication Target Access to <strong>（將複寫目標存取權變更為</strong>）」核取方塊、然後為複寫目標磁碟區選取新的存取模式。此新的存取模式將在Volume配對關係移除之後套用。</p>
+</li>
+<li>
+<p>選擇*是*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="刪除叢集配對">刪除叢集配對</h3>
+<div class="paragraph">
+<p>您可以使用本機和遠端站台上的vCenter、刪除兩個叢集之間的叢集配對關係。若要完全移除叢集配對關係、您必須移除本機和遠端叢集的叢集配對端點。</p>
+</div>
+<div class="paragraph">
+<p>您可以使用vCenter外掛程式刪除叢集配對端點</p>
+</div>
+<div class="paragraph">
+<p>對於非由vCenter外掛程式控制的叢集、您也可以選擇 <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_cluster_pair.html">"刪除叢集配對結束"</a> 使用元素Web UI。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>）&gt;</strong>《Protection》（<strong>保護）</strong>。</p>
+</li>
+<li>
+<p>選取*叢集配對*子索引標籤。</p>
+</li>
+<li>
+<p>選取您要刪除之叢集配對的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*刪除*。</p>
+</li>
+<li>
+<p>確認行動。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+此動作只會刪除本機叢集上的叢集配對端點。您必須手動刪除遠端叢集的叢集配對、才能完全移除配對關係。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>重複叢集配對中遠端叢集的步驟。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="volume配對訊息與警告">Volume配對訊息與警告</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以在NetApp Element 「保護」索引標籤的「Volume Pairs」（Volume Pairs）頁面上、從「View Management」組態點檢視已配對或正在配對的Volume相關資訊。</p>
+</div>
+<div class="paragraph">
+<p>系統會在Volume Status（Volume狀態）欄中顯示配對與進度訊息。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Volume pairing messages">[Volume pairing messages]</a></p>
+</li>
+<li>
+<p><a href="#Volume pairing warnings">[Volume pairing warnings]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="volume配對訊息">Volume配對訊息</h3>
+<div class="paragraph">
+<p>您可以在初始配對程序期間、從NetApp Element 「保護」索引標籤的「Volume Pairs」（Volume配對）頁面上的「還原管理」組態點檢視訊息。這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>暫停已中斷連線</strong>：來源複寫或同步RPC逾時。與遠端叢集的連線已中斷。檢查與叢集的網路連線。</p>
+</li>
+<li>
+<p><strong>重新連線已連線</strong>：遠端複寫同步功能現已啟用。開始同步程序並等待資料。</p>
+</li>
+<li>
+<p><strong>重新配置RRRRrsynet</strong>*：正在為配對的叢集建立Volume中繼資料的單一helix複本。</p>
+</li>
+<li>
+<p><strong>重新傳送LocalSync</strong>：正在為配對的叢集建立Volume中繼資料的雙螺旋複本。</p>
+</li>
+<li>
+<p><strong>重新擷取DataTransfer</strong>：資料傳輸已恢復。</p>
+</li>
+<li>
+<p>* Active*：磁碟區已配對、資料正從來源傳送至目標磁碟區、資料會同步。</p>
+</li>
+<li>
+<p><strong>閒置</strong>：未發生任何複寫活動。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>*此程序由目標Volume驅動、可能不會顯示在來源Volume上。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="volume配對警告">Volume配對警告</h3>
+<div class="paragraph">
+<p>在「Protection（保護）」索引標籤的「Volume Pairs（磁碟區配對）」頁面上、從NetApp Element 「View Management（還原管理）」組態點配對磁碟區後、您可以檢視警告訊息這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。</p>
+</div>
+<div class="paragraph">
+<p>除非另有說明、否則這些訊息會顯示在配對的來源和目標端點上。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>暫停ClusterFull</strong>：由於目標叢集已滿、因此無法繼續進行來源複寫和大量資料傳輸。訊息僅會顯示在配對的來源端點。</p>
+</li>
+<li>
+<p>* PausedexeeedMaxSnapshotCount*：目標磁碟區已有最大快照數量、無法複寫其他快照。</p>
+</li>
+<li>
+<p><strong>暫停手冊</strong>：本機磁碟區已手動暫停。必須先取消暫停、才能繼續複寫。</p>
+</li>
+<li>
+<p><strong>暫停ManualRemoted</strong>：遠端Volume處於手動暫停模式。需要手動介入、才能在複寫恢復之前取消暫停遠端磁碟區。</p>
+</li>
+<li>
+<p><strong>暫停設定錯誤</strong>：等待作用中的來源和目標。需要手動介入才能恢復複寫。</p>
+</li>
+<li>
+<p><strong>暫停QoS</strong>：目標QoS無法維持傳入IO。複寫會自動恢復。訊息僅會顯示在配對的來源端點。</p>
+</li>
+<li>
+<p><strong>暫停SlowLink</strong>：偵測到慢速連結並停止複寫。複寫會自動恢復。訊息僅會顯示在配對的來源端點。</p>
+</li>
+<li>
+<p><strong>暫停Volume SizeMism</strong>：目標Volume小於來源Volume。</p>
+</li>
+<li>
+<p>* PausedXCopy*：正在向來源Volume發出SCSI XCOPY命令。必須先完成命令、才能繼續複寫。訊息僅會顯示在配對的來源端點。</p>
+</li>
+<li>
+<p><strong>停止設定錯誤</strong>：偵測到永久組態錯誤。遠端Volume已清除或取消配對。不可能採取修正行動；必須建立新的配對。</p>
+</li>
+</ul>
+</div>
+<h2 id="如需詳細資訊請參閱" class="discrete">如需詳細資訊、請參閱</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hci/index.html" target="_blank" rel="noopener">"資訊文件NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/data-storage/solidfire/documentation" target="_blank" rel="noopener">"「元件與元素資源」頁面SolidFire"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">legal-terms</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">legal-privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">legal-cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">cookie-settings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">對我們的網站有任何意見或要求？</span>
+              <a target="_self" href="javascript:netapp_mailto()">請與我們聯絡</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-tw/announcements/">公告</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/vcp/js/www-ntap.js'></script>
+    <script src='/zh-tw/vcp/js/tabbed-blocks.js'></script>
+  </body></html>

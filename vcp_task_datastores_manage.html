@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>管理資料存放區</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="管理資料存放區" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/vcp/vcp_task_datastores_manage.html" />
+	<meta property="og:description" content="您可以使用外掛程式新增在元素磁碟區上建立的管理資料存放區。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/vcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以使用外掛程式新增在元素磁碟區上建立的管理資料存放區。">
+  <meta name="keywords" content=" netapp, datastore, vcp, vcenter, element"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/vcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-tw/vcp/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-tw/vcp/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-tw/vcp/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/custom-dropdown.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-tw/vcp/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-tw/vcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/vcp/js/na-search.js'></script><script src='/zh-tw/vcp/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-tw/vcp/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/vcp/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-tw/vcp/js/na-utility.js'></script>
+  <script src='/zh-tw/vcp/js/clouddocs.js'></script>
+  <script src='/zh-tw/vcp/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-tw/vcp/js/toc.js'></script>
+  <script src='/zh-tw/vcp/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/zh-tw/vcp/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/vcp/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip.min.js'></script>
+  <script src='/zh-tw/vcp/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/vcp/issues/new?body=Page%3A%20[管理資料存放區](https://docs.netapp.com/zh-tw/vcp/vcp_task_datastores_manage.html)" class="page-nav-contribute-link" role="button"><img src="/zh-tw/vcp/images/discuss-sm.svg" class="github-icon" />要求變更文件</a><a target="_blank" href="https://github.com/NetAppDocs/vcp/blob/main/vcp_task_datastores_manage.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-tw/vcp/images/edit-sm.svg" class="github-icon" />編輯此頁面</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-tw/vcp/images/article-sm.svg" class="github-icon" />瞭解如何作出貢獻</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此頁面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">產品與解決方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支援與訓練</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社群</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">部落格</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客戶成功案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-tw/vcp/search.html"
+          data-type="widget" 
+          data-placeholder="搜尋文件" 
+          data-no-results-found="找不到符合 {query} 的相關結果。" 
+          data-did-you-mean="搜尋 {suggestion}。" 
+          data-no-results-found-did-you-mean="找不到符合 {query} 的相關結果。您是否要找的是{suggestion}？" 
+          data-results-found="找到 {hitCount} 筆結果"  
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/vcp/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">繁體中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/vcp/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/vcp/vcp_task_datastores_manage.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/vcp/vcp_task_datastores_manage.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/vcp/vcp_task_datastores_manage.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/vcp/vcp_task_datastores_manage.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-tw/vcp/vcp_task_datastores_manage.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/zh-tw/vcp/pdfs/fullsite-sidebar/vCenter_Server文件的適用插件NetApp_Element.pdf" >
+          <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>此文件網站（PDF 格式）</a>
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/vCenter_Server文件的適用插件NetApp_Element.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            vCenter Server文件的適用插件NetApp Element
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/版本資訊.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            版本資訊
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式管理儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            使用vCenter外掛程式管理儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/管理叢集硬體和虛擬網路.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            管理叢集硬體和虛擬網路
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統效能.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            監控系統效能
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統警示.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            監控系統警示
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式保護資料.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf.png" width="16" height="16"/>
+            使用vCenter外掛程式保護資料
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-tw/vcp/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別 PDF 文件的集合<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class="subfolders "><a href="/zh-tw/vcp/index.html">
+        <div class="na-navbar-padding"> vCenter Server文件的適用插件NetApp Element</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/concept_vcp_product_overview.html">
+        vCenter Server產品概述的適用外掛程式NetApp Element
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 版本資訊</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/rn_whatsnew_vcp.html">
+        vCenter Server的更新功能NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/rn_relatedrn_vcp.html">
+        其他版本資訊
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_config_extension_point.html">
+        部分組態擴充點NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_management_extension_point.html">
+        解決方案管理擴充點NetApp Element
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_accounts.html">
+        使用者帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_protection_domains.html">
+        保護網域
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_linkedmode.html">
+        連結模式和vCenter外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_qossioc.html">
+        QoSSIOC
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_concept_vvols.html">
+        虛擬磁碟區（vVols）
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/reference_requirements_vcp.html">
+        部署前需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_getstarted.html">
+        安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_upgrades.html">
+        升級外掛程式
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用vCenter外掛程式管理儲存設備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_clusters_manage.html">
+        管理叢集
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_datastores_manage.html">
+        管理資料存放區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_volumes_manage.html">
+        管理磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_user_accounts.html">
+        建立及管理使用者帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_access_groups.html">
+        建立及管理存取群組
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_initiators.html">
+        建立及管理啟動器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_qossioc.html">
+        為元素磁碟區和VMware資料存放區設定及管理QoSSIOC
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_qos_policies.html">
+        建立及管理Volume QoS原則
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 管理叢集硬體和虛擬網路</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_manage_cluster_overview.html">
+        管理叢集硬體與虛擬網路總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_add_manage_drive.html">
+        新增及管理磁碟機
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_add_manage_nodes.html">
+        新增及管理節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_create_manage_vlans.html">
+        建立及管理虛擬網路
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 監控系統效能</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_intro.html">
+        使用報告選項監控系統效能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_overview.html">
+        在「總覽」頁面上監控整體叢集健全狀況
+      </a></li><li class="subfolders "><a href="/zh-tw/vcp/vcp_task_reports_alerts.html">
+        <div class="na-navbar-padding"> 監控系統警示</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_reference_reports_alert_errors.html">
+        系統警示清單
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_event_logs.html">
+        監控事件記錄以進行疑難排解
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_volume_performance.html">
+        監控Volume效能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_iscsi.html">
+        監控iSCSI工作階段以判斷連線狀態
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_reports_qossioc.html">
+        利用QOSSIOC事件監控VM效能
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用vCenter外掛程式保護資料</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_overview.html">
+        利用vCenter外掛程式總覽保護資料
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_volume.html">
+        建立及管理Volume快照
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_group.html">
+        建立及管理群組快照
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_snapshots_schedules.html">
+        建立快照排程
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_protect_remote_replication.html">
+        在叢集之間執行遠端複寫
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_task_configure_manage_vvols.html">
+        使用vCenter外掛程式設定及管理虛擬磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_unregister.html">
+        取消註冊外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/task_vcp_remove.html">
+        移除外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/vcp_reference_troubleshoot_vcp.html">
+        疑難排解外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/reference_earlier_versions.html">
+        舊版NetApp Element 的不整合外掛程式文件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/vcp/legal-notices.html">
+        法律聲明
+      </a></li></ul></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-tw/vcp/">VCP</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-tw/vcp/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">管理資料存放區</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-05-03 06:13:01 +0000">05/03/2022</time>
+    
+  
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>使用NetApp Element vCenter Server的VMware vCenter外掛程式、您可以管理以Element Volume為後盾的資料存放區。您可以建立、擴充、複製、共用或刪除資料存放區。您也可以使用VAAI取消對應、讓叢集從資源配置不足的VMFS資料存放區回收可用的區塊空間。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>若要建立及管理資料存放區、您必須先建立至少一個使用者帳戶。</p>
+</li>
+<li>
+<p>若要將QoSSIOC服務搭配資料存放區使用、您必須先使用 <a href="vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in">"設定設定"</a> 在「QoSSIOC設定」頁面上、從NetApp Element 「功能性組態」延伸點取得。</p>
+</li>
+<li>
+<p>由於資料存放區是使用所選ESXi主機所支援的最高VMFS版本所建立、因此所有叢集成員都應該執行相同版本的vSphere和ESXi、以避免VMFS相容性問題。</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">選項</div>
+<ul>
+<li>
+<p><a href="#Create a datastore">[Create a datastore]</a></p>
+</li>
+<li>
+<p><a href="#View the datastore list">[View the datastore list]</a></p>
+</li>
+<li>
+<p><a href="#Extend a datastore">[Extend a datastore]</a></p>
+</li>
+<li>
+<p><a href="#Clone a datastore">[Clone a datastore]</a></p>
+</li>
+<li>
+<p><a href="#Share a datastore">[Share a datastore]</a></p>
+</li>
+<li>
+<p><a href="#Perform VAAI UNMAP">[Perform VAAI UNMAP]</a></p>
+</li>
+<li>
+<p><a href="#Delete a datastore">[Delete a datastore]</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+使用vSphere中的工作監控功能、監控資料存放區作業是否完成。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="建立資料存放區">建立資料存放區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以從NetApp Element 「不受資料管理」擴充功能建立資料存放區。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>至少必須將一部主機連線至vCenter Server。</p>
+</li>
+<li>
+<p>至少必須新增並執行一個叢集。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您使用vCenter連結模式、請確定已使用正確的vCenter Server新增叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>必須至少建立一個使用者帳戶。</p>
+</li>
+<li>
+<p>若要將QoSSIOC服務搭配資料存放區使用、您必須先使用 <a href="vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in">"設定設定"</a> 在「QoSSIOC設定」頁面上、從NetApp Element 「功能性組態」延伸點取得。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（<strong>《管理</strong>》）&gt;*《Management》（管理*）</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從「Datastore（資料存放區）」頁面選取*「Create Datastor*（建立資料存放</p>
+</li>
+<li>
+<p>輸入資料存放區的名稱。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+為資料中心中的每個資料存放區使用唯一名稱。對於多個叢集或vCenter Server環境、請使用描述性命名最佳實務做法。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>為資料存放區選取一或多個必要的主機。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您至少需要一部連線的主機、才能建立新的資料存放區。如果您的主機有多個啟動器、請選取一個啟動器或主機以選取所有啟動器。如果您使用vCenter連結模式、則只有指派叢集的vCenter Server可用主機可供選取。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>在「*組態Volume *」窗格中、選取現有的磁碟區並繼續下一步、或為新的資料存放區建立新的磁碟區：</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您選取現有的磁碟區來建立新的資料存放區、現有資料將會遺失。如需現有的VMFS磁碟區、請參閱相關的VMware文件 <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html" target="_blank" rel="noopener">"掛載VMFS資料存放區複本"</a> 和 <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html" target="_blank" rel="noopener">"管理重複的VMFS資料存放區"</a>。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>輸入備份資料存放區的磁碟區名稱。</p>
+</li>
+<li>
+<p>從帳戶清單中選取使用者帳戶。</p>
+</li>
+<li>
+<p>輸入您要建立的磁碟區總大小。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+預設的Volume大小選項為GB。您可以使用以GB或GiB測量的大小來建立磁碟區：1GB = 1000 000 000位元組1GiB = 1 073 741 824位元組
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>根據預設、所有新磁碟區的512位元組模擬設定為「開啟」。</p>
+</div>
+</li>
+<li>
+<p>在*服務品質*區域中、執行下列其中一項：</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>在* Policy*下、選取現有的QoS原則。</p>
+</li>
+<li>
+<p>在*自訂設定*下、設定IOPS的自訂最小、最大和尖峰值、或使用預設的QoS值。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>選擇下列其中一項來設定主機存取的授權類型：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>使用Volume Access Group</strong>：選取以明確限制哪些啟動器可以看到Volume。</p>
+</li>
+<li>
+<p><strong>使用CHAP</strong>：選擇以安全的機密型存取、不限制啟動器。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>如果您選取*使用Volume Access Group*、請為選取的主機設定Volume存取群組。</p>
+<div class="paragraph">
+<p>所選的啟動器**所需的Volume存取群組已與您在先前步驟中選取的一或多個主機啟動器相關聯</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取其他Volume存取群組或建立新的磁碟區存取群組、以與可用的啟動器建立關聯：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>可用</strong>：叢集中的其他Volume存取群組選項。</p>
+</li>
+<li>
+<p><strong>建立新的存取群組</strong>：輸入新存取群組的名稱、然後選取*新增*。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>在「<strong>設定主機的存取</strong>」窗格中、將可用的主機啟動器（IQN或WWPN）與您在上一個窗格中選取的Volume存取群組建立關聯。如果主機啟動器已與磁碟區存取群組相關聯、則該啟動器的欄位為唯讀。如果主機啟動器沒有磁碟區存取群組關聯、請從啟動器旁的清單中選取選項。</p>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>如果您要啟用QoSSIOC自動化、請勾選*啟用QoS和SIOC*、然後設定QoSSIOC設定。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>如果QoSSIOC服務無法使用、請先使用 <a href="vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in">"設定QoSSIOC設定"</a>。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選擇*啟用QoS與SIOC*。</p>
+</li>
+<li>
+<p>設定*爆發係數*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+突發係數是VMDK IOPS限制（SIOC）設定的倍數。如果您變更預設值、請務必使用脈衝係數值、當任何VMDK的「連拍係數」值乘以IOPS限制時、該值不會超過元素Volume的「最大連拍」限制。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>（可選）選擇*覆蓋缺省QoS*並配置設置。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果資料存放區的「置換預設QoS」設定已停用、則會根據每個VM的預設SIOC設定、自動設定「共用」和「限制IOPS」值。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+若未自訂SIOC IOPS限制、請勿自訂SIOC共用限制。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大型VM環境中、這可能會導致叢集上的IOPS過高。啟用QoSSIOC時、請務必勾選「置換預設QoS」、並將「限制IOPS」選項設為合理的選項。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>確認選擇並單擊*完成*。</p>
+</li>
+<li>
+<p>若要檢視工作進度、請使用vSphere中的「工作監控」。如果資料存放區未出現在清單中、請重新整理檢視。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="檢視資料存放區清單">檢視資料存放區清單</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以從NetApp Element 「資料存放區」頁面的「畫面管理」擴充點檢視可用的資料存放區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>檢閱資料存放區清單。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+不會列出橫跨多個磁碟區（混合資料存放區）的資料存放區。資料存放區檢視僅顯示所選NetApp Element 叢集ESXi主機上可用的資料存放區。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>檢閱下列資訊：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>名稱</strong>：指派給資料存放區的名稱。</p>
+</li>
+<li>
+<p><strong>主機名稱</strong>：每個相關主機裝置的位址。</p>
+</li>
+<li>
+<p><strong>狀態</strong>：可能的值「可存取」或「無法存取」表示資料存放區目前是否已連線至vSphere。</p>
+</li>
+<li>
+<p><strong>類型</strong>：VMware檔案系統資料存放區類型。</p>
+</li>
+<li>
+<p>* Volume Name*：指派給相關磁碟區的名稱。</p>
+</li>
+<li>
+<p>* Volume NAA*：相關磁碟區的全域唯一SCSI裝置識別碼、採用NAA IEEE登錄的延伸格式。</p>
+</li>
+<li>
+<p><strong>總容量（GB）</strong>：資料存放區的總格式化容量。</p>
+</li>
+<li>
+<p><strong>可用容量（GB）</strong>：資料存放區可用的空間。</p>
+</li>
+<li>
+<p>* QoSSIOC Automation *：指出是否啟用QoSSIOC自動化。可能值：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>「已啟用」：啟用QoSSIOC。</p>
+</li>
+<li>
+<p>「禁用」：未啟用QoSSIOC。</p>
+</li>
+<li>
+<p>「已超過上限」：Volume Max QoS已超過指定的限制值。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="擴充資料存放區">擴充資料存放區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用NetApp Element 「無法管理」擴充點來擴充資料存放區、以增加磁碟區大小。延伸資料存放區也會延伸與該資料存放區相關的VMFS磁區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在「資料存放區」頁面中、選取您要延伸的資料存放區核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>在產生的功能表中、選取* extend*。</p>
+</li>
+<li>
+<p>在New Datastore Size（新資料存放區大小）欄位中、輸入新資料存放區所需的大小、然後選取GB或GiB。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+擴充資料存放區會佔用整個磁碟區的大小。新的資料存放區大小不得超過所選叢集上可用的未配置空間、或叢集允許的最大磁碟區大小。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+<li>
+<p>重新整理頁面。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="複製資料存放區">複製資料存放區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用外掛程式來複製資料存放區、包括將新的資料存放區安裝到所需的ESXi伺服器或叢集。您可以命名資料存放區複本、並設定其QoSSIOC、Volume、主機和授權類型設定。</p>
+</div>
+<div class="paragraph">
+<p>如果來源資料存放區上有虛擬機器、則會以新名稱將複製資料存放區上的虛擬機器帶入庫存。</p>
+</div>
+<div class="paragraph">
+<p>實體複本資料存放區的Volume大小、會與來源資料存放區的磁碟區大小相符。根據預設、所有新磁碟區的512位元組模擬設定為「開啟」。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>至少必須將一部主機連線至vCenter Server。</p>
+</li>
+<li>
+<p>至少必須新增並執行一個叢集。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您使用vCenter連結模式、請確定已使用正確的vCenter Server新增叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>可用的未配置空間必須等於或大於來源Volume大小。</p>
+</li>
+<li>
+<p>必須至少建立一個使用者帳戶。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從「<strong>資料存放區</strong>」頁面中、選取您要複製之資料存放區的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>在產生的功能表中、選取* Clone（複製）*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您嘗試複製的資料存放區包含未位於所選資料存放區上附加磁碟的虛擬機器、則不會將複製資料存放區上的虛擬機器複本新增至虛擬機器詳細目錄。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>輸入資料存放區名稱。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+為資料中心中的每個資料存放區使用唯一名稱。對於多個叢集或vCenter Server環境、請使用描述性命名最佳實務做法。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>為資料存放區選取一或多個必要的主機。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您至少需要一部連線的主機、才能建立新的資料存放區。如果您的主機有多個啟動器、請選取一個啟動器或主機以選取所有啟動器。如果您使用vCenter連結模式、則只有指派叢集的vCenter Server可用主機可供選取。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>在「*組態Volume *」窗格中、執行下列動作：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>輸入NetApp Element 用來備份複製資料存放區的新版實體磁碟區名稱。</p>
+</li>
+<li>
+<p>從帳戶清單中選取使用者帳戶。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您至少需要一個現有的使用者帳戶、才能建立Volume。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>在*服務品質*區域中、執行下列其中一項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>在* Policy*下、選取現有的QoS原則（若有）。</p>
+</li>
+<li>
+<p>在*自訂設定*下、設定IOPS的自訂最小、最大和尖峰值、或使用預設的QoS值。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>選取下列其中一個選項來設定主機存取的授權類型：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>使用Volume Access Group</strong>：選取以明確限制哪些啟動器可以看到Volume。</p>
+</li>
+<li>
+<p><strong>使用CHAP</strong>：選擇以安全的機密型存取、不限制啟動器。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>如果您選取*使用Volume Access Group*、請為選取的主機設定Volume存取群組。</p>
+<div class="paragraph">
+<p>所選的啟動器**所需的Volume存取群組已與您在先前步驟中選取的一或多個主機啟動器相關聯。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取其他Volume存取群組或建立新的磁碟區存取群組、以與可用的啟動器建立關聯：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>可用</strong>：叢集中的其他Volume存取群組選項。</p>
+</li>
+<li>
+<p><strong>建立新的存取群組</strong>：輸入新存取群組的名稱、然後按一下*「新增*」。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>在「<strong>設定主機的存取</strong>」窗格中、將可用的主機啟動器（IQN或WWPN）與您在上一個窗格中選取的Volume存取群組建立關聯。</p>
+<div class="paragraph">
+<p>如果主機啟動器已與磁碟區存取群組相關聯、則該啟動器的欄位為唯讀。如果主機啟動器沒有磁碟區存取群組關聯、請從啟動器旁的下拉式清單中選取選項。</p>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>如果您要啟用QoSSIOC自動化、請勾選*啟用QoS與SIOC*方塊、然後設定QoSSIOC設定。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>如果QoSSIOC服務無法使用、您必須先從NetApp Element 「還原組態」擴充點、在「QoSSIOC設定」頁面上設定設定。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選擇*啟用QoS與SIOC*。</p>
+</li>
+<li>
+<p>設定*爆發係數*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+突發係數是VMDK IOPS限制（SIOC）設定的倍數。如果您變更預設值、請務必使用脈NetApp Element 衝係數值乘以任何VMDK的IOPS上限、該值不會超過更新係數的上限。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>選用</strong>：選取*置換預設QoS*並設定設定。</p>
+<div class="paragraph">
+<p>如果資料存放區的「置換預設QoS」設定已停用、則會根據每個VM的預設SIOC設定、自動設定「共用」和「限制IOPS」值。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+若未自訂SIOC IOPS限制、請勿自訂SIOC共用限制。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大型VM環境中、這可能會導致叢集上的IOPS過高。啟用QoSSIOC時、請務必勾選「置換預設QoS」、並將「限制IOPS」選項設為合理的選項。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>確認選擇並選擇*完成*。</p>
+</li>
+<li>
+<p>重新整理頁面。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="共用資料存放區">共用資料存放區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用NetApp Element 「無法辨識」擴充點、與一或多個主機共用資料存放區。</p>
+</div>
+<div class="paragraph">
+<p>資料存放區只能在同一個資料中心內的主機之間共用。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>至少必須新增並執行一個叢集。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您使用vCenter連結模式、請確定已使用正確的vCenter Server新增叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>所選資料中心下必須有多部主機。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從*資料存放區*頁面、選取您要共用的資料存放區核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>在產生的功能表中、選取*分享*。</p>
+</li>
+<li>
+<p>選取下列其中一個選項來設定主機存取的授權類型：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>使用Volume Access Group</strong>：選取此選項可明確限制哪些啟動器可以看到Volume。</p>
+</li>
+<li>
+<p><strong>使用CHAP</strong>：選取此選項即可安全地以機密為基礎進行存取、而不會限制啟動器。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>為資料存放區選取一或多個必要的主機。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您至少需要一部連線的主機、才能建立新的資料存放區。如果您的主機有多個啟動器、請選取主機來選取啟動器或所有啟動器。如果您使用vCenter連結模式、則只有指派叢集的vCenter Server可用主機可供選取。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>如果您選取使用* Volume存取群組*、請為選取的主機設定Volume存取群組。</p>
+<div class="paragraph">
+<p>所選的啟動器**所需的Volume存取群組已與您在先前步驟中選取的一或多個主機啟動器相關聯。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取其他Volume存取群組或建立新的磁碟區存取群組、以與可用的啟動器建立關聯：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>可用</strong>：叢集中的其他Volume存取群組選項。</p>
+</li>
+<li>
+<p><strong>建立新的存取群組</strong>：輸入新存取群組的名稱、然後按一下*「新增*」。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*下一步*。</p>
+</li>
+<li>
+<p>在「<strong>設定主機的存取</strong>」窗格中、將可用的主機啟動器（IQN或WWPN）與您在上一個窗格中選取的Volume存取群組建立關聯。</p>
+<div class="paragraph">
+<p>如果主機啟動器已與磁碟區存取群組相關聯、則該啟動器的欄位為唯讀。如果主機啟動器沒有磁碟區存取群組關聯、請從啟動器旁的下拉式清單中選取選項。</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>確認選擇並選擇*完成*。</p>
+</li>
+<li>
+<p>重新整理頁面。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="執行vaai取消對應">執行VAAI取消對應</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果您希望叢集從精簡配置的VMFS5資料存放區回收可用的區塊空間、請使用VAAI取消對應功能。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>確認您用於工作的資料存放區是VMFS5或更早版本。VMFS6無法使用VAAI UNMAP、因為ESXi會自動執行工作</p>
+</li>
+<li>
+<p>確認ESXi主機系統設定已啟用VAAI UNMAP：</p>
+<div class="paragraph">
+<p>「esxcli系統設定進階清單-o/vmS3 /啟用BlockDelete」</p>
+</div>
+<div class="paragraph">
+<p>整數值必須設為1才能啟用。</p>
+</div>
+</li>
+<li>
+<p>如果未針對VAAI取消對應啟用ESXi主機系統設定、請使用下列命令將整數值設為1：</p>
+<div class="paragraph">
+<p>「esxcli系統設定進階設定集-I 1 -o /vmas3/EnablBlockDelete」</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從「<strong>資料存放區</strong>」頁面中、選取您要在其中使用VAAI UNMAP的資料存放區核取方塊。</p>
+</li>
+<li>
+<p>在產生的功能表中、選取*「Actions」（動作）*。</p>
+</li>
+<li>
+<p>選取* VAAI UNMAP *。</p>
+</li>
+<li>
+<p>依名稱或IP位址選取主機。</p>
+</li>
+<li>
+<p>輸入主機使用者名稱和密碼。</p>
+</li>
+<li>
+<p>確認選擇並選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="刪除資料存放區">刪除資料存放區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用NetApp Element 「不實管理」擴充點來刪除資料存放區。此作業會永久刪除資料存放區上與VM相關聯的所有檔案、並將其刪除。外掛程式不會刪除包含已登錄VM的資料存放區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>選擇* NetApp Element 《Management》（資料管理）&gt;「Management」（管理）*</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從*資料存放區*頁面、選取您要刪除之資料存放區的核取方塊。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>在產生的功能表中、選取*刪除*。</p>
+</li>
+<li>
+<p>（選用）如果您想要刪除NetApp Element 與資料存放區相關聯的Sfelf Volume、請選取「*刪除相關的Volume *」核取方塊。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您也可以選擇保留磁碟區、稍後再將其與其他資料存放區建立關聯。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*是*。</p>
+</li>
+</ol>
+</div>
+<h2 id="如需詳細資訊請參閱" class="discrete">如需詳細資訊、請參閱</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hci/index.html" target="_blank" rel="noopener">"資訊文件NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/data-storage/solidfire/documentation" target="_blank" rel="noopener">"「元件與元素資源」頁面SolidFire"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">legal-terms</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">legal-privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">legal-cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">cookie-settings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">對我們的網站有任何意見或要求？</span>
+              <a target="_self" href="javascript:netapp_mailto()">請與我們聯絡</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-tw/announcements/">公告</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/vcp/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/vcp/js/www-ntap.js'></script>
+    <script src='/zh-tw/vcp/js/tabbed-blocks.js'></script>
+  </body></html>
