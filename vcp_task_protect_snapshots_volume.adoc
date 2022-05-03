@@ -1,0 +1,342 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_snapshots_volume.html 
+summary: 您可以確保資料的複本已建立並儲存在您需要的位置。 
+keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup, amazon, s3, openstack, swift 
+---
+= 在vCenter Server中建立及管理Volume快照
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+建立 https://docs.netapp.com/us-en/hci/docs/concept_hci_dataprotection.html#volume-snapshots-for-data-protection["Volume Snapshot"] 建立磁碟區的時間點複本。此程序只需要少量的系統資源和空間、因此建立快照的速度比複製快。
+
+您可以使用快照將磁碟區復原至建立快照時的狀態。不過、由於快照只是Volume中繼資料的複本、因此您無法掛載或寫入快照。
+
+.選項
+* <<Create a volume snapshot>>
+* <<View volume snapshot details>>
+* <<Clone a volume from a snapshot>>
+* <<Roll back a volume to a snapshot>>
+* <<Back up a volume snapshot to an external object store>>
+* <<Delete a volume snapshot>>
+
+
+
+
+== 建立磁碟區快照
+
+您可以建立作用中磁碟區的快照、隨時保留磁碟區映像。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《Management》*《Management》*《Management》（*管理*）。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取* Volumes（磁碟區）*子索引標籤。
+. 從* Active*檢視中、選取要用於快照之磁碟區的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*「Create Snapshot」（建立快照）*。
+. （選用）：在「Create Snapshot（建立Snapshot）」對話方塊中、輸入快照的名稱。
++
+
+TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。如果您未輸入名稱、系統會使用建立快照的日期和時間來建立快照預設名稱。
+
+. （選用）選取「配對時*在複寫中加入快照」核取方塊、以確保父磁碟區配對時、快照會被複寫。
+. 選取下列其中一項作為快照的保留期間：
++
+** *永久保留*：無限期保留系統上的快照。
+** *設定保留期間*：決定系統保留快照的時間長度（天、小時或分鐘）。
++
+
+NOTE: 當您設定保留期間時、請選取從目前時間開始的期間。（保留時間並非根據快照建立時間計算。）
+
+
+
+. 若要立即拍攝單一快照、請選取*立即拍攝快照*。
+. 若要排定快照在未來執行、請完成下列步驟：
++
+.. 選取*建立快照排程*。
+.. 輸入排程名稱。
+.. 選取排程類型並設定排程詳細資料。
+.. （可選）選中*重複計劃*複選框以定期重複計劃快照。
+
+
+. 選擇*確定*。
+
+
+
+
+== 檢視Volume Snapshot詳細資料
+
+您可能需要驗證是否已新增快照。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取「* Snapshots*」子索引標籤。
+. （選用）選取下列其中一個篩選條件：
++
+** *個別*：非群組快照成員的磁碟區快照。
+** *成員*：屬於群組快照成員的Volume快照。
+** * Inactive*：從已刪除但尚未清除的磁碟區所建立的磁碟區快照。
+
+
+. 檢視快照詳細資料。
+
+
+
+
+== 從快照複製磁碟區
+
+您可以從磁碟區的快照建立新的磁碟區。執行此操作時、系統會使用快照資訊、使用建立快照時所包含的磁碟區資料來複製新的磁碟區。此程序也會在新建立的磁碟區中儲存磁碟區其他快照的相關資訊。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取「* Snapshots*」子索引標籤。
+. 選取兩個檢視之一：
++
+** *個別*：列出非群組快照成員的磁碟區快照。
+** *成員*：列出屬於群組快照成員的磁碟區快照。
+
+
+. 選取要複製為磁碟區的磁碟區快照核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*從Snapshot *複製Volume。
+. 輸入磁碟區名稱、總大小、然後為新磁碟區選取GB或GiB。
+. 選取磁碟區的存取類型：
++
+** *唯讀*：僅允許讀取作業。
+** *讀寫*：允許讀寫操作。
+** *鎖定*：不允許讀取或寫入作業。
+** *複寫目標*：指定為複寫Volume配對中的目標Volume。
+
+
+. 選取要與新磁碟區建立關聯的使用者帳戶。
+. 選擇*確定*。
+. 驗證新Volume：
++
+.. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+.. 選取* Volumes（磁碟區）*子索引標籤。
+.. 從* Active*檢視中、確認已列出新的Volume。
++
+
+TIP: 如有需要、請重新整理頁面。
+
+
+
+
+
+
+
+== 將磁碟區復原為快照
+
+您可以隨時將磁碟區復原為快照。這會復原自建立快照以來對磁碟區所做的任何變更。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取「* Snapshots*」子索引標籤。
+. 選取兩個檢視之一：
++
+** *個別*：列出非群組快照成員的磁碟區快照。
+** *成員*：列出屬於群組快照成員的磁碟區快照。
+
+
+. 選取要用於磁碟區復原的磁碟區快照核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*復原磁碟區至Snapshot *。
+. （選用）若要在回溯至快照之前儲存磁碟區的目前狀態：
++
+.. 在「復原至Snapshot」對話方塊中、選取*「將Volume的目前狀態儲存為SnapShot」*。
+.. 輸入新快照的名稱。
+
+
+. 選擇*確定*。
+
+
+
+
+== 將磁碟區快照備份到外部物件存放區
+
+您可以使用整合式備份功能來備份磁碟區快照。您可以將快照從執行NetApp Element 支援功能的叢集備份到外部物件存放區或其他元件型叢集。
+
+當您將快照備份到外部物件存放區時、必須連線到允許讀取/寫入作業的物件存放區。
+
+* <<Back up a volume snapshot to an Amazon S3 object store>>
+* <<Back up a volume snapshot to an OpenStack Swift object store>>
+* <<Back up a volume snapshot to a cluster running Element software>>
+
+
+
+
+=== 將磁碟區快照備份到Amazon S3物件存放區
+
+您可以將NetApp Element 「不支援的快照」備份到與Amazon S3相容的外部物件存放區。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取「* Snapshots*」子索引標籤。
+. 選取您要備份之磁碟區快照的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*備份至*。
+. 在*備份Volume to *下的對話方塊中、選取* Amazon S3 *。
+. 在*下選取下列資料格式*的選項：
++
+** *原生*：僅NetApp Element 由以軟體為基礎的儲存系統讀取的壓縮格式。
+** *未壓縮*：與其他系統相容的未壓縮格式。
+
+
+. 輸入詳細資料：
++
+** *主機名稱*：輸入用於存取物件存放區的主機名稱。
+** *存取金鑰ID*：輸入帳戶的存取金鑰ID。
+** *秘密存取金鑰*：輸入帳戶的秘密存取金鑰。
+** * Amazon S3 Bucket *：輸入儲存備份的S3儲存區。
+** *前置字元*：（選用）輸入備份名稱的前置字元。
+** *名稱標籤*：（選用）輸入名稱標籤以附加至前置字元。
+
+
+. 選擇*確定*。
+
+
+
+
+=== 將Volume Snapshot備份到OpenStack Swift物件存放區
+
+您可以將NetApp Element 無法更新的快照備份到與OpenStack Swift相容的次要物件存放區。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取「* Snapshots*」子索引標籤。
+. 選取您要備份之磁碟區快照的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*備份至*。
+. 在*備份Volume to *下的對話方塊中、選取* OpenStack Swift *。
+. 在*下選取下列資料格式*的選項：
++
+** *原生*：僅NetApp Element 由以軟體為基礎的儲存系統讀取的壓縮格式。
+** *未壓縮*：與其他系統相容的未壓縮格式。
+
+
+. 輸入詳細資料：
++
+** * URL*：輸入用於存取物件存放區的URL。
+** *使用者名稱*：輸入帳戶的使用者名稱。
+** *驗證金鑰*：輸入帳戶的驗證金鑰。
+** * Container *：輸入儲存備份的容器。
+** *前置詞*：（選用）輸入備份磁碟區名稱的前置詞。
+** *名稱標籤*：（選用）輸入名稱標籤以附加至前置字元。
+
+
+. 選擇*確定*。
+
+
+
+
+=== 將磁碟區快照備份到執行Element軟體的叢集
+
+您可以將位於執行NetApp Element 支援的叢集上的Volume Snapshot備份到遠端元素叢集。
+
+您必須在目的地叢集上建立容量等於或大於用於備份的快照的磁碟區。
+
+當您從一個叢集備份或還原至另一個叢集時、系統會產生金鑰、用於叢集之間的驗證。此大量Volume寫入金鑰可讓來源叢集驗證目的地叢集、在寫入目的地Volume時提供安全性。在備份或還原程序中、您需要先從目的地Volume產生大量Volume寫入金鑰、然後再開始作業。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《Management》*《Management》*《Management》（*管理*）。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 選取* Volumes（磁碟區）*子索引標籤。
+. 選取目的地Volume的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*還原自*。
+. 在「*還原來源*」對話方塊中、選取* NetApp Element 還原*。
+. 在*下選取下列資料格式*的選項：
++
+** *原生*：僅NetApp Element 由以軟體為基礎的儲存系統讀取的壓縮格式。
+** *未壓縮*：與其他系統相容的未壓縮格式。
+
+
+. 選取*產生金鑰*以產生目的地Volume的大量Volume寫入金鑰。
+. 將大量Volume寫入金鑰複製到剪貼簿、以套用至來源叢集的後續步驟。
+. 在包含來源叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取用於備份的快照核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*備份至*。
+. 在*備份Volume to *下的對話方塊中、選取* NetApp Element 還原*。
+. 在*下選擇與目的地叢集相同的選項、並使用下列資料格式*。
+. 輸入詳細資料：
++
+** *遠端叢集MVIP*：輸入目的地Volume叢集的管理虛擬IP位址。
+** *遠端叢集使用者密碼*：輸入遠端叢集使用者名稱。
+** *遠端使用者密碼*：輸入遠端叢集密碼。
+** *大量磁碟區寫入機碼*：貼上您先前在目的地叢集上產生的機碼。
+
+
+. 選擇*確定*。
+
+
+
+
+== 刪除磁碟區快照
+
+您可以NetApp Element 使用NetApp Element 「NetApp管理」擴充點、從執行「解決方案」軟體的叢集刪除Volume Snapshot快照。刪除快照時、系統會立即將其移除。
+
+您可以刪除從來源叢集複寫的快照。刪除快照時、如果快照正在同步至目標叢集、則同步複寫會完成、並從來源叢集刪除快照。不會從目標叢集刪除快照。
+
+您也可以刪除已從目標叢集複寫至目標的快照。刪除的快照會保留在目標上的已刪除快照清單中、直到系統偵測到您已刪除來源叢集上的快照為止。目標偵測到您已刪除來源快照之後、目標會停止複寫快照。
+
+.步驟
+. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+. 從* Snapshots*子索引標籤中、選取下列其中一個檢視：
++
+** *個別*：非群組快照一部分的Volume快照清單。
+** * Inactive*：從已刪除但尚未清除的磁碟區所建立的磁碟區快照清單。
+
+
+. 選取您要刪除之磁碟區快照的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

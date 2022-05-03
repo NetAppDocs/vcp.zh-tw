@@ -1,0 +1,125 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_user_accounts.html 
+summary: 您可以使用外掛程式建立及管理使用者帳戶。 
+keywords: netapp, storage, accounts, vcp, vcenter, element 
+---
+= 建立及管理使用者帳戶
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+link:vcp_concept_accounts.html["使用者帳戶"^] 用於控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。
+
+.選項
+* <<Create an account>>
+* <<Edit an account>>
+* <<Delete an account>>
+
+
+
+
+== 建立帳戶
+
+您可以建立唯一的使用者帳戶、以允許存取儲存磁碟區。
+
+.您需要的是 #8217 ；需要的是什麼
+* 至少必須新增並執行一個叢集。
+
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*帳戶*」子索引標籤。
+. 選擇*建立帳戶*。
+. 輸入使用者名稱。
++
+
+TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+
+. 在「* CHAP設定*」區段中：
++
+.. 輸入CHAP節點工作階段驗證的啟動器密碼。
+.. 輸入CHAP節點工作階段驗證的目標密碼。
++
+
+NOTE: 啟動器和目標機密必須不同。如果這些欄位保留空白、系統會產生驗證認證資料。
+
+
+
+. 按一下「*確定*」以建立帳戶。
+
+
+
+
+== 編輯帳戶
+
+您可以編輯使用者帳戶來變更狀態或CHAP機密。變更CHAP設定可能會導致主機與其相關磁碟區之間的連線中斷。
+
+如果您將持續磁碟區與管理節點搭配使用、請勿修改與這些磁碟區相關聯之帳戶的帳戶名稱。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*帳戶*」子索引標籤。
+. 選取您要編輯之帳戶的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 視需要變更下列項目：
++
+.. 編輯帳戶的存取狀態。
++
+
+IMPORTANT: 將存取權變更為*鎖定*會終止所有與帳戶的iSCSI連線、而且該帳戶將無法再存取。與帳戶相關聯的磁碟區將會保留、但磁碟區並非iSCSI可搜尋的磁碟區。
+
+.. 編輯用於節點工作階段驗證的啟動器密碼或目標密碼認證。
++
+
+NOTE: 如果您不變更認證、則認證資料會維持不變。如果您將認證欄位設為空白、系統會產生新密碼。
+
+
+
+. 按一下「*確定*」。
+
+
+
+
+== 刪除帳戶
+
+您可以使用NetApp Element 「不實管理」擴充點刪除使用者帳戶。
+
+刪除並清除與帳戶相關聯的任何磁碟區、或將磁碟區重新指派給其他帳戶。
+
+
+IMPORTANT: 如果您將持續磁碟區與管理節點搭配使用、請勿刪除與這些磁碟區相關聯的帳戶。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*帳戶*」子索引標籤。
+. 選取您要刪除之帳戶的核取方塊。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

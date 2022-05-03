@@ -1,0 +1,91 @@
+---
+sidebar: sidebar 
+permalink: task_vcp_unregister.html 
+summary: 您可以從NetApp Element vCenter取消登錄vCenter Server的VMware vCenter外掛程式。 
+keywords: netapp, vcp, vcenter, plugin, element, unregister 
+---
+= 取消登錄vCenter外掛程式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, vcp, vcenter, plugin, element, unregister
+
+
+[role="lead"]
+您可以NetApp Element 使用下列其中一個程序、從vCenter中取消登錄vCenter Server的VMware vCenter外掛程式。
+
+.您需要的是 #8217 ；需要的是什麼
+* 要取消登錄外掛程式的vCenter管理員角色權限。
+* 管理節點的IP位址。
+* 您要從中取消登錄外掛程式的vCenter URL和認證。
+
+
+對於vSphere 6.7及更早版本、取消登錄外掛程式的效果與停用外掛程式相同、但不會移除本機安裝的所有相關檔案與資料夾。若要移除所有外掛程式檔案、請參閱中的指示 link:task_vcp_remove.html["移除外掛程式"]。
+
+對於vSphere 7.0、在您取消登錄外掛程式之後、所有檔案都會自動移除。
+
+.步驟
+. 若要取消登錄外掛程式、請依照安裝版本的程序進行：
++
+** 若為vCenter Plug-in 3.0或更新版本、請使用vCenter外掛程式登錄公用程式取消登錄外掛程式：
++
+... 在瀏覽器中輸入管理節點的IP位址、包括登錄所需的TCP連接埠：「https://<ManagementNodeIP>:9443`」。
+... 瀏覽至*解除登錄外掛程式*。
+... 輸入下列項目：
++
+.... 您已註冊外掛程式之vCenter服務的IP位址或FQDN伺服器名稱。
+.... vCenter管理員使用者名稱。
+.... vCenter管理員密碼。
+
+
+... 選擇*取消註冊*。
+
+
+** vCenter外掛程式2.7至2.7.1：
++
+*** 使用瀏覽器中的vCenter託管物件瀏覽器（MOB）介面手動取消登錄：
++
+.... 輸入MOB URL：「https://<vcenter>/mob`
+.... 選取*內容>擴充管理程式>取消註冊擴充*。
+.... 輸入「com.solidfire」。
+.... 選擇*叫用方法*。
+
+
+*** 使用PowerCLI取消登錄：
++
+[listing]
+----
+Connect-VIServer -Server $vcenter -User administrator@vsphere.local -Password xxxxXXx -Force -ErrorAction Stop -SaveCredentials
+$em = Get-View ExtensionManager
+$em.ExtensionList | ft -property Key
+$em.UnregisterExtension("com.solidfire")
+$em.UpdateViewData()
+$em.ExtensionList | ft -property Key
+Disconnect-VIServer * -Confirm:$false
+----
+
+
+** 對於vCenter Plug-in 2.6.1或更早版本：
++
+... 在瀏覽器中輸入註冊公用程式的URL、或在程式目錄中找到公用程式：
++
+**** https://<FDVAorManagementNodeIP>:8443`
+**** 「/opt/sidfire/VCP / bin / VCP - reg.sh」
+
+
+... 在vCenter外掛程式登錄/取消登錄視窗中、選取*取消登錄*。
+
+
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

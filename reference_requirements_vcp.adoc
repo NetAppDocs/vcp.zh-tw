@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: reference_requirements_vcp.html 
+summary: 開始使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式之前、您必須先瞭解產品安裝與使用的先決條件。 
+keywords: netapp, hci, kubernetes, on premise, cloud services 
+---
+= vCenter Server的Element外掛程式需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用的要求
+
+
+
+== VMware vSphere先決條件
+
+需要VMware vSphere 7.0或6.7、包括vCenter和ESXi搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「版本資訊」外掛程式。
+
+
+
+=== 外掛程式支援的VMware vSphere版本
+
+外掛程式支援下列VMware軟體主要版本：
+
+* vSphere 7.0和7.0 Update 1、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
+* vSphere 6.7和6.7 Update 1和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
++
+
+IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Client不相容、以及在更新2a（建置13643870）之前發佈的其他6.7 U2組建。相容於6.7 U2版vSphere Web Client for Flash/Flex。
+
+
+
+
+IMPORTANT: 外掛程式與VMware vCenter Server 6.5不相容。
+
+
+
+=== vSphere 6.0結束支援
+
+
+IMPORTANT: VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從NetApp HCI VMware支援的元件1.8和元件12開始、vSphere 6.0不再受支援。如需詳細資訊、請參閱 https://mysupport.netapp.com/info/communications/ECMLP2863840.html["產品公報"]。
+
+
+
+== vSphere相容性與最佳實務做法
+
+使用外掛程式之前、請先考量下列功能與建議：
+
+* 不支援vCenter高可用度（VCHA）。
+* 由於資料存放區是使用所選ESXi主機所支援的最高VMFS版本所建立、因此所有叢集成員都應該執行相同版本的vSphere和ESXi、以避免VMFS相容性問題。
+* vSphere HTML5 Web Client和Flash Web Client具有獨立的資料庫、無法合併。在一個用戶端中新增的叢集將不會顯示在另一個用戶端中。如果您打算同時使用這兩個用戶端、請在這兩個用戶端中新增叢集。
+
+
+
+
+== 支援NetApp Element
+
+外掛程式支援下列主要版本：
+
+* 元素12.x、包括SolidFire 不含支援的企業SDS
+* 元素11.x
+
+
+
+
+== 網路連接埠需求
+
+您需要允許某些TCP連接埠通過資料中心的邊緣防火牆、以便從遠端管理系統、並允許資料中心外部的用戶端連線至資源。如需NetApp HCI 完整的連接埠清單、請SolidFire 參閱此 link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["頁面"]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

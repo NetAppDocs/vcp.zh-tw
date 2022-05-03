@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_qossioc.html 
+summary:  
+keywords: netapp, quality of service, volume performance, sioc, storage I/O control, vcp 
+---
+= QoSSIOC
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server適用的支援功能可將自動化服務品質設定為選用設定NetApp Element (https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html["QoS"^]）以儲存I/O控制為基礎 (https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html["SIOC"^]）標準資料存放區上所有VM的設定。QoS與SIOC整合（QoSSIOC）可針對任何標準資料存放區啟用、可在所有相關VM上執行所有SIOC設定的掃描。
+
+當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。QoSSIOC服務會使用所有SIOC保留區或共享區的總和、以及IOPS限制總和、來判斷每個資料存放區基礎Volume的最低和最高QoS。此外也提供可設定的連拍係數。
+
+在使用QoSSIOC自動化之前、應考慮下列項目：
+
+* QoSSIOC自動化與 https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html#qos-policies["QoS原則"^] 不應一起使用。如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
+* QoSSIOC最適合輕度使用的VM、例如虛擬桌面或專用的Kiosk型VM、這些VM可能每天重新開機、開機或關機數次。
+* QoSSIOC較不適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。QoS原則最適合這些環境。
+* QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVols）。
+
+
+
+NOTE: 當VMDK的SIOC設定為「正常」的預設共用層級、且預設的IOPS限制為「無限」時、「共用」和「限制IOPS」值會導致基礎Volume的QoS總量。如果VMDK的SIOC設定並非預設層級、則SIOC共用會導致最小QoS和SIOC IOPS限制值、導致基礎磁碟區的最高QoS。
+
+
+TIP: 您可以透過vSphere API設定保留值。如果為VMDK設定保留值、則會忽略共用、並改用保留值。
+
+
+TIP: https://activeiq.solidfire.com["SolidFire Active IQ"^] 提供QoS建議頁面、提供最佳組態和QoS設定的建議。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

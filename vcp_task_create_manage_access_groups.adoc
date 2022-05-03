@@ -1,0 +1,159 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_access_groups.html 
+summary: 您可以使用外掛程式來建立及管理Volume存取群組。 
+keywords: netapp, storage, access groups, vcp, vcenter, element 
+---
+= 建立及管理Volume存取群組
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+答 link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.html["Volume存取群組"^] 是一組磁碟區、使用者可使用iSCSI啟動器或光纖通道啟動器來存取。
+
+您可以在磁碟區集合中對應iSCSI啟動器IQN或Fibre Channel WWPN來建立存取群組。您新增至存取群組的每個IQN都可存取群組中的每個Volume、而不需要CHAP驗證。您新增至存取群組的每個WWPN都可讓光纖通道網路存取存取存取群組中的磁碟區。
+
+.選項
+* <<Create an access group>>
+* <<Edit an access group>>
+* <<Add volumes to an access group>>
+* <<Remove volumes from an access group>>
+* <<Delete an access group>>
+
+
+
+
+== 建立存取群組
+
+您可以使用一或多個啟動器建立Volume存取群組。將光纖通道（WWPN）或iSCSI（IQN）用戶端啟動器對應至Volume存取群組中的磁碟區、可在網路與磁碟區之間實現安全的資料I/O。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*存取群組*子索引標籤。
+. 選取*建立存取群組*。
+. 輸入Volume存取群組的名稱。
++
+
+TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+
+. 從「*選取啟動器*」下拉式清單中選取未指派的IQN或WWPN、然後按一下「*新增啟動器*」。
++
+
+NOTE: 建立磁碟區存取群組之後、可以新增或刪除啟動器。
+
+. 按一下「*確定*」以建立存取群組。
+
+
+
+
+== 編輯存取群組
+
+您可以編輯Volume存取群組名稱、或從NetApp Element 「聲音管理」擴充點新增或移除啟動器。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*存取群組*子索引標籤。
+. 選取您要編輯之Volume存取群組的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 視需要變更下列項目：
++
+.. 修改存取群組名稱。
+.. 新增或移除啟動器。
++
+
+NOTE: 如果您要移除啟動器、請按一下垃圾桶圖示予以移除。當您移除啟動器時、它將無法再存取該Volume存取群組中的磁碟區。正常帳戶存取磁碟區不會中斷。
+
+
+
+. 按一下「*確定*」。
+
+
+
+
+== 新增磁碟區至存取群組
+
+您可以將磁碟區新增至磁碟區存取群組。每個Volume可屬於多個Volume存取群組、您可以從「Active Volumes」（作用中Volume）檢視中查看每個Volume所屬的群組。
+
+.您需要的是 #8217 ；需要的是什麼
+* 至少必須新增並執行一個叢集。
+* 至少有一個存取群組存在。
+* 至少有一個作用中Volume存在。
+
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取* Volumes（磁碟區）*子索引標籤。
+. 選取您要新增至存取群組之每個Volume的核取方塊。
+. 選取*「動作*」。
+. 選取*「Add to Access Group*（新增至存取群組*）
+. 確認詳細資料、然後從清單中選取一個Volume存取群組。
+. 選擇*確定*。
+
+
+
+
+== 從存取群組移除磁碟區
+
+您可以從存取群組移除磁碟區。
+
+當您從存取群組移除磁碟區時、該群組將不再擁有該磁碟區的存取權。
+
+
+IMPORTANT: 從存取群組移除磁碟區可能會中斷主機對磁碟區的存取。
+
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取* Volumes（磁碟區）*子索引標籤。
+. 選取您要從存取群組中移除之每個Volume的核取方塊。
+. 選取*「動作*」。
+. 選取*從存取群組移除*。
+. 確認詳細資料、然後選取您不想再存取每個所選Volume的Volume存取群組。
+. 選擇*確定*。
+
+
+
+
+== 刪除存取群組
+
+您可以使用NetApp Element 「聲音管理」擴充點刪除Volume存取群組。刪除群組之前、您不需要刪除啟動器ID或取消磁碟區與磁碟區存取群組的關聯。刪除存取群組之後、群組對磁碟區的存取將會中斷。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*存取群組*子索引標籤。
+. 選取您要刪除之存取群組的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

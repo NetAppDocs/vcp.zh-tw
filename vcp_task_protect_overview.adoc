@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_overview.html 
+summary: 您可以確保資料的複本已建立並儲存在您需要的位置。 
+keywords: netapp, vcp, vcenter, element, protect, data 
+---
+= 利用vCenter Server的VMware vCenter外掛程式來保護資料NetApp Element
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式、確保資料複本已建立並儲存在您需要的位置。為達成此目的、您可以建立及管理磁碟區和群組快照、設定快照排程、以及建立磁碟區和叢集配對關係、以便在遠端叢集之間進行複寫。
+
+.選項
+* link:vcp_task_protect_snapshots_volume.html["建立及管理Volume快照"]
+* link:vcp_task_protect_snapshots_group.html["建立及管理群組快照"]
+* link:vcp_task_protect_snapshots_schedules.html["建立快照排程"]
+* link:vcp_task_protect_remote_replication.html["在叢集之間執行遠端複寫"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

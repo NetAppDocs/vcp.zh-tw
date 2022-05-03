@@ -1,0 +1,292 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_configure_manage_vvols.html 
+summary: 您可以在叢集中設定已配置儲存設備的虛擬磁碟區。 
+keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, element, vasa provider 
+---
+= 設定及管理虛擬磁碟區
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以啟用VMware vSphere link:vcp_concept_vvols.html["虛擬磁碟區（VVols）"] 在NetApp Element 一個不完善的儲存叢集上執行功能並設定虛擬Volume組態。vCenter Server的Element外掛程式可監控效能、並提供管理虛擬磁碟區的選項、 link:vcp_concept_vvols.html#storage-containers["儲存容器"]、 link:vcp_concept_vvols.html#protocol-endpoints["傳輸協定端點"]和來自NetApp Element 於「無法辨識」擴充點的主機。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您所使用NetApp Element 的是連接至ESXi 6.5或更新版本環境且與VVols相容的VMware叢集。
+* 您使用的是vCenter 6.5或更新版本。
+
+
+
+
+=== 設定工作
+
+您必須執行初始組態步驟、才能使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中的虛擬Volume（VVols）。
+
+.步驟
+. <<Enable virtual volumes functionality on the NetApp Element cluster>>
+. <<Register the VASA provider with vCenter>>
+. <<Create a storage container and associated VVol datastore>>
+
+
+
+
+=== 管理工作
+
+* <<Monitor virtual volume resources>>
+* <<Create a VVol datastore for a storage container>>
+* <<Delete a storage container>>
+
+
+
+
+== 在NetApp Element 叢集上啟用虛擬Volume功能
+
+您必須使用NetApp Element 「VMware組態」擴充點手動啟用vSphere虛擬磁碟區（VVols）功能。Element系統預設會停用VVols功能、而且不會在新安裝或升級時自動啟用。啟用VVols功能是一次性的組態工作。
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 從清單中選取您要啟用的叢集。
+. 選取*「動作*」。
+. 在產生的功能表中、按一下*啟用VVol*。
++
+
+IMPORTANT: 啟用VVols功能之後、就無法停用VVols功能。啟用vSphere Virtual Volumes功能會永久變更NetApp Element VMware軟體組態。只有當叢集連線至VMware ESXi VVols相容的環境時、才應啟用VVols功能。您只能停用VVols功能、並將叢集還原至原廠映像、以還原預設設定。
+
+. 選擇* Yes（是）*以確認虛擬磁碟區組態變更。
++
+
+NOTE: 啟用VVols功能時、元素叢集會啟動VASA Provider、開啟VASA流量的連接埠844,並建立vCenter和所有ESXi主機可探索的傳輸協定端點。
+
+. 選取所選叢集的*「Actions」（動作）*。
+. 在產生的功能表中、選取*詳細資料*。
+. 從* VASA Provider URL*欄位複製VASA Provider URL。您將使用此URL在vCenter中登錄VASA Provider。
+. 請參閱 <<Register the VASA provider with vCenter>> 以瞭解後續步驟。
+
+
+
+
+== 向vCenter註冊VASA供應商
+
+您必須在NetApp Element vCenter中登錄「VMware VASA供應商」、vCenter才能識別叢集上的VVOL功能。向vCenter登錄VASA供應商是一次性的組態工作。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已啟用叢集的VVols功能。
+
+
+本程序說明vSphere 6.7版提供的步驟。您的vSphere使用者介面可能與所述內容略有不同、視所安裝的vSphere版本而定。如需其他說明、請參閱VMware vCenter文件。
+
+
+IMPORTANT: 請勿將NetApp Element 某個VMware vCenter供應商登錄至一個以上的vCenter執行個體。由於vCenter處理SSL的方式有限制、NetApp Element 因此僅能將此供應商登錄至單一vCenter。單一vCenter可以有多NetApp Element 個VMware vCenter叢集、但叢集無法在兩個vCenter執行個體之間共用。
+
+
+IMPORTANT: 請勿在NetApp Element 單一vCenter執行個體中登錄多個VMware vCenter供應商。在新增第二NetApp Element 個供應商時、這會使所有VVOL資料存放區無法存取。
+
+
+NOTE: 如果您已向vCenter註冊VASA供應商、則最多可將10個vCenter的VASA支援作為升級修補程式。若要安裝、請遵循VSA39資訊清單中的指示、並從下載.tar.gz檔案 link:https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/vasa39["NetApp軟體下載"] 網站。該供應商使用NetApp認證。NetApp Element有了這個修補程式、vCenter便會使用未經修改的憑證來支援VASA和VVols使用的多個vCenter。請勿修改憑證。VASA不支援自訂SSL憑證。
+
+.步驟
+. 從vSphere Client主頁、按一下*主機與叢集*。
+. 選取要在其中登錄NetApp Element 的vCenter執行個體。
+. 選擇*設定>儲存供應商*。
+. 在*儲存供應商*中、按一下新增圖示。
+. 在「*新增儲存供應商*」對話方塊中輸入下列資訊：
++
+** VASA供應商名稱。
+** VASA供應商URL。
++
+
+NOTE: 在vCenter外掛程式中啟用VVols時、會提供VASA Provider URL給您。您也可以從叢集詳細資料（* NetApp Element 《叢集組態》>「叢集」*）或元素UI（「https://<MVIP>/cluster`」）中的叢集設定找到URL。
+
+** 適用於整個叢集的管理帳戶使用者名稱NetApp Element 。
+** 適用於整個叢集的管理帳戶密碼NetApp Element 。
+
+
+. 選擇*確定*以新增VASA Provider。
+. 出現提示時、請核准SSL憑證的指紋。現在、應以「Connected（連線）」的狀態登錄到此供應商。NetApp Element
++
+
+NOTE: 如有必要、請重新整理儲存供應商、以在第一次登錄供應商後顯示供應商的目前狀態。您也可以在* NetApp Element 《支援組態》>「叢集」*中確認供應商已啟用。針對您要啟用的叢集選取*「Actions」（動作）*、然後按一下*「Details」（詳細資料）*。
+
+. 請參閱 <<Create a storage container and associated VVol datastore>> 以瞭解後續步驟。
+
+
+
+
+== 建立儲存容器及相關的VVOL資料存放區
+
+您可以從NetApp Element 「VVols」（虛擬儲存設備）索引標籤的「還原管理」擴充點建立儲存容器。您必須至少建立一個儲存容器、才能開始配置VVOL備份的虛擬機器。
+
+.開始之前
+* 您已啟用叢集的VVols功能。
+* 您已使用NetApp Element vCenter登錄適用於虛擬磁碟區的VMware VASA Provider。
+
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「VVols」（資料管理）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*儲存容器*」子索引標籤。
+. 選取*建立儲存Container *。
+. 在「*建立新的儲存Container *」對話方塊中輸入儲存Container資訊：
++
+.. 輸入儲存容器的名稱。
++
+
+TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+
+.. 設定CHAP的啟動器和目標機密。
++
+
+TIP: 將「CHAP設定」欄位保留空白、以自動產生機密。
+
+.. 輸入資料存放區的名稱。「*建立資料存放區*」核取方塊預設為選取狀態。
++
+
+NOTE: 若要在vSphere中使用儲存容器、必須使用VVOL資料存放區。
+
+.. 為資料存放區選取一或多個主機。
++
+
+NOTE: 如果您使用vCenter連結模式、則只有指派叢集的vCenter Server可用主機可供選取。
+
+.. 選擇*確定*。
+
+
+. 驗證新的儲存容器是否出現在「*儲存容器*」子索引標籤的清單中。由於會自動建立一個更新帳戶ID並指派給儲存容器、因此不需要手動建立帳戶。NetApp Element
+. 確認已在vCenter的選定主機上建立關聯的資料存放區。
+
+
+
+
+== 監控虛擬Volume資源
+
+您可以從NetApp Element 外掛程式的「VMware Management」擴充點檢閱虛擬Volume元件的效能和設定：
+
+* <<Monitoring VVols>>
+* <<Monitoring storage containers>>
+* <<Monitoring protocol endpoints>>
+
+
+
+
+=== 監控VVols
+
+您可以檢閱叢集上所有作用中虛擬磁碟區的一般資料、或是每個虛擬磁碟區的詳細資料。外掛程式會追蹤虛擬Volume效率、效能、事件和QoS、以及相關的快照、VM和繫結。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已開啟VM、因此可以檢視虛擬Volume詳細資料。
+
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「VVols」（資料管理）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 從*虛擬磁碟區*索引標籤、您可以搜尋特定的虛擬磁碟區。
+. 選取您要檢閱之虛擬磁碟區的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*詳細資料*。
+
+
+
+
+=== 監控儲存容器
+
+您可以檢閱叢集上所有作用中儲存容器的一般資料、或是每個儲存容器的詳細資料。外掛程式可追蹤儲存容器的效率、效能及相關的虛擬磁碟區。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「VVols」（資料管理）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*儲存容器*」索引標籤。
+. 選取您要檢閱之儲存容器的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*詳細資料*。
+
+
+
+
+=== 監控傳輸協定端點
+
+您可以檢閱叢集上所有傳輸協定端點的一般資料。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「VVols」（資料管理）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*傳輸協定端點*索引標籤。
+. 選取您要檢閱之傳輸協定端點的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*詳細資料*。
+
+
+
+
+== 為儲存容器建立VVOL資料存放區
+
+建立儲存容器之後、您也必須建立虛擬Volume資料存放區、以代表NetApp Element vCenter中的VMware叢集上的儲存容器。此程序可做為從建立資料存放區的替代方法 <<Create a storage container and associated VVol datastore,建立儲存Container>> 精靈：您必須至少建立一個VVOL資料存放區、才能開始配置VVOL備份的虛擬機器。
+
+.您需要的是 #8217 ；需要的是什麼
+* 虛擬環境中的現有儲存容器。
++
+
+NOTE: 您可能需要在NetApp Element vCenter中重新掃描以探索儲存容器。
+
+
+
+.步驟
+. 在vCenter的導覽器檢視中、以滑鼠右鍵按一下儲存叢集、然後選取*儲存設備>資料存放區>新資料存放區*。
+. 在「*新資料存放區*」對話方塊中、選取「* VVOL *」作為要建立的資料存放區類型。
+. 在*資料存放區名稱*欄位中提供資料存放區名稱。
+. 從NetApp Element 「Backing Storage Container」清單中選取「支援儲存Container」。
++
+
+NOTE: 您不需要手動建立傳輸協定端點（PE）LUN。建立資料存放區時、系統會自動將它們對應至ESXi主機。
+
+. 選取需要存取資料存放區的主機。
+. 選擇*下一步*。
+. 檢閱組態、然後選取* Finish（完成）*以建立VVOL資料存放區。
+
+
+
+
+== 刪除儲存容器
+
+您可以從NetApp Element 「不受保護的管理」擴充點刪除儲存容器。
+
+.您需要的是 #8217 ；需要的是什麼
+* 所有磁碟區都已從儲存容器中移除。
+
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「VVols」（資料管理）*。
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取「*儲存容器*」索引標籤。
+. 選取您要刪除之儲存容器的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+. 重新整理* Storage Containers*子索引標籤中的儲存容器清單、確認儲存容器已移除。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

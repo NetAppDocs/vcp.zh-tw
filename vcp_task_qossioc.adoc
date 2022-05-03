@@ -1,0 +1,223 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_qossioc.html 
+summary: 您可以設定及修改叢集中已配置儲存設備的Volume QoS和資料存放區SIOC（QoSSIOC）。 
+keywords: netapp, qossioc, quality of service, qos, sioc, vcp, vcenter, element 
+---
+= 為元素磁碟區和VMware資料存放區設定及管理QoSSIOC
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以針對由外掛程式控制的個別磁碟區和資料存放區、設定QoSSIOC自動化。 link:vcp_concept_qossioc.html["QoSSIOC"] 是自動服務品質 (https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html["QoS"^]）以儲存I/O控制為基礎 (https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html["SIOC"^]）標準資料存放區上所有VM的設定。
+
+管理節點上的QoSSIOC服務會與vCenter通訊、並監控資料存放區上的VM活動。當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。QoSSIOC是一項選用功能、外掛程式不需要管理儲存叢集。
+
+QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVols）。
+
+
+NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定頁面讓vSphere可使用VVols。如需詳細資訊、請參閱Element Plug-In for vCenter Server文件、瞭解如何設定VVols功能。
+
+在連結模式中、NetApp Element vCenter Server的VMware vCenter外掛程式會使用您在單一vCenter Server上提供的QoSSIOC設定來登錄所有vCenter Server。
+
+使用vCenter外掛程式、您可以完成下列工作來設定及管理QoSSIOC：
+
+
+
+=== 設定工作
+
+* link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]
+* <<Enabling QoSSIOC automation on datastores>>
+
+
+
+
+=== 管理工作
+
+* link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"^]
+* <<Edit QoSSIOC settings>>
+* <<Change the QoSSIOC service password>>
+* <<Disable QoSSIOC automation for a datastore>>
+* <<Clear QoSSIOC settings>>
+
+
+
+
+== 在資料存放區上啟用QoSSIOC自動化
+
+啟用外掛程式的QoSSIOC服務之後、您可以啟用QoSSIOC自動化功能、並自訂資料存放區的虛擬機器磁碟（VMDK）效能層級。
+
+您有 link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["已設定QoSSIOC服務設定"] 在「QoSSIOC設定」頁面和「* QoSSIOC狀態*」欄位中顯示「UP」。
+
+QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVols）。當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。
+
+
+IMPORTANT: 如果您使用的是QoS原則、請勿啟用QoSSIOC。不論原則為何、QoSSIOC都會覆寫及調整任何Volume QoS設定的QoS值。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 在所選資料存放區的「* QoSSIOC Automation *」（* QoSSIOC自動化*）欄中、按一下狀態按鈕。
++
+
+TIP: 確保資料存放區未在另一個vCenter上啟用QoSSIOC整合、以避免QoS發生非預期的變更。
+
+. 選擇*啟用QoS與SIOC*。
+. 設定*爆發係數*。
++
+突發係數是VMDK IOPS限制（SIOC）設定的倍數。如果您變更預設值、請務必使用不超過NetApp Element 以VMware軟體為基礎的更新磁碟區之最大爆發限制的突發係數值、再將任何VMDK的IOPS限制乘以該值。
+
+. （可選）選擇*覆蓋缺省QoS*並配置設置。
++
+如果資料存放區的「置換預設QoS」設定已停用、則會根據每個VM的預設SIOC設定、自動設定「共用」和「限制IOPS」值。
+
++
+
+TIP: 若未自訂SIOC IOPS限制、請勿自訂SIOC共用限制。
+
++
+
+TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大型VM環境中、這可能會導致叢集上的IOPS過高。啟用QoSSIOC時、請務必勾選「置換預設QoS」、並將「限制IOPS」選項設為合理的選項。
+
+. 按一下「*確定*」。
++
+當您啟用資料存放區的QoSSIOC Automation時、按鈕會從「顯示」變更為「已啟用」。
+
+
+
+
+
+== 編輯QoSSIOC設定
+
+您可以變更作用中元素管理節點的QoSSIOC和vCenter認證。
+
+.步驟
+. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 在「*編輯QoSSIOC設定*」對話方塊中、變更下列任一項目：
++
+** * QoSSIOC使用者ID *：QoSSIOC服務的使用者ID。QoSSIOC服務的預設使用者ID為「admin」。對於僅供使用的部分、使用者ID與使用NetApp部署引擎安裝期間輸入的ID相同。NetApp HCI
+** * QoSSIOC密碼*：元素QoSSIOC服務的密碼。QoSSIOC服務的預設密碼為SolidFire 「SESS'」。如果您尚未建立自訂密碼、可以從登錄公用程式UI（「https://[management節點IP」：9443）建立自訂密碼。
++
+
+NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp HCI若要判斷密碼、請參閱本文件中的程序4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 文章：
+
+** * vCenter使用者ID*：vCenter管理員擁有完整管理員角色權限的使用者名稱。
+** * vCenter密碼*：vCenter管理員擁有完整管理員角色權限的密碼。
+
+
+. 按一下「*確定*」。當外掛程式能夠與服務成功通訊時、QoSSIOC狀態欄位會顯示「UP」。
++
+
+NOTE: 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 若要疑難排解狀態是否為下列任一項目：*「診斷」：未啟用QoSSIOC。*「未設定」：尚未設定QoSSIOC設定。*「網路中斷」：vCenter無法與網路上的QoSSIOC服務通訊。mNode和SIOC服務可能仍在執行中。
+
++
+
+NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成為預設值。QoSSIOC設定會回復到上次已知的有效QoSSIOC設定、直到您為新的管理節點提供有效的QoSSIOC設定為止。在設定新管理節點的QoSSIOC認證之前、您必須先清除已設定管理節點的QoSSIOC設定。
+
+
+
+
+
+== 變更QoSSIOC服務密碼
+
+您可以使用登錄公用程式UI、在管理節點上變更QoSSIOC服務的密碼。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您的管理節點已開啟電源。
+
+
+此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更 <<Edit QoSSIOC settings,QoSSIOC設定>> 《不適用的組態》擴充點頁NetApp Element 面。
+
+.步驟
+. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*清除*。
+. 確認行動。
++
+流程完成後、「* QoSSIOC Status *（* QoSSIOC狀態*）」欄位會顯示「Not Configured（未設定）」。
+
+. 在瀏覽器中輸入管理節點的IP位址、包括登錄所需的TCP連接埠：「https://[management節點IP」：9443。
++
+登錄公用程式UI會顯示外掛程式的*管理QoSSIOC服務認證*頁面。
+
++
+image::vcp_registration_ui_qossioc.png[VCP登錄公用程式功能表]
+
+. 輸入下列資訊：
++
+.. *舊密碼*：QoSSIOC服務的目前密碼。如果您尚未設定密碼、請輸入預設密碼SolidFire 「/sf2」。
++
+
+NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp HCI若要判斷密碼、請參閱本文件中的程序4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 文章：
+
+.. *新密碼*：QoSSIOC服務的新密碼。
+.. *確認密碼*：再次輸入新密碼。
+
+
+. 按一下*提交變更*。
++
+
+NOTE: 在您提交變更後、QoSSIOC服務會自動重新啟動。
+
+. 在vSphere Web Client中、選取* NetApp Element 「*效能不均組態」>「QoSSIOC設定*」。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*設定*。
+. 在「*設定QoSSIOC設定*」對話方塊中、於「* QoSSIOC密碼*」欄位中輸入新密碼。
+. 按一下「*確定*」。
++
+當外掛程式能夠與服務成功通訊時、「* QoSSIOC狀態*」欄位會顯示「UP」。
+
+
+
+
+
+== 停用資料存放區的QoSSIOC自動化
+
+您可以停用資料存放區的QoSSIOC整合。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下所選資料存放區* QoSSIOC Automation *（* QoSSIOC自動化*）欄中的按鈕。
+. 清除*啟用QoS與SIOC*核取方塊、即可停用整合。
++
+清除「啟用QoS與SIOC」核取方塊、會自動停用「置換預設QoS」選項。
+
+. 按一下「*確定*」。
+
+
+
+
+== 清除QoSSIOC設定
+
+您可以清除元素儲存管理節點（mNode）的QoSSIOC組態詳細資料。在設定新管理節點的認證或變更QoSSIOC服務密碼之前、您必須先清除已設定管理節點的設定。清除QoSSIOC設定會從vCenter、叢集和資料存放區移除作用中的QoSSIOC。
+
+.步驟
+. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*清除*。
+. 確認行動。
++
+流程完成後、「* QoSSIOC Status *（* QoSSIOC狀態*）」欄位會顯示「Not Configured（未設定）」。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

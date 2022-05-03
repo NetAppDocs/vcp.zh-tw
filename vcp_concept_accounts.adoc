@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_accounts.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, account 
+---
+= 使用者帳戶
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用者帳戶可控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。在建立磁碟區之前、至少需要一個使用者帳戶。
+
+當您建立Volume時、該磁碟區會指派給帳戶。如果您已建立虛擬磁碟區、則帳戶就是儲存容器。帳戶包含存取指派給它的磁碟區所需的CHAP驗證。
+
+帳戶最多可指派2000個磁碟區、但一個磁碟區只能屬於一個帳戶。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

@@ -1,0 +1,145 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_initiators.html 
+summary: 您可以使用外掛程式來建立及管理啟動器。 
+keywords: netapp, storage, inititators, vcp, vcenter, element 
+---
+= 建立及管理啟動器
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+啟動器可讓外部用戶端存取叢集中的磁碟區、做為用戶端與磁碟區之間通訊的入口點。
+
+您可以建立、編輯及刪除啟動器、並為其提供易記的別名、以簡化管理和Volume存取。當您將啟動器新增至Volume存取群組時、該啟動器可讓您存取群組中的所有磁碟區。
+
+.選項
+* <<Create an initiator>>
+* <<Edit an initiator>>
+* <<Add initiators to an access group>>
+* <<Delete an initiator>>
+
+
+
+
+== 建立啟動器
+
+您可以建立iSCSI或Fibre Channel啟動器、並選擇性地指派別名。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*啟動器*子索引標籤。
+. 選擇*建立啟動器*。
+. 若要建立單一啟動器：
++
+.. 選擇*建立單一啟動器*。
+.. 在「* IQN/WWPN*」欄位中輸入啟動器的IQN或WWPN。
++
+啟動器IQN的可接受格式為「iqn.edy-mm"、其中y和m是數字、後面接著只能包含數字、大小寫字母、句點（'.'）、分號（':'）或破折號（'-'）的文字。格式範例如下：
+
++
+[listing]
+----
+iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
+----
++
+光纖通道啟動器WWPN的格式為：AA:BB:CC:dd:11:33:44'或「AabBCCdd112233444」。格式範例如下：
+
++
+[listing]
+----
+5f:47:ac:c0:5c:74:d4:02
+----
+.. 在*別名*欄位中輸入啟動器的易記名稱。
+
+
+. 若要建立多個啟動器：
++
+.. 選取*建立多個啟動器*。
+.. 執行下列其中一項：
++
+*** 按一下*「掃描主機*」、掃描vSphere主機、找出NetApp Element 未在VMware叢集中定義的啟動器值。
+*** 在文字方塊中輸入IQN或WWPN清單、然後選取*新增啟動器*。
+
+
+.. （選用）在*別名*標題下、選取每個項目的欄位以新增別名。
+.. （選用）視需要從清單中移除啟動器。
+
+
+. 按一下「*確定*」以建立啟動器。
+
+
+
+
+== 編輯啟動器
+
+您可以變更現有啟動器的別名、或是新增別名（如果別名不存在）。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*啟動器*子索引標籤。
+. 選取您要編輯之啟動器的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 在「*別名*」欄位中輸入啟動器的新別名。
+. 按一下「*確定*」。
+
+
+
+
+== 將啟動器新增至存取群組
+
+您可以將啟動器新增至存取群組、以允許存取Volume存取群組中的磁碟區、而不需要CHAP驗證。當您將啟動器新增至Volume存取群組時、啟動器可存取該Volume存取群組中的所有Volume。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*啟動器*子索引標籤。
+. 選取您要新增至存取群組之啟動器的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*「Add to Access Group*（新增至存取群組*）」。
+. 在「*新增至存取群組*」對話方塊中、從下拉式清單中選擇存取群組。
+. 按一下「*確定*」。
+
+
+
+
+== 刪除啟動器
+
+您可以在不再需要啟動器之後刪除它。刪除啟動器時、系統會將其從任何相關的Volume存取群組中移除。使用啟動器的任何連線都會維持有效、直到連線重設為止。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 選取*啟動器*子索引標籤。
+. 選取您要刪除之啟動器的核取方塊。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

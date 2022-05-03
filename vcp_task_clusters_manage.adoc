@@ -1,0 +1,289 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_clusters_manage.html 
+summary: 您可以使用外掛程式將節點新增至儲存叢集。 
+keywords: netapp, cluster, vcp, vcenter, element 
+---
+= 管理叢集
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以編輯執行Element軟體的叢集、管理SSH組態、設定保護網域監控、以及關閉叢集。
+
+.您需要的是 #8217 ；需要的是什麼
+* 至少必須有一個叢集 link:vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["新增"]。
++
+
+NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「支援不支援功能」的擴充點功能。
+
+* 叢集的目前完整叢集管理使用者認證。
+* 防火牆規則可在vCenter和叢集MVIP之間、在TCP連接埠443和8443上進行開放式網路通訊。
+
+
+.選項
+* <<View cluster details>>
+* <<Edit a cluster profile>>
+* <<Remove a cluster profile>>
+* <<Enable Encryption at Rest>>
+* <<Disable Encryption at Rest>>
+* <<Enable SSH>>
+* <<Change the SSH time limit>>
+* <<Disable SSH>>
+* <<Set protection domain monitoring>>
+* <<Shut down a cluster>>
+* <<Expand your NetApp HCI infrastructure>>
+
+
+
+
+== 檢視叢集詳細資料
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查您要編輯的叢集。
+. 選取*「動作*」。
+. 選擇*詳細資料*。
+. 檢閱所有叢集的下列資訊：
++
+** *叢集名稱*：叢集名稱。
+** * vCenter IP位址*：指派叢集的vCenter Server IP位址或FQDN。
+** *唯一ID*：叢集的唯一ID。
+** *管理虛擬IP*：管理虛擬IP位址（MVIP）。
+** *儲存虛擬*：儲存虛擬IP位址（SVIP）。
+** *狀態*：叢集的狀態。
+** * VVols *：叢集上VVols功能的狀態。
+
+
+. 檢閱個別叢集的其他詳細資料：
++
+** * MVIP節點ID*：主MVIP位址所在的節點。
+** * SVIP節點ID*：主SVIP位址所在的節點。
+** * Element Version *：NetApp Element 叢集執行的支援軟體版本。
+** * VASA 2狀態*：元素叢集上VASA Provider的狀態。
+** * VASA Provider URL*：在元素叢集上啟用的VASA Provider URL（若適用）。
+** *靜止狀態加密*：可能值：
++
+*** 啟用：正在啟用靜止加密。
+*** 已啟用：已啟用靜止加密。
+*** 停用：停用靜止加密。
+*** 停用：停用靜止加密。
+
+
+** *整合節點*：屬於資料庫整體群一部分之節點的IPS。
+** *配對對象*：與本機叢集配對的其他叢集名稱。
+** * SSH狀態*：安全Shell的狀態。如果啟用、則會顯示剩餘時間。
+
+
+
+
+
+
+== 編輯叢集設定檔
+
+您可以從NetApp Element 「叢集組態」擴充點變更叢集的使用者ID和密碼。
+
+
+NOTE: 本程序說明如何變更外掛程式所使用的叢集管理使用者名稱和密碼。您無法從外掛程式變更叢集管理認證。請參閱 https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["管理叢集管理員使用者帳戶"^] 以取得變更叢集管理員帳戶認證的指示。
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*編輯*。
+. 變更下列任一項目：
++
+** 使用者ID：叢集管理員名稱。
+** 密碼：叢集管理員密碼。
++
+
+NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法針對新增的叢集變更指派的連結模式vCenter Server。若要變更叢集位址或相關聯的vCenter Server、您必須移除叢集並重新新增。
+
+
+
+. 選擇*確定*。
+
+
+
+
+== 移除叢集設定檔
+
+您可以使用NetApp Element 「VMware vCenter組態」擴充點、從vCenter外掛程式移除不想再管理的叢集設定檔。
+
+如果您設定連結模式群組、並想要將叢集重新指派給另一個vCenter Server、您可以移除叢集設定檔、然後使用不同的連結vCenter Server IP重新新增。
+
+
+NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查您要移除的叢集。
+. 選取*「動作*」。
+. 選擇*移除*。
+. 確認行動。
+
+
+
+
+== 啟用靜止加密
+
+您可以使用NetApp Element 「靜態組態」擴充點、手動啟用靜止加密（Ear）功能。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 選取您要在其上啟用加密的叢集。
+. 選取*「動作*」。
+. 在產生的功能表中、按一下*啟用耳部*。
+. 確認行動。
+
+
+
+
+== 停用靜止加密
+
+您可以使用NetApp Element 「靜態組態」擴充點、手動停用靜止加密（Ear）功能。
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 選取叢集的核取方塊。
+. 按一下「*動作*」。
+. 在出現的功能表中、按一下*停用耳部*。
+. 確認行動。
+
+
+
+
+== 啟用SSH
+
+您可以使用NetApp Element 「支援組態」擴充點手動啟用安全Shell（SSH）工作階段。啟用SSH可讓NetApp技術支援工程師存取儲存節點、以便在您決定的期間內進行疑難排解。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*啟用SSH*。
+. 輸入SSH工作階段的啟用持續時間（以小時為單位）、最長可達720。
++
+
+NOTE: 若要繼續、您需要輸入一個值。
+
+. 選擇*是*。
+
+
+
+
+== 變更SSH時間限制
+
+您可以輸入SSH工作階段的新持續時間。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*變更SSH*。
++
+對話方塊會顯示SSH工作階段的剩餘時間。
+
+. 輸入SSH工作階段的新持續時間（以小時為單位）、最長可達720。
++
+
+NOTE: 若要繼續、您需要輸入一個值。
+
+. 選擇*是*。
+
+
+
+
+== 停用SSH
+
+您可以使用NetApp Element 「穩定組態」擴充點、手動停用對儲存叢集中節點的安全Shell（SSH）存取。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*停用SSH*。
+. 選擇*是*。
+
+
+
+
+== 設定保護網域監控
+
+您可以手動啟用 link:vcp_concept_protection_domains.html["保護網域監控"] 使用NetApp Element 「功能不一」擴充點。您可以根據節點或機箱網域選取保護網域臨界值。
+
+.您需要的是 #8217 ；需要的是什麼
+* 選取的叢集必須由元素11.0或更新版本監控、才能使用保護網域監控；否則、保護網域功能將無法使用。
+* 您的叢集必須有兩個以上的節點、才能使用保護網域功能。無法與雙節點叢集相容。
+
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選取*設定保護網域監控*。
+. 選取故障臨界值：
++
+** *節點*：叢集在節點層級發生硬體故障時、無法再提供不中斷資料的臨界值。節點臨界值為系統預設值。
+** *機箱*：超出此臨界值、叢集無法在機箱層級的硬體故障期間提供不中斷的資料。
+
+
+. 選擇*確定*。
+
+
+設定監控偏好設定之後、您可以從監控保護網域 link:vcp_task_reports_overview.html#reporting-overview-page-data["報告"] 選項卡。NetApp Element
+
+
+
+== 關閉叢集
+
+您可以使用NetApp Element 「恢復組態」擴充點、手動關閉儲存叢集中的所有作用中節點。
+
+如果您想要 link:vcp_task_add_manage_nodes.html#restart-a-node["重新啟動"] 您可以從NetApp Element 「叢集」頁面的「叢集」延伸點中選取所有節點、然後重新啟動、而非關閉叢集。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+您已停止I/O並中斷所有iSCSI工作階段的連線。
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*關機*。
+. 確認行動。
+
+
+
+
+== 擴充NetApp HCI 您的需求基礎架構
+
+您可以NetApp HCI 透過NetApp HCI 使用無法更新的功能來新增節點、以手動擴充您的無法更新基礎架構。從這個擴充點可連結NetApp HCI 到用於擴充系統的各個方面。NetApp Element從「使用入門」和「叢集」頁面、NetApp Element 即可在「樣化管理」擴充點中提供其他連結。
+
+
+NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
+
+.步驟
+. 選取* NetApp Element 《組態》>「叢集」*。
+. 檢查叢集。
+. 選取*「動作*」。
+. 選擇*展開NetApp HCI 您的S編*。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

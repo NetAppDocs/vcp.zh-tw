@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: concept_vcp_product_overview.html 
+summary: 有關外掛程式的高階資訊、包括元件和重要URL。 
+keywords: netapp, vcp, element, vcenter plugin, plug-in 
+---
+= vCenter Server產品概述的適用外掛程式NetApp Element
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, vcp, element, vcenter plugin, plug-in
+
+
+[role="lead"]
+vCenter Server的《VMware vCenter外掛程式》（VCP）NetApp Element 是整合VMware vSphere Web Client使用者介面（UI）的網路型工具。外掛程式是VMware vSphere的擴充與替代可擴充、使用者友善的介面、可管理及監控執行* NetApp Element 鏡像軟體*軟體的儲存叢集。
+
+您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。
+
+
+
+== 與外掛程式相關的NetApp元件
+
+* *登錄公用程式*：可讓您管理的工具 link:vcp_concept_qossioc.html["QoSSIOC"] 使用vCenter登錄服務與外掛程式。
+* *管理服務*：微服務、包括vCenter外掛程式的QoSSIOC服務。外掛程式的升級是以管理服務套裝組合的形式發行。
++
+
+TIP: 深入瞭解 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本"^]。
+
+* *管理節點（mNode）*：與一或多個元件軟體型儲存叢集平行執行的虛擬機器。從Element 11.3版本開始、管理服務就託管在管理節點上、可在主要版本之外更快更新特定軟體服務。
+
+
+
+
+== 通用URL
+
+除了vSphere之外、以下是您搭配vCenter外掛程式使用的一些常見URL：
+
+[cols="2*"]
+|===
+| URL | 說明 
+
+
+| https://[management節點IP位址：9443 | 在vSphere Web Client中登錄vCenter外掛程式套件。 
+
+
+| https://[management節點IP位址：4442 | 從每節點UI的管理節點存取網路和叢集設定、並利用系統測試和公用程式。 https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html["深入瞭解。"^] 
+
+
+| https://[management節點IP位址 | 存取NetApp混合雲控制來升級管理服務、或是擴充、監控及管理安裝。 https://docs.netapp.com/us-en/hci/docs/task_hci_getstarted.html["深入瞭解。"^] 
+
+
+| https://[management節點IP位址：/mnode' | 使用管理節點的REST API UI手動更新管理服務或管理資產。 https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html["深入瞭解。"^] 
+
+
+| https://[storage叢集MVIP位址] | 存取NetApp Element 這個軟件UI。 
+|===
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* http://mysupport.netapp.com/hci/resources["「資源」頁面NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+* link:vcp_concept_config_extension_point.html["部分組態擴充點NetApp Element"]
+* link:vcp_concept_management_extension_point.html["部分組態擴充點NetApp Element"]
+

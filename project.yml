@@ -1,0 +1,115 @@
+---
+settings:
+  name: VCP
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: vCenter Server文件的適用插件NetApp Element
+    url: "/index.html"
+    entries:
+    - title: vCenter Server產品概述的適用外掛程式NetApp Element
+      url: concept_vcp_product_overview.html
+    - title: 版本資訊
+      entries:
+      - title: vCenter Server的更新功能NetApp Element
+        url: rn_whatsnew_vcp.html
+      - title: 其他版本資訊
+        url: rn_relatedrn_vcp.html
+    - title: 概念
+      entries:
+      - title: 部分組態擴充點NetApp Element
+        url: vcp_concept_config_extension_point.html
+      - title: 解決方案管理擴充點NetApp Element
+        url: vcp_concept_management_extension_point.html
+      - title: 使用者帳戶
+        url: vcp_concept_accounts.html
+      - title: 保護網域
+        url: vcp_concept_protection_domains.html
+      - title: 連結模式和vCenter外掛程式
+        url: vcp_concept_linkedmode.html
+      - title: QoSSIOC
+        url: vcp_concept_qossioc.html
+      - title: 虛擬磁碟區（vVols）
+        url: vcp_concept_vvols.html
+    - title: 部署前需求
+      url: reference_requirements_vcp.html
+    - title: 安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+      url: vcp_task_getstarted.html
+    - title: 升級外掛程式
+      url: task_vcp_upgrades.html
+    - title: 使用vCenter外掛程式管理儲存設備
+      entries:
+      - title: 管理叢集
+        url: vcp_task_clusters_manage.html
+      - title: 管理資料存放區
+        url: vcp_task_datastores_manage.html
+      - title: 管理磁碟區
+        url: vcp_task_volumes_manage.html
+      - title: 建立及管理使用者帳戶
+        url: vcp_task_create_manage_user_accounts.html
+      - title: 建立及管理存取群組
+        url: vcp_task_create_manage_access_groups.html
+      - title: 建立及管理啟動器
+        url: vcp_task_create_manage_initiators.html
+      - title: 為元素磁碟區和VMware資料存放區設定及管理QoSSIOC
+        url: vcp_task_qossioc.html
+      - title: 建立及管理Volume QoS原則
+        url: vcp_task_qos_policies.html
+    - title: 管理叢集硬體和虛擬網路
+      entries:
+      - title: 管理叢集硬體與虛擬網路總覽
+        url: vcp_task_manage_cluster_overview.html
+      - title: 新增及管理磁碟機
+        url: vcp_task_add_manage_drive.html
+      - title: 新增及管理節點
+        url: vcp_task_add_manage_nodes.html
+      - title: 建立及管理虛擬網路
+        url: vcp_task_create_manage_vlans.html
+    - title: 監控系統效能
+      entries:
+      - title: 使用報告選項監控系統效能
+        url: vcp_task_reports_intro.html
+      - title: 在「總覽」頁面上監控整體叢集健全狀況
+        url: vcp_task_reports_overview.html
+      - title: 監控系統警示
+        url: vcp_task_reports_alerts.html
+        entries:
+        - title: 系統警示清單
+          url: vcp_reference_reports_alert_errors.html
+      - title: 監控事件記錄以進行疑難排解
+        url: vcp_task_reports_event_logs.html
+      - title: 監控Volume效能
+        url: vcp_task_reports_volume_performance.html
+      - title: 監控iSCSI工作階段以判斷連線狀態
+        url: vcp_task_reports_iscsi.html
+      - title: 利用QOSSIOC事件監控VM效能
+        url: vcp_task_reports_qossioc.html
+    - title: 使用vCenter外掛程式保護資料
+      entries:
+      - title: 利用vCenter外掛程式總覽保護資料
+        url: vcp_task_protect_overview.html
+      - title: 建立及管理Volume快照
+        url: vcp_task_protect_snapshots_volume.html
+      - title: 建立及管理群組快照
+        url: vcp_task_protect_snapshots_group.html
+      - title: 建立快照排程
+        url: vcp_task_protect_snapshots_schedules.html
+      - title: 在叢集之間執行遠端複寫
+        url: vcp_task_protect_remote_replication.html
+    - title: 使用vCenter外掛程式設定及管理虛擬磁碟區
+      url: vcp_task_configure_manage_vvols.html
+    - title: 取消註冊外掛程式
+      url: task_vcp_unregister.html
+    - title: 移除外掛程式
+      url: task_vcp_remove.html
+    - title: 疑難排解外掛程式
+      url: vcp_reference_troubleshoot_vcp.html
+    - title: 舊版NetApp Element 的不整合外掛程式文件
+      url: reference_earlier_versions.html
+    - title: 法律聲明
+      url: legal-notices.html

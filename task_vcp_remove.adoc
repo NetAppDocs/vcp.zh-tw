@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: task_vcp_remove.html 
+summary: 升級至NetApp Element 最新版的vCenter Server適用的VMware vCenter外掛程式。 
+keywords: netapp, vcp, vcenter, plugin, element, upgrade 
+---
+= 移除vCenter外掛程式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, vcp, vcenter, plugin, element, upgrade
+
+
+[role="lead"]
+對於vSphere 6.7或更早版本所使用的vCenter外掛程式2.5或更新版本、您必須完成下列程序、才能從vCenter Server手動移除與外掛程式相關的所有檔案。對於vSphere 7.0、所有檔案都會在您取消登錄外掛程式後自動移除。
+
+.您需要的是 #8217 ；需要的是什麼
+* vCenter外掛程式2.5或更新版本
+* vSphere 6.7或更早版本
+* 您有 link:task_vcp_unregister.html["未註冊"] 現有的外掛程式、並具備SSH、RDP或其他適當的VCSA或vCenter Server連線能力。
+
+
+.步驟
+. 以系統管理員身分登入執行vCenter Server的伺服器、然後開啟命令提示字元。
+. 停止vCenter Server服務：
++
+** Windows：
++
+*** （適用於Flash用戶端）執行下列命令：
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-client
+----
+*** （適用於HTML5用戶端）執行下列命令：
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-client
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-ui
+----
+
+
+** vCenter Server設備（vCSA）
++
+*** （適用於Flash用戶端）執行下列命令：
++
+[listing]
+----
+service-control --stop vsphere-client
+----
+*** （適用於HTML5用戶端）執行下列命令：
++
+[listing]
+----
+service-control --stop vsphere-client
+service-control --stop vsphere-ui
+----
+
+
+
+
+. 從SolidFire 下列位置移除資料夾和檔案：
++
+** （Windows）使用Windows檔案總管、在SolidFire 「C：\ProgramData\VMware」和「C：\Program Files\VMware」中搜尋「VMware」。
++
+
+NOTE: ProgramData資料夾已隱藏。您必須輸入完整的檔案路徑才能存取資料夾。
+
+** （適用於vCSA）執行下列命令：
++
+[listing]
+----
+find / -name "*solidfire*" -exec rm -rf {} \;
+----
+
+
+. 啟動vCenter Server服務：
++
+** Windows：
++
+*** （適用於Flash用戶端）執行下列命令：
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-client
+----
+*** （適用於HTML5用戶端）執行下列命令：
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-client
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-ui
+----
+
+
+** vCSA：
++
+*** （適用於Flash用戶端）執行下列命令：
++
+[listing]
+----
+service-control --start vsphere-client
+----
+*** （適用於HTML5用戶端）執行下列命令：
++
+[listing]
+----
+service-control --start vsphere-client
+service-control --start vsphere-ui
+----
+
+
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

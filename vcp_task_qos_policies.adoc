@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_qos_policies.html 
+summary: 您可以設定及修改QoS原則、以套用至儲存叢集中的磁碟區。 
+keywords: netapp, qos policy, quality of service, qos policies, vcp, vcenter, element 
+---
+= 建立及管理Volume QoS原則
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+QoS（服務品質）原則可讓您建立及儲存標準化的服務品質設定、以便套用至許多磁碟區。選取的叢集必須是元素10.0或更新版本才能使用QoS原則、否則無法使用QoS原則功能。
+
+使用「不受影響的管理」擴充點、您可以完成下列工作來設定及管理QoSSIOC：NetApp Element
+
+* <<Create a QoS policy>>
+* <<Apply a QoS policy to volumes>>
+* <<Change the QoS policy association of a volume>>
+* <<Edit a QoS policy>>
+* <<Delete a QoS policy>>
+
+
+
+
+== 建立QoS原則
+
+您可以建立QoS原則、並將其套用至應有同等效能的磁碟區。
+
+
+NOTE: QoSSIOC自動化和QoS原則不應一起使用。如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下「* QoS原則*」子索引標籤。
+. 按一下「*建立QoS原則*」。
+. 輸入* Policy Name*。
++
+
+TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+
+. 輸入最小IOPS、最大IOPS和尖峰IOPS值。
+. 按一下「*確定*」。
+
+
+
+
+== 將QoS原則套用至磁碟區
+
+您可以將現有的QoS原則套用至多個磁碟區。當您想要將原則大量套用至一或多個磁碟區時、請使用此程序。
+
+您想要大量套用的QoS原則已經存在 <<Create a QoS policy,已建立>>。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下「* Volumes（*磁碟區）」子索引標籤。
+. 選取您要套用QoS原則之每個Volume的核取方塊。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*套用QoS原則*。
+. 在對話方塊中、從下拉式清單中選取要套用至所選磁碟區的QoS原則。
+. 按一下「*確定*」。
+
+
+
+
+== 變更Volume的QoS原則關聯
+
+您可以從磁碟區移除QoS原則關聯、或選取不同的QoS原則或自訂QoS。
+
+您要修改的Volume是 <<Apply a QoS policy to volumes,相關>> 使用QoS原則。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下「* Volumes（*磁碟區）」子索引標籤。
+. 選取包含您要修改之QoS原則的磁碟區核取方塊。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 在*服務品質*下的對話方塊中、選取要套用至磁碟區的新QoS原則或自訂設定。
+. 如果您選擇自訂設定、請修改*最小IOPS *、*最大IOPS *和*爆發IOPS *值。
++
+
+NOTE: 您也可以按一下*重設預設QoS*來還原預設IOPS值。
+
+. 按一下「*確定*」。
+
+
+
+
+== 編輯QoS原則
+
+您可以變更現有QoS原則的名稱、或編輯與原則相關的值。變更QoS原則效能值會影響與原則相關聯之所有磁碟區的QoS。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下「* QoS原則*」子索引標籤。
+. 選取您要編輯之QoS原則的核取方塊。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*編輯*。
+. 在*編輯QoS原則*對話方塊中、視需要修改下列內容：
++
+** *原則名稱*：QoS原則的使用者定義名稱。
+** *最小IOPS *：保證磁碟區IOPS的最小數量。
+** *最大IOPS *：磁碟區允許的最大IOPS數。
+** *爆發IOPS *：在一段短時間內、磁碟區允許的最大IOPS數。預設值= 15、000。
++
+
+NOTE: 您也可以按一下「重設預設QoS」來還原預設IOPS值。
+
+
+
+. 按一下「*確定*」。
+
+
+
+
+== 刪除QoS原則
+
+您可以刪除不再需要的QoS原則。刪除QoS原則時、與原則相關聯的所有磁碟區都會保留先前由原則定義的QoS值、但會保留個別Volume QoS值。與刪除的QoS原則的任何關聯都會移除。
+
+.步驟
+. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
++
+
+NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+. 按一下「* QoS原則*」子索引標籤。
+. 選取您要刪除之QoS原則的核取方塊。
+. 按一下「*動作*」。
+. 在產生的功能表中、選取*刪除*。
+. 確認行動。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

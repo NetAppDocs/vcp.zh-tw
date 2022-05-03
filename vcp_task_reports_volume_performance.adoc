@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_volume_performance.html 
+summary: 您可以從NetApp Element vCenter Server適用的「回報」索引標籤上的「Volume Performance」（Volume效能）頁面、檢視所選叢集中所有Volume的效能資訊。 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, cluster, performance 
+---
+= 監控Volume效能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以從NetApp Element 「畫面資訊管理」擴充點的「報告」索引標籤、檢視所選叢集中所有磁碟區的效能資訊。
+
+.步驟
+. 從vCenter外掛程式選取* NetApp Element 《Management》*。
+. 選擇*報告*>* Volume Performance *。
+. 若要變更資料在頁面上的重新整理頻率、請按一下*重新整理每份清單*、然後選擇一個值。
++
+如果叢集的磁碟區少於1000個、預設的重新整理時間間隔為10秒；否則、預設值為60秒。如果您選擇Never值、則會停用自動重新整理頁面。
+
+
+
+
+
+== Volume效能資料
+
+* *名稱*：磁碟區建立時的名稱。
+* *帳戶*：指派給磁碟區的帳戶名稱。
+* *存取群組*：磁碟區所屬的磁碟區存取群組名稱。
+* * Volume使用率%*：用來說明用戶端使用Volume的百分比值。
++
+可能值：
+
+* 0 =用戶端未使用磁碟區
+* 100 =用戶端使用最大值
+* >100 =用戶端使用連拍
+* * IOPS總計*：目前針對磁碟區執行的IOPS（讀寫）總數。
+* *讀取IOPS *：目前針對磁碟區執行的讀取IOPS總數。
+* *寫入IOPS *：目前針對磁碟區執行的寫入IOPS總數。
+* *總處理量*：目前針對磁碟區執行的處理量（讀取和寫入）總計。
+* *讀取處理量*：目前針對磁碟區執行的讀取處理量總計。
+* *寫入處理量*：目前針對磁碟區執行的寫入處理量總計。
+* *總延遲（毫秒）*：完成磁碟區讀寫作業的平均時間（以微秒為單位）。
+* *讀取延遲（毫秒）*：在過去500毫秒內完成磁碟區讀取作業的平均時間（以微秒為單位）。
+* *寫入延遲（毫秒）*：在過去500毫秒內完成磁碟區寫入作業的平均時間（以微秒為單位）。
+* *佇列深度*：未完成的磁碟區讀寫作業數。
+* *平均IO大小*：最近500毫秒內磁碟區的I/O平均大小（以位元組為單位）。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

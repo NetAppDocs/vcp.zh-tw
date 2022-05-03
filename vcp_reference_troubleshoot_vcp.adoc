@@ -1,0 +1,235 @@
+---
+sidebar: sidebar 
+permalink: vcp_reference_troubleshoot_vcp.html 
+summary: 您可以瞭解外掛程式的一些常見問題、以及解決問題的步驟。 
+keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, alert, cluster, performance 
+---
+= 疑難排解vCenter外掛程式
+:hardbreaks:
+:allow-uri-read: 
+:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: media/
+
+
+[role="lead"]
+您必須瞭解NetApp Element 適用於vCenter Server的某些常見問題、以及解決這些問題的步驟。
+
+* <<Plug-in registration successful but icons do not appear in web client>>
+* <<Errors after VCP 4.8 upgrade with VMware vCenter Server 6.7U1>>
+* <<Error registering plug-in using Registration UI>>
+* <<Error updating plug-in using Registration UI>>
+* <<Error message that NetApp extension cannot be upgraded>>
+* <<Removing plug-in completes successfully but icons remain>>
+* <<Plug-in cannot be unregistered or removed after admin password change>>
+* <<Plug-in management tasks fail or volumes are not accessible to ESXi host>>
+* <<Failure occurs during vCenter Plug-in use on Firefox 59.0.2 browsers>>
+* <<Delete datastore operation fails>>
+* <<Cluster pair cannot connect using a pairing key>>
+* <<Error message for QoSSIOC status>>
+* <<QoSSIOC service shown as available but is unavailable>>
+* <<QoSSIOC is enabled for datastore but unavailable>>
+
+
+
+
+== 外掛程式登錄成功、但圖示不會出現在Web用戶端中
+
+註冊顯示為成功、但從vSphere Web Client看不到外掛程式圖示。
+
+.修正行動
+* 登出vSphere Web Client、然後重新登入。可能需要關閉並重新開啟瀏覽器。
+* 清除瀏覽器快取。
+* 從vCenter、從Windows系統管理工具的「服務」功能表重新啟動vSphere Web Client服務、或重新啟動vCenter。
+* 請確定您擁有與vCenter管理員角色相關的所有必要預設管理權限。
+* 檢查外掛程式的ZIP檔案是否已成功下載至vCenter：
++
+.. 在vCenter中開啟「vSphere_client_virgo．log」。6.5和6.7版的vCenter記錄檔位於下列位置：
++
+*** Flash安裝：/var/log/VMware/vSphere-client/logs/vSphere_client_virgo
+*** HTML5安裝：/var/log/VMware/vSphere-ui/logs/vSphere_client_virgo．log
+
+
+.. 如果失敗訊息指出郵遞區號下載失敗、請再次下載郵遞區號。
++
+
+NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登錄或取消登錄、然後以修正後的URL重新登錄外掛程式。如果您指定HTTP URL而不變更「owHTTP」設定、也可能發生無法下載ZIP的情況。
+
+
+
+* 驗證網路連接埠。確保管理節點可從vCenter雙向存取所需的連接埠。
+* 檢查vCenter的MOB擴充記錄 (https://<vcenterIP>/mob/?moid=ExtensionManager&doPath=extensionList["com.solidfire"]伺服器）、其中包含外掛程式ZIP的下載位置URL：
++
+.. 將URL貼到瀏覽器中。
+.. 確認外掛程式ZIP可以下載。
++
+*** 如果可以下載外掛程式ZIP、請繼續下一步。
+*** 如果無法下載外掛程式ZIP、請檢查vCenter Server與管理節點之間的網路問題。
+
+
+.. 如果無法下載外掛程式、請將MOB記錄中的「最大指紋」與瀏覽器中顯示的ZIP URL憑證SHA-1進行比較：
++
+... 如果MOB中的登錄記錄有不正確或過時的URL或SHA-1、請取消登錄外掛程式、然後重新登錄外掛程式。
+... 如果問題仍然存在、而且無法連線到ZIP、請檢查ZIP URL、以判斷所使用的管理節點位址是否有問題。在某些情況下、可能需要使用外掛程式的登錄公用程式來自訂URL、以便下載ZIP檔案。
+
+
+
+
+
+
+
+
+== 使用VMware vCenter Server 6.7U1升級VCP 4.8之後發生錯誤
+
+在使用VMware vCenter Server 6.7U1升級至VCP 4.8之後、您可能會遇到下列問題：
+
+* 叢集未列在*叢集*區段中。
+* 伺服器錯誤會出現在NetApp Element 「叢集與QoSSIOC設定」*區段的「功能組態」中。
+
+
+還原叢集和QoSSIOC設定：
+
+. 登出vCenter。
+. 登出後、請等待兩到三分鐘、然後重新登入。
+. 在目前的vSphere Client檢視中、選取重新整理圖示。
+. 停用快取並重新整理瀏覽器、例如使用Ctrl+F5。
+. 檢查叢集和QoSSIOC設定是否已還原。
++
+如果問題持續發生、您需要 link:https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["重新新增叢集"^]。
+
+
+
+
+
+== 使用登錄UI登錄外掛程式時發生錯誤
+
+使用登錄公用程式時、在vCenter伺服器上登錄外掛程式時發生錯誤。已安裝金鑰為「com.solidfire」的外掛程式。
+
+在註冊公用程式中、使用*更新外掛程式*而非*註冊外掛程式*。
+
+
+
+== 使用登錄UI更新外掛程式時發生錯誤
+
+使用登錄公用程式時、針對vCenter伺服器更新外掛程式時發生錯誤。未安裝金鑰為「com.solidfire」的外掛程式來進行更新。
+
+在註冊公用程式中、使用* Register Plug-In *而非* Update Plug-In *。
+
+
+
+== 無法升級NetApp副檔名的錯誤訊息
+
+.訊息
+[listing]
+----
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection.
+----
+在從6.0版升級至6.5版的Windows vCenter Server期間、您會看到一則警告訊息、指出NetApp擴充功能無法升級、或無法與新的vCenter Server搭配使用。完成升級並登入vSphere Web Client之後、當您選取vCenter外掛程式擴充點時、就會發生錯誤。發生此錯誤的原因是儲存執行時間資料庫的目錄已從6.0版變更為6.5版。vCenter外掛程式無法建立執行時間所需的檔案。
+
+.修正行動
+. 取消註冊外掛程式。
+. 移除外掛程式檔案。
+. 重新啟動vCenter。
+. 登錄外掛程式。
+. 登入vSphere Web Client。
+
+
+
+
+== 移除外掛程式成功完成、但仍有圖示
+
+移除vCenter外掛程式套件檔案成功完成、但外掛程式圖示仍可在vSphere Web Client中看到。
+
+登出vSphere Web Client、然後重新登入。可能需要關閉並重新開啟瀏覽器。如果登出vSphere Web Client無法解決問題、則可能需要重新啟動vCenter伺服器Web服務。此外、其他使用者可能也有現有的工作階段。所有使用者工作階段都必須關閉。
+
+
+
+== 變更管理密碼後、無法取消註冊或移除外掛程式
+
+變更用於登錄外掛程式之vCenter的管理密碼之後、就無法取消登錄或移除vCenter外掛程式。
+
+若為外掛程式2.6、請前往vCenter外掛程式*登錄*/*取消登錄*頁面。按一下「*更新*」按鈕以變更vCenter IP位址、使用者ID和密碼。
+
+若為外掛程式2.7或更新版本、請在外掛程式的mNode設定中更新vCenter管理員密碼。
+
+對於外掛程式4.4或更新版本、請在外掛程式的QoSSIOC設定中更新vCenter管理員密碼。
+
+
+
+== 外掛程式管理工作失敗、或ESXi主機無法存取磁碟區
+
+建立、複製及共用資料存放區工作失敗、或ESXi主機無法存取磁碟區。
+
+.修正行動
+* 檢查ESXi主機上是否有軟體iSCSI HBA存在、以及是否已啟用該軟體、以進行資料存放區作業。
+* 檢查磁碟區是否未刪除或指派給不正確的磁碟區存取群組。
+* 檢查Volume存取群組的主機IQN是否正確。
+* 檢查關聯的帳戶是否具有正確的CHAP設定。
+* 檢查Volume狀態是否為作用中、Volume存取是否為「ReadWrite」、「512e」是否設為「true」。
+
+
+
+
+== 在Firefox 59.0.2瀏覽器上使用vCenter外掛程式時發生故障
+
+「名稱：http錯誤回應原始訊息：HTTP失敗回應 https://vc6/ui/solidfire-war-4.2.0-SNAPSHOT/rest/vsphere//servers:[] 500內部伺服器錯誤傳回訊息：伺服器錯誤。請再試一次、或聯絡NetApp支援部門
+
+此問題發生於使用Firefox的vSphere HTML5 Web用戶端。vSphere Flash用戶端不受影響。
+
+在瀏覽器URL中使用完整FQDN。VMware需要IP、簡短名稱和FQDN的完整轉送和反轉解析。
+
+
+
+== 刪除資料存放區作業失敗
+
+刪除資料存放區作業失敗。
+
+檢查是否已從資料存放區刪除所有VM。您必須先從資料存放區刪除VM、然後才能刪除資料存放區。
+
+
+
+== 叢集配對無法使用配對金鑰連線
+
+使用配對金鑰進行叢集配對時發生連線錯誤。「*建立叢集配對*」對話方塊中的錯誤訊息表示沒有通往主機的路由。
+
+手動刪除在本機叢集上建立的未設定叢集配對程序、然後再次執行叢集配對。
+
+
+
+== QoSSIOC狀態的錯誤訊息
+
+外掛程式的QoSSIOC狀態會顯示警告圖示和錯誤訊息。
+
+.修正行動
+* 「無法到達IP位址」：IP位址無效或未收到任何回應。確認位址正確、管理節點已上線且可供使用。
+* 「無法通訊」：可以連線到IP位址、但無法呼叫該位址。這可能表示QoSSIOC服務未在指定的位址執行、或防火牆可能會封鎖流量。
+* 「無法連線至SIOC服務」：在管理節點上的「/opt/sidfire/sioc/data/logs/」（舊管理節點上的「/var/log/log」或「/var/log/solidfire/」）中開啟「shIO.log」、以驗證SIOC服務是否已成功啟動。SIOC服務啟動可能需要50秒以上。如果服務未成功啟動、請再試一次。
+
+
+
+
+== QoSSIOC服務顯示為可用但無法使用
+
+QoSSIOC服務設定顯示為「UP」、但QoSSIOC無法使用。
+
+在「還原組態」擴充點的「* QoSSIOC設定*」索引標籤NetApp Element 中、按一下「重新整理」按鈕。視需要更新IP位址或使用者驗證資訊。
+
+
+
+== QoSSIOC已啟用資料存放區、但無法使用
+
+已啟用資料存放區的QoSSIOC、但QoSSIOC無法使用。
+
+檢查資料存放區是否已啟用VMware SIOC：
+
+. 在管理節點上的「/opt/sidfire/sioc/data/logs/」中開啟「sho.log」（在較舊的管理節點上為「/var/log」或「/var/log/solidfire/」）。
+. 搜尋此文字：
++
+[listing]
+----
+SIOC is not enabled
+----
+. 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["本文"] 針對您的問題採取的修正行動。
+

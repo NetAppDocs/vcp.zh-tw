@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_iscsi.html 
+summary: 您可以在NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection 
+---
+= 監控iSCSI工作階段以判斷連線狀態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。
+
+.步驟
+. 從vCenter外掛程式選取* NetApp Element 《Management》*。
+. 選擇*報告*>* iSCSI工作階段*。
+
+
+
+
+== iSCSI工作階段資料
+
+* *節點*：主控磁碟區主要中繼資料分割的節點。
+* *帳戶*：擁有該磁碟區的帳戶名稱。如果值為空白、則會顯示破折號（-）。
+* * Volume *：節點上識別的磁碟區名稱。
+* * Volume ID*：與目標IQN相關的Volume ID。
+* *啟動器ID*：系統產生的啟動器ID。
+* *啟動器別名*：啟動器的選用名稱、可讓您在長清單中更容易找到啟動器。
+* *啟動器IP*：啟動工作階段的端點IP位址。
+* *啟動器IQN*：啟動工作階段的端點IQN。
+* *目標IP*：主控磁碟區之節點的IP位址。
+* *目標IQN*：Volume的IQN。
+* *建立日期*：建立工作階段的日期。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

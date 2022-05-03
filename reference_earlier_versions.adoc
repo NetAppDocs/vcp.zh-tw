@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: reference_earlier_versions.html 
+keywords: documentation, earlier, previous, versions 
+summary: 本文件適用於vCenter NetApp Element Server的版本低於版本4.6的版本。 
+---
+= 舊版NetApp Element 的不整合外掛程式文件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: documentation, earlier, previous, versions
+
+
+[role="lead"]
+本文件也適用於早於NetApp Element 適用於vCenter Server之VMware vCenter外掛程式版本4.8的版本。
+
+
+NOTE: 這 link:index.html["文件連結"] 適用於vCenter Server的版本4.8 NetApp Element 也包含版本4.6和4.7。
+
+[cols="4*"]
+|===
+| 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
+
+
+| 4.7 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["2.18.91"^] | link:index.html["連結"] 
+
+
+| 4.6% | https://library.netapp.com/ecm/ecm_download_file/ECMLP2874631["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_Hybrid_Cloud_Control_and_Management_Services_2.17.56_Release_Notes["2.17.56 KB"^] | link:index.html["連結"] 
+
+
+| 4.5 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2873396["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.14.60_Release_Notes["2.14.60 KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2872843["PDF"^] 
+
+
+| 4.4 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2866569["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.11.34_Release_Notes["2.11.34 KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2870280["PDF"^] 
+
+
+| 4.3 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2856119["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.0.725_Release_Notes["2.0.725-KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2860023["PDF"^]附註：本出版品說明Element軟體11.3/NetApp HCI 1.6的更新管理節點升級程序。https://library.netapp.com/ecm/ecm_download_file/ECMLP2860878["PDF"^]附註：本出版品說明Element軟體11.5/NetApp HCI 1.7的更新管理節點升級程序https://library.netapp.com/ecm/ecm_download_file/ECMLP2863783["PDF"^]附註：本出版品說明Element軟體11.7/NetApp HCI 1.7P1的更新管理節點升級程序 
+|===

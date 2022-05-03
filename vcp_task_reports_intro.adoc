@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_intro.html 
+summary: 使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式的「報告」頁面、檢視叢集元件和效能的相關資訊。 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, cluster, performance 
+---
+= 利用報告選項監控系統效能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式的「報告」頁面來檢視叢集元件和效能的相關資訊。
+
+您可以使用vCenter外掛程式、以下列方式監控叢集元件和效能：
+
+* link:vcp_task_reports_overview.html["在「總覽」頁面上監控整體叢集健全狀況"]
+* link:vcp_task_reports_alerts.html["監控系統警示"]
+* link:vcp_task_reports_event_logs.html["監控事件記錄以進行疑難排解"]
+* link:vcp_task_reports_volume_performance.html["監控Volume效能"]
+* link:vcp_task_reports_iscsi.html["監控iSCSI工作階段以判斷連線狀態"]
+* link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

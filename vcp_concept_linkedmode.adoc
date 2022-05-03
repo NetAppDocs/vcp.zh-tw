@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_linkedmode.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, linked mode 
+---
+= 連結模式和外掛程式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用vCenter連結模式、從其他vCenter Server管理叢集資源。
+
+只有在您登入目的地vCenter Web用戶端時、才能管理Element外掛程式中的儲存叢集。
+
+若要在vSphere連結模式環境中設定儲存叢集管理、您可以使用下列程序手動新增儲存叢集。
+
+.步驟
+. 在將使用外掛程式的「連結模式」環境中、向每個vCenter Server註冊外掛程式。
+. 針對每個連結的vCenter Server登入vSphere Web Client一次。
++
+登入會啟動在Web用戶端上安裝外掛程式。
+
+. 登入您要管理儲存叢集的目的地vCenter Web用戶端。
+. 將儲存叢集新增至Element外掛程式庫存。
+
+
+您的VCenter1和vCenter2處於連結模式、儲存叢集1和儲存叢集2。您想要vCenter1管理叢集1和vCenter2來管理叢集2。若要設定儲存叢集管理、請在每部vCenter Server註冊外掛程式之後、執行下列步驟：
+
+. 登入vCenter1 Web用戶端。
+. 若要從vCenter1 Web用戶端管理cluster1、請將cluster1新增至Element Plug-in詳細目錄。
+. 登入vCenter2 Web用戶端。
+. 若要從vCenter2 Web用戶端管理cluster2、請將cluster2新增至Element Plug-in詳細目錄。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

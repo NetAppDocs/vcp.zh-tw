@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_protection_domains.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, protection, domain 
+---
+= 保護網域
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+保護網域是一個節點或一組節點群組在一起、因此網域中的任何節點或所有節點可能會失敗、而不會導致叢集喪失資料可用度。保護網域功能可讓您監控叢集的資源容量、確保叢集仍能從故障事件中修復。您可以選取節點或機箱網域層級的監控：
+
+* *節點層級*可定義每個個別節點的每個保護網域、每個節點可能位於整個機箱內。
+* *機箱層級*依共用機箱的節點定義每個保護網域。
+
+
+機箱網域需要比節點網域更多的潛在容量資源、才能恢復故障。當超出保護網域臨界值時、叢集不再擁有足夠的容量來從故障中恢復、同時維持不中斷的資料可用度。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

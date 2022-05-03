@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_management_extension_point.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, management, extension point 
+---
+= 解決方案管理擴充點NetApp Element
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+利用「支援物件管理」擴充點、您可以新增及管理叢集、將儲存叢集指派給vCenter Server進行連結模式、以及設定QoSSIOC的管理節點設定。NetApp Element
+
+
+NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+
+
+NOTE: 您的vSphere Web Client可能會與下列映像所示的版本略有不同、視所安裝的vSphere版本而定。
+
+image::vcp_management_extension_point.png[管理擴充點]
+
+叢集導覽列可讓您在新增至外掛程式的叢集之間快速切換：
+
+* *叢集*：如果新增兩個或多個叢集、請確定已在導覽列中選取要用於管理工作的叢集。從下拉式清單中選取其他新增的叢集。
+* * MVIP*：所選叢集的管理虛擬IP位址。
+* * SVIP*：所選叢集的儲存虛擬IP位址。
+* * vCenter *：所選叢集可存取的vCenter Server。將叢集新增至外掛程式時、會將叢集的存取權指派給vCenter Server。
+
+
+下列索引標籤可從NetApp Element 《不受影響的管理》擴充點取得：
+
+* *入門*：介紹外掛程式的擴充點、以及可執行的動作。您可以隱藏每個頁面的「使用入門」頁面、或從NetApp Element 「畫面管理」擴充點的「*關於*」索引標籤中還原頁面。
+* *報告*：顯示叢集元件的相關資訊、並提供叢集效能總覽。您也可以從索引標籤找到有關事件、警示、iSCSI工作階段、執行中工作和Volume效能的資訊。
+* *管理*：建立及管理資料存放區、磁碟區、使用者帳戶、存取群組及啟動器。您也可以執行備份作業、複製和快照。QoS原則可透過NetApp Element 不含更新版本的軟體10來建立及管理。
+* *保護*：管理個別與群組快照。您也可以建立快照建立排程、配對叢集以進行即時複寫、以及管理磁碟區配對。
+* *叢集*：新增及管理磁碟機和節點。您也可以建立及管理VLAN。
+* * VVols *：管理虛擬磁碟區及其相關的儲存容器、傳輸協定端點和繫結。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:vcp_concept_config_extension_point["部分組態擴充點NetApp Element"]
+* link:concept_vcp_product_overview.html["vCenter Server適用的插件概述NetApp Element"]
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

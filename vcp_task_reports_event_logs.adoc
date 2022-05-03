@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_event_logs.html 
+summary: 檢閱NetApp Element vCenter Server的VMware vCenter外掛程式中的事件記錄、其中列出叢集上執行的作業、以及任何表示錯誤的叢集故障。 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, cluster, performance 
+---
+= 監控事件記錄以進行疑難排解
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以檢閱事件記錄、查看在所選叢集上執行的作業、以及可能發生的叢集故障。系統會自動解決大多數錯誤。其他故障可能需要手動介入。
+
+.步驟
+. 從vCenter外掛程式選取* NetApp Element 《Management》*。
+. 選擇*報告*>*事件記錄*。
+. 若要檢閱詳細資料、請選取事件、然後按一下*詳細資料*。
+. 檢閱事件資訊、包括下列項目：
++
+** *事件類型*：要記錄的事件類型、例如API事件或複製事件。
+** *服務ID *：報告事件的服務ID（若適用）。如果故障與服務無關、則此值為零。
+** *節點*或*磁碟機ID*：報告事件的節點或磁碟機ID（若適用）。
+
+
+
+
+
+
+== 事件類型
+
+系統會報告多種類型的事件；每個事件都是系統已完成的作業。事件可以是例行事件、一般事件或需要系統管理員注意的事件。「事件記錄」頁面上的「事件類型」欄會指出事件發生在系統的哪個部分。
+
+
+NOTE: 系統不會在事件記錄中記錄唯讀API命令。
+
+下列清單說明事件記錄中可能出現的事件類型。
+
+* *每個事件*：使用者透過API或Web UI啟動的事件、可修改設定。
+* *資料夾指派事件*：與指派資料匣相關的事件。容器基本上是儲存資料並在叢集之間對應的容器。
+* * BinsSyncEvent *：在區塊服務之間重新指派資料的相關系統事件。
+* * bsChecksEV*：與區塊服務檢查相關的系統事件。
+* * bsKillEvent *：與區塊服務終止相關的系統事件。
+* *《資本活動*》：與在整個磁碟區上執行的作業相關的事件、例如備份、還原、快照或複製。
+* * clonewonevet*：與磁碟區複製相關的事件。
+* *叢集主事件*：叢集初始化時或叢集組態變更時出現的事件、例如新增或移除節點。
+* * csumEvent *：與磁碟上無效資料校驗和相關的事件。
+* *資料事件*：與讀寫資料相關的事件。
+* * db事件*：與叢集中所有節點所維護之通用資料庫相關的事件。
+* *磁碟機事件*：與磁碟機作業相關的事件。
+* *加密At恢復 事件*：與叢集加密程序相關的事件。
+* 「森森森森活動*」：與增加或減少集合中節點數相關的事件。
+* * fiberChannel事件*：與節點組態和連線相關的事件。
+* * gcEvent *：與處理程序相關的事件每60分鐘執行一次、以回收區塊磁碟機上的儲存空間。此程序也稱為垃圾回收。
+* * iEvent *：內部系統錯誤。
+* *安裝事件*：自動軟體安裝事件。軟體正在掛起的節點上自動安裝。
+* * iSCSIEV*：與系統中iSCSI問題相關的事件。
+* *限制事件*：與帳戶或叢集內接近允許上限的磁碟區或虛擬磁碟區數目相關的事件。
+* *維護模式事件*：與節點維護模式相關的事件、例如停用節點。
+* *網路事件*：與虛擬網路狀態相關的事件。
+* *平台硬體事件*：與硬體裝置偵測到的問題相關的事件。
+* * remoteClusterEvent *：與遠端叢集配對相關的事件。
+* *排程器事件*：與排程快照相關的事件。
+* *服務事件*：與系統服務狀態相關的事件。
+* *交叉分析eEvent *：與Slice Server相關的事件、例如移除中繼資料磁碟機或磁碟區。
++
+分區重新指派事件有三種類型、包括指派磁碟區之服務的相關資訊：
+
+* 翻轉：將主要服務變更為新的主要服務
++
+「liceID oldPrimaryServiceID-> newPrimaryServiceID」
+
+* 移動：將次要服務變更為新的次要服務
++
+「liceID｛old輔助 服務ID｝->｛new輔助 服務ID｝」
+
+* 剪除：從一組服務中移除磁碟區
++
+「liceID｛oldSecondaryServiceID｝」
+
+* * SNMP陷阱事件*：與SNMP陷阱相關的事件。
+* *狀態事件*：與系統統計資料相關的事件。
+* * tsEvent *：與系統傳輸服務相關的事件。
+* *非預期的例外*：與非預期系統例外相關的事件。
+* * ureEvent *：與從儲存設備讀取時發生的不可恢復讀取錯誤有關的事件。
+* * vasaProviderEvent *：與VASA（vSphere API for Storage Aware）Provider相關的事件。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+
