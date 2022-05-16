@@ -854,7 +854,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 06:13:01 +0000">05/03/2022</time>
+    <time datetime="2022-05-16 14:12:14 +0000">05/16/2022</time>
     
   
 
@@ -872,7 +872,7 @@
 <h2 id="vmware-vsphere先決條件">VMware vSphere先決條件</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>需要VMware vSphere 7.0或6.7、包括vCenter和ESXi搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「版本資訊」外掛程式。</p>
+<p>需要VMware vSphere 7.0、6.7或6.5、包括vCenter和ESXi、搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「支援VMware vCenter外掛程式」。</p>
 </div>
 <div class="sect2">
 <h3 id="外掛程式支援的vmware-vsphere版本">外掛程式支援的VMware vSphere版本</h3>
@@ -883,6 +883,18 @@
 <ul>
 <li>
 <p>vSphere 7.0和7.0 Update 1、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3" target="_blank" rel="noopener">"這篇知識庫文章"</a>。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>vSphere 6.7和6.7 Update 1和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</p>
@@ -899,19 +911,10 @@
 </table>
 </div>
 </li>
+<li>
+<p>vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</p>
+</li>
 </ul>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/vcp/images/important.svg" alt="重要">
-</td>
-<td class="content">
-外掛程式與VMware vCenter Server 6.5不相容。
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -1008,16 +1011,16 @@ VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從NetApp HCI VM
               <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/company/legal/terms-of-use/">legal-terms</a>
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">條款與條件</a>
             </li>
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/company/legal/privacy-policy/">legal-privacy</a>
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Privacy Policy</a>
             </li>
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/company/legal/cookie-policy/">legal-cookies</a>
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie Policy</a>
             </li>
             <li class="n-footer__copyright-link">
-              <a class="ot-sdk-show-settings">cookie-settings</a>
+              <a class="ot-sdk-show-settings">Cookie 設定</a>
             </li>
           </ul>
         </div>
