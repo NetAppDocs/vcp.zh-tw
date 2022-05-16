@@ -54,6 +54,7 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 
 通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。
 
+* link:media/mgmt_svcs_2.20_notice.pdf["管理服務注意事項2.20.69（VCP 4.9.14）"^]
 * link:media/mgmt_svcs_2.19_notice.pdf["管理服務注意事項2.19.48（VCP 4.8.34）"^]
 * link:media/mgmt_svcs_2.18_notice.pdf["管理服務注意事項2.18.91（VCP 4.7.10）"^]
 * link:media/mgmt_svcs_2.17.56_notice.pdf["管理服務注意事項2.17.56（VCP 4.6.32）"^]

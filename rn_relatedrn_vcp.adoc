@@ -24,7 +24,8 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 == NetApp HCI
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2879274["《》（英文）：《》（英文）NetApp HCI"^] _新_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2882194["《》（英文NetApp HCI"^] _新_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2879274["《》（英文）：《》（英文）NetApp HCI"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2876591["發行說明NetApp HCI"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2873790["《》發行說明1.8P1 NetApp HCI"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2865021["發行說明NetApp HCI"^]
@@ -35,7 +36,8 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 == 軟件NetApp Element
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["《軟件12.3.2發行說明》NetApp Element"^] _新_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2882193["《軟件發行說明》（英文）NetApp Element"^] _新_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["《軟件12.3.2發行說明》NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2878089["《軟件12.3.1發行說明》NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2876498["Software 123版本資訊NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2873789["Software 12.2版本資訊NetApp Element"^]
@@ -57,6 +59,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 == vCenter Server的VMware vCenter外掛程式NetApp Element
 
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["vCenter Plug-in 4.9版本說明"^] _新_
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["vCenter Plug-in 4.8版本說明"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["vCenter Plug-in 4.7版本說明"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2874631["vCenter Plug-in 4.6版本說明"^]
@@ -69,7 +72,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 == 運算韌體
 
-* https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.76.10.html["運算韌體套裝組合2.76.10版本說明（最新）"^]
+* https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.146.html["運算韌體套裝組合2.146版本說明"^] _新_
 * https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.76.html["運算韌體套裝組合2.76版本說明"^]
 * https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.27.html["運算韌體套裝組合2.27版本說明"^]
 * https://docs.netapp.com/us-en/hci/docs/rn_firmware_12.2.109.html["運算韌體產品組合12.2.109版本說明"^]
@@ -79,7 +82,8 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 == 儲存韌體
 
-* https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.99.2.html["儲存韌體產品組合2.99.2版本說明（最新）"^]
+* https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.146.html["儲存韌體產品組合2.146版本說明"^] _新_
+* https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.99.2.html["儲存韌體產品組合2.99.2版本說明"^]
 * https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.76.html["儲存韌體產品組合2.76版本說明"^]
 * https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.27.html["儲存韌體產品組合2.27版本說明"^]
 * https://docs.netapp.com/us-en/hci/docs/rn_H610S_BMC_3.84.07.html["H610S BMC 3.84.07版本說明"^]

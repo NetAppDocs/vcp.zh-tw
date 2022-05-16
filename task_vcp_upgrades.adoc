@@ -15,7 +15,7 @@ keywords: netapp, vcp, vcenter, plugin, element, upgrade
 
 
 [role="lead"]
-您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。vCenter Server 4.8版的選購套件包含在Element和發行版之外、管理服務套裝組合中。NetApp Element NetApp HCI
+您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。vCenter Server 4.9版的選購項目可在Element和VMware版本之外取得、這是管理服務套裝組合的一部分。NetApp Element NetApp HCI
 
 若要升級外掛程式、請依照產品升級文件中的指示進行：
 
@@ -26,7 +26,7 @@ keywords: netapp, vcp, vcenter, plugin, element, upgrade
 [discrete]
 == 如需詳細資訊、請參閱
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["vCenter Plug-in 4.8版本說明"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["vCenter Plug-in 4.9版本說明"^]
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["混合雲控制與管理服務版本說明"^]
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
 * http://mysupport.netapp.com/hci/resources["「資源」頁面NetApp HCI"^]

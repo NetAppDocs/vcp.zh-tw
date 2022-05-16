@@ -15,6 +15,14 @@ keywords: netapp, vcp, vcenter, plugin, element, new, whats new
 
 
 [role="lead"]
+vCenter Server 4.9版的支援功能可還原vSphere 6.5的支援、包括vCenter Server、ESXi和vSphere HTML5 Web Client。NetApp Element
+
+vCenter Server 4.9版的VMware vCenter Server 4.9外掛程式隨附於管理服務的2.20版。NetApp Element
+
+
+
+== vCenter Server 4.8的版插件NetApp Element
+
 vCenter Server 4.8版的更新程式包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。NetApp Element
 
 vCenter Server 4.8版的支援VMware vCenter Server 4.8外掛程式可與2.19版的管理服務搭配使用。NetApp Element

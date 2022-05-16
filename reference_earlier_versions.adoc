@@ -15,14 +15,17 @@ summary: 本文件適用於vCenter NetApp Element Server的版本低於版本4.6
 
 
 [role="lead"]
-本文件也適用於早於NetApp Element 適用於vCenter Server之VMware vCenter外掛程式版本4.8的版本。
+本文件也適用於版本4.9之前的vCenter NetApp Element Server版。
 
 
-NOTE: 這 link:index.html["文件連結"] 適用於vCenter Server的版本4.8 NetApp Element 也包含版本4.6和4.7。
+NOTE: 這 link:index.html["文件連結"] 適用於vCenter Server的4.9版NetApp Element 的VMware vCenter Server也包含4.6、4.7和4.8版。
 
 [cols="4*"]
 |===
 | 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
+
+
+| 4.8. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["2.19.48"^] | link:index.html["連結"] 
 
 
 | 4.7 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["2.18.91"^] | link:index.html["連結"] 

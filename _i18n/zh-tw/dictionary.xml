@@ -195,13 +195,11 @@
   <block id="36fb791a39c0dcf9d768ea535ca51db9" category="doc">vCenter Server的Element外掛程式需求</block>
   <block id="e6934e0cf4466efe40dba8ffce55213b" category="paragraph">使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用的要求</block>
   <block id="d495047561c1a08074d3afeeb5b5d172" category="section-title">VMware vSphere先決條件</block>
-  <block id="f69d59b3c086e91cd1005a1ff37e9c51" category="paragraph">需要VMware vSphere 7.0或6.7、包括vCenter和ESXi搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「版本資訊」外掛程式。</block>
   <block id="3903fd261f224ad8af888f893eb71a5e" category="section-title">外掛程式支援的VMware vSphere版本</block>
   <block id="39bb4a890cda10e989012ed844843a1a" category="paragraph">外掛程式支援下列VMware軟體主要版本：</block>
   <block id="f91a10eb569e37e963d1fe4559054eaf" category="list-text">vSphere 7.0和7.0 Update 1、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
   <block id="8bc5dd01570b8e30ab647a98f1b5c995" category="list-text">vSphere 6.7和6.7 Update 1和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
   <block id="f72c3688e3e7a685ff88f8a7c360f844" category="admonition">外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Client不相容、以及在更新2a（建置13643870）之前發佈的其他6.7 U2組建。相容於6.7 U2版vSphere Web Client for Flash/Flex。</block>
-  <block id="45d51a6416ad3562026999aeda3b30f2" category="admonition">外掛程式與VMware vCenter Server 6.5不相容。</block>
   <block id="bcc539df8c871d5ecc3798cf0bf4e50a" category="section-title">vSphere 6.0結束支援</block>
   <block id="dec3ff704eae83bc704f10747ef72261" category="inline-link">產品公報</block>
   <block id="56e21e285d29ac3707d9de62d9f702c6" category="admonition">VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從NetApp HCI VMware支援的元件1.8和元件12開始、vSphere 6.0不再受支援。如需詳細資訊、請參閱<block ref="f606560fd089580031ad7289c0774bc4" category="inline-link-rx"></block>。</block>
@@ -1478,9 +1476,7 @@
   <block id="433d8841859937488869f2cc991a4b8b" category="list-text"><block ref="433d8841859937488869f2cc991a4b8b" category="inline-link-macro-rx"></block></block>
   <block id="41bebb27febffbe684d395967a3074fb" category="summary">本文件適用於vCenter NetApp Element Server的版本低於版本4.6的版本。</block>
   <block id="8346ef1c36db2bf9a822b4aeeee94bae" category="doc">舊版NetApp Element 的不整合外掛程式文件</block>
-  <block id="c60c64f416bf22b6e140eb52525d5b01" category="paragraph">本文件也適用於早於NetApp Element 適用於vCenter Server之VMware vCenter外掛程式版本4.8的版本。</block>
   <block id="b1859080f20e43589e23a4f60292cbd0" category="inline-link-macro">文件連結</block>
-  <block id="76fd0d53661e4e34cc3d7eadc5c43294" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 適用於vCenter Server的版本4.8 NetApp Element 也包含版本4.6和4.7。</block>
   <block id="34b6cd75171affba6957e308dcbd92be" category="cell">版本</block>
   <block id="8c4acbc2063657214fc1de03ee31a0df" category="cell">外掛程式版本說明</block>
   <block id="fefb29e781716d4ae47b68c416f147bf" category="cell">管理服務版本說明</block>
@@ -1670,7 +1666,6 @@
   <block id="37427fc5a8bad397ce23cc26db275d84" category="list-text">* vasaProviderEvent *：與VASA（vSphere API for Storage Aware）Provider相關的事件。</block>
   <block id="2eaa7103b033431a2a869178996c6af4" category="summary">升級至NetApp Element 最新版的vCenter Server適用的VMware vCenter外掛程式。</block>
   <block id="8fbfd26ed5e6497365d351c8f25fa303" category="doc">升級外掛程式</block>
-  <block id="11de79fb56eb3a529489d5598250cfa1" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。vCenter Server 4.8版的選購套件包含在Element和發行版之外、管理服務套裝組合中。NetApp Element NetApp HCI</block>
   <block id="230c0803a12f9d38853bdccc853eaabd" category="paragraph">若要升級外掛程式、請依照產品升級文件中的指示進行：</block>
   <block id="056947baa0d57b8ea8db9699e2b2d650" category="inline-link">升級NetApp HCI 您的系統</block>
   <block id="8205746f5d5236ad86d4993e15eed883" category="list-text"><block ref="8205746f5d5236ad86d4993e15eed883" category="inline-link-rx"></block></block>
@@ -1698,7 +1693,6 @@
   <block id="618bdc2067940be634fb648432588c93" category="paragraph">您可以找到NetApp HCI 最新及早期版本說明的連結、以瞭解有關各種元件的資訊、包括各種元件儲存環境。</block>
   <block id="2b25aeb8c7f6b5acc086216f641291e8" category="admonition">系統會提示您使用NetApp支援網站認證登入。</block>
   <block id="54866f3f5260905d8cc6b998d85fee46" category="inline-link">《》（英文）：《》（英文）NetApp HCI</block>
-  <block id="5f123fb5072e8736326c928e2de971af" category="list-text"><block ref="9676fc811bea74225536cdd128daebc0" category="inline-link-rx"></block> _新_</block>
   <block id="ad486ba7980ca0df1937d7f26f4ce12b" category="inline-link">發行說明NetApp HCI</block>
   <block id="633cc64117e19d8cdd0def00cc27e8f5" category="list-text"><block ref="633cc64117e19d8cdd0def00cc27e8f5" category="inline-link-rx"></block></block>
   <block id="93c90752aba7edbf5a9fd2d0543c08d3" category="inline-link">《》發行說明1.8P1 NetApp HCI</block>
@@ -1709,7 +1703,6 @@
   <block id="4eed15839b8c708f78b2b696364ff0aa" category="list-text"><block ref="4eed15839b8c708f78b2b696364ff0aa" category="inline-link-rx"></block></block>
   <block id="3938cfdbe176bad61cedb25bdb572858" category="section-title">軟件NetApp Element</block>
   <block id="56570048e2475ec7b64ee91388743714" category="inline-link">《軟件12.3.2發行說明》NetApp Element</block>
-  <block id="3903fc6a9f0bcbe1f49608f5110cf661" category="list-text"><block ref="9de5606ae9b23ff6651244b85bd5dae8" category="inline-link-rx"></block> _新_</block>
   <block id="7199e7988a06a61dd6614783601855bd" category="inline-link">《軟件12.3.1發行說明》NetApp Element</block>
   <block id="9add94ad0bafb6a0c0977e09efa22b79" category="list-text"><block ref="9add94ad0bafb6a0c0977e09efa22b79" category="inline-link-rx"></block></block>
   <block id="325c4db41bea4b4c5bc841d336b08e32" category="inline-link">Software 123版本資訊NetApp Element</block>
@@ -1741,8 +1734,6 @@
   <block id="e6f04bc267aa8b790e8358fbcafd13da" category="inline-link">vCenter Plug-in 4.3版本說明</block>
   <block id="b2a1b69fb08bccdb5677884b0a061505" category="list-text"><block ref="b2a1b69fb08bccdb5677884b0a061505" category="inline-link-rx"></block></block>
   <block id="ff87ebe2c25e682bd61568ba1a06d717" category="section-title">運算韌體</block>
-  <block id="b8a3e041719b8e9752b150f5cd409639" category="inline-link">運算韌體套裝組合2.76.10版本說明（最新）</block>
-  <block id="b95832f9e97293e5970c119813d12f8c" category="list-text"><block ref="b95832f9e97293e5970c119813d12f8c" category="inline-link-rx"></block></block>
   <block id="7a02f75af06b21c7f1cfccabab836899" category="inline-link">運算韌體套裝組合2.76版本說明</block>
   <block id="6c8926cd2660fe1426832a40f7e78bff" category="list-text"><block ref="6c8926cd2660fe1426832a40f7e78bff" category="inline-link-rx"></block></block>
   <block id="add6cf39bf48bd4bb95153935993051e" category="inline-link">運算韌體套裝組合2.27版本說明</block>
@@ -1750,8 +1741,6 @@
   <block id="3a155d4e218deae857aac98fd3d2be2c" category="inline-link">運算韌體產品組合12.2.109版本說明</block>
   <block id="564b18336879036fad235824c42003f6" category="list-text"><block ref="564b18336879036fad235824c42003f6" category="inline-link-rx"></block></block>
   <block id="002e74c06881f6eef90f201bb310bbfa" category="section-title">儲存韌體</block>
-  <block id="e2b165ab46734aee4acaaada05a4c247" category="inline-link">儲存韌體產品組合2.99.2版本說明（最新）</block>
-  <block id="f1de80703dd5c9a1cd53931752c56274" category="list-text"><block ref="f1de80703dd5c9a1cd53931752c56274" category="inline-link-rx"></block></block>
   <block id="826ed2a2fd875eeb127f73e48856de14" category="inline-link">儲存韌體產品組合2.76版本說明</block>
   <block id="c8de9bc8a027f0e5864fb603489b44fd" category="list-text"><block ref="c8de9bc8a027f0e5864fb603489b44fd" category="inline-link-rx"></block></block>
   <block id="f0334c1f59f95a0173885c35e98f843f" category="inline-link">儲存韌體產品組合2.27版本說明</block>
@@ -1840,7 +1829,6 @@
   <block id="8ba7fe73aadae9fb529486bc9631d061" category="doc">疑難排解vCenter外掛程式</block>
   <block id="b9c4493f6395cc941c764ec3521cba13" category="paragraph">您必須瞭解NetApp Element 適用於vCenter Server的某些常見問題、以及解決這些問題的步驟。</block>
   <block id="acb74ddc623ba3a90ff6c3e1e72aabb5" category="list-text"><block ref="20d8460084a0c9948d2cc36d92e5943a" category="inline-xref-macro-rx"></block></block>
-  <block id="adee7899128d267f13a11c68d161c1f4" category="list-text"><block ref="07fa342623c29f24475338282827edaa" category="inline-xref-macro-rx"></block></block>
   <block id="720a88aac85bd38e5f77600c434fa172" category="list-text"><block ref="d08f3f2eb111725a9e38a4e29e363ebe" category="inline-xref-macro-rx"></block></block>
   <block id="095c464a72d772c972dffda935226c8f" category="list-text"><block ref="f2afcbdd747e2c0ac83150466ba1452e" category="inline-xref-macro-rx"></block></block>
   <block id="0e77b072d97a1a77d7ce7648f6ff3e6b" category="list-text"><block ref="425e693d2e8aa6dd4d79c902e1163b89" category="inline-xref-macro-rx"></block></block>
@@ -1876,13 +1864,10 @@
   <block id="f5ef2add32b483d327d0279cc4f351d0" category="list-text">如果無法下載外掛程式、請將MOB記錄中的「最大指紋」與瀏覽器中顯示的ZIP URL憑證SHA-1進行比較：</block>
   <block id="01ec9cc7ac910aacebaa037dd5d7eeea" category="list-text">如果MOB中的登錄記錄有不正確或過時的URL或SHA-1、請取消登錄外掛程式、然後重新登錄外掛程式。</block>
   <block id="e51e6aa350cea8bdfbbbbc81ea5492ec" category="list-text">如果問題仍然存在、而且無法連線到ZIP、請檢查ZIP URL、以判斷所使用的管理節點位址是否有問題。在某些情況下、可能需要使用外掛程式的登錄公用程式來自訂URL、以便下載ZIP檔案。</block>
-  <block id="4b3f9c6de81a8dc90f7429b2464c6b39" category="section-title">使用VMware vCenter Server 6.7U1升級VCP 4.8之後發生錯誤</block>
-  <block id="ac1d7f2400d2aa38888bfc6cc2a28d59" category="paragraph">在使用VMware vCenter Server 6.7U1升級至VCP 4.8之後、您可能會遇到下列問題：</block>
   <block id="bbcde54d38a7d044c3b8a3ec056f932f" category="list-text">叢集未列在*叢集*區段中。</block>
   <block id="cec85f10ae66451b3af081cbc5ca7e20" category="list-text">伺服器錯誤會出現在NetApp Element 「叢集與QoSSIOC設定」*區段的「功能組態」中。</block>
   <block id="aa8746d5b71402972581bdd84dcc2484" category="paragraph">還原叢集和QoSSIOC設定：</block>
   <block id="c3a78f82feea7790e45dc2b8ff202ad6" category="list-text">登出vCenter。</block>
-  <block id="1b3bf198be8d42e344e87e814638c35e" category="list-text">登出後、請等待兩到三分鐘、然後重新登入。</block>
   <block id="42fe583841480643befc86660359cc97" category="list-text">在目前的vSphere Client檢視中、選取重新整理圖示。</block>
   <block id="d0027b340b133639d43317fb35d13a94" category="list-text">停用快取並重新整理瀏覽器、例如使用Ctrl+F5。</block>
   <block id="389eaf94a0ef26f9ba0cba36b0fb8069" category="list-text">檢查叢集和QoSSIOC設定是否已還原。</block>
@@ -2435,4 +2420,39 @@
   <block id="9c17578111f04071be2db36d040281bf" category="sidebar">取消註冊外掛程式</block>
   <block id="faa169d4c778c54064b635053ab306a2" category="sidebar">移除外掛程式</block>
   <block id="5612baf51d00a05f0290357c97294f8d" category="sidebar">疑難排解外掛程式</block>
+  <block id="4af68147a22cc3d80f4eb4f02b5b14a7" category="inline-link">《》（英文NetApp HCI</block>
+  <block id="9203ca429e11584ecc455e2f24e8ab6b" category="list-text"><block ref="2485371e710ec4ea8989c22e13c02067" category="inline-link-rx"></block> _新_</block>
+  <block id="9676fc811bea74225536cdd128daebc0" category="list-text"><block ref="9676fc811bea74225536cdd128daebc0" category="inline-link-rx"></block></block>
+  <block id="875455659aea2dfd3f63e40de150b31c" category="inline-link">《軟件發行說明》（英文）NetApp Element</block>
+  <block id="f8e8ebc61e5eb8b12488dfac5a827259" category="list-text"><block ref="6a881248d046a90f573e41d5ebe1362e" category="inline-link-rx"></block> _新_</block>
+  <block id="9de5606ae9b23ff6651244b85bd5dae8" category="list-text"><block ref="9de5606ae9b23ff6651244b85bd5dae8" category="inline-link-rx"></block></block>
+  <block id="c7c27143d481078e23cd4144c0df2f10" category="inline-link">vCenter Plug-in 4.9版本說明</block>
+  <block id="e2b4747c263485de7011e8018c523cdd" category="list-text"><block ref="779aeeb0a67ee84cae70c2361654111d" category="inline-link-rx"></block> _新_</block>
+  <block id="278e17511dfc12c355dd5120b3cdcf38" category="inline-link">運算韌體套裝組合2.146版本說明</block>
+  <block id="cba86f04115d75e398ba32a033e63c37" category="list-text"><block ref="e15eb9592751e0df97c69e856ffc178a" category="inline-link-rx"></block> _新_</block>
+  <block id="ad6795e432521efb065caaec447cfa77" category="inline-link">儲存韌體產品組合2.146版本說明</block>
+  <block id="9f873554ab661acde4027ab646c5aa79" category="list-text"><block ref="e8158506d71c28d8d821c3acbeb0f97d" category="inline-link-rx"></block> _新_</block>
+  <block id="176d9ae1b8e18dc2cedc534e1da45e7c" category="inline-link">儲存韌體產品組合2.99.2版本說明</block>
+  <block id="7a90185243c33f6e26c13fa828aa78ae" category="list-text"><block ref="7a90185243c33f6e26c13fa828aa78ae" category="inline-link-rx"></block></block>
+  <block id="c69dd8e231cb332d435e16f994fd7554" category="paragraph">vCenter Server 4.9版的支援功能可還原vSphere 6.5的支援、包括vCenter Server、ESXi和vSphere HTML5 Web Client。NetApp Element</block>
+  <block id="3d2039a8d9f11f2c45ac874bd124fff9" category="paragraph">vCenter Server 4.9版的VMware vCenter Server 4.9外掛程式隨附於管理服務的2.20版。NetApp Element</block>
+  <block id="d75c92bfa55428c6b64a5ed842bd1c4f" category="section-title">vCenter Server 4.8的版插件NetApp Element</block>
+  <block id="f4d1c8d40eb0f3218515e3964884fa3a" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。vCenter Server 4.9版的選購項目可在Element和VMware版本之外取得、這是管理服務套裝組合的一部分。NetApp Element NetApp HCI</block>
+  <block id="779aeeb0a67ee84cae70c2361654111d" category="list-text"><block ref="779aeeb0a67ee84cae70c2361654111d" category="inline-link-rx"></block></block>
+  <block id="00bbf849ee83f2b3ea6c67bb7bd6c6f8" category="inline-link-macro">管理服務注意事項2.20.69（VCP 4.9.14）</block>
+  <block id="4f621beaeb83de8a0b0ba929468cc66b" category="list-text"><block ref="4f621beaeb83de8a0b0ba929468cc66b" category="inline-link-macro-rx"></block></block>
+  <block id="72dd8e5a69dc69c30ab77812bc60a30a" category="paragraph">本文件也適用於版本4.9之前的vCenter NetApp Element Server版。</block>
+  <block id="df1060b968703e2f658f230d3bfc2731" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 適用於vCenter Server的4.9版NetApp Element 的VMware vCenter Server也包含4.6、4.7和4.8版。</block>
+  <block id="4fb437564892944d73f87c822342e2bb" category="cell">4.8.</block>
+  <block id="9657d5b90fbd5e27f1c8767497a4fb05" category="cell"><block ref="9657d5b90fbd5e27f1c8767497a4fb05" category="inline-link-rx"></block></block>
+  <block id="8529c9d3fea72c00afc0f7df4eb01ec3" category="inline-link">2.19.48</block>
+  <block id="3925c91470a691b6f203bf45547db752" category="cell"><block ref="3925c91470a691b6f203bf45547db752" category="inline-link-rx"></block></block>
+  <block id="f4d94d40028683ce25805c5d1a4dee3a" category="list-text"><block ref="694ef8309bed0c46a62f8e27179c5966" category="inline-xref-macro-rx"></block></block>
+  <block id="365507e62817c98e2023c3394222d3e6" category="section-title">使用VMware vCenter Server 6.7U1升級VCP 4.8或更新版本之後發生錯誤</block>
+  <block id="58d3f106a203fd36b8a0fdfa5b0bac36" category="paragraph">使用VMware vCenter Server 6.7U1升級至VCP 4.8或更新版本之後、您可能會遇到下列問題：</block>
+  <block id="a6568301ea8af8e996ab5850a7e6e134" category="list-text">登出後、請等待三到五分鐘、然後重新登入。</block>
+  <block id="1b2251a8b564e729b01c309f91a786a0" category="paragraph">需要VMware vSphere 7.0、6.7或6.5、包括vCenter和ESXi、搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「支援VMware vCenter外掛程式」。</block>
+  <block id="7389b01d5fe0e17f5523a7fb85295f91" category="inline-link">這篇知識庫文章</block>
+  <block id="38be14292d8d278a5d7b04a84bab839d" category="admonition">當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱<block ref="770c119932f7fa962a47dc0795db1af6" category="inline-link-rx"></block>。</block>
+  <block id="2ca516a34cb5ec652761d2350d5a513e" category="list-text">vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
 </blocks>

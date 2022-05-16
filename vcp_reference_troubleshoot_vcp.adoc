@@ -18,7 +18,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 您必須瞭解NetApp Element 適用於vCenter Server的某些常見問題、以及解決這些問題的步驟。
 
 * <<Plug-in registration successful but icons do not appear in web client>>
-* <<Errors after VCP 4.8 upgrade with VMware vCenter Server 6.7U1>>
+* <<Errors after VCP 4.8 or later upgrade with VMware vCenter Server 6.7U1>>
 * <<Error registering plug-in using Registration UI>>
 * <<Error updating plug-in using Registration UI>>
 * <<Error message that NetApp extension cannot be upgraded>>
@@ -81,9 +81,9 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 
 
-== 使用VMware vCenter Server 6.7U1升級VCP 4.8之後發生錯誤
+== 使用VMware vCenter Server 6.7U1升級VCP 4.8或更新版本之後發生錯誤
 
-在使用VMware vCenter Server 6.7U1升級至VCP 4.8之後、您可能會遇到下列問題：
+使用VMware vCenter Server 6.7U1升級至VCP 4.8或更新版本之後、您可能會遇到下列問題：
 
 * 叢集未列在*叢集*區段中。
 * 伺服器錯誤會出現在NetApp Element 「叢集與QoSSIOC設定」*區段的「功能組態」中。
@@ -92,7 +92,7 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 還原叢集和QoSSIOC設定：
 
 . 登出vCenter。
-. 登出後、請等待兩到三分鐘、然後重新登入。
+. 登出後、請等待三到五分鐘、然後重新登入。
 . 在目前的vSphere Client檢視中、選取重新整理圖示。
 . 停用快取並重新整理瀏覽器、例如使用Ctrl+F5。
 . 檢查叢集和QoSSIOC設定是否已還原。

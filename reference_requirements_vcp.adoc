@@ -20,7 +20,7 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 
 == VMware vSphere先決條件
 
-需要VMware vSphere 7.0或6.7、包括vCenter和ESXi搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「版本資訊」外掛程式。
+需要VMware vSphere 7.0、6.7或6.5、包括vCenter和ESXi、搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「支援VMware vCenter外掛程式」。
 
 
 
@@ -29,15 +29,17 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 外掛程式支援下列VMware軟體主要版本：
 
 * vSphere 7.0和7.0 Update 1、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
++
+
+IMPORTANT: 當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
+
 * vSphere 6.7和6.7 Update 1和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 +
 
 IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Client不相容、以及在更新2a（建置13643870）之前發佈的其他6.7 U2組建。相容於6.7 U2版vSphere Web Client for Flash/Flex。
 
+* vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 
-
-
-IMPORTANT: 外掛程式與VMware vCenter Server 6.5不相容。
 
 
 
