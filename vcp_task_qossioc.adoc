@@ -29,7 +29,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 
 
-=== 設定工作
+== 設定工作
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]
 * <<Enabling QoSSIOC automation on datastores>>
@@ -37,7 +37,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 
 
-=== 管理工作
+== 管理工作
 
 * link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"^]
 * <<Edit QoSSIOC settings>>

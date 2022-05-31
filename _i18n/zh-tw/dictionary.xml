@@ -128,9 +128,7 @@
   <block id="4f3712967452e14155f9ce20b7afd51b" category="paragraph">清除「啟用QoS與SIOC」核取方塊、會自動停用「置換預設QoS」選項。</block>
   <block id="cc4b43fbbfce7408b64b9c05e98870ba" category="section-title">清除QoSSIOC設定</block>
   <block id="ec5cec4b743ea330d62a06f9ea96bf90" category="paragraph">您可以清除元素儲存管理節點（mNode）的QoSSIOC組態詳細資料。在設定新管理節點的認證或變更QoSSIOC服務密碼之前、您必須先清除已設定管理節點的設定。清除QoSSIOC設定會從vCenter、叢集和資料存放區移除作用中的QoSSIOC。</block>
-  <block id="4d0f64a0432c5f013a8583997391d0f9" category="summary">使用NetApp Element VMware vSphere介面的外掛程式vCenter Server（VCP）來管理及監控執行NetApp Element VMware vCenter軟體的儲存叢集。</block>
   <block id="da3eb0bd8c882a21931739ac39ce915a" category="doc">vCenter Server文件的適用插件NetApp Element</block>
-  <block id="80a45533e91093db7b81315cd3c229d6" category="paragraph">vCenter Server（VCP）的VMware vSphere外掛程式提供VMware vSphere介面的外掛程式、可讓您管理及監控執行VMware軟體的儲存叢集。NetApp Element NetApp Element</block>
   <block id="8334797b9b3383d4f48d98178b8845ea" category="inline-link-macro">本頁</block>
   <block id="5979504be2becb67db87e13e509a7d28" category="paragraph">您可以使用本文件來瞭解及使用外掛程式。本文件說明4.6版及更新版本。如需舊版外掛程式的詳細資訊、請參閱 <block ref="91c87596fc037a8f70c0c6d4d9eefb80" category="inline-link-macro-rx"></block>。</block>
   <block id="1fde0727b387439572ade83eecff4f68" category="section-title">瞭解新功能</block>
@@ -193,7 +191,6 @@
   <block id="4294f5a888e74bc44950b71dce1c2b12" category="list-text">選取您要刪除之QoS原則的核取方塊。</block>
   <block id="9459fc441d720f61992ad5e9bf384bf2" category="summary">開始使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式之前、您必須先瞭解產品安裝與使用的先決條件。</block>
   <block id="36fb791a39c0dcf9d768ea535ca51db9" category="doc">vCenter Server的Element外掛程式需求</block>
-  <block id="e6934e0cf4466efe40dba8ffce55213b" category="paragraph">使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用的要求</block>
   <block id="d495047561c1a08074d3afeeb5b5d172" category="section-title">VMware vSphere先決條件</block>
   <block id="3903fd261f224ad8af888f893eb71a5e" category="section-title">外掛程式支援的VMware vSphere版本</block>
   <block id="39bb4a890cda10e989012ed844843a1a" category="paragraph">外掛程式支援下列VMware軟體主要版本：</block>
@@ -2014,7 +2011,6 @@
   <block id="ece24339f7b21cf020a31ebc63f91461" category="list-text"><block ref="ece24339f7b21cf020a31ebc63f91461" category="inline-link-rx"></block></block>
   <block id="8b710eb0ebaac0c35674ae1c9c754eee" category="summary">有關外掛程式的高階資訊、包括元件和重要URL。</block>
   <block id="611b38304efb753d34df34a9140e4202" category="doc">vCenter Server產品概述的適用外掛程式NetApp Element</block>
-  <block id="2040f05bfda219ce36d5404441aea764" category="paragraph">vCenter Server的《VMware vCenter外掛程式》（VCP）NetApp Element 是整合VMware vSphere Web Client使用者介面（UI）的網路型工具。外掛程式是VMware vSphere的擴充與替代可擴充、使用者友善的介面、可管理及監控執行* NetApp Element 鏡像軟體*軟體的儲存叢集。</block>
   <block id="9e97d876f6a693d4ad4db055db1db1bb" category="paragraph">您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。</block>
   <block id="91ae58120158deb321e7550967f2607c" category="section-title">與外掛程式相關的NetApp元件</block>
   <block id="06486be9d31ded4257171bb2bbafac97" category="list-text">*登錄公用程式*：可讓您管理的工具 <block ref="9caa5f082ea3f70abbd00439813f098a" category="inline-link-macro-rx"></block> 使用vCenter登錄服務與外掛程式。</block>
@@ -2090,7 +2086,6 @@
   <block id="315cd19b17f3a6a462676019d1396e2f" category="paragraph">從叢集移除的任何節點都會顯示在「Pending」（擱置）節點清單中。</block>
   <block id="d34caa8a134a9bb6d2b2e136ea384646" category="summary">您可以安裝及設定Element外掛程式、以供vCenter Server搭配Element儲存使用。</block>
   <block id="2abfacd3d0325353cbe289faa9d0d3b1" category="doc">安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式</block>
-  <block id="8b168ff724a1f96d10cc631655b7199f" category="paragraph">您可以NetApp Element 將最新版本的vCenter Plug-in for vCenter Server（VCP）直接安裝到vCenter、並使用vSphere Web Client存取外掛程式。</block>
   <block id="3b2dba24ae0f2d994973f682cf057acb" category="paragraph">安裝完成後、您可以根據儲存I/O控制（QoSSIOC）服務以及vCenter外掛程式的其他服務來使用服務品質。</block>
   <block id="19eee5d48732221f909bed55ec2189ea" category="paragraph">請閱讀並完成每個安裝步驟、然後開始使用外掛程式：</block>
   <block id="8ca97483283de86de2176888cfb57571" category="list-text"><block ref="82e85dc19dbabef95eaeba5a68a4e800" category="inline-xref-macro-rx"></block></block>
@@ -2447,12 +2442,18 @@
   <block id="9657d5b90fbd5e27f1c8767497a4fb05" category="cell"><block ref="9657d5b90fbd5e27f1c8767497a4fb05" category="inline-link-rx"></block></block>
   <block id="8529c9d3fea72c00afc0f7df4eb01ec3" category="inline-link">2.19.48</block>
   <block id="3925c91470a691b6f203bf45547db752" category="cell"><block ref="3925c91470a691b6f203bf45547db752" category="inline-link-rx"></block></block>
-  <block id="f4d94d40028683ce25805c5d1a4dee3a" category="list-text"><block ref="694ef8309bed0c46a62f8e27179c5966" category="inline-xref-macro-rx"></block></block>
-  <block id="365507e62817c98e2023c3394222d3e6" category="section-title">使用VMware vCenter Server 6.7U1升級VCP 4.8或更新版本之後發生錯誤</block>
-  <block id="58d3f106a203fd36b8a0fdfa5b0bac36" category="paragraph">使用VMware vCenter Server 6.7U1升級至VCP 4.8或更新版本之後、您可能會遇到下列問題：</block>
   <block id="a6568301ea8af8e996ab5850a7e6e134" category="list-text">登出後、請等待三到五分鐘、然後重新登入。</block>
   <block id="1b2251a8b564e729b01c309f91a786a0" category="paragraph">需要VMware vSphere 7.0、6.7或6.5、包括vCenter和ESXi、搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「支援VMware vCenter外掛程式」。</block>
   <block id="7389b01d5fe0e17f5523a7fb85295f91" category="inline-link">這篇知識庫文章</block>
   <block id="38be14292d8d278a5d7b04a84bab839d" category="admonition">當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱<block ref="770c119932f7fa962a47dc0795db1af6" category="inline-link-rx"></block>。</block>
   <block id="2ca516a34cb5ec652761d2350d5a513e" category="list-text">vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
+  <block id="3776cabfc1e5de80754f6a7326176bc3" category="paragraph">您可以NetApp Element 直接將最新版本的vCenter Server適用的VMware vCenter外掛程式安裝到vCenter、並使用vSphere Web Client存取外掛程式。</block>
+  <block id="263d69f97c8aa479bf562041d0ee1b59" category="paragraph">在使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用需求。</block>
+  <block id="8ba5447ae975da458ad42dd041c1bfc0" category="admonition">外掛程式與適用於VMware vCenter Server 4.6、4.7和4.8的Element外掛程式6.5版不相容。</block>
+  <block id="f14c1ae36f4b42cd84da13b89b1cee9b" category="paragraph">vCenter Server的《VMware vCenter外掛程式》是一套網路型工具、與VMware vSphere Web Client使用者介面（UI）整合。NetApp Element外掛程式是VMware vSphere的擴充與替代可擴充、使用者友善的介面、可管理及監控執行* NetApp Element 鏡像軟體*軟體的儲存叢集。</block>
+  <block id="956eb6424f0e4cc0d9ebe3ca4f191929" category="list-text"><block ref="bd48483000f1e49cbc8d729d4af3c16c" category="inline-xref-macro-rx"></block></block>
+  <block id="012f5aa94203f2e32b0291bda6db013c" category="section-title">使用VMware vCenter Server 6.7U1升級vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤</block>
+  <block id="d19589096d9aa3305cfd13188e934c21" category="paragraph">升級NetApp Element 至VMware vCenter Server 6.7U1的vCenter Server 4.8或更新版本時、可能會遇到下列問題：</block>
+  <block id="d214b4cd328cf59221f38d85dca1988f" category="summary">使用NetApp Element VMware vSphere介面的外掛程式vCenter Server for vCenter、即可管理及監控執行NetApp Element VMware軟體的儲存叢集。</block>
+  <block id="14dc26d359d13f6037d00a6c79232cd6" category="paragraph">vCenter Server的支援VMware vSphere外掛程式提供VMware vSphere介面外掛程式、讓您管理及監控執行VMware軟體的儲存叢集。NetApp Element NetApp Element</block>
 </blocks>

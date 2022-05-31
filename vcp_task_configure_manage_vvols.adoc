@@ -23,7 +23,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 
 
 
-=== 設定工作
+== 設定工作
 
 您必須執行初始組態步驟、才能使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中的虛擬Volume（VVols）。
 
@@ -35,7 +35,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 
 
 
-=== 管理工作
+== 管理工作
 
 * <<Monitor virtual volume resources>>
 * <<Create a VVol datastore for a storage container>>

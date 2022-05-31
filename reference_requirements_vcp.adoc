@@ -14,7 +14,7 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 
 
 [role="lead"]
-使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用的要求
+在使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用需求。
 
 
 
@@ -39,6 +39,10 @@ IMPORTANT: 當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCent
 IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Client不相容、以及在更新2a（建置13643870）之前發佈的其他6.7 U2組建。相容於6.7 U2版vSphere Web Client for Flash/Flex。
 
 * vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
++
+
+IMPORTANT: 外掛程式與適用於VMware vCenter Server 4.6、4.7和4.8的Element外掛程式6.5版不相容。
+
 
 
 

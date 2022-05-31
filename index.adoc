@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: index.html 
-summary: 使用NetApp Element VMware vSphere介面的外掛程式vCenter Server（VCP）來管理及監控執行NetApp Element VMware vCenter軟體的儲存叢集。 
+summary: 使用NetApp Element VMware vSphere介面的外掛程式vCenter Server for vCenter、即可管理及監控執行NetApp Element VMware軟體的儲存叢集。 
 keywords: netapp, vcp, on premise, hybrid cloud control, hcc 
 ---
 = vCenter Server文件的適用插件NetApp Element
@@ -14,7 +14,7 @@ keywords: netapp, vcp, on premise, hybrid cloud control, hcc
 
 
 [role="lead"]
-vCenter Server（VCP）的VMware vSphere外掛程式提供VMware vSphere介面的外掛程式、可讓您管理及監控執行VMware軟體的儲存叢集。NetApp Element NetApp Element
+vCenter Server的支援VMware vSphere外掛程式提供VMware vSphere介面外掛程式、讓您管理及監控執行VMware軟體的儲存叢集。NetApp Element NetApp Element
 
 您可以使用本文件來瞭解及使用外掛程式。本文件說明4.6版及更新版本。如需舊版外掛程式的詳細資訊、請參閱 link:reference_earlier_versions.html["本頁"]。
 

@@ -15,7 +15,7 @@ keywords: netapp, vcp, element, vcenter plugin, plug-in
 
 
 [role="lead"]
-vCenter Server的《VMware vCenter外掛程式》（VCP）NetApp Element 是整合VMware vSphere Web Client使用者介面（UI）的網路型工具。外掛程式是VMware vSphere的擴充與替代可擴充、使用者友善的介面、可管理及監控執行* NetApp Element 鏡像軟體*軟體的儲存叢集。
+vCenter Server的《VMware vCenter外掛程式》是一套網路型工具、與VMware vSphere Web Client使用者介面（UI）整合。NetApp Element外掛程式是VMware vSphere的擴充與替代可擴充、使用者友善的介面、可管理及監控執行* NetApp Element 鏡像軟體*軟體的儲存叢集。
 
 您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。
 
