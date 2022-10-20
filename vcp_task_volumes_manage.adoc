@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_volumes_manage.html 
-summary: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。 
+summary: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。 
 keywords: netapp, volumes, vcp, vcenter, element, 
 ---
 = 管理磁碟區
@@ -14,17 +14,17 @@ keywords: netapp, volumes, vcp, vcenter, element,
 
 
 [role="lead"]
-使用NetApp Element vCenter Server的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原使用者帳戶的磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。
+使用NetApp Element VMware vCenter Serverr的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原使用者帳戶的磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。
 
 .選項
-* <<Create a volume>>
-* <<View volume details>>
-* <<Edit a volume>>
-* <<Clone a volume>>
-* <<Back up or restore volumes>>
-* <<Delete volumes>>
-* <<Purge volumes>>
-* <<Restore deleted volumes>>
+*  a volume
+*  volume details
+*  a volume
+*  a volume
+*  up or restore volumes
+*  volumes
+*  volumes
+*  deleted volumes
 
 
 
@@ -114,11 +114,11 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 . 請參閱以下各節所列特定Volume的詳細資料：
 +
-** <<General Details section>>
-** <<Efficiency section>>
-** <<Performance section>>
-** <<Quality of Service section>>
-** <<Snapshots section>>
+**  Details section
+**  section
+**  section
+**  of Service section
+**  section
 
 
 
@@ -644,7 +644,8 @@ NOTE: 如果刪除磁碟區然後還原、ESXi將無法偵測還原的磁碟區�
 . 確認已還原磁碟區或磁碟區及所有連線。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

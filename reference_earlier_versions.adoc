@@ -2,27 +2,29 @@
 sidebar: sidebar 
 permalink: reference_earlier_versions.html 
 keywords: documentation, earlier, previous, versions 
-summary: 本文件適用於vCenter NetApp Element Server的版本低於版本4.6的版本。 
+summary: 本文件適用於NetApp Element 版本4.6之前的VMware vCenter Server版本。 
 ---
-= 舊版NetApp Element 的不整合外掛程式文件
+= 適用於VMware vCenter Server的舊版NetApp Element VMware vCenter外掛程式文件
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: documentation, earlier, previous, versions
 
 
 [role="lead"]
-本文件也適用於版本4.9之前的vCenter NetApp Element Server版。
+本文檔也適用於NetApp Element VMware vCenter Server的《VMware vCenter Plug-in》4．10版之前的版本。
 
 
-NOTE: 這 link:index.html["文件連結"] 適用於vCenter Server的4.9版NetApp Element 的VMware vCenter Server也包含4.6、4.7和4.8版。
+NOTE: 這 link:index.html["文件連結"] 適用於Element vCenter外掛程式4.10、也包括4.9、4.6、4.7和4.8版。
 
 [cols="4*"]
 |===
 | 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
+
+
+| 4.9 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["2.20.69"] | link:index.html["連結"] 
 
 
 | 4.8. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["2.19.48"^] | link:index.html["連結"] 

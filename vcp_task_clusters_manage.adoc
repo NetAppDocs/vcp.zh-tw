@@ -27,17 +27,17 @@ NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「支援�
 
 
 .選項
-* <<View cluster details>>
-* <<Edit a cluster profile>>
-* <<Remove a cluster profile>>
-* <<Enable Encryption at Rest>>
-* <<Disable Encryption at Rest>>
-* <<Enable SSH>>
-* <<Change the SSH time limit>>
-* <<Disable SSH>>
-* <<Set protection domain monitoring>>
-* <<Shut down a cluster>>
-* <<Expand your NetApp HCI infrastructure>>
+*  cluster details
+*  a cluster profile
+*  a cluster profile
+*  Encryption at Rest
+*  Encryption at Rest
+*  SSH
+*  the SSH time limit
+*  SSH
+*  protection domain monitoring
+*  down a cluster
+*  your NetApp HCI infrastructure
 
 
 
@@ -116,7 +116,7 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 如果您設定連結模式群組、並想要將叢集重新指派給另一個vCenter Server、您可以移除叢集設定檔、然後使用不同的連結vCenter Server IP重新新增。
 
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+NOTE: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
 . 選取* NetApp Element 《組態》>「叢集」*。
 . 檢查您要移除的叢集。
@@ -281,7 +281,8 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 . 選擇*展開NetApp HCI 您的S編*。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

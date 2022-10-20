@@ -29,11 +29,11 @@ keywords: netapp, hci, vcp, vcenter, element, protect, replication, remote, clus
 NOTE: WAN加速器設備未經NetApp認證、無法在複寫資料時使用。如果在複寫資料的兩個叢集之間部署、這些應用裝置可能會干擾壓縮和重複資料刪除。在正式作業環境中部署任何WAN加速器設備之前、請務必完全符合其效果。
 
 .步驟
-. <<Pair clusters>>
-. <<Pair volumes>>
-. <<Validate volume replication>>
-. <<Delete a volume relationship after replication>>
-. <<Manage volume relationships>>
+.  clusters
+.  volumes
+.  volume replication
+.  a volume relationship after replication
+.  volume relationships
 
 
 
@@ -58,8 +58,8 @@ NOTE: 叢集配對需要在管理網路上的節點之間建立完整連線。�
 
 請選擇下列其中一種方法：
 
-* <<Pair clusters using known credentials>>
-* <<Pair clusters with a pairing key>>
+*  clusters using known credentials
+*  clusters with a pairing key
 
 
 
@@ -70,7 +70,7 @@ NOTE: 叢集配對需要在管理網路上的節點之間建立完整連線。�
 
 叢集管理使用者名稱和密碼用於驗證叢集存取、然後才能配對叢集。
 
-如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱 <<Pair clusters with a pairing key>>。
+如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱  clusters with a pairing key。
 
 .步驟
 . 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
@@ -82,8 +82,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 . 選取*建立叢集配對*。
 . 選取下列其中一項：
 +
-** *已登錄叢集*：如果配對的遠端叢集是由NetApp Element vCenter Server的相同執行個體所控制、請選取此選項。
-** *可認證的叢集*：如果遠端叢集的認證資料不在NetApp Element 適用於vCenter Server組態的VMware vCenter外、請選取此選項。
+** *已登錄叢集*：如果配對的遠端叢集是由元素vCenter外掛程式的相同執行個體所控制、請選取此項目。
+** *可認證的叢集*：如果遠端叢集的認證資料不在元件vCenter外掛程式組態範圍內、請選取此選項。
 
 
 . 如果選擇*已註冊的叢集*、請從可用叢集清單中選取叢集、然後按一下*配對*。
@@ -173,14 +173,14 @@ NOTE: 等待載入微調器消失、再繼續下一步。如果配對程序期�
 
 您可以使用下列其中一種方法配對Volume：
 
-* <<Pair volumes using known credentials>>：兩個叢集都使用已知的認證資料
-* <<Pair volumes using a pairing key>>：如果叢集認證僅在來源叢集上可用、請使用配對金鑰。
-* <<Create target volumes and pair them with local volumes>>：如果您知道兩個叢集的認證資料、請在遠端叢集上建立複寫目標磁碟區、以便與來源叢集配對。
+*  volumes using known credentials：兩個叢集都使用已知的認證資料
+*  volumes using a pairing key：如果叢集認證僅在來源叢集上可用、請使用配對金鑰。
+*  target volumes and pair them with local volumes：如果您知道兩個叢集的認證資料、請在遠端叢集上建立複寫目標磁碟區、以便與來源叢集配對。
 
 
 建立磁碟區配對關係之後、您必須識別哪個磁碟區是複寫目標：
 
-* <<Assign a replication source and target to paired volumes>>
+*  a replication source and target to paired volumes
 
 
 .您需要的是 #8217 ；需要的是什麼
@@ -213,9 +213,9 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 . 選取* Volume Pair*。
 . 選取下列其中一項：
 +
-** * Volume Creation *：若要在遠端叢集上建立複寫目標磁碟區、請選取此選項。此方法只能用於由NetApp Element vCenter Server的VMware外掛程式所控制的遠端叢集。
-** * Volume selection *：如果目標Volume的遠端叢集是由NetApp Element vCenter Server的VMware vCenter外掛程式所控制、請選取此選項。
-** * Volume ID*：如果目標Volume的遠端叢集擁有NetApp Element 超出適用於vCenter Server組態的VMware外掛程式的已知認證資料、請選取此選項。
+** * Volume Creation *：若要在遠端叢集上建立複寫目標磁碟區、請選取此選項。此方法只能用於由元件vCenter外掛程式控制的遠端叢集。
+** * Volume選擇*：如果目標Volume的遠端叢集是由元件vCenter外掛程式控制、請選取此選項。
+** * Volume ID*：如果目標磁碟區的遠端叢集擁有元素vCenter外掛程式組態以外的已知認證、請選取此選項。
 
 
 . 選取複寫模式：
@@ -481,7 +481,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 複寫完成且不再需要磁碟區配對關係之後、您可以刪除磁碟區關係。
 
-請參閱 <<Delete a volume pair>>。
+請參閱  a volume pair。
 
 
 
@@ -489,10 +489,10 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 您可以透過多種方式來管理磁碟區關係、例如暫停複寫、反轉磁碟區配對、變更複寫模式、刪除磁碟區配對、或刪除叢集配對。
 
-* <<Pause replication>>
-* <<Change the mode of replication>>
-* <<Delete a volume pair>>
-* <<Delete a cluster pair>>
+*  replication
+*  the mode of replication
+*  a volume pair
+*  a cluster pair
 
 
 
@@ -610,8 +610,8 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 
 系統會在Volume Status（Volume狀態）欄中顯示配對與進度訊息。
 
-* <<Volume pairing messages>>
-* <<Volume pairing warnings>>
+*  pairing messages
+*  pairing warnings
 
 
 
@@ -651,7 +651,8 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 * *停止設定錯誤*：偵測到永久組態錯誤。遠端Volume已清除或取消配對。不可能採取修正行動；必須建立新的配對。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

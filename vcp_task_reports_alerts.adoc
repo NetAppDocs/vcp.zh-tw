@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_alerts.html 
-summary: 監控警示、這些警示會提供資訊、警告或錯誤、指出叢集在vCenter NetApp Element Server的「報告」頁面上的執行狀況。 
+summary: 使用NetApp Element VMware vCenter Server的《報告》頁面、監控警示、這些警示會提供資訊、警告或錯誤、指出叢集的執行狀況。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, performance 
 ---
 = 監控系統警示
@@ -54,7 +54,8 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, p
 . 若要驗證問題是否已解決、請在「已解決」檢視中尋找問題。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

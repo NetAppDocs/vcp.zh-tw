@@ -17,9 +17,9 @@ keywords: netapp, storage, accounts, vcp, vcenter, element
 link:vcp_concept_accounts.html["使用者帳戶"^] 用於控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。
 
 .選項
-* <<Create an account>>
-* <<Edit an account>>
-* <<Delete an account>>
+*  an account
+*  an account
+*  an account
 
 
 
@@ -117,7 +117,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 . 確認行動。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

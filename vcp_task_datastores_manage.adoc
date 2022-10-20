@@ -14,7 +14,7 @@ keywords: netapp, datastore, vcp, vcenter, element
 
 
 [role="lead"]
-使用NetApp Element vCenter Server的VMware vCenter外掛程式、您可以管理以Element Volume為後盾的資料存放區。您可以建立、擴充、複製、共用或刪除資料存放區。您也可以使用VAAI取消對應、讓叢集從資源配置不足的VMFS資料存放區回收可用的區塊空間。
+使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、您可以管理以Element Volume為後盾的資料存放區。您可以建立、擴充、複製、共用或刪除資料存放區。您也可以使用VAAI取消對應、讓叢集從資源配置不足的VMFS資料存放區回收可用的區塊空間。
 
 .您需要的是 #8217 ；需要的是什麼
 * 若要建立及管理資料存放區、您必須先建立至少一個使用者帳戶。
@@ -23,13 +23,13 @@ keywords: netapp, datastore, vcp, vcenter, element
 
 
 .選項
-* <<Create a datastore>>
-* <<View the datastore list>>
-* <<Extend a datastore>>
-* <<Clone a datastore>>
-* <<Share a datastore>>
-* <<Perform VAAI UNMAP>>
-* <<Delete a datastore>>
+*  a datastore
+*  the datastore list
+*  a datastore
+*  a datastore
+*  a datastore
+*  VAAI UNMAP
+*  a datastore
 
 
 
@@ -471,7 +471,8 @@ NOTE: 您也可以選擇保留磁碟區、稍後再將其與其他資料存放�
 . 選擇*是*。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -23,7 +23,7 @@ QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVol
 
 NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定頁面讓vSphere可使用VVols。如需詳細資訊、請參閱Element Plug-In for vCenter Server文件、瞭解如何設定VVols功能。
 
-在連結模式中、NetApp Element vCenter Server的VMware vCenter外掛程式會使用您在單一vCenter Server上提供的QoSSIOC設定來登錄所有vCenter Server。
+在連結模式中、元素vCenter外掛程式會使用您在單一vCenter Server上提供的QoSSIOC設定來登錄所有vCenter Server。
 
 使用vCenter外掛程式、您可以完成下列工作來設定及管理QoSSIOC：
 
@@ -32,7 +32,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 == 設定工作
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]
-* <<Enabling QoSSIOC automation on datastores>>
+*  QoSSIOC automation on datastores
 
 
 
@@ -40,10 +40,10 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 == 管理工作
 
 * link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"^]
-* <<Edit QoSSIOC settings>>
-* <<Change the QoSSIOC service password>>
-* <<Disable QoSSIOC automation for a datastore>>
-* <<Clear QoSSIOC settings>>
+*  QoSSIOC settings
+*  the QoSSIOC service password
+*  QoSSIOC automation for a datastore
+*  QoSSIOC settings
 
 
 
@@ -136,7 +136,7 @@ NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成�
 * 您的管理節點已開啟電源。
 
 
-此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更 <<Edit QoSSIOC settings,QoSSIOC設定>> 《不適用的組態》擴充點頁NetApp Element 面。
+此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更  QoSSIOC settings,QoSSIOC設定 《不適用的組態》擴充點頁NetApp Element 面。
 
 .步驟
 . 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
@@ -151,7 +151,7 @@ NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成�
 登錄公用程式UI會顯示外掛程式的*管理QoSSIOC服務認證*頁面。
 
 +
-image::vcp_registration_ui_qossioc.png[VCP登錄公用程式功能表]
+image::vcp_registration_ui_qossioc.png[vCenter Server登錄公用程式功能表的子外掛程式NetApp Element]
 
 . 輸入下列資訊：
 +
@@ -215,7 +215,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -1,41 +1,11 @@
 ---
+layout: astra 
 sidebar: sidebar 
 permalink: index.html 
-summary: 使用NetApp Element VMware vSphere介面的外掛程式vCenter Server for vCenter、即可管理及監控執行NetApp Element VMware軟體的儲存叢集。 
-keywords: netapp, vcp, on premise, hybrid cloud control, hcc 
+lead: NetApp Element Plug-in for VMware vCenter Server provides a plug-in to the VMware vSphere interface so that you can manage and monitor storage clusters running NetApp Element software. You can use this documentation to learn about and use the plug-in. This documentation addresses Element vCenter plug-in 4.6 and later. For versions 4.5 and earlier, see the earlier versions of the documentation. 
+summary: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式（VMware vSphere介面的外掛程式）來管理及監控執行NetApp Element VMware軟體的儲存叢集。 
 ---
-= vCenter Server文件的適用插件NetApp Element
-:hardbreaks:
+= VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element
 :allow-uri-read: 
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ../media/
 
 
-[role="lead"]
-vCenter Server的支援VMware vSphere外掛程式提供VMware vSphere介面外掛程式、讓您管理及監控執行VMware軟體的儲存叢集。NetApp Element NetApp Element
-
-您可以使用本文件來瞭解及使用外掛程式。本文件說明4.6版及更新版本。如需舊版外掛程式的詳細資訊、請參閱 link:reference_earlier_versions.html["本頁"]。
-
-
-
-== 瞭解新功能
-
-* link:rn_whatsnew_vcp.html["vCenter Server的更新功能NetApp Element"]
-* http://docs.netapp.com/sfe-122/index.jsp["更新功能NetApp Element"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Element軟體NetApp HCI 和功能完善的管理服務有哪些新功能"^]
-
-
-
-
-== vCenter Server適用的VMware vCenter外掛程式入門NetApp Element
-
-* link:vcp_task_getstarted.html["vCenter Server安裝與部署的適用外掛程式總覽NetApp Element"]
-* link:concept_vcp_product_overview.html["瞭解外掛程式的相關概念"]
-
-
-[discrete]
-== 如需詳細資訊、請參閱
-
-https://www.netapp.com/support-and-training/documentation/["NetApp 產品文件"^]

@@ -20,7 +20,8 @@ keywords: netapp, vcp, element, plugin, plug-in, account
 
 帳戶最多可指派2000個磁碟區、但一個磁碟區只能屬於一個帳戶。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

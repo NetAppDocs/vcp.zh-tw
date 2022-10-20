@@ -16,11 +16,11 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 [role="lead"]
 您可以使用vCenter外掛程式來新增 https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["儲存節點"] 當建立叢集或需要更多儲存設備時。執行Element軟體的儲存節點可以使用NetApp Element 「支援資源管理」擴充點來新增。必須在vSphere的外掛程式之外新增及管理各個運算節點。NetApp HCI
 
-* <<Add a node to a cluster>>
-* <<View node details>>
-* <<Restart a node>>
-* <<Shut down a node>>
-* <<Remove a node from a cluster>>
+*  a node to a cluster
+*  node details
+*  a node
+*  down a node
+*  a node from a cluster
 
 
 

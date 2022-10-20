@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_overview.html 
-summary: 使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式的「報告」頁面、檢視叢集元件和效能的相關資訊。 
+summary: 使用適用於VMware vCenter Server的NNetApp Element外掛程式的「報告」頁面、檢視叢集元件和效能的相關資訊。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report 
 ---
 = 在「總覽」頁面上監控整體叢集健全狀況
@@ -14,7 +14,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report
 
 
 [role="lead"]
-您可以從NetApp Element vCenter Server的「VMware vCenter伺服器NetApp Element 」的「VMware vCenter伺服器的VMware vCenter管理」擴充點之「報告」索引標籤的「總覽」頁面、檢視所選叢集的高層叢集資訊、包括整體容量、效率和效能。
+您可以從NetApp Element VMware vCenter Server的「VMware vCenter Server的VMware vCenter Plug-in」的「報告」延伸點之「報告」索引標籤的「總覽」頁面、檢視所選叢集的高層叢集資訊、包括整體容量、效率和效能NetApp Element 。
 
 .步驟
 . 從vCenter外掛程式選取* NetApp Element 《Management》*。
@@ -86,7 +86,8 @@ NOTE: 例如、如果叢集中有四個磁碟區、每個磁碟區的IOPS下限�
 * *效能使用率*：叢集IOPS使用率的百分比。例如、以100K IOPS執行的250K IOPS叢集、會顯示40%的使用量。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

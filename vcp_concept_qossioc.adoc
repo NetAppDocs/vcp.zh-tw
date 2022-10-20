@@ -14,7 +14,7 @@ keywords: netapp, quality of service, volume performance, sioc, storage I/O cont
 
 
 [role="lead"]
-vCenter Server適用的支援功能可將自動化服務品質設定為選用設定NetApp Element (https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html["QoS"^]）以儲存I/O控制為基礎 (https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html["SIOC"^]）標準資料存放區上所有VM的設定。QoS與SIOC整合（QoSSIOC）可針對任何標準資料存放區啟用、可在所有相關VM上執行所有SIOC設定的掃描。
+VMware vCenter Server的支援功能包括選用設定、自動提供服務品質NetApp Element (https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html["QoS"^]）以儲存I/O控制為基礎 (https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html["SIOC"^]）標準資料存放區上所有VM的設定。QoS與SIOC整合（QoSSIOC）可針對任何標準資料存放區啟用、可在所有相關VM上執行所有SIOC設定的掃描。
 
 當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。QoSSIOC服務會使用所有SIOC保留區或共享區的總和、以及IOPS限制總和、來判斷每個資料存放區基礎Volume的最低和最高QoS。此外也提供可設定的連拍係數。
 
@@ -35,7 +35,8 @@ TIP: 您可以透過vSphere API設定保留值。如果為VMDK設定保留值、
 
 TIP: https://activeiq.solidfire.com["SolidFire Active IQ"^] 提供QoS建議頁面、提供最佳組態和QoS設定的建議。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

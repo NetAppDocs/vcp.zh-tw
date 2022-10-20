@@ -17,7 +17,7 @@ keywords: netapp, vcp, element, plugin, plug-in, management, extension point
 利用「支援物件管理」擴充點、您可以新增及管理叢集、將儲存叢集指派給vCenter Server進行連結模式、以及設定QoSSIOC的管理節點設定。NetApp Element
 
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+NOTE: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
 
 NOTE: 您的vSphere Web Client可能會與下列映像所示的版本略有不同、視所安裝的vSphere版本而定。
@@ -42,11 +42,12 @@ image::vcp_management_extension_point.png[管理擴充點]
 * * VVols *：管理虛擬磁碟區及其相關的儲存容器、傳輸協定端點和繫結。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * link:vcp_concept_config_extension_point["部分組態擴充點NetApp Element"]
-* link:concept_vcp_product_overview.html["vCenter Server適用的插件概述NetApp Element"]
+* link:concept_vcp_product_overview.html["VMware vCenter Server適用的外掛程式總覽NetApp Element"]
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
 * https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
 

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: reference_requirements_vcp.html 
-summary: 開始使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式之前、您必須先瞭解產品安裝與使用的先決條件。 
+summary: 開始使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式之前、您必須先瞭解產品安裝與使用的先決條件。 
 keywords: netapp, hci, kubernetes, on premise, cloud services 
 ---
-= vCenter Server的Element外掛程式需求
+= VMware vCenter Server的VMware vCenter外掛程式需求NetApp Element
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 
 
 [role="lead"]
-在使用NetApp Element vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用需求。
+在使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware vCenter或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用需求。
 
 
 
 == VMware vSphere先決條件
 
-需要VMware vSphere 7.0、6.7或6.5、包括vCenter和ESXi、搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用NetApp Element vCenter Server的「支援VMware vCenter外掛程式」。
+需要VMware vSphere 7.0、6.7或6.5（包括vCenter和ESXi）搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用vCenter外掛元件。
 
 
 
@@ -28,10 +28,11 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 
 外掛程式支援下列VMware軟體主要版本：
 
-* vSphere 7.0和7.0 Update 1、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
+* vSphere 7.0和7.0 Update 1和2、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
+* vSphere 7.0 Update 3、包括使用Spring Framework 4的vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 +
 
-IMPORTANT: 當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
+IMPORTANT: 升級至VMware vCenter Server 7.0 U3時、Element外掛程式無法部署。若要使用Spring Framework 4解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
 
 * vSphere 6.7和6.7 Update 1和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 +
@@ -69,7 +70,7 @@ IMPORTANT: VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從Ne
 
 外掛程式支援下列主要版本：
 
-* 元素12.x、包括SolidFire 不含支援的企業SDS
+* 元素12.x
 * 元素11.x
 
 
@@ -79,7 +80,8 @@ IMPORTANT: VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從Ne
 
 您需要允許某些TCP連接埠通過資料中心的邊緣防火牆、以便從遠端管理系統、並允許資料中心外部的用戶端連線至資源。如需NetApp HCI 完整的連接埠清單、請SolidFire 參閱此 link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["頁面"]。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

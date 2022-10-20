@@ -19,10 +19,10 @@ keywords: netapp, storage, inititators, vcp, vcenter, element
 您可以建立、編輯及刪除啟動器、並為其提供易記的別名、以簡化管理和Volume存取。當您將啟動器新增至Volume存取群組時、該啟動器可讓您存取群組中的所有磁碟區。
 
 .選項
-* <<Create an initiator>>
-* <<Edit an initiator>>
-* <<Add initiators to an access group>>
-* <<Delete an initiator>>
+*  an initiator
+*  an initiator
+*  initiators to an access group
+*  an initiator
 
 
 
@@ -137,7 +137,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 . 確認行動。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

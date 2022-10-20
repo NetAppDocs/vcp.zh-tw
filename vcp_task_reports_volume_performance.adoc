@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_volume_performance.html 
-summary: 您可以從NetApp Element vCenter Server適用的「回報」索引標籤上的「Volume Performance」（Volume效能）頁面、檢視所選叢集中所有Volume的效能資訊。 
+summary: 您可以從NetApp Element VMware vCenter Server適用的「報告」索引標籤上的「Volume Performance（Volume效能）」頁面、檢視所選叢集中所有Volume的效能資訊。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, cluster, performance 
 ---
 = 監控Volume效能
@@ -52,7 +52,8 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, clust
 * *平均IO大小*：最近500毫秒內磁碟區的I/O平均大小（以位元組為單位）。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

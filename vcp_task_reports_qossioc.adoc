@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_qossioc.html 
-summary: 您可以在NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。 
+summary: 您可以在NetApp Element VMware vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, qossioc, cluster, performance 
 ---
 = 利用QoSSIOC事件監控VM效能分層
@@ -16,12 +16,12 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, qossioc, cluster,
 [role="lead"]
 當具有啟用QoS的資料存放區的VM重新設定或發出電源或來賓事件時、您可以檢視與QoSSIOC相關的事件。
 
-您可以從NetApp Element vCenter Server的VMware vCenter外掛程式的「VMware組態」擴充點檢視QoSSIOC事件NetApp Element 。
+您可以從NetApp Element VMware vCenter Server適用的VMware vCenter外掛程式的「VMware組態」延伸點檢視QoSSIOC事件NetApp Element 。
 
 QoSSIOC事件會從本機新增的叢集顯示。在連結模式環境中、登入已在本機新增叢集的vSphere Web Client、以檢視該叢集的QoSSIOC事件。
 
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+NOTE: 使用元素vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
 .您需要的是 #8217 ；需要的是什麼
 * 至少必須新增並執行一個叢集。
@@ -48,7 +48,8 @@ NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用�
 * *爆發時間*：允許爆發的時間長度。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

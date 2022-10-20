@@ -19,12 +19,12 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 您可以使用快照將磁碟區復原至建立快照時的狀態。不過、由於快照只是Volume中繼資料的複本、因此您無法掛載或寫入快照。
 
 .選項
-* <<Create a volume snapshot>>
-* <<View volume snapshot details>>
-* <<Clone a volume from a snapshot>>
-* <<Roll back a volume to a snapshot>>
-* <<Back up a volume snapshot to an external object store>>
-* <<Delete a volume snapshot>>
+*  a volume snapshot
+*  volume snapshot details
+*  a volume from a snapshot
+*  back a volume to a snapshot
+*  up a volume snapshot to an external object store
+*  a volume snapshot
 
 
 
@@ -179,9 +179,9 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 當您將快照備份到外部物件存放區時、必須連線到允許讀取/寫入作業的物件存放區。
 
-* <<Back up a volume snapshot to an Amazon S3 object store>>
-* <<Back up a volume snapshot to an OpenStack Swift object store>>
-* <<Back up a volume snapshot to a cluster running Element software>>
+*  up a volume snapshot to an Amazon S3 object store
+*  up a volume snapshot to an OpenStack Swift object store
+*  up a volume snapshot to a cluster running Element software
 
 
 
@@ -334,7 +334,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 . 確認行動。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -14,7 +14,7 @@ keywords: netapp, vcp, element, plugin, plug-in, linked mode
 
 
 [role="lead"]
-您可以使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用vCenter連結模式、從其他vCenter Server管理叢集資源。
+您可以使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用vCenter連結模式、從其他vCenter Server管理叢集資源。
 
 只有在您登入目的地vCenter Web用戶端時、才能管理Element外掛程式中的儲存叢集。
 
@@ -38,7 +38,8 @@ keywords: netapp, vcp, element, plugin, plug-in, linked mode
 . 若要從vCenter2 Web用戶端管理cluster2、請將cluster2新增至Element Plug-in詳細目錄。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

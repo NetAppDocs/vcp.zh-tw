@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_iscsi.html 
-summary: 您可以在NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。 
+summary: 您可以在NetApp Element VMware vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection 
 ---
 = 監控iSCSI工作階段以判斷連線狀態
@@ -14,7 +14,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection
 
 
 [role="lead"]
-您可以在NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。
+您可以在NetApp Element VMware vCenter Server的VMware vCenter外掛程式中、檢視連線至所選叢集的iSCSI工作階段相關資訊。
 
 .步驟
 . 從vCenter外掛程式選取* NetApp Element 《Management》*。
@@ -38,7 +38,8 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection
 * *建立日期*：建立工作階段的日期。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

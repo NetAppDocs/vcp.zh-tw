@@ -1,51 +1,59 @@
 ---
 sidebar: sidebar 
 permalink: rn_whatsnew_vcp.html 
-summary: 瞭解NetApp Element 此版本的vCenter Server適用的更新功能。 
+summary: 瞭解NetApp Element 此版本VMware vCenter Server適用的VMware vCenter外掛程式的新功能。 
 keywords: netapp, vcp, vcenter, plugin, element, new, whats new 
 ---
-= vCenter Server的更新功能NetApp Element
+= VMware vCenter Server的更新功能NetApp Element
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: netapp, vcp, vcenter, plugin, element, new, whats new
 
 
 [role="lead"]
-vCenter Server 4.9版的支援功能可還原vSphere 6.5的支援、包括vCenter Server、ESXi和vSphere HTML5 Web Client。NetApp Element
+vCenter Server 4．10版的VMware外掛程式內含已解決的問題、包括安全性弱點、可大幅減少升級期間發生的中斷、並在某些環境中強化日常作業。NetApp Element在外掛程式的4月10日版中、線上說明連結已轉換為這項功能 link:index.html["文件連結"]。若要從外掛程式中存取線上說明連結、您必須擁有網路存取權。
 
-vCenter Server 4.9版的VMware vCenter Server 4.9外掛程式隨附於管理服務的2.20版。NetApp Element
+Element vCenter外掛程式4．10隨附於2.21．61版的管理服務中。
+
+
+
+== vCenter Server 4.9的插件NetApp Element
+
+VMware vCenter Server 4.9版的VMware vCenter外掛程式可還原vSphere 6.5的支援、包括vCenter Server、ESXi和vSphere HTML5 Web Client。NetApp Element
+
+Element vCenter外掛程式4.9可與2.20.69版的管理服務搭配使用。
 
 
 
 == vCenter Server 4.8的版插件NetApp Element
 
-vCenter Server 4.8版的更新程式包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。NetApp Element
+Element vCenter外掛程式4.7 4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。
 
-vCenter Server 4.8版的支援VMware vCenter Server 4.8外掛程式可與2.19版的管理服務搭配使用。NetApp Element
+Element vCenter外掛程式4.8隨2.19版管理服務一起提供。
 
 
 
-== vCenter Server 4.7的版插件NetApp Element
+== VMware vCenter Server 4.7版的插件NetApp Element
 
-vCenter Server 4.7版的支援程式包含重要的安全性改良功能、可進一步開發在中所做的改善NetApp Element https://security.netapp.com/advisory/ntap-20210315-0001/["最新的管理服務2.17.56修補程式"] 版本：
+Element vCenter外掛程式4.7包含重要的安全性改良功能、可進一步開發在中所做的改善 https://security.netapp.com/advisory/ntap-20210315-0001/["最新的管理服務2.17.56修補程式"] 版本：
 
 在4.7版中、外掛程式現在支援vSphere 7.0 Update 2的元件、包括vCenter Server、ESXi和vSphere HTML5 Web Client。
 
-vCenter Server 4.7版的VMware vCenter Server隨附於2.18版管理服務中。NetApp Element
+Element vCenter外掛程式4.7隨2.18版管理服務一起提供。
 
 
 
-== vCenter Server 4.6的VMware vCenter外掛程式NetApp Element
+== VMware vCenter Server 4.6的VMware vCenter外掛程式NetApp Element
 
 有了4.6版、外掛程式現在可支援vSphere 7.0 Update 1的元件、包括vCenter Server、ESXi和vSphere HTML5 Web Client。
 
-vCenter Server 4.6版的VMware vCenter Server 4.6外掛程式可與2.16版管理服務搭配使用。NetApp Element
+Element vCenter外掛程式4.6可搭配2.16版的管理服務使用。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * link:reference_earlier_versions.html["舊版NetApp Element 的不整合外掛程式文件"]

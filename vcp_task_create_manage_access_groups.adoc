@@ -19,11 +19,11 @@ keywords: netapp, storage, access groups, vcp, vcenter, element
 您可以在磁碟區集合中對應iSCSI啟動器IQN或Fibre Channel WWPN來建立存取群組。您新增至存取群組的每個IQN都可存取群組中的每個Volume、而不需要CHAP驗證。您新增至存取群組的每個WWPN都可讓光纖通道網路存取存取存取群組中的磁碟區。
 
 .選項
-* <<Create an access group>>
-* <<Edit an access group>>
-* <<Add volumes to an access group>>
-* <<Remove volumes from an access group>>
-* <<Delete an access group>>
+*  an access group
+*  an access group
+*  volumes to an access group
+*  volumes from an access group
+*  an access group
 
 
 
@@ -151,7 +151,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 . 確認行動。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

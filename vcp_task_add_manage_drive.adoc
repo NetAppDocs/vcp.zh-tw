@@ -16,9 +16,9 @@ keywords: netapp, drives, add, manage, remove, view vcp, vcenter, element
 [role="lead"]
 您可以使用NetApp Element 「畫面管理」擴充點將磁碟機新增至叢集、檢視現有磁碟機、以及移除磁碟機。
 
-* <<Add available drives to a cluster>>
-* <<View drive details>>
-* <<Remove a drive>>
+*  available drives to a cluster
+*  drive details
+*  a drive
 
 
 

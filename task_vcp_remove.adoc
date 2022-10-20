@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_vcp_remove.html 
-summary: 升級至NetApp Element 最新版的vCenter Server適用的VMware vCenter外掛程式。 
+summary: 升級至NetApp Element VMware vCenter Server的最新版VMware vCenter外掛程式。 
 keywords: netapp, vcp, vcenter, plugin, element, upgrade 
 ---
 = 移除vCenter外掛程式
@@ -11,7 +11,6 @@ keywords: netapp, vcp, vcenter, plugin, element, upgrade
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: netapp, vcp, vcenter, plugin, element, upgrade
 
 
 [role="lead"]
@@ -118,7 +117,8 @@ service-control --start vsphere-ui
 
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

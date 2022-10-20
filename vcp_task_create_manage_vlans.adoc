@@ -16,10 +16,10 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 [role="lead"]
 您可以將新的虛擬網路新增至叢集組態、以啟用多租戶環境連線至執行NetApp Element VMware軟體的叢集、並使用vCenter外掛程式來管理虛擬網路。
 
-* <<Create a virtual network>>
-* <<View virtual network details>>
-* <<Edit a virtual network>>
-* <<Delete a virtual network>>
+*  a virtual network
+*  virtual network details
+*  a virtual network
+*  a virtual network
 
 
 

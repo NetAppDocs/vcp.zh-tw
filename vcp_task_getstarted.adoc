@@ -4,9 +4,10 @@ permalink: vcp_task_getstarted.html
 summary: 您可以安裝及設定Element外掛程式、以供vCenter Server搭配Element儲存使用。 
 keywords: netapp, hci, vcp, vcenter, element, install, setup 
 ---
-= 安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+= 安裝及設定NetApp Element VMware vCenter Server的VMware vCenter外掛程式
 :hardbreaks:
 :allow-uri-read: 
+:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -14,21 +15,21 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 
 [role="lead"]
-您可以NetApp Element 直接將最新版本的vCenter Server適用的VMware vCenter外掛程式安裝到vCenter、並使用vSphere Web Client存取外掛程式。
+您可以將NetApp Element 最新版本的VMware vCenter Server適用的VMware vCenter外掛程式直接安裝到vCenter、並使用vSphere Web Client存取外掛程式。
 
 安裝完成後、您可以根據儲存I/O控制（QoSSIOC）服務以及vCenter外掛程式的其他服務來使用服務品質。
 
 請閱讀並完成每個安裝步驟、然後開始使用外掛程式：
 
-* <<Prepare for installation>>
-* <<Install the management node>>
-* <<Register the plug-in with vCenter>>
-* <<Modify vCenter properties for a dark site HTTP server>>
-* <<Access the plug-in and verify successful installation>>
-* <<Add storage clusters for use with the plug-in>>
-* <<Configure QoSSIOC settings using the plug-in>>
-* <<Configure user accounts>>
-* <<Create datastores and volumes>>
+*  for installation
+*  the management node
+*  the plug-in with vCenter
+*  vCenter properties for a dark site HTTP server
+*  the plug-in and verify successful installation
+*  storage clusters for use with the plug-in
+*  QoSSIOC settings using the plug-in
+*  user accounts
+*  datastores and volumes
 
 
 
@@ -65,7 +66,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 對於連結模式環境、外掛程式必須在環境中的每個vCenter Server上註冊、才能保持MOB資料同步、並能夠升級外掛程式。當vSphere Web Client連線至未登錄外掛程式的vCenter Server時、用戶端將看不到外掛程式。
 
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+NOTE: 使用元素vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
 .步驟
 . 在瀏覽器中輸入管理節點的IP位址、包括用於登錄的TCP連接埠：
@@ -107,7 +108,7 @@ NOTE: 您輸入的使用者名稱和密碼認證必須是具有vCenter Administr
 ** （適用於內部伺服器/黑點）外掛程式的自訂URL。
 +
 
-NOTE: 大多數安裝都使用預設路徑。如果您使用HTTP或HTTPS伺服器（黑網站）或修改了ZIP檔案名稱或網路設定、若要自訂URL、請選取*自訂URL*。如需自訂URL的其他步驟、請參閱* <<Modify vCenter properties for a dark site HTTP server,修改Dark站台HTTP伺服器的vCenter屬性>>。
+NOTE: 大多數安裝都使用預設路徑。如果您使用HTTP或HTTPS伺服器（黑網站）或修改了ZIP檔案名稱或網路設定、若要自訂URL、請選取*自訂URL*。如需自訂URL的其他步驟、請參閱*  vCenter properties for a dark site HTTP server,修改Dark站台HTTP伺服器的vCenter屬性。
 
 
 
@@ -290,7 +291,7 @@ IMPORTANT: vSphere HTML5 Web用戶端和Flash Web用戶端有不同的資料庫�
 [NOTE]
 ====
 *** 叢集的主機是每個vCenter Server專屬的。請確定您選取的vCenter Server可存取目標主機。您可以移除叢集、將其重新指派給另一個vCenter Server、如果您稍後決定使用不同的主機、也可以重新新增叢集。
-*** 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+*** 使用元素vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
 
 ====
@@ -345,7 +346,8 @@ NOTE: 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_So
 
 您可以建立 link:vcp_task_datastores_manage.html#create-a-datastore["資料存放區和元素磁碟區"] 開始分配儲存設備。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

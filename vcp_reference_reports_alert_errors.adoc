@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_reference_reports_alert_errors.html 
-summary: 以下是系統警示的清單、這些警示是資訊、警告或錯誤、可透過使用NetApp Element vCenter Server適用的「回報」頁面來指出叢集的執行效能。 
+summary: 以下是系統警示清單、這些警示是資訊、警告或錯誤、可透過使用NetApp Element VMware vCenter Server適用的《報告》頁面、指出叢集的執行效能。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, performance 
 ---
 = 系統警示清單
@@ -568,7 +568,8 @@ NOTE: 如需故障的詳細資訊、請參閱詳細資料標題。
 
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_reports_event_logs.html 
-summary: 檢閱NetApp Element vCenter Server的VMware vCenter外掛程式中的事件記錄、其中列出叢集上執行的作業、以及任何表示錯誤的叢集故障。 
+summary: 檢閱NetApp Element VMware vCenter Server的VMware vCenter外掛程式中的事件記錄、其中列出在叢集上執行的作業、以及指出錯誤的任何叢集故障。 
 keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, cluster, performance 
 ---
 = 監控事件記錄以進行疑難排解
@@ -90,7 +90,8 @@ NOTE: 系統不會在事件記錄中記錄唯讀API命令。
 * * vasaProviderEvent *：與VASA（vSphere API for Storage Aware）Provider相關的事件。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
