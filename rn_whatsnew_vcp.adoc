@@ -30,7 +30,7 @@ Element vCenter外掛程式4.9可與2.20.69版的管理服務搭配使用。
 
 == vCenter Server 4.8的版插件NetApp Element
 
-Element vCenter外掛程式4.7 4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。
+Element vCenter外掛程式4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。
 
 Element vCenter外掛程式4.8隨2.19版管理服務一起提供。
 

@@ -125,7 +125,7 @@ homepage:
     - title: 新增功能
       url: "/rn_whatsnew_vcp.html"
     - title: 版本資訊
-      url: "/rn_relatedrn.html"
+      url: "/rn_relatedrn_vcp.html"
   - title: 全快閃儲存系統SolidFire
     links:
     - title: 升級Element外掛程式

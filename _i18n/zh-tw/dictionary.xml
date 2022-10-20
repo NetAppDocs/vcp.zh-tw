@@ -2389,7 +2389,6 @@
   <block id="177259bf399e56131535817a5b3d056c" category="summary">本文件適用於NetApp Element 版本4.6之前的VMware vCenter Server版本。</block>
   <block id="51e42727247460a0bec3c65c38a8231b" category="doc">適用於VMware vCenter Server的舊版NetApp Element VMware vCenter外掛程式文件</block>
   <block id="fa1dfaacd9c58d6fa24c3cd804696883" category="paragraph">本文檔也適用於NetApp Element VMware vCenter Server的《VMware vCenter Plug-in》4．10版之前的版本。</block>
-  <block id="0b94915d96bdf913ca5fd03ffc778f0e" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 適用於Element vCenter外掛程式4.10、也包括4.9、4.6、4.7和4.8版。</block>
   <block id="622fbbcf746903b903f2af5462c8550a" category="cell">4.9</block>
   <block id="f751fbabf8051844c49362e0317859f4" category="cell"><block ref="f751fbabf8051844c49362e0317859f4" category="inline-link-rx"></block></block>
   <block id="b9cf34af101112b6fe1d9cb0084bf6d5" category="inline-link">2.20.69</block>
@@ -2438,7 +2437,6 @@
   <block id="e6d3d1619eb4fdac2775643fea2a6c05" category="section-title">vCenter Server 4.9的插件NetApp Element</block>
   <block id="be2443c4720bed9c69fd7e827839e61c" category="paragraph">VMware vCenter Server 4.9版的VMware vCenter外掛程式可還原vSphere 6.5的支援、包括vCenter Server、ESXi和vSphere HTML5 Web Client。NetApp Element</block>
   <block id="d186d1a54781fe84473dd5d36734fed7" category="paragraph">Element vCenter外掛程式4.9可與2.20.69版的管理服務搭配使用。</block>
-  <block id="cbc0df0d0811f264690cee9b3ba10fcc" category="paragraph">Element vCenter外掛程式4.7 4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。</block>
   <block id="537ead2e0cdece5a8f74b676b2a76ecc" category="paragraph">Element vCenter外掛程式4.8隨2.19版管理服務一起提供。</block>
   <block id="2d11279b1331356298fd619891de0ffa" category="section-title">VMware vCenter Server 4.7版的插件NetApp Element</block>
   <block id="518d3755563da4f104451562701d56eb" category="paragraph">Element vCenter外掛程式4.7包含重要的安全性改良功能、可進一步開發在中所做的改善<block ref="b1233a0bfa93edf062561cc29a402448" category="inline-link-rx"></block> 版本：</block>
@@ -2474,4 +2472,6 @@
   <block id="102fa0b3d48f5eb07a14f36cdde32296" category="sidebar">零件與元件文件資源SolidFire</block>
   <block id="e832d6528eba00e46f3e6d6ad9b8258b" category="sidebar">支援的文件資源NetApp HCI</block>
   <block id="f5409f597000de172b3e43bc31e32407" category="sidebar">NetApp混合雲控制與管理服務版本說明KB</block>
+  <block id="11c89ff1a6e1a8fdbe820874038b12c8" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 適用於Element vCenter外掛程式4.10、也包括版本4.6、4.7、4.8和4.9。</block>
+  <block id="8e929e82af0bc25d8adcd4def2eab9a9" category="paragraph">Element vCenter外掛程式4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。</block>
 </blocks>
