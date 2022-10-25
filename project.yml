@@ -128,6 +128,8 @@ homepage:
       url: "/rn_relatedrn_vcp.html"
   - title: 全快閃儲存系統SolidFire
     links:
+    - title: 更新功能NetApp Element
+      url: https://docs.netapp.com/us-en/element-software/concepts/concept_rn_whats_new_element.html
     - title: 升級Element外掛程式
       url: https://docs.netapp.com/us-en/element-software/upgrade/task_vcp_upgrade_plugin.html
     - title: 升級vSphere元件

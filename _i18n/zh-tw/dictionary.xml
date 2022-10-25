@@ -2474,4 +2474,5 @@
   <block id="f5409f597000de172b3e43bc31e32407" category="sidebar">NetApp混合雲控制與管理服務版本說明KB</block>
   <block id="11c89ff1a6e1a8fdbe820874038b12c8" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 適用於Element vCenter外掛程式4.10、也包括版本4.6、4.7、4.8和4.9。</block>
   <block id="8e929e82af0bc25d8adcd4def2eab9a9" category="paragraph">Element vCenter外掛程式4.8包含安全性改善、記憶體使用率改善、以及協力廠商程式庫升級。</block>
+  <block id="858ea7ae6467e65992f082751f2c1cdf" category="sidebar">更新功能NetApp Element</block>
 </blocks>
