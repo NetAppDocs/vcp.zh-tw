@@ -14,7 +14,7 @@ keywords: netapp, storage, access groups, vcp, vcenter, element
 
 
 [role="lead"]
-答 link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.html["Volume存取群組"] 是使用者可使用iSCSI啟動器或FC啟動器存取的磁碟區集合。
+答 link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.html["Volume存取群組"^] 是使用者可使用iSCSI啟動器或FC啟動器存取的磁碟區集合。
 
 您可以在磁碟區集合中對應iSCSI啟動器IQN或FC WWPN來建立存取群組。您新增至存取群組的每個IQN都可存取群組中的每個Volume、而不需要CHAP驗證。您新增至存取群組的每個WWPN都可讓FC網路存取存取存取群組中的磁碟區。
 

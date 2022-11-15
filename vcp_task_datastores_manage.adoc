@@ -20,8 +20,8 @@ keywords: netapp, datastore, vcp, vcenter, element
 * 若要建立及管理資料存放區、您必須先建立至少一個使用者帳戶。
 * 若要將QoSSIOC服務搭配資料存放區使用、您必須先從外掛程式擴充點設定「QoSSIOC設定」頁面上的設定。
 +
-** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
-** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式4.10及更早版本來設定"]
 
 
 * 由於資料存放區是使用所選ESXi主機所支援的最高VMFS版本所建立、因此所有叢集成員都應該執行相同版本的vSphere和ESXi、以避免VMFS相容性問題。
@@ -150,8 +150,8 @@ TIP: 如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及�
 
 如果QoSSIOC服務無法使用、您必須先設定QoSSIOC設定：
 
-** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
-** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式4.10及更早版本來設定"]
 
 
 --
@@ -363,8 +363,8 @@ IMPORTANT: 如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆�
 
 如果QoSSIOC服務無法使用、您必須先從外掛程式擴充點在「QoSSIOC設定」頁面上設定設定：
 
-** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
-** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式4.10及更早版本來設定"]
 
 
 --

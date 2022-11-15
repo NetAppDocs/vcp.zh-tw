@@ -2356,7 +2356,6 @@
   <block id="cdac12e8444404de524af6aed2665f45" category="inline-link">2.21</block>
   <block id="493947108f90792d70b0080451b59368" category="cell"><block ref="493947108f90792d70b0080451b59368" category="inline-link-rx"></block></block>
   <block id="562a438f33bff2259da6858dd288f400" category="cell"><block ref="562a438f33bff2259da6858dd288f400" category="inline-link-rx"></block></block>
-  <block id="35217a2ac23a8b6448931b9efc4c4f94" category="paragraph">答 <block ref="2934e3adb910b5942a2e24ca276b4338" category="inline-link-macro-rx"></block> 是使用者可使用iSCSI啟動器或FC啟動器存取的磁碟區集合。</block>
   <block id="adcd2fc490460962064733fd569fa4ea" category="paragraph">您可以在磁碟區集合中對應iSCSI啟動器IQN或FC WWPN來建立存取群組。您新增至存取群組的每個IQN都可存取群組中的每個Volume、而不需要CHAP驗證。您新增至存取群組的每個WWPN都可讓FC網路存取存取存取群組中的磁碟區。</block>
   <block id="ba5eebae5f14aac1ccd19f5057a508df" category="list-text">在vSphere Web Client中、開啟*管理*索引標籤：</block>
   <block id="00d5861848d4c935bdf9d8f9e8d3a493" category="list-text">從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</block>
@@ -2645,4 +2644,5 @@
   <block id="0e9c9eb44ef5108d7204ec64bc76f844" category="sidebar">VMware vCenter Server 5.0或更新版本的適用插件NetApp Element</block>
   <block id="74f171bb465a49ebcce88fa91d4562d4" category="sidebar">VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element</block>
   <block id="2abfacd3d0325353cbe289faa9d0d3b1" category="sidebar">安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式</block>
+  <block id="e97497d0f5938ed35b2e63e89f51bf3c" category="paragraph">答 <block ref="e64b216761b70bc0cfda4bc4eab1b43a" category="inline-link-macro-rx"></block> 是使用者可使用iSCSI啟動器或FC啟動器存取的磁碟區集合。</block>
 </blocks>
