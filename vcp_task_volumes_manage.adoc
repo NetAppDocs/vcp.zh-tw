@@ -41,7 +41,12 @@ VMware需要512e的磁碟資源。如果未啟用512e、則無法建立VMFS。
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取您要用於該工作的叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、選取* Create Volume *。
@@ -77,9 +82,15 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 == 檢視Volume詳細資料
 
-您可以檢閱NetApp Element 叢集上所有作用中磁碟區的一般資訊、這些磁碟區都位於「叢集管理」擴充點。您也可以查看每個作用中磁碟區的詳細資料、包括效率、效能、QoS、以及相關的快照。
+您可以檢閱外掛程式擴充點中叢集上所有作用中磁碟區的一般資訊。您也可以查看每個作用中磁碟區的詳細資料、包括效率、效能、QoS、以及相關的快照。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+.步驟
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 按一下「* Volumes *（*磁碟區*）」子
 +
@@ -218,7 +229,13 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 如果您將持續磁碟區與管理節點搭配使用、請勿修改持續磁碟區的名稱。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+.步驟
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 按一下「* Volumes *（*磁碟區*）」子
 . 從* Active*檢視中、檢查磁碟區。
@@ -246,11 +263,17 @@ NOTE: 您可以增加（但不能減少）Volume的大小。如果您要調整�
 
 TIP: *最佳實務做法*：當您變更IOPS值時、請使用以十或數百為單位的遞增量。輸入值需要有效的整數。設定具有極高突發值的磁碟區。這可讓系統更快處理偶爾發生的大型區塊循序工作負載、同時仍會限制磁碟區的持續IOPS。
 
-
-
 +
+[IMPORTANT]
+====
+QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。
 
-IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。啟用資料存放區QoSSIOC設定之後、磁碟區層級的任何QoS設定都會被覆寫。如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。
+啟用資料存放區QoSSIOC設定之後、磁碟區層級的任何QoS設定都會被覆寫。
+
+如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。
+
+====
+
 
 . 選擇*確定*。
 
@@ -273,10 +296,15 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 NOTE: 複製的磁碟區不會從來源磁碟區繼承Volume存取群組成員資格。
 
-作業系統在處理複製磁碟區的方式上各不相同。ESXi會將複製的Volume視為Volume複本或Snapshot Volume。磁碟區將是可用來建立新資料存放區的可用裝置。如需掛載複製磁碟區及處理快照LUN的詳細資訊、請參閱VMware相關文件 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html["掛載VMFS資料存放區複本"] 和 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html["管理重複的VMFS資料存放區"]。
+作業系統在處理複製磁碟區的方式上各不相同。ESXi會將複製的Volume視為Volume複本或Snapshot Volume。磁碟區將是可用來建立新資料存放區的可用裝置。如需掛載複製磁碟區及處理快照LUN的詳細資訊、請參閱VMware相關文件 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html["掛載VMFS資料存放區複本"^] 和 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html["管理重複的VMFS資料存放區"^]。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 檢查您要複製的磁碟區。
 . 選取*「動作*」。
@@ -338,7 +366,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 您可以將NetApp Element 支援的實體磁碟區備份到與Amazon S3相容的外部物件存放區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -366,7 +399,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 您可以將NetApp Element OpenStack Volume備份到與OpenStack Swift相容的外部物件存放區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -405,7 +443,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 .設定備份磁碟區
-. 從您要放置Volume備份的vCenter和叢集、選取* NetApp Element 《支援管理》>「管理」*。
+. 從您要放置Volume備份的vCenter和叢集、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -423,7 +466,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 .備份Volume
-. 從包含要用於備份之來源Volume的vCenter和叢集、選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+. 從包含要用於備份之來源磁碟區的vCenter和叢集、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -455,7 +503,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 您可以使用外掛程式、從Amazon S3物件存放區的備份還原磁碟區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Report報」（報告）
+. 從vCenter外掛程式中、開啟「*報告*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「報告」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「Report報」（報告）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取*事件記錄*子索引標籤。
 . 選取建立您需要還原之備份的備份事件。
@@ -487,7 +540,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 您可以使用外掛程式、從OpenStack Swift物件存放區的備份還原磁碟區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Report報」（報告）
+. 從vCenter外掛程式中、開啟「*報告*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「報告」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「Report報」（報告）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取*事件記錄*子索引標籤。
 . 選取建立您需要還原之備份的備份事件。
@@ -526,7 +584,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 .選取要用於還原的磁碟區
-. 從您要還原磁碟區的vCenter和叢集、選取* NetApp Element 《Management》（還原管理）>「Management」（管理）*。
+. 從您要還原磁碟區的vCenter和叢集、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -544,7 +607,12 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 .還原磁碟區
-. 從包含要用於還原之來源Volume的vCenter和叢集、選取* NetApp Element 《管理》>「管理*」。
+. 從包含要用於還原之來源磁碟區的vCenter和叢集、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、檢查磁碟區。
@@ -568,7 +636,7 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 == 刪除Volume
 
-您可以NetApp Element 使用NetApp Element 「無法管理」擴充點、從一個無法管理的叢集中刪除一或多個Volume。
+您可以NetApp Element 使用外掛程式擴充點、從一個或多個叢集中刪除一個或多個Volume。
 
 系統不會立即清除刪除的Volume。刪除的Volume可還原約八小時。
 
@@ -581,7 +649,12 @@ IMPORTANT: 與管理服務相關的持續磁碟區會在安裝或升級期間建
 IMPORTANT: 如果刪除用於建立快照的磁碟區、其相關的快照會列在「Protection（保護）」>「Snapshots（快照）」頁面的「Inactive（非使用中）」檢視中。當刪除的來源磁碟區被清除時、非使用中檢視中的快照也會從系統中移除。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 刪除一或多個磁碟區：
@@ -613,7 +686,12 @@ Volume會從「作用中」檢視移至「Volume」頁面中的「刪除」檢�
 IMPORTANT: 當磁碟區被清除時、就會立即且永久地從系統中移除該磁碟區。磁碟區中的所有資料都會遺失。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 選取檢視篩選器、然後從清單中選取*刪除*。
@@ -634,7 +712,12 @@ IMPORTANT: 當磁碟區被清除時、就會立即且永久地從系統中移除
 NOTE: 如果刪除磁碟區然後還原、ESXi將無法偵測還原的磁碟區（如果有資料存放區）。從ESXi iSCSI介面卡移除靜態目標、然後重新掃描介面卡。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 如果新增兩個以上的叢集、請在導覽列中選取該叢集。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 選取檢視篩選器、然後從清單中選取*刪除*。

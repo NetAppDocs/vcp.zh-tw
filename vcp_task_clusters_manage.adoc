@@ -17,13 +17,23 @@ keywords: netapp, cluster, vcp, vcenter, element
 您可以編輯執行Element軟體的叢集、管理SSH組態、設定保護網域監控、以及關閉叢集。
 
 .您需要的是 #8217 ；需要的是什麼
-* 至少必須有一個叢集 link:vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["新增"]。
+* 至少必須新增一個叢集：
++
+** link:vcp_task_getstarted_5_0.html#add-storage-clusters-for-use-with-the-plug-in["使用Element Plug-in for vCenter 5.0及更新版本新增叢集"]
+** link:vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["使用Element Plug-in for vCenter 4.10及更早版本新增叢集"]
+
+
 +
 
-NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「支援不支援功能」的擴充點功能。
+NOTE: 您必須至少新增一個叢集、才能使用外掛程式擴充點功能。
 
 * 叢集的目前完整叢集管理使用者認證。
-* 防火牆規則可在vCenter和叢集MVIP之間、在TCP連接埠443和8443上進行開放式網路通訊。
+* 防火牆規則允許vCenter與叢集MVIP在下列TCP連接埠之間進行開放式網路通訊：
++
+** 從Element Plug-in for vCenter 5.0開始、連接埠443、8333和843。
+** 適用於vCenter 4.10或更早版本的Element外掛程式、連接埠443和8443。
+
+
 
 
 .選項
@@ -44,7 +54,15 @@ NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「支援�
 
 == 檢視叢集詳細資料
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+您可以從vCenter外掛程式擴充點檢視叢集詳細資料。
+
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查您要編輯的叢集。
 . 選取*「動作*」。
 . 選擇*詳細資料*。
@@ -85,12 +103,18 @@ NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「支援�
 
 == 編輯叢集設定檔
 
-您可以從NetApp Element 「叢集組態」擴充點變更叢集的使用者ID和密碼。
+您可以從外掛程式擴充點變更叢集使用者ID和密碼。
 
 
 NOTE: 本程序說明如何變更外掛程式所使用的叢集管理使用者名稱和密碼。您無法從外掛程式變更叢集管理認證。請參閱 https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["管理叢集管理員使用者帳戶"^] 以取得變更叢集管理員帳戶認證的指示。
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*編輯*。
@@ -111,14 +135,24 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 
 == 移除叢集設定檔
 
-您可以使用NetApp Element 「VMware vCenter組態」擴充點、從vCenter外掛程式移除不想再管理的叢集設定檔。
+您可以使用外掛程式擴充點、從vCenter外掛程式移除不想再管理的叢集設定檔。
 
 如果您設定連結模式群組、並想要將叢集重新指派給另一個vCenter Server、您可以移除叢集設定檔、然後使用不同的連結vCenter Server IP重新新增。
 
+[NOTE]
+====
+* 從Element vCenter外掛程式5.0開始使用 link:vcp_concept_linkedmode.html["vCenter連結模式"]、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server。
+* 使用Element vCenter外掛程式4.10及更早版本、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
-NOTE: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+====
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查您要移除的叢集。
 . 選取*「動作*」。
 . 選擇*移除*。
@@ -129,16 +163,21 @@ NOTE: 使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、
 
 == 啟用靜止加密
 
-您可以使用NetApp Element 「靜態組態」擴充點、手動啟用靜止加密（Ear）功能。
+您可以使用外掛擴充點、手動啟用靜止（Ear）加密功能。
 
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 選取您要在其上啟用加密的叢集。
 . 選取*「動作*」。
-. 在產生的功能表中、按一下*啟用耳部*。
+. 在產生的功能表中、選取*啟用耳部*。
 . 確認行動。
 
 
@@ -146,13 +185,18 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 == 停用靜止加密
 
-您可以使用NetApp Element 「靜態組態」擴充點、手動停用靜止加密（Ear）功能。
+您可以使用外掛擴充點、手動停用靜止（Ear）加密功能。
 
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 在vSphere Web Client中、開啟* Clusters*標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 選取叢集的核取方塊。
-. 按一下「*動作*」。
-. 在出現的功能表中、按一下*停用耳部*。
+. 選取*「動作*」。
+. 在產生的功能表中、選取*停用耳部*。
 . 確認行動。
 
 
@@ -160,12 +204,18 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 == 啟用SSH
 
-您可以使用NetApp Element 「支援組態」擴充點手動啟用安全Shell（SSH）工作階段。啟用SSH可讓NetApp技術支援工程師存取儲存節點、以便在您決定的期間內進行疑難排解。
+您可以使用外掛程式擴充點手動啟用安全Shell（SSH）工作階段。啟用SSH可讓NetApp技術支援工程師存取儲存節點、以便在您決定的期間內進行疑難排解。
 
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*啟用SSH*。
@@ -186,7 +236,13 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*變更SSH*。
@@ -205,12 +261,18 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 == 停用SSH
 
-您可以使用NetApp Element 「穩定組態」擴充點、手動停用對儲存叢集中節點的安全Shell（SSH）存取。
+您可以使用外掛程式擴充點、手動停用安全Shell（SSH）存取儲存叢集中的節點。
 
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
-. 選取* NetApp Element 《組態》>「叢集」*。
+.步驟
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*停用SSH*。
@@ -221,7 +283,7 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 == 設定保護網域監控
 
-您可以手動啟用 link:vcp_concept_protection_domains.html["保護網域監控"] 使用NetApp Element 「功能不一」擴充點。您可以根據節點或機箱網域選取保護網域臨界值。
+您可以手動啟用 link:vcp_concept_protection_domains.html["保護網域監控"] 使用外掛程式擴充點。您可以根據節點或機箱網域選取保護網域臨界值。
 
 .您需要的是 #8217 ；需要的是什麼
 * 選取的叢集必須由元素11.0或更新版本監控、才能使用保護網域監控；否則、保護網域功能將無法使用。
@@ -229,7 +291,12 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選取*設定保護網域監控*。
@@ -248,7 +315,7 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 == 關閉叢集
 
-您可以使用NetApp Element 「恢復組態」擴充點、手動關閉儲存叢集中的所有作用中節點。
+您可以使用外掛程式擴充點、手動關閉儲存叢集中的所有作用中節點。
 
 如果您想要 link:vcp_task_add_manage_nodes.html#restart-a-node["重新啟動"] 您可以從NetApp Element 「叢集」頁面的「叢集」延伸點中選取所有節點、然後重新啟動、而非關閉叢集。
 
@@ -258,7 +325,12 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 您已停止I/O並中斷所有iSCSI工作階段的連線。
 
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*關機*。
@@ -269,13 +341,24 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 == 擴充NetApp HCI 您的需求基礎架構
 
-您可以NetApp HCI 透過NetApp HCI 使用無法更新的功能來新增節點、以手動擴充您的無法更新基礎架構。從這個擴充點可連結NetApp HCI 到用於擴充系統的各個方面。NetApp Element從「使用入門」和「叢集」頁面、NetApp Element 即可在「樣化管理」擴充點中提供其他連結。
+您可以NetApp HCI 透過NetApp HCI 使用無法更新的功能來新增節點、以手動擴充您的無法更新基礎架構。從外掛程式擴充點提供指向用於擴充系統的UUI連結NetApp HCI 。
+
+其他連結可從「使用入門」和「叢集」頁面取得：
+
+* 從Element vCenter外掛程式5.0開始、選取NetApp Element 「支援遠端外掛程式」>「管理」。
+* 針對Element vCenter外掛程式4.10及更早版本、請選取NetApp Element 「VMware vCenter管理」擴充點。
+
 
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 在vSphere Web Client中、開啟* Clusters*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「叢集*」。
+
+
 . 檢查叢集。
 . 選取*「動作*」。
 . 選擇*展開NetApp HCI 您的S編*。

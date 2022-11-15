@@ -1,27 +1,80 @@
 ---
 sidebar: sidebar 
 permalink: vcp_concept_linkedmode.html 
-summary:  
+summary: 您可以使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用vCenter連結模式、從其他vCenter Server管理叢集資源。 
 keywords: netapp, vcp, element, plugin, plug-in, linked mode 
 ---
-= 連結模式和外掛程式
+= 連結模式和vCenter外掛程式
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]
 您可以使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、使用vCenter連結模式、從其他vCenter Server管理叢集資源。
 
-只有在您登入目的地vCenter Web用戶端時、才能管理Element外掛程式中的儲存叢集。
+[role="tabbed-block"]
+====
+.適用於vCenter 5.0或更新版本的Element外掛程式
+--
+從Element外掛程式5.0開始、您可以從個別管理節點登錄Element外掛程式、以便管理NetApp SolidFire ®儲存叢集的每個vCenter Server。
+
+.範例
+* 註冊vCenter1： `https://[mnode1]:9443/solidfire-mnode/registration`
+* 註冊vCenter2： `https://[mnode2]:9443/solidfire-mnode/registration`
+
 
 若要在vSphere連結模式環境中設定儲存叢集管理、您可以使用下列程序手動新增儲存叢集。
 
 .步驟
-. 在將使用外掛程式的「連結模式」環境中、向每個vCenter Server註冊外掛程式。
+. 在使用外掛程式的「連結模式」環境中、從個別管理節點登錄外掛程式、以部署元素外掛程式。
+. 使用Element外掛程式。
++
+.. 在連結模式環境中登入任何vCenter Server的Web用戶端。
+.. 在* NetApp Element 《*不遠端外掛程式*》行中、選取* Instance*清單。
++
+image:select_instance.png["從清單中選取執行個體"]
+
+.. 選取您要使用的vCenter Server。
++
+選取目標vCenter Server之後、即可新增及管理該vCenter Server環境的叢集。
+
++
+
+NOTE: 您只能檢視及管理與所選vCenter Server相關聯的儲存叢集。
+
+
+
+
+
+您的VCenter1和vCenter2處於連結模式、儲存叢集1和儲存叢集2。您想要vCenter1管理叢集1和vCenter2來管理叢集2。
+
+image:two_vcenter_topology.PNG["說明vCenter和叢集拓撲"]
+
+在每個vCenter Server的個別管理節點上登錄外掛程式之後、請設定儲存叢集管理。
+
+.步驟
+. 在連結模式環境中登入任何vCenter Server的Web用戶端。
+. 在* NetApp Element 《*不遠端外掛程式*》行中、選取* Instance*清單。
+. 若要從vCenter1 Web用戶端管理cluster1、請從清單中選取* vCenter1*。
+. 將cluster1新增至Element Plug-in庫存。
+. 在* NetApp Element 《*不遠端外掛程式*》行中、選取* Instance*清單
+. 若要從vCenter2 Web用戶端管理cluster2、請從清單中選取* vCenter2*。
+. 將cluster2新增至Element Plug-in庫存。
+
+
+--
+.適用於vCenter 4.10或更早版本的Element外掛程式
+--
+對於Element Plug-in 4.10或更早版本、您只能在登入目的地vCenter Web用戶端時、管理Element外掛程式中的儲存叢集。
+
+若要在vSphere連結模式環境中設定儲存叢集管理、您可以使用下列程序手動新增儲存叢集。
+
+.步驟
+. 在使用外掛程式的「連結模式」環境中、向每個vCenter Server註冊外掛程式。
 . 針對每個連結的vCenter Server登入vSphere Web Client一次。
 +
 登入會啟動在Web用戶端上安裝外掛程式。
@@ -38,6 +91,8 @@ keywords: netapp, vcp, element, plugin, plug-in, linked mode
 . 若要從vCenter2 Web用戶端管理cluster2、請將cluster2新增至Element Plug-in詳細目錄。
 
 
+--
+====
 
 
 == 如需詳細資訊、請參閱

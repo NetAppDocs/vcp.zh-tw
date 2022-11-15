@@ -18,7 +18,12 @@ keywords: netapp, datastore, vcp, vcenter, element
 
 .您需要的是 #8217 ；需要的是什麼
 * 若要建立及管理資料存放區、您必須先建立至少一個使用者帳戶。
-* 若要將QoSSIOC服務搭配資料存放區使用、您必須先使用 link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定設定"] 在「QoSSIOC設定」頁面上、從NetApp Element 「功能性組態」延伸點取得。
+* 若要將QoSSIOC服務搭配資料存放區使用、您必須先從外掛程式擴充點設定「QoSSIOC設定」頁面上的設定。
++
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+
+
 * 由於資料存放區是使用所選ESXi主機所支援的最高VMFS版本所建立、因此所有叢集成員都應該執行相同版本的vSphere和ESXi、以避免VMFS相容性問題。
 
 
@@ -39,7 +44,7 @@ TIP: 使用vSphere中的工作監控功能、監控資料存放區作業是否�
 
 == 建立資料存放區
 
-您可以從NetApp Element 「不受資料管理」擴充功能建立資料存放區。
+您可以從外掛程式擴充來建立資料存放區。
 
 .您需要的是 #8217 ；需要的是什麼
 * 至少必須將一部主機連線至vCenter Server。
@@ -49,11 +54,21 @@ TIP: 使用vSphere中的工作監控功能、監控資料存放區作業是否�
 NOTE: 如果您使用vCenter連結模式、請確定已使用正確的vCenter Server新增叢集。
 
 * 必須至少建立一個使用者帳戶。
-* 若要將QoSSIOC服務搭配資料存放區使用、您必須先使用 link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定設定"] 在「QoSSIOC設定」頁面上、從NetApp Element 「功能性組態」延伸點取得。
+* 若要將QoSSIOC服務搭配資料存放區使用、您必須先從外掛程式擴充點在「QoSSIOC設定」頁面上設定設定：
++
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+
+
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -129,12 +144,17 @@ TIP: 如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深�
 
 . 如果您要啟用QoSSIOC自動化、請勾選*啟用QoS和SIOC*、然後設定QoSSIOC設定。
 +
+--
 
 TIP: 如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
 
-+
-如果QoSSIOC服務無法使用、請先使用 link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]。
+如果QoSSIOC服務無法使用、您必須先設定QoSSIOC設定：
 
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+
+
+--
 +
 .. 選擇*啟用QoS與SIOC*。
 .. 設定*爆發係數*。
@@ -166,9 +186,14 @@ TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大�
 
 == 檢視資料存放區清單
 
-您可以從NetApp Element 「資料存放區」頁面的「畫面管理」擴充點檢視可用的資料存放區。
+您可以從外掛程式擴充點檢視「資料存放區」頁面上的可用資料存放區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
@@ -203,9 +228,15 @@ NOTE: 不會列出橫跨多個磁碟區（混合資料存放區）的資料存�
 
 == 擴充資料存放區
 
-您可以使用NetApp Element 「無法管理」擴充點來擴充資料存放區、以增加磁碟區大小。延伸資料存放區也會延伸與該資料存放區相關的VMFS磁區。
+您可以使用外掛程式擴充點來擴充資料存放區、以增加磁碟區大小。延伸資料存放區也會延伸與該資料存放區相關的VMFS磁區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+.步驟
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
@@ -244,7 +275,12 @@ NOTE: 如果您使用vCenter連結模式、請確定已使用正確的vCenter Se
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
@@ -321,12 +357,17 @@ TIP: 如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深�
 
 . 如果您要啟用QoSSIOC自動化、請勾選*啟用QoS與SIOC*方塊、然後設定QoSSIOC設定。
 +
+--
 
 IMPORTANT: 如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
 
-+
-如果QoSSIOC服務無法使用、您必須先從NetApp Element 「還原組態」擴充點、在「QoSSIOC設定」頁面上設定設定。
+如果QoSSIOC服務無法使用、您必須先從外掛程式擴充點在「QoSSIOC設定」頁面上設定設定：
 
+** link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 5.0及更新版本來設定"]
+** link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter Plug-in 4.10及更早版本來設定"]
+
+
+--
 +
 .. 選擇*啟用QoS與SIOC*。
 .. 設定*爆發係數*。
@@ -357,7 +398,7 @@ TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大�
 
 == 共用資料存放區
 
-您可以使用NetApp Element 「無法辨識」擴充點、與一或多個主機共用資料存放區。
+您可以使用外掛程式擴充點、與一或多個主機共用資料存放區。
 
 資料存放區只能在同一個資料中心內的主機之間共用。
 
@@ -371,7 +412,12 @@ NOTE: 如果您使用vCenter連結模式、請確定已使用正確的vCenter Se
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
@@ -436,7 +482,12 @@ NOTE: 您至少需要一部連線的主機、才能建立新的資料存放區�
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。
@@ -453,9 +504,14 @@ NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用�
 
 == 刪除資料存放區
 
-您可以使用NetApp Element 「不實管理」擴充點來刪除資料存放區。此作業會永久刪除資料存放區上與VM相關聯的所有檔案、並將其刪除。外掛程式不會刪除包含已登錄VM的資料存放區。
+您可以使用外掛程式擴充點刪除資料存放區。此作業會永久刪除資料存放區上與VM相關聯的所有檔案、並將其刪除。外掛程式不會刪除包含已登錄VM的資料存放區。
 
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個以上的叢集、請在導覽列中選取您要使用的叢集。

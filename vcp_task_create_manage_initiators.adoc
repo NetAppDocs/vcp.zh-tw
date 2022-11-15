@@ -32,7 +32,12 @@ keywords: netapp, storage, inititators, vcp, vcenter, element
 您可以建立iSCSI或Fibre Channel啟動器、並選擇性地指派別名。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -85,7 +90,12 @@ iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
 您可以變更現有啟動器的別名、或是新增別名（如果別名不存在）。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -105,7 +115,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 您可以將啟動器新增至存取群組、以允許存取Volume存取群組中的磁碟區、而不需要CHAP驗證。當您將啟動器新增至Volume存取群組時、啟動器可存取該Volume存取群組中的所有Volume。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -125,7 +140,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 您可以在不再需要啟動器之後刪除它。刪除啟動器時、系統會將其從任何相關的Volume存取群組中移除。使用啟動器的任何連線都會維持有效、直到連線重設為止。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。

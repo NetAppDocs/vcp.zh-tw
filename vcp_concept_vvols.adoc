@@ -30,7 +30,11 @@ VMware ESXi主機使用邏輯I/O Proxy（稱為傳輸協定端點）與虛擬磁
 
 在一個S廳 叢集中的傳輸協定端點NetApp Element 可作為SCSI管理邏輯單元。每個傳輸協定端點都會由叢集自動建立。對於叢集中的每個節點、都會建立對應的傳輸協定端點。例如、四節點叢集將有四個傳輸協定端點。
 
-iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳輸協定。使用者無法刪除或修改傳輸協定端點、無法與帳戶建立關聯、也無法新增至磁碟區存取群組。在「知識與管理」擴充點的「* VVols > Protocol Endpointations*」頁NetApp Element 面上、您可以檢閱傳輸協定端點資訊。
+iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳輸協定。使用者無法刪除或修改傳輸協定端點、無法與帳戶建立關聯、也無法新增至磁碟區存取群組。您可以使用外掛程式擴充點來檢閱傳輸協定端點資訊：
+
+* 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「VVols」>「傳輸協定端點」*。
+* 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「VVols」（VVols）>「Protocol End端 點」（傳輸協定端點）*。
+
 
 
 
@@ -38,7 +42,13 @@ iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳�
 
 儲存容器是對應NetApp Element 至不二帳戶的邏輯架構、可用於報告和資源分配。它們會將儲存系統可提供的原始儲存容量或集合式儲存功能集合在一起、以供虛擬磁碟區使用。在vSphere中建立的VVOL資料存放區會對應至個別的儲存容器。根據預設、單一儲存容器具有NetApp Element 來自於該叢集的所有可用資源。如果需要更精細的多租戶治理、則可建立多個儲存容器。
 
-儲存容器的功能與傳統帳戶類似、可同時包含虛擬磁碟區和傳統磁碟區。每個叢集最多支援四個儲存容器。使用VVols功能至少需要一個儲存容器。在「View Management」延伸點的「* VVols > Storage Containers*」（* VVols >儲存容器*）頁NetApp Element 面上、您可以建立、刪除及檢視儲存容器的詳細資料。您可以在VVols建立期間、在vCenter中探索儲存容器。
+儲存容器的功能與傳統帳戶類似、可同時包含虛擬磁碟區和傳統磁碟區。每個叢集最多支援四個儲存容器。使用VVols功能至少需要一個儲存容器。您可以使用外掛程式擴充點來建立、刪除及檢視儲存容器的詳細資料：
+
+* 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「VVols」>「儲存容器」*。
+* 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「VVols」（VVols）>「Storage Containers*」（儲存容器*）。
+
+
+您也可以在VVols建立期間、在vCenter中探索儲存容器。
 
 
 
@@ -49,7 +59,7 @@ iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳�
 VASA提供者在Element軟體中作為叢集主機的一部分執行。叢集主機是高可用度的服務、可視需要容錯移轉至叢集中的任何節點。如果叢集主機容錯移轉、VASA供應商會隨之移轉、確保VASA供應商的高可用度。所有的資源配置和儲存管理工作都使用VASA供應商來處理元素叢集上所需的任何變更。
 
 
-NOTE: 請勿在NetApp Element 單一vCenter執行個體中登錄多個VMware vCenter供應商。在新增第二NetApp Element 個供應商時、這會使所有VVOL資料存放區無法存取。
+NOTE: 對於Element軟體12.5及更早版本、請勿在NetApp Element 單一vCenter執行個體中登錄一個以上的VMware VASA供應商。在新增第二NetApp Element 個供應商時、這會使所有VVOL資料存放區無法存取。
 
 
 NOTE: 如果您已向vCenter註冊VASA供應商、則最多可將10個vCenter的VASA支援作為升級修補程式。若要安裝、請遵循VSA39資訊清單中的指示、並從下載.tar.gz檔案 link:https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/vasa39["NetApp軟體下載"^] 網站。該供應商使用NetApp認證。NetApp Element有了這個修補程式、vCenter便會使用未經修改的憑證來支援VASA和VVols使用的多個vCenter。請勿修改憑證。VASA不支援自訂SSL憑證。

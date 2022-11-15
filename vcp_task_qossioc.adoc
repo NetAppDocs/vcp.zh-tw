@@ -52,7 +52,11 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 啟用外掛程式的QoSSIOC服務之後、您可以啟用QoSSIOC自動化功能、並自訂資料存放區的虛擬機器磁碟（VMDK）效能層級。
 
-您有 link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["已設定QoSSIOC服務設定"] 在「QoSSIOC設定」頁面和「* QoSSIOC狀態*」欄位中顯示「UP」。
+您已在「QoSSIOC設定」頁面和「* QoSSIOC狀態*」欄位顯示中設定QoSSIOC服務設定 `UP`。
+
+* link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式5.0及更新版本來設定"]
+* link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式4.10及更早版本來設定"]
+
 
 QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVols）。當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。
 
@@ -60,7 +64,12 @@ QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVol
 IMPORTANT: 如果您使用的是QoS原則、請勿啟用QoSSIOC。不論原則為何、QoSSIOC都會覆寫及調整任何Volume QoS設定的QoS值。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -100,8 +109,13 @@ TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大�
 您可以變更作用中元素管理節點的QoSSIOC和vCenter認證。
 
 .步驟
-. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
-. 按一下「*動作*」。
+. 在vSphere Web Client中、開啟「* QoSSIOC設定*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「QoSSIOC設定」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「QoSSIOC設定」*。
+
+
+. 選取*「動作*」。
 . 在產生的功能表中、選取*編輯*。
 . 在「*編輯QoSSIOC設定*」對話方塊中、變更下列任一項目：
 +
@@ -115,7 +129,7 @@ NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp H
 ** * vCenter密碼*：vCenter管理員擁有完整管理員角色權限的密碼。
 
 
-. 按一下「*確定*」。當外掛程式能夠與服務成功通訊時、QoSSIOC狀態欄位會顯示「UP」。
+. 選擇*確定*。「QoSSIOC狀態」欄位隨即顯示 `UP` 當外掛程式能夠與服務成功通訊時。
 +
 
 NOTE: 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 若要疑難排解狀態是否為下列任一項目：*「診斷」：未啟用QoSSIOC。*「未設定」：尚未設定QoSSIOC設定。*「網路中斷」：vCenter無法與網路上的QoSSIOC服務通訊。mNode和SIOC服務可能仍在執行中。
@@ -136,11 +150,16 @@ NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成�
 * 您的管理節點已開啟電源。
 
 
-此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更  QoSSIOC settings,QoSSIOC設定 《不適用的組態》擴充點頁NetApp Element 面。
+此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更  QoSSIOC settings,QoSSIOC設定 頁面。
 
 .步驟
-. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
-. 按一下「*動作*」。
+. 在vSphere Web Client中、開啟「* QoSSIOC設定*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「QoSSIOC設定」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「QoSSIOC設定」*。
+
+
+. 選取*「動作*」。
 . 在產生的功能表中、選取*清除*。
 . 確認行動。
 +
@@ -164,16 +183,16 @@ NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp H
 .. *確認密碼*：再次輸入新密碼。
 
 
-. 按一下*提交變更*。
+. 選擇*提交變更*。
 +
 
 NOTE: 在您提交變更後、QoSSIOC服務會自動重新啟動。
 
 . 在vSphere Web Client中、選取* NetApp Element 「*效能不均組態」>「QoSSIOC設定*」。
-. 按一下「*動作*」。
+. 選取*「動作*」。
 . 在產生的功能表中、選取*設定*。
 . 在「*設定QoSSIOC設定*」對話方塊中、於「* QoSSIOC密碼*」欄位中輸入新密碼。
-. 按一下「*確定*」。
+. 選擇*確定*。
 +
 當外掛程式能夠與服務成功通訊時、「* QoSSIOC狀態*」欄位會顯示「UP」。
 
@@ -186,17 +205,22 @@ NOTE: 在您提交變更後、QoSSIOC服務會自動重新啟動。
 您可以停用資料存放區的QoSSIOC整合。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
 
-. 按一下所選資料存放區* QoSSIOC Automation *（* QoSSIOC自動化*）欄中的按鈕。
+. 在所選資料存放區的「* QoSSIOC Automation *（* QoSSIOC自動化*）」欄中選取按鈕。
 . 清除*啟用QoS與SIOC*核取方塊、即可停用整合。
 +
 清除「啟用QoS與SIOC」核取方塊、會自動停用「置換預設QoS」選項。
 
-. 按一下「*確定*」。
+. 選擇*確定*。
 
 
 
@@ -206,8 +230,13 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 您可以清除元素儲存管理節點（mNode）的QoSSIOC組態詳細資料。在設定新管理節點的認證或變更QoSSIOC服務密碼之前、您必須先清除已設定管理節點的設定。清除QoSSIOC設定會從vCenter、叢集和資料存放區移除作用中的QoSSIOC。
 
 .步驟
-. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
-. 按一下「*動作*」。
+. 在vSphere Web Client中、開啟「* QoSSIOC設定*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「QoSSIOC設定」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「QoSSIOC設定」*。
+
+
+. 選取*「動作*」。
 . 在產生的功能表中、選取*清除*。
 . 確認行動。
 +

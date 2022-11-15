@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_remote_plugin_architecture.html 
+summary: 深入瞭解NetApp Element vCenter Server架構的遠端功能。 
+keywords: netapp, vcp, vcenter, plugin, element, remote, architecture 
+---
+= 遠端外掛程式架構總覽
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+從NetApp Element vCenter Server 5.0的VMware外掛程式開始、外掛程式架構會從本機變更為遠端。隨著遠端架構的推出、外掛程式不再部署在vCenter伺服器內部。對於vCenter Server 4．10或更早版本的元素外掛程式、外掛程式部署會保留在登錄該外掛程式的vCenter伺服器本機。
+
+本頁說明vCenter NetApp Element Server遠端執行的VMware vCenter外掛程式。
+
+vSphere Client遠端外掛程式架構的設計、是為了將外掛程式功能整合至vSphere Client、而無需在vCenter Server內部執行。遠端外掛程式架構支援外掛程式隔離、可橫向擴充在大型vSphere環境中運作的外掛程式、並提供下列優點：
+
+* 外掛程式受到載入相同vSphere Client的不穩定或受損外掛程式的干擾保護。
+* 跨vCenter Server升級的外掛程式相容性十分強大。
+* 不相容的外掛程式不會干擾vCenter Server作業。
+* 您可以在相同的vSphere環境中部署多個外掛程式版本。
+* 遠端外掛程式使用者介面僅需與單一後端伺服器通訊。
+* 已部署的外掛程式拓撲定義完善、易於瞭解、可支援疑難排解。
+
+
+
+
+== vCenter Server高層架構的遠端元素外掛程式
+
+使用NetApp混合雲控制、遠端元素外掛程式會部署在管理節點內部的泊塢視窗容器中、以及管理服務。
+
+image:vcp_remote_plugin_high_level_architecture.png["遠端外掛程式高層架構"]
+
+遠端元素外掛程式vCenter Server、登錄服務和儲存I/O控制（SIOC）服務會共用相同的Docker服務、但會偵聽不同的連接埠。
+
+[cols="50,25"]
+|===
+| 說明 | 連接埠 
+
+
+| 遠端元素外掛程式vCenter Server | 8333 
+
+
+| 註冊服務 | 9443 
+
+
+| SIOC服務 | 8443. 
+|===
+
+
+== 遠端元素外掛程式通訊路徑總覽
+
+您必須先使用管理節點上執行的登錄服務、在vCenter Server上登錄遠端外掛程式 (`https://<mnode-ip>:9443/`）。在登錄頁面上、您可以看到vCenter伺服器使用者名稱、密碼和 `plugin.json` 資訊清單檔案路徑。
+
+
+NOTE: 預設路徑會填入UI中。無需採取任何行動。
+
+如果提供的詳細資料正確、註冊服務會在vCenter Server中登錄外掛程式、並在外掛程式伺服器資料庫中輸入vCenter詳細資料。
+
+註冊完成後、外掛程式伺服器會下載 `plugin.json` 資訊清單檔並啟動遠端外掛程式部署、其中包括將遠端外掛程式設定為副檔名 `vsphere-ui` 用戶端：部署完成後、您可以從存取* NetApp Element 《遠端外掛程式》*擴充點 `vsphere-ui` Web用戶端：
+
+來自外掛程式UI的所有通訊都是透過vCenter Server進行、vCenter Server會使用HTTPS傳輸協定執行反向Proxy服務、該傳輸協定負責轉送遠端外掛程式服務的要求。外掛程式伺服器使用HTTPS基本驗證與SIOC服務互動、並使用Element Java軟體開發套件（SDK）與Element叢集互動。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

@@ -73,10 +73,15 @@ NOTE: 叢集配對需要在管理網路上的節點之間建立完整連線。�
 如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱  clusters with a pairing key。
 
 .步驟
-. 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
+. 在vSphere Web Client中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「Protection」*。
+** 針對Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「保護*」。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+
 
 . 選取*叢集配對*子索引標籤。
 . 選取*建立叢集配對*。
@@ -96,7 +101,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 . 工作完成後、您會看到「叢集配對」頁面、請確認叢集配對已連線。
-. （選用）在遠端叢集上、選取* NetApp Element 《支援*》>*《叢集配對*》、或使用元素Web UI來驗證叢集配對是否已連線。
+. （選用）在遠端叢集上、使用元素UI或外掛程式擴充點來驗證叢集配對是否已連線：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「保護」>「叢集配對」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「Protection」（保護）>「Cluster Pair*」（叢集配對*）。
+
+
 
 
 
@@ -107,11 +117,17 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 本程序說明在本機和遠端站台上使用vCenter的兩個叢集之間進行叢集配對。對於非由vCenter外掛程式控制的叢集、您也可以選擇 https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_cluster_using_pairing_key.html["啟動或完成叢集配對"] 使用元素Web UI。
 
+[[open_protection_tab]]
 .步驟
-. 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+
 
 . 選取*叢集配對*子索引標籤。
 . 選取*建立叢集配對*。
@@ -132,7 +148,7 @@ NOTE: 叢集配對金鑰包含MVIP的版本、使用者名稱、密碼和資料�
 
 IMPORTANT: 請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
 
-. 從包含遠端叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
+. 從包含遠端叢集的vCenter、 ,開啟「Protection（保護）」索引標籤。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -150,7 +166,7 @@ NOTE: 等待載入微調器消失、再繼續下一步。如果配對程序期�
 . 將本機叢集的配對金鑰貼到*叢集配對金鑰*欄位。
 . 選擇*配對叢集*。
 . 工作完成後、您會看到「*叢集配對*」頁面、請確認叢集配對已連線。
-. 若要驗證叢集配對是否已連線、請在遠端叢集上選取* NetApp Element 《Management》（*）>*《Protection》（保護）*、或使用Element UI（元素UI）。
+. 若要驗證叢集配對是否已連線、請在遠端叢集上執行 ,開啟「Protection（保護）」索引標籤 或使用Element UI。
 
 
 
@@ -202,7 +218,12 @@ NOTE: 等待載入微調器消失、再繼續下一步。如果配對程序期�
 
 
 .步驟
-. 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》*《Management》*。
+. 在包含本機叢集的vCenter中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -306,11 +327,17 @@ NOTE: 如果您尚未將磁碟區指派為複寫目標、配對組態將不完�
 
 NOTE: Volume配對金鑰包含加密版本的Volume資訊、可能包含敏感資訊。只能以安全的方式共用此金鑰。
 
+[[open_management]]
 .步驟
-. 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》*《Management》*。
+. 在包含本機叢集的vCenter中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
+
+
 
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、選取您要配對之Volume的核取方塊。
@@ -340,7 +367,7 @@ NOTE: Volume配對金鑰應以安全的方式處理、而非以允許意外或�
 
 IMPORTANT: 請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
 
-. 在包含遠端叢集的vCenter中、選取* NetApp Element 《Management》（*《VMware vCenter管理》*）>*《Management》（管理）*。
+. 從包含遠端叢集的vCenter、 ,開啟「管理」索引標籤。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -384,7 +411,12 @@ NOTE: 使用配對金鑰配對的Volume會在遠端位置完成配對程序後�
 
 
 .步驟
-. 在包含本機叢集的vCenter中、選取* NetApp Element 《Management》*《Management》*。
+. 在包含本機叢集的vCenter中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -433,8 +465,13 @@ NOTE: 確認配對之後、兩個叢集便會開始連接磁碟區的程序。�
 *最佳實務做法*：目標磁碟區不應包含任何資料、且應具有來源磁碟區的確切特性、例如大小、512e設定和QoS組態。目標Volume的大小可能大於或等於來源Volume、但不能變小。
 
 .步驟
-. 從vCenter Server * NetApp Element 的*《S廳 管理*》擴充點中、選取包含您要作為複寫來源之配對磁碟區的叢集。
-. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+. 選取包含配對磁碟區的叢集、以作為外掛程式擴充點的複寫來源：
++
+** 從* NetApp遠端外掛程式>管理*的Element vCenter外掛程式5.0開始。
+** 針對Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》*。
+
+
+. 從Element Plug-in for vCenter Server版本的擴充點、選取*管理*索引標籤。
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、選取您要編輯之Volume的核取方塊。
 . 選取*「動作*」。
@@ -445,8 +482,12 @@ NOTE: 確認配對之後、兩個叢集便會開始連接磁碟區的程序。�
 IMPORTANT: 如果您要反轉來源和目標指派、此動作會導致磁碟區配對顯示「暫停已設定的項目」、直到指派新的複寫目標為止。變更存取會暫停磁碟區複寫、並導致資料傳輸停止。請確定您已在兩個站台協調這些變更。
 
 . 選擇*確定*。
-. 從* NetApp Element 《Management》*擴充點中、選取包含您要用作複寫目標之配對磁碟區的叢集。
-. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+. 選取包含您要作為複寫目標之配對磁碟區的叢集：
++
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（支援管理）>「Management」（管理）*。
+** 從* NetApp遠端外掛程式>管理>管理*的Element vCenter外掛程式5.0開始。
+
+
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 從* Active*檢視中、選取您要編輯之Volume的核取方塊。
 . 選取*「動作*」。
@@ -466,7 +507,12 @@ IMPORTANT: 如果您將現有磁碟區指派為複寫目標、則該磁碟區上
 複寫磁碟區之後、您應該確定來源與目標磁碟區處於作用中狀態。處於「作用中」狀態時、磁碟區會配對、資料會從來源傳送至目標磁碟區、而且資料會同步。
 
 .步驟
-. 在配對的任一叢集中、選取* NetApp Element 《*》《Management》（*《**保護*》）。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -502,7 +548,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 您可以編輯Volume Pair內容以手動暫停複寫。
 
 .步驟
-. 選擇* NetApp Element 《Management》（*）>*《Protection》（*保護）*。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -526,7 +577,12 @@ IMPORTANT: 手動暫停或恢復磁碟區複寫會導致資料傳輸停止或恢
 您可以編輯Volume配對內容、以變更Volume配對關係的複寫模式。
 
 .步驟
-. 選擇* NetApp Element 《Management》（*）>*《Protection》（*保護）*。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -560,7 +616,12 @@ IMPORTANT: 變更複寫模式會導致模式立即變更。請確定您已在兩
 對於不受vCenter外掛程式控制的磁碟區、您也可以選擇 link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_volume_relationship_after_replication.html["刪除磁碟區配對結束"] 使用元素Web UI。
 
 .步驟
-. 選擇* NetApp Element 《Management》（*）>*《Protection》（*保護）*。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -589,7 +650,12 @@ NOTE: 對於未由外掛程式管理的叢集、此動作只會刪除本機叢�
 對於非由vCenter外掛程式控制的叢集、您也可以選擇 link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_cluster_pair.html["刪除叢集配對結束"] 使用元素Web UI。
 
 .步驟
-. 選擇* NetApp Element 《Management》（*）>*《Protection》（*保護）*。
+. 在包含本機叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 . 選取*叢集配對*子索引標籤。
 . 選取您要刪除之叢集配對的核取方塊。
 . 選取*「動作*」。
@@ -606,7 +672,7 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 
 == Volume配對訊息與警告
 
-您可以在NetApp Element 「保護」索引標籤的「Volume Pairs」（Volume Pairs）頁面上、從「View Management」組態點檢視已配對或正在配對的Volume相關資訊。
+您可以在外掛程式擴充點的「保護」索引標籤的「Volume Pairs」（磁碟區配對）頁面上、檢視已配對或正在配對的磁碟區資訊。從Element vCenter外掛程式5.0開始、從NetApp Element 「支援遠端外掛程式」擴充點選取「管理」索引標籤。針對Element vCenter外掛程式4.10及更早版本、請選取NetApp Element 「VMware vCenter管理」擴充點。
 
 系統會在Volume Status（Volume狀態）欄中顯示配對與進度訊息。
 
@@ -618,7 +684,7 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 
 === Volume配對訊息
 
-您可以在初始配對程序期間、從NetApp Element 「保護」索引標籤的「Volume Pairs」（Volume配對）頁面上的「還原管理」組態點檢視訊息。這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。
+您可以從外掛程式擴充點的「保護」索引標籤的「Volume Pairs」（磁碟區配對）頁面、檢視初始配對程序期間的訊息。這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。
 
 * *暫停已中斷連線*：來源複寫或同步RPC逾時。與遠端叢集的連線已中斷。檢查與叢集的網路連線。
 * *重新連線已連線*：遠端複寫同步功能現已啟用。開始同步程序並等待資料。
@@ -635,7 +701,7 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 
 === Volume配對警告
 
-在「Protection（保護）」索引標籤的「Volume Pairs（磁碟區配對）」頁面上、從NetApp Element 「View Management（還原管理）」組態點配對磁碟區後、您可以檢視警告訊息這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。
+在外掛程式擴充點的「保護」索引標籤的「Volume Pairs」（磁碟區配對）頁面上配對磁碟區之後、您可以檢視警告訊息。這些訊息會顯示在Volume Status（Volume狀態）欄中、並可顯示在配對的來源和目標端點上。
 
 除非另有說明、否則這些訊息會顯示在配對的來源和目標端點上。
 
@@ -651,8 +717,7 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 * *停止設定錯誤*：偵測到永久組態錯誤。遠端Volume已清除或取消配對。不可能採取修正行動；必須建立新的配對。
 
 
-
-
+[discrete]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -17,9 +17,13 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report
 您可以從NetApp Element VMware vCenter Server的「VMware vCenter Server的VMware vCenter Plug-in」的「報告」延伸點之「報告」索引標籤的「總覽」頁面、檢視所選叢集的高層叢集資訊、包括整體容量、效率和效能NetApp Element 。
 
 .步驟
-. 從vCenter外掛程式選取* NetApp Element 《Management》*。
-. 選擇*報告*。
-. 監控「總覽」頁面上的資料。
+. 從vCenter外掛程式中、開啟「*報告*」索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「報告」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）>「Report報」（報告）*。
+
+
+. 監控* Overview（概覽）*頁面上的資料。
 
 
 

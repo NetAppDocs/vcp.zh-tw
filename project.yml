@@ -6,7 +6,7 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
-  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
+  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr,fr-fr,de-de
 sidebar:
   entries:
   - title: VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element
@@ -21,10 +21,18 @@ sidebar:
       url: "/rn_relatedrn_vcp.html"
   - title: 概念
     entries:
-    - title: 部分組態擴充點NetApp Element
-      url: "/vcp_concept_config_extension_point.html"
-    - title: 解決方案管理擴充點NetApp Element
-      url: "/vcp_concept_management_extension_point.html"
+    - title: VMware vCenter Server 5.0或更新版本的適用插件NetApp Element
+      entries:
+      - title: 遠端外掛程式架構總覽
+        url: "/vcp_concept_remote_plugin_architecture.html"
+      - title: 指遠端外掛程式擴充點NetApp Element
+        url: "/vcp_concept_remote_plugin_extension_point.html"
+    - title: VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element
+      entries:
+      - title: 部分組態擴充點NetApp Element
+        url: "/vcp_concept_config_extension_point.html"
+      - title: 解決方案管理擴充點NetApp Element
+        url: "/vcp_concept_management_extension_point.html"
     - title: 使用者帳戶
       url: "/vcp_concept_accounts.html"
     - title: 保護網域
@@ -36,9 +44,13 @@ sidebar:
     - title: 虛擬磁碟區（vVols）
       url: "/vcp_concept_vvols.html"
   - title: 部署前需求
-    url: reference_requirements_vcp.html
-  - title: 安裝及設定NetApp Element VMware vCenter Server的VMware vCenter外掛程式
-    url: "/vcp_task_getstarted.html"
+    url: "/reference_requirements_vcp.html"
+  - title: 安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+    entries:
+    - title: 為vCenter Server 7.0及更新版本安裝及設定Element Plug-in 5.0及更新版本
+      url: "/vcp_task_getstarted_5_0.html"
+    - title: 安裝及設定Element Plug-in 4.10及更早版本
+      url: "/vcp_task_getstarted.html"
   - title: 升級外掛程式
     url: "/task_vcp_upgrades.html"
   - title: 使用vCenter外掛程式管理儲存設備

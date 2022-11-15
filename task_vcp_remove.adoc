@@ -14,10 +14,10 @@ keywords: netapp, vcp, vcenter, plugin, element, upgrade
 
 
 [role="lead"]
-對於vSphere 6.7或更早版本所使用的vCenter外掛程式2.5或更新版本、您必須完成下列程序、才能從vCenter Server手動移除與外掛程式相關的所有檔案。對於vSphere 7.0、所有檔案都會在您取消登錄外掛程式後自動移除。
+對於vSphere 6.7或更早版本所使用的vCenter外掛程式4.0至4.10、您必須完成下列程序、才能從vCenter Server手動移除與外掛程式相關的所有檔案。對於vSphere 7.0及更新版本、在您取消登錄外掛程式之後、不需要移除檔案。
 
 .您需要的是 #8217 ；需要的是什麼
-* vCenter外掛程式2.5或更新版本
+* vCenter外掛程式4.0到4.10.
 * vSphere 6.7或更早版本
 * 您有 link:task_vcp_unregister.html["未註冊"] 現有的外掛程式、並具備SSH、RDP或其他適當的VCSA或vCenter Server連線能力。
 

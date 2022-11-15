@@ -14,17 +14,20 @@ summary: 本文件適用於NetApp Element 版本4.6之前的VMware vCenter Serve
 
 
 [role="lead"]
-本文檔也適用於NetApp Element VMware vCenter Server的《VMware vCenter Plug-in》4．10版之前的版本。
+本文件也適用於NetApp Element 版本5.0之前的VMware vCenter Server版本。
 
 
-NOTE: 這 link:index.html["文件連結"] 適用於Element vCenter外掛程式4.10、也包括版本4.6、4.7、4.8和4.9。
+NOTE: 這 link:index.html["文件連結"] 對於Element vCenter外掛程式5.0、也包含版本4.6、4.7、4.8、4.9和4.10。
 
 [cols="4*"]
 |===
 | 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
 
 
-| 4.9 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["2.20.69"] | link:index.html["連結"] 
+| 4.10. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["2.21"^] | link:index.html["連結"] 
+
+
+| 4.9 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["2.20.69"^] | link:index.html["連結"] 
 
 
 | 4.8. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["2.19.48"^] | link:index.html["連結"] 

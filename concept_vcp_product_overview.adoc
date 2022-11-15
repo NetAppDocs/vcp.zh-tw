@@ -23,6 +23,10 @@ VMware vCenter Server的《VMware vCenter外掛程式》是一套網路型工具
 == 與外掛程式相關的NetApp元件
 
 * *登錄公用程式*：可讓您管理的工具 link:vcp_concept_qossioc.html["QoSSIOC"] 使用vCenter登錄服務與外掛程式。
++
+
+NOTE: 從Element Plug-in for vCenter 5.0開始、您可以從個別管理節點、為每個管理NetApp SolidFire ®儲存叢集的vCenter Server登錄Element外掛程式。
+
 * *管理服務*：微服務、包括vCenter外掛程式的QoSSIOC服務。外掛程式的升級是以管理服務套裝組合的形式發行。
 +
 
@@ -65,4 +69,5 @@ TIP: 深入瞭解 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Sto
 * https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
 * link:vcp_concept_config_extension_point.html["部分組態擴充點NetApp Element"]
 * link:vcp_concept_management_extension_point.html["部分組態擴充點NetApp Element"]
+* link:vcp_concept_remote_plugin_extension_point.html["指遠端外掛程式擴充點NetApp Element"]
 

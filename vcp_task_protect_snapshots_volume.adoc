@@ -34,7 +34,12 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 您可以建立作用中磁碟區的快照、隨時保留磁碟區映像。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《Management》*《Management》*《Management》（*管理*）。
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -78,7 +83,12 @@ NOTE: 當您設定保留期間時、請選取從目前時間開始的期間。�
 您可能需要驗證是否已新增快照。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -101,7 +111,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 您可以從磁碟區的快照建立新的磁碟區。執行此操作時、系統會使用快照資訊、使用建立快照時所包含的磁碟區資料來複製新的磁碟區。此程序也會在新建立的磁碟區中儲存磁碟區其他快照的相關資訊。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟vCenter外掛程式的* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -129,7 +144,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 . 選擇*確定*。
 . 驗證新Volume：
 +
-.. 選擇* NetApp Element 《Management》（*《管理*》）>*《Management》（管理*）
+.. 開啟*管理*索引標籤：
++
+*** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+*** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 .. 選取* Volumes（磁碟區）*子索引標籤。
 .. 從* Active*檢視中、確認已列出新的Volume。
 +
@@ -147,7 +167,12 @@ TIP: 如有需要、請重新整理頁面。
 您可以隨時將磁碟區復原為快照。這會復原自建立快照以來對磁碟區所做的任何變更。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -191,7 +216,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 您可以將NetApp Element 「不支援的快照」備份到與Amazon S3相容的外部物件存放區。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -227,7 +257,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 您可以將NetApp Element 無法更新的快照備份到與OpenStack Swift相容的次要物件存放區。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -267,10 +302,15 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 當您從一個叢集備份或還原至另一個叢集時、系統會產生金鑰、用於叢集之間的驗證。此大量Volume寫入金鑰可讓來源叢集驗證目的地叢集、在寫入目的地Volume時提供安全性。在備份或還原程序中、您需要先從目的地Volume產生大量Volume寫入金鑰、然後再開始作業。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《Management》*《Management》*《Management》（*管理*）。
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
+
+
 
 . 選取* Volumes（磁碟區）*子索引標籤。
 . 選取目的地Volume的核取方塊。
@@ -285,7 +325,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 . 選取*產生金鑰*以產生目的地Volume的大量Volume寫入金鑰。
 . 將大量Volume寫入金鑰複製到剪貼簿、以套用至來源叢集的後續步驟。
-. 在包含來源叢集的vCenter中、選取* NetApp Element 《Management》（*）>*《Protection》（保護）*。
+. 在包含來源叢集的vCenter中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -310,14 +355,19 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 == 刪除磁碟區快照
 
-您可以NetApp Element 使用NetApp Element 「NetApp管理」擴充點、從執行「解決方案」軟體的叢集刪除Volume Snapshot快照。刪除快照時、系統會立即將其移除。
+您可以NetApp Element 使用外掛程式擴充點、從執行不實軟體的叢集刪除Volume Snapshot。刪除快照時、系統會立即將其移除。
 
 您可以刪除從來源叢集複寫的快照。刪除快照時、如果快照正在同步至目標叢集、則同步複寫會完成、並從來源叢集刪除快照。不會從目標叢集刪除快照。
 
 您也可以刪除已從目標叢集複寫至目標的快照。刪除的快照會保留在目標上的已刪除快照清單中、直到系統偵測到您已刪除來源叢集上的快照為止。目標偵測到您已刪除來源快照之後、目標會停止複寫快照。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。

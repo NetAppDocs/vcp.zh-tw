@@ -17,7 +17,12 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, clust
 您可以檢閱事件記錄、查看在所選叢集上執行的作業、以及可能發生的叢集故障。系統會自動解決大多數錯誤。其他故障可能需要手動介入。
 
 .步驟
-. 從vCenter外掛程式選取* NetApp Element 《Management》*。
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 . 選擇*報告*>*事件記錄*。
 . 若要檢閱詳細資料、請選取事件、然後按一下*詳細資料*。
 . 檢閱事件資訊、包括下列項目：

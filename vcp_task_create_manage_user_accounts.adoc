@@ -14,7 +14,7 @@ keywords: netapp, storage, accounts, vcp, vcenter, element
 
 
 [role="lead"]
-link:vcp_concept_accounts.html["使用者帳戶"^] 用於控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。
+link:vcp_concept_accounts.html["使用者帳戶"] 用於控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。
 
 .選項
 *  an account
@@ -33,7 +33,12 @@ link:vcp_concept_accounts.html["使用者帳戶"^] 用於控制NetApp Element �
 
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -67,7 +72,12 @@ NOTE: 啟動器和目標機密必須不同。如果這些欄位保留空白、�
 如果您將持續磁碟區與管理節點搭配使用、請勿修改與這些磁碟區相關聯之帳戶的帳戶名稱。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -97,7 +107,7 @@ NOTE: 如果您不變更認證、則認證資料會維持不變。如果您將�
 
 == 刪除帳戶
 
-您可以使用NetApp Element 「不實管理」擴充點刪除使用者帳戶。
+您可以使用外掛程式擴充點刪除使用者帳戶。
 
 刪除並清除與帳戶相關聯的任何磁碟區、或將磁碟區重新指派給其他帳戶。
 
@@ -105,7 +115,12 @@ NOTE: 如果您不變更認證、則認證資料會維持不變。如果您將�
 IMPORTANT: 如果您將持續磁碟區與管理節點搭配使用、請勿刪除與這些磁碟區相關聯的帳戶。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 在vSphere Web Client中、開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。

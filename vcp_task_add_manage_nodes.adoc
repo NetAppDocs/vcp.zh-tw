@@ -14,7 +14,7 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 
 
 [role="lead"]
-您可以使用vCenter外掛程式來新增 https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["儲存節點"] 當建立叢集或需要更多儲存設備時。執行Element軟體的儲存節點可以使用NetApp Element 「支援資源管理」擴充點來新增。必須在vSphere的外掛程式之外新增及管理各個運算節點。NetApp HCI
+您可以使用外掛程式來新增 https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["儲存節點"] 當建立叢集或需要更多儲存設備時。您也可以新增執行Element軟體的儲存節點。您必須在NetApp HCI vSphere的外掛程式之外新增不必要的運算節點。
 
 *  a node to a cluster
 *  node details
@@ -37,14 +37,19 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 
 NOTE: 如果您要新增的節點的NetApp Element 版本與叢集上執行的版本不同、則叢集會非同步地將節點更新為NetApp Element 叢集主機上執行的版本的更新。節點更新後、會自動將自己新增至叢集。在此非同步程序期間、節點將處於「pendingActive」狀態。
 
-節點第一次開機時、需要初始組態。當節點已設定及設定後、它會在設定節點時所識別的叢集上自行登錄、並顯示在NetApp Element 「叢集管理」擴充點的「*叢集>節點*」頁面的擱置節點清單中。
+節點第一次開機時、需要初始組態。當節點已設定及設定後、它會在設定節點時識別的叢集上自行登錄、並顯示在外掛程式擴充點的「*叢集>節點*」頁面的擱置節點清單中。
 
 您可以將容量較小或較大的節點新增至現有叢集。
 
-此程序與新增執行NetApp Element 「介紹」軟體的Fibre Channel節點或儲存節點相同。
+新增FC節點或執行NetApp Element 本軟件的儲存節點的程序相同。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Cluster-*」（叢
+. 在vSphere Web Client中、開啟*叢集*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「叢集*」。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》>「叢集*」。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -67,10 +72,15 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 == 檢視節點詳細資料
 
-您可以從NetApp Element 「叢集」標籤的「節點」頁面上、從「叢集管理」擴充點檢視叢集中的節點清單。您必須選取「作用中」檢視、才能查看作用中節點的清單。您可以使用下拉式篩選器、選取「Pending」（擱置）、「PendingActive」（彭定主動）和「All」（全部）選項來變更檢視。
+您可以從外掛程式擴充點、在叢集索引標籤的節點頁面上、檢視叢集中的節點清單。您必須選取「作用中」檢視、才能查看作用中節點的清單。您可以選取以變更檢視 `Pending`、 `PendingActive`和 `All` 使用下拉式篩選器的選項。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Cluster-*」（叢
+. 在vSphere Web Client中、開啟*叢集*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「叢集*」。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》>「叢集*」。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -87,7 +97,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 == 重新啟動節點
 
-您可以使用NetApp Element 「叢集管理」擴充點、重新啟動叢集中的一個或多個作用中節點。
+您可以使用外掛程式擴充點、重新啟動叢集中的一或多個作用中節點。
 
 如果您要同時重新啟動多個節點、您已停止I/O並中斷所有iSCSI工作階段的連線。
 
@@ -100,7 +110,12 @@ IMPORTANT: 此方法會重新啟動節點上的所有網路服務、導致網路
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Cluster-*」（叢
+. 在vSphere Web Client中、開啟*叢集*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「叢集*」。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》>「叢集*」。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -119,7 +134,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 == 關閉節點
 
-您可以使用NetApp Element 「叢集管理」擴充點來關閉叢集中的一或多個作用中節點。若要關閉叢集、您可以選取所有叢集節點、並執行同步關機。
+您可以使用外掛程式擴充點來關閉叢集中的一或多個作用中節點。若要關閉叢集、您可以選取所有叢集節點、並執行同步關機。
 
 如果您要同時重新啟動多個節點、您已停止I/O並中斷所有iSCSI工作階段的連線。
 
@@ -128,7 +143,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Cluster-*」（叢
+. 在vSphere Web Client中、開啟*叢集*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「叢集*」。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》>「叢集*」。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -154,10 +174,15 @@ NOTE: 如果在任何關機情況下、節點停機時間超過5.5分鐘、NetAp
 
 您已從叢集中移除節點中的所有磁碟機。您必須等到「移除磁碟機」程序完成、而且所有資料都已從節點移除、才能移除節點。
 
-在一個叢集中、光纖通道連線至少需要兩個光纖通道節點NetApp Element 。如果只連接一個光纖通道節點、系統會在事件記錄中觸發警示、直到您將另一個光纖通道節點新增至叢集為止、即使所有的光纖通道網路流量仍只能在一個光纖通道節點上運作。
+在一個叢集中、FC連線至少需要兩個FC節點NetApp Element 。如果只連接一個FC節點、系統會在事件記錄中觸發警示、直到您將另一個FC節點新增至叢集為止、即使所有FC網路流量只能在一個FC節點上繼續運作。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Cluster-*」（叢
+. 在vSphere Web Client中、開啟*叢集*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「叢集*」。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》>「叢集*」。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -174,4 +199,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 +
 從叢集移除的任何節點都會顯示在「Pending」（擱置）節點清單中。
 
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
 

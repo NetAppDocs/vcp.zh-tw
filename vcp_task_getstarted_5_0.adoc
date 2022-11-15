@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: vcp_task_getstarted.html 
-summary: 您可以安裝及設定Element Plug-in for vCenter Server 4．10及更早版本、以搭配Element儲存設備使用。 
+permalink: vcp_task_getstarted_5_0.html 
+summary: 您可以為vCenter Server 5.0及更新版本安裝及設定Element外掛程式、以搭配Element儲存設備使用。 
 keywords: netapp, hci, vcp, vcenter, element, install, setup 
 ---
-= 安裝及設定Element Plug-in 4.10及更早版本
+= 為vCenter Server 7.0及更新版本安裝及設定Element Plug-in 5.0及更新版本
 :hardbreaks:
 :allow-uri-read: 
 :url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
@@ -15,7 +15,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 
 [role="lead"]
-您可以NetApp Element 直接將VMware vCenter Server 4．10或更早版本的VMware vCenter的VMware vCenter外掛程式安裝到vCenter、並使用vSphere Web Client存取外掛程式。
+從NetApp Element vCenter Server 5.0版的VMware vCenter外掛程式開始、您可以將最新版本的Element外掛程式直接安裝到vCenter、並使用vSphere Web Client存取外掛程式。
 
 安裝完成後、您可以根據儲存I/O控制（QoSSIOC）服務以及vCenter外掛程式的其他服務來使用服務品質。
 
@@ -24,7 +24,6 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 *  for installation
 *  the management node
 *  the plug-in with vCenter
-*  vCenter properties for a dark site HTTP server
 *  the plug-in and verify successful installation
 *  storage clusters for use with the plug-in
 *  QoSSIOC settings using the plug-in
@@ -53,20 +52,19 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 在vSphere Web Client中部署vCenter外掛程式套件時、需要將套件登錄為vCenter Server上的擴充功能。註冊完成後、任何連線至vSphere環境的vSphere Web Client都可以使用外掛程式。
 
 .您需要的是 #8217 ；需要的是什麼
-* 對於vSphere 6.5和6.7、請確定您已登出vSphere Web Client。如果您未登出、這些版本的Web用戶端將無法辨識在此程序中對外掛程式所做的更新。對於vSphere 7.0、您不需要登出Web用戶端。
 * 您有vCenter管理員角色權限可登錄外掛程式。
-* 您已部署執行Element軟體11.3或更新版本的管理節點OVA。
+* 您已部署管理節點OVA執行Element軟體12.3.x或更新版本。
 * 您的管理節點已開機、並已設定其IP位址或DHCP位址。
 * 您使用的是SSH用戶端或網頁瀏覽器（Chrome 56或更新版本、或Firefox 52或更新版本）。
-* 您的防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter與儲存叢集MVIP之間、於TCP連接埠443、8443和9443。連接埠9443用於登錄、可在登錄完成後關閉。如果您已在叢集上啟用虛擬磁碟區功能、請確定TCP連接埠8444也已開啟、可供VASA供應商存取。
+* 您的防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter與儲存叢集MVIP之間、TCP連接埠443、843、8333和9443。連接埠9443用於登錄、可在登錄完成後關閉。如果您已在叢集上啟用虛擬磁碟區功能、請確定TCP連接埠8444也已開啟、可供VASA供應商存取。
 
 
 您必須在需要使用外掛程式的每個vCenter Server上登錄vCenter外掛程式。
 
-對於連結模式環境、外掛程式必須在環境中的每個vCenter Server上註冊、才能保持MOB資料同步、並能夠升級外掛程式。當vSphere Web Client連線至未登錄外掛程式的vCenter Server時、用戶端將看不到外掛程式。
+在連結模式環境中、您必須在環境中的每個vCenter Server上登錄個別的外掛程式、以保持MOB資料同步、並能夠升級外掛程式。當vSphere Web Client連線至未登錄外掛程式的vCenter Server時、用戶端將看不到外掛程式。
 
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+NOTE: 以供使用 link:vcp_concept_linkedmode.html["vCenter連結模式"]、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server。
 
 .步驟
 . 在瀏覽器中輸入管理節點的IP位址、包括用於登錄的TCP連接埠：
@@ -94,7 +92,7 @@ NOTE: 提交變更之後、QoSSIOC服務會自動重新啟動。
 
 . 選取* vCenter外掛程式登錄*。
 +
-image::vcp_registration_ui.png[註冊公用程式UI]
+image::vcp_remote_plugin_registration_ui.png[遠端外掛程式登錄公用程式UI]
 
 . 輸入下列資訊：
 +
@@ -105,11 +103,6 @@ image::vcp_registration_ui.png[註冊公用程式UI]
 NOTE: 您輸入的使用者名稱和密碼認證必須是具有vCenter Administrator角色權限的使用者。
 
 ** vCenter管理員密碼。
-** （適用於內部伺服器/黑點）外掛程式的自訂URL。
-+
-
-NOTE: 大多數安裝都使用預設路徑。如果您使用HTTP或HTTPS伺服器（黑網站）或修改了ZIP檔案名稱或網路設定、若要自訂URL、請選取*自訂URL*。如需自訂URL的其他步驟、請參閱  vCenter properties for a dark site HTTP server,修改Dark站台HTTP伺服器的vCenter屬性。
-
 
 
 . 選擇*註冊*。
@@ -126,130 +119,16 @@ NOTE: 大多數安裝都使用預設路徑。如果您使用HTTP或HTTPS伺服�
 .. 選取*檢查狀態*以確認新版的外掛程式已在vCenter Server上註冊。
 
 
-. （適用於vSphere 6.5和6.7使用者）以vCenter管理員身分登入vSphere Web Client。
-+
-
-NOTE: 此動作會在vSphere Web Client中完成安裝。如果vSphere中看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client["疑難排解文件"]。
-
 . 在vSphere Web Client中、請在工作監控器中尋找下列已完成的工作、以確保安裝完成：「下載外掛程式」和「部署外掛程式」。
-
-
-
-
-== 修改Dark站台HTTP伺服器的vCenter內容
-
-如果您打算在vCenter外掛程式登錄期間自訂內部（暗站）HTTP伺服器的URL、則必須修改vSphere Web Client內容檔「webclient.properties`」。您可以使用vCSA或Windows進行變更。
-
-從NetApp支援網站下載軟體的權限。
-
-.使用vCSA的步驟
-. SSH至vCenter Server：
-+
-[listing]
-----
-Connected to service
-    * List APIs: "help api list"
-    * List Plugins: "help pi list"
-    * Launch BASH: "shell"
-Command>
-----
-. 在命令提示字元中輸入「sh地獄」以存取root：
-+
-[listing]
-----
-Command> shell
-Shell access is granted to root
-----
-. 停止VMware vSphere Web Client服務：
-+
-[listing]
-----
-service-control --stop vsphere-client
-service-control --stop vsphere-ui
-----
-. 變更目錄：
-+
-[listing]
-----
-cd /etc/vmware/vsphere-client
-----
-. 編輯「webclient.properties`」檔案、然後新增「owfHttp=true」。
-. 變更目錄：
-+
-[listing]
-----
-cd /etc/vmware/vsphere-ui
-----
-. 編輯「webclient.properties`」檔案、然後新增「owfHttp=true」。
-. 啟動VMware vSphere Web Client服務：
-+
-[listing]
-----
-service-control --start vsphere-client
-service-control --start vsphere-ui
-----
-+
-
-NOTE: 完成註冊程序之後、您可以從您修改的檔案中移除「allowHttp =true」。
-
-. 重新開機vCenter。
-
-
-.使用Windows的步驟
-. 從命令提示字元變更目錄：
-+
-[listing]
-----
-cd c:\Program Files\VMware\vCenter Server\bin
-----
-. 停止VMware vSphere Web Client服務：
-+
-[listing]
-----
-service-control --stop vsphere-client
-service-control --stop vsphere-ui
-----
-. 變更目錄：
-+
-[listing]
-----
-cd c:\ProgramData\VMware\vCenterServer\cfg\vsphere-client
-----
-. 編輯「webclient.properties`」檔案、然後新增「owfHttp=true」。
-. 變更目錄：
-+
-[listing]
-----
-cd  c:\ProgramData\VMware\vCenterServer\cfg\vsphere-ui
-----
-. 編輯「webclient.properties`」檔案、然後新增「owfHttp=true」。
-. 從命令提示字元變更目錄：
-+
-[listing]
-----
-cd c:\Program Files\VMware\vCenter Server\bin
-----
-. 啟動VMware vSphere Web Client服務：
-+
-[listing]
-----
-service-control --start vsphere-client
-service-control --start vsphere-ui
-----
-+
-
-NOTE: 完成註冊程序之後、您可以從您修改的檔案中移除「allowHttp =true」。
-
-. 重新開機vCenter。
 
 
 
 
 == 存取外掛程式並驗證安裝是否成功
 
-成功安裝或升級後NetApp Element 、VMware vSphere Web Client的「捷徑」索引標籤和側邊面板會顯示「VMware組態與管理」擴充點。
+成功安裝或升級後NetApp Element 、側板vSphere Web Client的「捷徑」索引標籤會顯示「還原遠端外掛程式」擴充點。
 
-image::vcp_plugin_icons_home_page.png[外掛程式擴充點會顯示在vSphere中]
+image::vcp_remote_plugin_icons_home_page.png[說明成功升級或安裝後的外掛程式擴充點]
 
 
 NOTE: 如果看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client["疑難排解文件"]。
@@ -258,28 +137,23 @@ NOTE: 如果看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_tr
 
 == 新增儲存叢集以搭配外掛程式使用
 
-您可以使用NetApp Element 「支援組態」擴充點來新增執行元素軟體的叢集、以便由外掛程式來管理。
-
-建立叢集連線之後、即可使用NetApp Element 「叢集管理」擴充點來管理叢集。
+您可以使用NetApp Element 「支援遠端外掛程式」擴充點來新增及管理執行元素軟體的叢集。
 
 .您需要的是 #8217 ；需要的是什麼
 * 至少必須有一個叢集可用、且其IP或FQDN位址為已知。
 * 叢集的目前完整叢集管理使用者認證。
-* 防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter和叢集MVIP之間、於TCP連接埠443和8443。
+* 防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter和叢集MVIP之間、TCP連接埠443、8333和843。
 
 
 
-NOTE: 您必須至少新增一個叢集、才能使用NetApp Element 「不支援即用」擴充點功能。
+NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 
 本程序說明如何新增叢集設定檔、以便由外掛程式管理叢集。您無法使用外掛程式修改叢集管理員認證。
 
 請參閱 https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["管理叢集管理員使用者帳戶"^] 以取得變更叢集管理員帳戶認證的指示。
 
-
-IMPORTANT: vSphere HTML5 Web用戶端和Flash Web用戶端有不同的資料庫、無法合併。在一個用戶端中新增的叢集將不會顯示在另一個用戶端中。如果您打算同時使用這兩個用戶端、請在這兩個用戶端中新增叢集。
-
 .步驟
-. 選取* NetApp Element 《組態》>「叢集」*。
+. 選取* NetApp Element 《遠端外掛程式》>「組態」>「叢集」*。
 . 選取*新增叢集*。
 . 輸入下列資訊：
 +
@@ -291,7 +165,7 @@ IMPORTANT: vSphere HTML5 Web用戶端和Flash Web用戶端有不同的資料庫�
 [NOTE]
 ====
 *** 叢集的主機是每個vCenter Server專屬的。請確定您選取的vCenter Server可存取目標主機。您可以移除叢集、將其重新指派給另一個vCenter Server、如果您稍後決定使用不同的主機、也可以重新新增叢集。
-*** 使用NetApp Element vCenter Server的VMware vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
+*** 以供使用 link:vcp_concept_linkedmode.html["vCenter連結模式"]、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server。
 
 
 ====
@@ -311,7 +185,7 @@ IMPORTANT: vSphere HTML5 Web用戶端和Flash Web用戶端有不同的資料庫�
 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成為預設值。QoSSIOC設定會回復到上次已知的有效QoSSIOC設定、直到您為新的管理節點提供有效的QoSSIOC設定為止。在設定新管理節點的QoSSIOC認證之前、您必須先清除已設定管理節點的QoSSIOC設定。
 
 .步驟
-. 選擇* NetApp Element 《組態》>「QoSSIOC設定」*。
+. 選擇* NetApp Element 《*不遠端外掛程式>組態> QoSSIOC設定*》。
 . 選取*「動作*」。
 . 在產生的功能表中、選取*設定*。
 . 在「*設定QoSSIOC設定*」對話方塊中、輸入下列資訊：
@@ -356,8 +230,7 @@ IMPORTANT: vSphere HTML5 Web用戶端和Flash Web用戶端有不同的資料庫�
 
 您可以建立 link:vcp_task_datastores_manage.html#create-a-datastore["資料存放區和元素磁碟區"] 開始分配儲存設備。
 
-
-
+[discrete]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

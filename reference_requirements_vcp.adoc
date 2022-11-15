@@ -14,17 +14,31 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 
 
 [role="lead"]
-在使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware vCenter或SolidFire VMware全快閃陣列儲存設備之前、您必須確保系統符合外掛程式使用需求。
+在使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware vCenter或SolidFire VMware全快閃陣列儲存設備之前、您必須先確認系統符合外掛程式使用需求。
+
+[role="tabbed-block"]
+====
+.適用於vCenter 5.0或更新版本的Element外掛程式
+--
+確認您的系統符合Element vCenter外掛程式5.0或更新版本的使用要求。
+
+若要使用vCenter元件外掛程式、必須使用VMware vSphere 8.0和7.0、包括vCenter和ESXi（已設定軟體iSCSI介面卡和iSCSI網路）。
+
+外掛程式支援下列VMware軟體主要版本：
+
+* vSphere 8.0包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
+* vSphere 7.0和7.0 Update 1、2和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 
 
 
-== VMware vSphere先決條件
+IMPORTANT: VMware vSphere 6.5和6.7於2022年10月15日達到支援終止狀態。從Element外掛程式5.0開始、vSphere 6.5和6.7不再受支援。如需詳細資訊、請參閱 https://core.vmware.com/blog/reminder-vsphere-6567-end-general-support["文章"^]。
 
-需要VMware vSphere 7.0、6.7或6.5（包括vCenter和ESXi）搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用vCenter外掛元件。
+--
+.適用於vCenter 4.10或更早版本的Element外掛程式
+--
+確認您的系統符合Element vCenter外掛程式4．10或更早版本的使用要求。
 
-
-
-=== 外掛程式支援的VMware vSphere版本
+需要VMware vSphere 7.0、6.7或6.5（包括vCenter和ESXi）搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用vCenter元件外掛程式。
 
 外掛程式支援下列VMware軟體主要版本：
 
@@ -42,17 +56,16 @@ IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Clien
 * vSphere 6.5、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
 +
 
-IMPORTANT: 外掛程式與適用於VMware vCenter Server 4.6、4.7和4.8的Element外掛程式6.5版不相容。
+IMPORTANT: 外掛程式與適用於vCenter 4.6、4.7和4.8的Element外掛程式6.5版不相容。
 
 
 
-
-
-=== vSphere 6.0結束支援
-
+.vSphere 6.0結束支援
 
 IMPORTANT: VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從NetApp HCI VMware支援的元件1.8和元件12開始、vSphere 6.0不再受支援。如需詳細資訊、請參閱 https://mysupport.netapp.com/info/communications/ECMLP2863840.html["產品公報"]。
 
+--
+====
 
 
 == vSphere相容性與最佳實務做法

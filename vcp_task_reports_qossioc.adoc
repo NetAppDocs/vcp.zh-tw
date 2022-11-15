@@ -16,13 +16,17 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, qossioc, cluster,
 [role="lead"]
 當具有啟用QoS的資料存放區的VM重新設定或發出電源或來賓事件時、您可以檢視與QoSSIOC相關的事件。
 
-您可以從NetApp Element VMware vCenter Server適用的VMware vCenter外掛程式的「VMware組態」延伸點檢視QoSSIOC事件NetApp Element 。
+您可以從NetApp Element vCenter Server的VMware Plug-in擴充點檢視QoSSIOC事件。
 
 QoSSIOC事件會從本機新增的叢集顯示。在連結模式環境中、登入已在本機新增叢集的vSphere Web Client、以檢視該叢集的QoSSIOC事件。
 
+[NOTE]
+====
+* 從Element vCenter外掛程式5.0開始使用 link:vcp_concept_linkedmode.html["vCenter連結模式"]、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server。
+* 使用NetApp Element vCenter Server 4．10及更早版本的支援程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
-NOTE: 使用元素vCenter外掛程式、從其他vCenter Server管理叢集資源、使用 link:vcp_concept_linkedmode.html["vCenter連結模式"] 僅限於本機儲存叢集。
 
+====
 .您需要的是 #8217 ；需要的是什麼
 * 至少必須新增並執行一個叢集。
 * QoSSIOC服務必須使用外掛程式的QoSSIOC設定頁面進行設定和驗證執行。
@@ -30,8 +34,12 @@ NOTE: 使用元素vCenter外掛程式、從其他vCenter Server管理叢集資�
 
 
 .步驟
-. 從vCenter外掛程式中選取* NetApp Element 《組態*》。
-. 選擇* QoSSIOC事件*。
+. 在vSphere Web Client中、開啟* QoSSIOC事件*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「組態」>「QoSSIOC事件」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《組態》>「QoSSIOC事件*」。
+
+
 
 
 

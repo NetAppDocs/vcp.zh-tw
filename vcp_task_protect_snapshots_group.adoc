@@ -33,7 +33,12 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 您可以稍後變更群組快照的複寫設定或保留期間。您指定的保留期間會在您輸入新的時間間隔時開始。當您設定保留期間時、可以選取從目前時間開始的期間（保留時間不會從快照建立時間計算出來）。您可以指定以分鐘、小時和天為單位的時間間隔。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《Management》*《Management》*《Management》（*管理*）。
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -77,7 +82,12 @@ NOTE: 當您設定保留期間時、請選取從目前時間開始的期間。�
 您可能需要驗證是否已新增快照。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -105,7 +115,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 您可以從時間點群組快照複製一組磁碟區。建立磁碟區之後、您可以像系統中的任何其他磁碟區一樣使用這些磁碟區。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -138,7 +153,12 @@ NOTE: Volume大小和目前叢集負載會影響完成複製作業所需的時�
 您可以將一組作用中磁碟區復原為群組快照。這會將群組快照中的所有相關磁碟區還原至建立群組快照時的狀態。此程序也會將磁碟區大小還原為原始快照中記錄的大小。如果系統已清除磁碟區、則該磁碟區的所有快照也會在清除時刪除；系統不會還原任何已刪除的磁碟區快照。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。
@@ -165,7 +185,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 如果您刪除屬於群組快照成員的磁碟區或快照、就無法再回復到群組快照。不過、您可以個別回溯每個Volume。
 
 .步驟
-. 從vCenter外掛程式中、選取* NetApp Element 《*》《Management》（*）>「* Protection」（*保護）*。
+. 從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「Protection」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*）>「Protection」（保護）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您要使用的叢集。

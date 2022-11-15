@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_remote_plugin_extension_point.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, management, extension point, remote 
+---
+= 指遠端外掛程式擴充點NetApp Element
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+從NetApp Element VMware vCenter外掛程式5.0開始、您可以使用NetApp Element 支援遠端外掛程式的擴充點來存取遠端元件外掛程式、以便設定及管理叢集、節點和磁碟機、以及檢視叢集資訊。
+
+下列索引標籤可從NetApp Element 《不受影響的遠端外掛程式擴充點：
+
+*  Started
+* 
+* 
+* 
+
+
+
+
+== 快速入門
+
+「使用入門」索引標籤介紹外掛程式的擴充點、以及可執行的動作。您可以從每個頁面隱藏「入門」頁面、或從*「關於」索引標籤還原頁面。
+
+
+
+== 組態
+
+「*組態*」索引標籤可讓您新增及管理叢集、以及設定QoSSIOC的管理節點設定。
+
+
+NOTE: 您的vSphere Web Client可能會與下列映像所示的版本略有不同、視所安裝的vSphere版本而定。
+
+image::vcp_config_tab.png[組態索引標籤]
+
+下列索引標籤可從*組態*索引標籤取得：
+
+* *叢集*：管理NetApp Element 由外掛程式所控制的等位叢集。您也可以啟用、停用或設定叢集特定功能。
+* * QoSSIOC設定*：在管理節點上設定您的QoSSIOC服務認證、以便與vCenter通訊。
+* * QoSSIOC事件*：顯示所有偵測到的QoSSIOC事件資訊。
+
+
+
+
+== 管理
+
+使用*管理*索引標籤、您可以執行下列活動：
+
+* 檢視叢集資訊
+* 管理資料存放區、磁碟區、使用者帳戶、存取群組和啟動器
+* 管理個別群組快照、以及新增和管理磁碟機和節點
+
+
+
+NOTE: 您的vSphere Web Client可能會與下列映像所示的版本略有不同、視所安裝的vSphere版本而定。
+
+image::vcp_management_tab.png[管理索引標籤]
+
+叢集導覽列可讓您在新增至外掛程式的叢集之間快速切換：
+
+* *叢集*：如果新增兩個或多個叢集、請確定已在導覽列中選取要用於管理工作的叢集。從下拉式清單中選取其他新增的叢集。
+* * MVIP*：所選叢集的管理虛擬IP位址。
+* * SVIP*：所選叢集的儲存虛擬IP位址。
+* * vCenter *：所選叢集可存取的vCenter Server。將叢集新增至外掛程式時、會將叢集的存取權指派給vCenter Server。
+
+
+下列索引標籤可從*管理*索引標籤取得：
+
+* *報告*：顯示叢集元件的相關資訊、並提供叢集效能總覽。您也可以從索引標籤找到有關事件、警示、iSCSI工作階段、執行中工作和效能磁碟區的資訊。
+* *管理*：建立及管理資料存放區、磁碟區、使用者帳戶、存取群組及啟動器。您也可以執行備份作業、複製和快照。QoS原則可透過NetApp Element 不含更新版本的軟體10來建立及管理。
+* *保護*：管理個別與群組快照。您也可以建立快照建立排程、配對叢集以進行即時複寫、以及管理磁碟區配對。
+* *叢集*：新增及管理磁碟機和節點。您也可以建立及管理VLAN。
+* * VVols *：管理虛擬磁碟區及其相關的儲存容器、傳輸協定端點和繫結。
+
+
+
+
+== 關於
+
+顯示外掛程式版本資訊、並提供服務套件下載選項。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:concept_vcp_product_overview.html["vCenter Server適用的插件概述NetApp Element"]
+* https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+

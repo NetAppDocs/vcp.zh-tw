@@ -14,7 +14,11 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, p
 
 
 [role="lead"]
-系統會在NetApp Element 「支援服務」擴充點的「*報告>警示*」頁面上、報告每個警示的錯誤代碼。錯誤代碼可協助您判斷系統的哪個元件遇到警示、以及產生警示的原因。
+系統會在每個警示中報告錯誤代碼、協助您判斷系統的哪個元件遇到警示、以及產生警示的原因。您可以使用外掛程式擴充點來檢視錯誤代碼：
+
+* 從Element vCenter外掛程式5.0開始、選取* NetApp遠端外掛程式>管理>報告>警示*。
+* 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《管理》>「報告」>「警示」*。
+
 
 下列清單概述不同類型的系統警示。
 

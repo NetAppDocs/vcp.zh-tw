@@ -67,17 +67,6 @@ Disconnect-VIServer * -Confirm:$false
 ----
 
 
-** 對於vCenter Plug-in 2.6.1或更早版本：
-+
-... 在瀏覽器中輸入註冊公用程式的URL、或在程式目錄中找到公用程式：
-+
-**** https://<FDVAorManagementNodeIP>:8443`
-**** 「/opt/sidfire/VCP / bin / VCP - reg.sh」
-
-
-... 在vCenter外掛程式登錄/取消登錄視窗中、選取*取消登錄*。
-
-
 
 
 

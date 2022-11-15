@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: vcp_task_manage_cluster_overview.html 
-summary: 您可以使用NetApp Element 外掛程式的「不實管理」擴充點來管理儲存叢集。 
+summary: 您可以使用vCenter外掛程式擴充點來管理儲存叢集。 
 keywords: netapp, VLANs, drives, nodes, cluster, manage create, delete, view vcp, vcenter, element 
 ---
 = 管理叢集硬體與虛擬網路總覽
@@ -14,7 +14,7 @@ keywords: netapp, VLANs, drives, nodes, cluster, manage create, delete, view vcp
 
 
 [role="lead"]
-從「叢集NetApp Element 管理」擴充點的「叢集」索引標籤、您可以檢視及變更整個叢集的設定、並針對磁碟機、節點和VLAN執行特定於叢集的工作。
+從外掛程式擴充點的叢集索引標籤、您可以檢視及變更整個叢集的設定、並針對磁碟機、節點和VLAN執行叢集專屬的工作。
 
 .選項
 * link:vcp_task_add_manage_drive.html["新增及管理磁碟機"]

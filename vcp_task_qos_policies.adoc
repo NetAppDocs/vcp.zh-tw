@@ -16,7 +16,7 @@ keywords: netapp, qos policy, quality of service, qos policies, vcp, vcenter, el
 [role="lead"]
 QoS（服務品質）原則可讓您建立及儲存標準化的服務品質設定、以便套用至許多磁碟區。選取的叢集必須是元素10.0或更新版本才能使用QoS原則、否則無法使用QoS原則功能。
 
-使用「不受影響的管理」擴充點、您可以完成下列工作來設定及管理QoSSIOC：NetApp Element
+使用外掛程式擴充點、您可以完成下列工作來設定及管理QoSSIOC：
 
 *  a QoS policy
 *  a QoS policy to volumes
@@ -35,7 +35,12 @@ QoS（服務品質）原則可讓您建立及儲存標準化的服務品質設�
 NOTE: QoSSIOC自動化和QoS原則不應一起使用。如果您使用的是QoS原則、請勿啟用QoSSIOC。QoSSIOC會覆寫及調整Volume QoS設定的QoS值。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -60,7 +65,12 @@ TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個
 您想要大量套用的QoS原則已經存在  a QoS policy,已建立。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -82,7 +92,12 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 您要修改的Volume是  a QoS policy to volumes,相關 使用QoS原則。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -107,7 +122,12 @@ NOTE: 您也可以按一下*重設預設QoS*來還原預設IOPS值。
 您可以變更現有QoS原則的名稱、或編輯與原則相關的值。變更QoS原則效能值會影響與原則相關聯之所有磁碟區的QoS。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -138,7 +158,12 @@ NOTE: 您也可以按一下「重設預設QoS」來還原預設IOPS值。
 您可以刪除不再需要的QoS原則。刪除QoS原則時、與原則相關聯的所有磁碟區都會保留先前由原則定義的QoS值、但會保留個別Volume QoS值。與刪除的QoS原則的任何關聯都會移除。
 
 .步驟
-. 選擇* NetApp Element 《Management》（資料管理）>「Management」（管理）*
+. 從vCenter外掛程式開啟*管理*索引標籤：
++
+** 從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》>「管理」>「管理」*。
+** 對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（*《管理》）>「Management」（管理）*。
+
+
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
