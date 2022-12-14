@@ -18,7 +18,7 @@ keywords: netapp, hci, vcp, vcenter, element, protect, replication, remote, clus
 
 您可以從叢集配對中的任一叢集同步或非同步複寫磁碟區資料、以進行容錯移轉和容錯回復。您必須先配對兩NetApp Element 個叢集、然後在每個叢集上配對磁碟區、才能使用即時遠端複寫功能。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 請確定您已將至少一個叢集新增至外掛程式。
 * 確保已配對叢集的管理和儲存網路上的所有節點IP位址都會彼此路由傳送。
 * 確保所有配對節點的MTU都相同、而且叢集之間支援端點對端點。
@@ -29,11 +29,11 @@ keywords: netapp, hci, vcp, vcenter, element, protect, replication, remote, clus
 NOTE: WAN加速器設備未經NetApp認證、無法在複寫資料時使用。如果在複寫資料的兩個叢集之間部署、這些應用裝置可能會干擾壓縮和重複資料刪除。在正式作業環境中部署任何WAN加速器設備之前、請務必完全符合其效果。
 
 .步驟
-.  clusters
-.  volumes
-.  volume replication
-.  a volume relationship after replication
-.  volume relationships
+. <<配對叢集>>
+. <<配對磁碟區>>
+. <<驗證Volume複寫>>
+. <<複寫後刪除磁碟區關係>>
+. <<管理Volume關係>>
 
 
 
@@ -44,7 +44,7 @@ NOTE: WAN加速器設備未經NetApp認證、無法在複寫資料時使用。�
 
 如果兩個叢集都有叢集管理存取權、您可以使用目標叢集的MVIP來配對來源與目標叢集。如果叢集配對中的某個叢集僅有叢集可供使用叢集管理存取、則可在目標叢集上使用配對金鑰來完成叢集配對。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您需要叢集管理權限才能配對一個或兩個叢集。
 * 確保叢集之間的往返延遲低於2000毫秒。
 * 確保NetApp Element 叢集上的各個版本不超過一個主要版本。
@@ -58,8 +58,8 @@ NOTE: 叢集配對需要在管理網路上的節點之間建立完整連線。�
 
 請選擇下列其中一種方法：
 
-*  clusters using known credentials
-*  clusters with a pairing key
+* <<使用已知認證配對叢集>>
+* <<將叢集與配對金鑰配對>>
 
 
 
@@ -68,9 +68,10 @@ NOTE: 叢集配對需要在管理網路上的節點之間建立完整連線。�
 
 您可以使用一個叢集的MVIP與另一個叢集建立連線、配對兩個叢集以進行即時複寫。若要使用此方法、必須在兩個叢集上存取叢集管理。
 
+.關於這項工作
 叢集管理使用者名稱和密碼用於驗證叢集存取、然後才能配對叢集。
 
-如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱  clusters with a pairing key。
+如果不知道MVIP、或無法存取叢集、您可以產生配對金鑰、然後使用金鑰配對兩個叢集、來配對叢集。如需相關指示、請參閱 <<將叢集與配對金鑰配對>>。
 
 .步驟
 . 在vSphere Web Client中、開啟* Protection（保護）*索引標籤：
@@ -148,7 +149,7 @@ NOTE: 叢集配對金鑰包含MVIP的版本、使用者名稱、密碼和資料�
 
 IMPORTANT: 請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
 
-. 從包含遠端叢集的vCenter、 ,開啟「Protection（保護）」索引標籤。
+. 從包含遠端叢集的vCenter、 <<open_protection_tab,開啟「Protection（保護）」索引標籤>>。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -166,7 +167,7 @@ NOTE: 等待載入微調器消失、再繼續下一步。如果配對程序期�
 . 將本機叢集的配對金鑰貼到*叢集配對金鑰*欄位。
 . 選擇*配對叢集*。
 . 工作完成後、您會看到「*叢集配對*」頁面、請確認叢集配對已連線。
-. 若要驗證叢集配對是否已連線、請在遠端叢集上執行 ,開啟「Protection（保護）」索引標籤 或使用Element UI。
+. 若要驗證叢集配對是否已連線、請在遠端叢集上執行 <<open_protection_tab,開啟「Protection（保護）」索引標籤>> 或使用Element UI。
 
 
 
@@ -189,17 +190,17 @@ NOTE: 等待載入微調器消失、再繼續下一步。如果配對程序期�
 
 您可以使用下列其中一種方法配對Volume：
 
-*  volumes using known credentials：兩個叢集都使用已知的認證資料
-*  volumes using a pairing key：如果叢集認證僅在來源叢集上可用、請使用配對金鑰。
-*  target volumes and pair them with local volumes：如果您知道兩個叢集的認證資料、請在遠端叢集上建立複寫目標磁碟區、以便與來源叢集配對。
+* <<使用已知認證配對磁碟區>>：兩個叢集都使用已知的認證資料
+* <<使用配對金鑰配對磁碟區>>：如果叢集認證僅在來源叢集上可用、請使用配對金鑰。
+* <<建立目標磁碟區、並將其與本機磁碟區配對>>：如果您知道兩個叢集的認證資料、請在遠端叢集上建立複寫目標磁碟區、以便與來源叢集配對。
 
 
 建立磁碟區配對關係之後、您必須識別哪個磁碟區是複寫目標：
 
-*  a replication source and target to paired volumes
+* <<將複寫來源和目標指派給配對的磁碟區>>
 
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您應該已經在叢集配對中的叢集之間建立連線。
 * 您必須擁有叢集管理權限、才能配對一個或兩個叢集。
 
@@ -320,6 +321,7 @@ NOTE: 如果您尚未將磁碟區指派為複寫目標、配對組態將不完�
 * *最佳實務做法*：將來源磁碟區設為「讀取/寫入」、將目標磁碟區設為「複寫目標」。目標磁碟區不應包含任何資料、且應具有來源磁碟區的確切特性、例如大小、512e設定和QoS組態。如果您將現有磁碟區指派為複寫目標、則該磁碟區上的資料將會遭到覆寫。目標Volume的大小可能大於或等於來源Volume、但不能變小。
 
 
+.關於這項工作
 本程序說明在本機和遠端站台上使用vCenter的兩個磁碟區之間進行Volume配對。對於非由vCenter外掛程式控制的磁碟區、您可以使用元素Web UI來啟動或完成Volume配對。
 
 如需從Element Web UI開始或完成Volume配對的指示、請參閱 https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_volumes_using_a_pairing_key.html["軟體文件NetApp Element"^]。
@@ -367,7 +369,7 @@ NOTE: Volume配對金鑰應以安全的方式處理、而非以允許意外或�
 
 IMPORTANT: 請勿修改配對金鑰中的任何字元。如果修改金鑰、金鑰就會變成無效。
 
-. 從包含遠端叢集的vCenter、 ,開啟「管理」索引標籤。
+. 從包含遠端叢集的vCenter、 <<open_management,開啟「管理」索引標籤>>。
 +
 
 NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。
@@ -456,8 +458,10 @@ NOTE: 確認配對之後、兩個叢集便會開始連接磁碟區的程序。�
 
 您也可以使用此程序、在來源Volume無法使用時、將資料從來源Volume重新導向至遠端目標Volume。
 
+.開始之前
 您可以存取包含來源和目標磁碟區的叢集。
 
+.關於這項工作
 本程序說明如何在本機和遠端站台上使用vCenter、在兩個叢集之間指派來源和複寫磁碟區。對於不受vCenter外掛程式控制的磁碟區、您可以選擇 https://docs.netapp.com/us-en/element-software/storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html["指派來源或複寫磁碟區"] 使用元素Web UI。
 
 複寫來源磁碟區具有讀寫帳戶存取權。複寫目標磁碟區只能由複寫來源以讀取/寫入方式存取。
@@ -527,7 +531,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 複寫完成且不再需要磁碟區配對關係之後、您可以刪除磁碟區關係。
 
-請參閱  a volume pair。
+請參閱 <<刪除Volume配對>>。
 
 
 
@@ -535,10 +539,10 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 您可以透過多種方式來管理磁碟區關係、例如暫停複寫、反轉磁碟區配對、變更複寫模式、刪除磁碟區配對、或刪除叢集配對。
 
-*  replication
-*  the mode of replication
-*  a volume pair
-*  a cluster pair
+* <<暫停複寫>>
+* <<變更複寫模式>>
+* <<刪除Volume配對>>
+* <<刪除叢集配對>>
 
 
 
@@ -611,6 +615,7 @@ IMPORTANT: 變更複寫模式會導致模式立即變更。請確定您已在兩
 
 若要移除兩個磁碟區之間的配對關聯、您可以刪除一個磁碟區配對。
 
+.關於這項工作
 本程序說明如何在本機和遠端站台上、使用vCenter刪除兩個磁碟區之間的Volume配對關係。
 
 對於不受vCenter外掛程式控制的磁碟區、您也可以選擇 link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_volume_relationship_after_replication.html["刪除磁碟區配對結束"] 使用元素Web UI。
@@ -676,8 +681,8 @@ NOTE: 此動作只會刪除本機叢集上的叢集配對端點。您必須手�
 
 系統會在Volume Status（Volume狀態）欄中顯示配對與進度訊息。
 
-*  pairing messages
-*  pairing warnings
+* <<Volume配對訊息>>
+* <<Volume配對警告>>
 
 
 

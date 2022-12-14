@@ -16,7 +16,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 [role="lead"]
 您可以啟用VMware vSphere link:vcp_concept_vvols.html["虛擬磁碟區（VVols）"] 在NetApp Element 一個不完善的儲存叢集上執行功能並設定虛擬Volume組態。vCenter Server的Element外掛程式可監控效能、並提供管理虛擬磁碟區的選項、 link:vcp_concept_vvols.html#storage-containers["儲存容器"]、 link:vcp_concept_vvols.html#protocol-endpoints["傳輸協定端點"]和從外掛程式擴充點的主機。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您所使用NetApp Element 的是連接至ESXi 6.5或更新版本環境且與VVols相容的VMware叢集。
 * 您使用的是vCenter 6.5或更新版本。
 
@@ -28,18 +28,18 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 您必須執行初始組態步驟、才能使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中的虛擬Volume（VVols）。
 
 .步驟
-.  virtual volumes functionality on the NetApp Element cluster
-.  the VASA provider with vCenter
-.  a storage container and associated VVol datastore
+. <<在NetApp Element 叢集上啟用虛擬Volume功能>>
+. <<向vCenter註冊VASA供應商>>
+. <<建立儲存容器及相關的VVOL資料存放區>>
 
 
 
 
 == 管理工作
 
-*  virtual volume resources
-*  a VVol datastore for a storage container
-*  a storage container
+* <<監控虛擬Volume資源>>
+* <<為儲存容器建立VVOL資料存放區>>
+* <<刪除儲存容器>>
 
 
 
@@ -70,7 +70,7 @@ NOTE: 啟用VVols功能時、元素叢集會啟動VASA Provider、開啟VASA流�
 . 選取所選叢集的*「Actions」（動作）*。
 . 在產生的功能表中、選取*詳細資料*。
 . 從* VASA Provider URL*欄位複製VASA Provider URL。您將使用此URL在vCenter中登錄VASA Provider。
-. 請參閱  the VASA provider with vCenter 以瞭解後續步驟。
+. 請參閱 <<向vCenter註冊VASA供應商>> 以瞭解後續步驟。
 
 
 
@@ -79,10 +79,11 @@ NOTE: 啟用VVols功能時、元素叢集會啟動VASA Provider、開啟VASA流�
 
 您必須在NetApp Element vCenter中登錄「VMware VASA供應商」、vCenter才能識別叢集上的VVOL功能。向vCenter登錄VASA供應商是一次性的組態工作。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已啟用叢集的VVols功能。
 
 
+.關於這項工作
 本程序說明vSphere 6.7版提供的步驟。您的vSphere使用者介面可能與所述內容略有不同、視所安裝的vSphere版本而定。如需其他說明、請參閱VMware vCenter文件。
 
 
@@ -117,7 +118,7 @@ NOTE: 在vCenter外掛程式中啟用VVols時、會提供VASA Provider URL給您
 
 NOTE: 如有必要、請重新整理儲存供應商、以在第一次登錄供應商後顯示供應商的目前狀態。您也可以確認供應商已在* NetApp Element 《支援組態》>「叢集」*或* NetApp Element 《支援遠端外掛程式》>「組態」>「叢集」*中啟用。針對您要啟用的叢集選取*「Actions」（動作）*、然後選取*「Details」（詳細資料）*。
 
-. 請參閱  a storage container and associated VVol datastore 以瞭解後續步驟。
+. 請參閱 <<建立儲存容器及相關的VVOL資料存放區>> 以瞭解後續步驟。
 
 
 
@@ -179,9 +180,9 @@ NOTE: 如果您使用vCenter連結模式、則只有指派叢集的vCenter Serve
 
 您可以從外掛程式擴充點檢閱虛擬Volume元件的效能和設定：
 
-*  VVols
-*  storage containers
-*  protocol endpoints
+* <<監控VVols>>
+* <<監控儲存容器>>
+* <<監控傳輸協定端點>>
 
 
 
@@ -190,7 +191,7 @@ NOTE: 如果您使用vCenter連結模式、則只有指派叢集的vCenter Serve
 
 您可以檢閱叢集上所有作用中虛擬磁碟區的一般資料、或是每個虛擬磁碟區的詳細資料。外掛程式會追蹤虛擬Volume效率、效能、事件和QoS、以及相關的快照、VM和繫結。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已開啟VM、因此可以檢視虛擬Volume詳細資料。
 
 
@@ -261,9 +262,9 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 == 為儲存容器建立VVOL資料存放區
 
-建立儲存容器之後、您也必須建立虛擬Volume資料存放區、以代表NetApp Element vCenter中的VMware叢集上的儲存容器。此程序可做為從建立資料存放區的替代方法  a storage container and associated VVol datastore,建立儲存Container 精靈：您必須至少建立一個VVOL資料存放區、才能開始配置VVOL備份的虛擬機器。
+建立儲存容器之後、您也必須建立虛擬Volume資料存放區、以代表NetApp Element vCenter中的VMware叢集上的儲存容器。此程序可做為從建立資料存放區的替代方法 <<建立儲存容器及相關的VVOL資料存放區,建立儲存Container>> 精靈：您必須至少建立一個VVOL資料存放區、才能開始配置VVOL備份的虛擬機器。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 虛擬環境中的現有儲存容器。
 +
 
@@ -291,7 +292,7 @@ NOTE: 您不需要手動建立傳輸協定端點（PE）LUN。建立資料存放
 
 您可以從外掛程式擴充點刪除儲存容器。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 所有磁碟區都已從儲存容器中移除。
 
 

@@ -16,10 +16,10 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 [role="lead"]
 您可以將新的虛擬網路新增至叢集組態、以啟用多租戶環境連線至執行NetApp Element VMware軟體的叢集、並使用vCenter外掛程式來管理虛擬網路。
 
-*  a virtual network
-*  virtual network details
-*  a virtual network
-*  a virtual network
+* <<建立虛擬網路>>
+* <<檢視虛擬網路詳細資料>>
+* <<編輯虛擬網路>>
+* <<刪除虛擬網路>>
 
 
 
@@ -28,7 +28,7 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 
 您可以將新的虛擬網路新增至叢集組態。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * ESXi主機只有一個iSCSI軟體介面卡。
 * 主機或交換器已設定用於VLAN。
 * 您已識別出要指派給叢集節點上虛擬網路的IP位址區塊。
@@ -45,6 +45,7 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 
 
 ====
+.關於這項工作
 新增虛擬網路時、會為每個節點建立一個介面、每個節點都需要一個虛擬網路IP位址。您在建立新虛擬網路時指定的IP位址數目、必須等於或大於叢集中的節點數。虛擬網路位址會由個別節點自行大量配置及指派給個別節點。您不需要手動指派虛擬網路位址給叢集中的節點。
 
 .步驟
@@ -132,6 +133,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 您可以變更VLAN屬性、例如VLAN名稱、網路遮罩和IP位址區塊大小。
 
+.關於這項工作
 無法修改VLAN的VLAN標記和SVIP。閘道屬性只能針對VRF VLAN進行修改。如果存在任何iSCSI、遠端複寫或其他網路工作階段、則修改可能會失敗。
 
 .步驟

@@ -50,6 +50,7 @@ NOTE: 您只能檢視及管理與所選vCenter Server相關聯的儲存叢集。
 
 
 
+.範例
 您的VCenter1和vCenter2處於連結模式、儲存叢集1和儲存叢集2。您想要vCenter1管理叢集1和vCenter2來管理叢集2。
 
 image:two_vcenter_topology.PNG["說明vCenter和叢集拓撲"]
@@ -83,6 +84,7 @@ image:two_vcenter_topology.PNG["說明vCenter和叢集拓撲"]
 . 將儲存叢集新增至Element外掛程式庫存。
 
 
+.範例
 您的VCenter1和vCenter2處於連結模式、儲存叢集1和儲存叢集2。您想要vCenter1管理叢集1和vCenter2來管理叢集2。若要設定儲存叢集管理、請在每部vCenter Server註冊外掛程式之後、執行下列步驟：
 
 . 登入vCenter1 Web用戶端。

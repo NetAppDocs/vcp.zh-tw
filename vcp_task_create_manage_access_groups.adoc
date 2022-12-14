@@ -19,11 +19,11 @@ keywords: netapp, storage, access groups, vcp, vcenter, element
 您可以在磁碟區集合中對應iSCSI啟動器IQN或FC WWPN來建立存取群組。您新增至存取群組的每個IQN都可存取群組中的每個Volume、而不需要CHAP驗證。您新增至存取群組的每個WWPN都可讓FC網路存取存取存取群組中的磁碟區。
 
 .選項
-*  an access group
-*  an access group
-*  volumes to an access group
-*  volumes from an access group
-*  an access group
+* <<建立存取群組>>
+* <<編輯存取群組>>
+* <<新增磁碟區至存取群組>>
+* <<從存取群組移除磁碟區>>
+* <<刪除存取群組>>
 
 
 
@@ -98,7 +98,7 @@ NOTE: 如果您要移除啟動器、請按一下垃圾桶圖示予以移除。�
 
 您可以將磁碟區新增至磁碟區存取群組。每個Volume可屬於多個Volume存取群組、您可以從「Active Volumes」（作用中Volume）檢視中查看每個Volume所屬的群組。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 至少必須新增並執行一個叢集。
 * 至少有一個存取群組存在。
 * 至少有一個作用中Volume存在。

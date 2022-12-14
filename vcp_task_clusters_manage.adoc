@@ -16,7 +16,7 @@ keywords: netapp, cluster, vcp, vcenter, element
 [role="lead"]
 您可以編輯執行Element軟體的叢集、管理SSH組態、設定保護網域監控、以及關閉叢集。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 至少必須新增一個叢集：
 +
 ** link:vcp_task_getstarted_5_0.html#add-storage-clusters-for-use-with-the-plug-in["使用Element Plug-in for vCenter 5.0及更新版本新增叢集"]
@@ -37,17 +37,17 @@ NOTE: 您必須至少新增一個叢集、才能使用外掛程式擴充點功�
 
 
 .選項
-*  cluster details
-*  a cluster profile
-*  a cluster profile
-*  Encryption at Rest
-*  Encryption at Rest
-*  SSH
-*  the SSH time limit
-*  SSH
-*  protection domain monitoring
-*  down a cluster
-*  your NetApp HCI infrastructure
+* <<檢視叢集詳細資料>>
+* <<編輯叢集設定檔>>
+* <<移除叢集設定檔>>
+* <<啟用靜止加密>>
+* <<停用靜止加密>>
+* <<啟用SSH>>
+* <<變更SSH時間限制>>
+* <<停用SSH>>
+* <<設定保護網域監控>>
+* <<關閉叢集>>
+* <<擴充NetApp HCI 您的需求基礎架構>>
 
 
 
@@ -285,7 +285,7 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 您可以手動啟用 link:vcp_concept_protection_domains.html["保護網域監控"] 使用外掛程式擴充點。您可以根據節點或機箱網域選取保護網域臨界值。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 選取的叢集必須由元素11.0或更新版本監控、才能使用保護網域監控；否則、保護網域功能將無法使用。
 * 您的叢集必須有兩個以上的節點、才能使用保護網域功能。無法與雙節點叢集相容。
 
@@ -322,6 +322,7 @@ NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
 NOTE: 此功能無法在SolidFire 「企業版SDS叢集」中使用。
 
+.您需要的產品
 您已停止I/O並中斷所有iSCSI工作階段的連線。
 
 .步驟

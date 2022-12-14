@@ -18,10 +18,10 @@ keywords: netapp, vcp, element, plugin, plug-in, management, extension point, re
 
 下列索引標籤可從NetApp Element 《不受影響的遠端外掛程式擴充點：
 
-*  Started
-* 
-* 
-* 
+* <<快速入門>>
+* <<組態>>
+* <<管理>>
+* <<關於>>
 
 
 

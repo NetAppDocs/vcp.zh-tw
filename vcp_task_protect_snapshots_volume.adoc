@@ -19,12 +19,12 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 您可以使用快照將磁碟區復原至建立快照時的狀態。不過、由於快照只是Volume中繼資料的複本、因此您無法掛載或寫入快照。
 
 .選項
-*  a volume snapshot
-*  volume snapshot details
-*  a volume from a snapshot
-*  back a volume to a snapshot
-*  up a volume snapshot to an external object store
-*  a volume snapshot
+* <<建立磁碟區快照>>
+* <<檢視Volume Snapshot詳細資料>>
+* <<從快照複製磁碟區>>
+* <<將磁碟區復原為快照>>
+* <<將磁碟區快照備份到外部物件存放區>>
+* <<刪除磁碟區快照>>
 
 
 
@@ -204,9 +204,9 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 當您將快照備份到外部物件存放區時、必須連線到允許讀取/寫入作業的物件存放區。
 
-*  up a volume snapshot to an Amazon S3 object store
-*  up a volume snapshot to an OpenStack Swift object store
-*  up a volume snapshot to a cluster running Element software
+* <<將磁碟區快照備份到Amazon S3物件存放區>>
+* <<將Volume Snapshot備份到OpenStack Swift物件存放區>>
+* <<將磁碟區快照備份到執行Element軟體的叢集>>
 
 
 
@@ -297,8 +297,10 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 您可以將位於執行NetApp Element 支援的叢集上的Volume Snapshot備份到遠端元素叢集。
 
+.您需要的產品
 您必須在目的地叢集上建立容量等於或大於用於備份的快照的磁碟區。
 
+.關於這項工作
 當您從一個叢集備份或還原至另一個叢集時、系統會產生金鑰、用於叢集之間的驗證。此大量Volume寫入金鑰可讓來源叢集驗證目的地叢集、在寫入目的地Volume時提供安全性。在備份或還原程序中、您需要先從目的地Volume產生大量Volume寫入金鑰、然後再開始作業。
 
 .步驟
@@ -357,6 +359,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 您可以NetApp Element 使用外掛程式擴充點、從執行不實軟體的叢集刪除Volume Snapshot。刪除快照時、系統會立即將其移除。
 
+.關於這項工作
 您可以刪除從來源叢集複寫的快照。刪除快照時、如果快照正在同步至目標叢集、則同步複寫會完成、並從來源叢集刪除快照。不會從目標叢集刪除快照。
 
 您也可以刪除已從目標叢集複寫至目標的快照。刪除的快照會保留在目標上的已刪除快照清單中、直到系統偵測到您已刪除來源叢集上的快照為止。目標偵測到您已刪除來源快照之後、目標會停止複寫快照。

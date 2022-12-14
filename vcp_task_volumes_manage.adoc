@@ -17,14 +17,14 @@ keywords: netapp, volumes, vcp, vcenter, element,
 使用NetApp Element VMware vCenter Serverr的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原使用者帳戶的磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。
 
 .選項
-*  a volume
-*  volume details
-*  a volume
-*  a volume
-*  up or restore volumes
-*  volumes
-*  volumes
-*  deleted volumes
+* <<建立Volume>>
+* <<檢視Volume詳細資料>>
+* <<編輯Volume>>
+* <<複製磁碟區>>
+* <<備份或還原磁碟區>>
+* <<刪除Volume>>
+* <<清除Volume>>
+* <<還原刪除的磁碟區>>
 
 
 
@@ -35,7 +35,7 @@ keywords: netapp, volumes, vcp, vcenter, element,
 
 VMware需要512e的磁碟資源。如果未啟用512e、則無法建立VMFS。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 至少必須新增並執行一個叢集。
 * 已建立使用者帳戶。
 
@@ -125,11 +125,11 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 . 請參閱以下各節所列特定Volume的詳細資料：
 +
-**  Details section
-**  section
-**  section
-**  of Service section
-**  section
+** <<「一般詳細資料」區段>>
+** <<效率區段>>
+** <<效能區段>>
+** <<服務品質區段>>
+** <<Snapshot區段>>
 
 
 
@@ -284,13 +284,14 @@ QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構�
 
 您可以建立磁碟區的複本、以製作資料的時間點複本。當您複製磁碟區時、系統會建立磁碟區的快照、然後建立快照所參照資料的複本。這是一個非同步程序、程序所需的時間長短取決於您要複製的磁碟區大小和目前的叢集負載。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 至少必須新增並執行一個叢集。
 * 必須至少建立一個Volume。
 * 必須至少建立一個使用者帳戶。
 * 可用的未配置空間必須等於或大於來源Volume大小。
 
 
+.關於這項工作
 叢集一次最多可支援兩個執行中的每個Volume複製要求、一次最多可支援8個作用中Volume複製作業。超過這些限制的要求會排入佇列、以供日後處理。
 
 

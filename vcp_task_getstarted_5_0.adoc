@@ -21,14 +21,14 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 請閱讀並完成每個安裝步驟、然後開始使用外掛程式：
 
-*  for installation
-*  the management node
-*  the plug-in with vCenter
-*  the plug-in and verify successful installation
-*  storage clusters for use with the plug-in
-*  QoSSIOC settings using the plug-in
-*  user accounts
-*  datastores and volumes
+* <<準備安裝>>
+* <<安裝管理節點>>
+* <<向vCenter登錄外掛程式>>
+* <<存取外掛程式並驗證安裝是否成功>>
+* <<新增儲存叢集以搭配外掛程式使用>>
+* <<使用外掛程式設定QoSSIOC設定>>
+* <<設定使用者帳戶>>
+* <<建立資料存放區和磁碟區>>
 
 
 
@@ -51,7 +51,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 在vSphere Web Client中部署vCenter外掛程式套件時、需要將套件登錄為vCenter Server上的擴充功能。註冊完成後、任何連線至vSphere環境的vSphere Web Client都可以使用外掛程式。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您有vCenter管理員角色權限可登錄外掛程式。
 * 您已部署管理節點OVA執行Element軟體12.3.x或更新版本。
 * 您的管理節點已開機、並已設定其IP位址或DHCP位址。
@@ -59,6 +59,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 * 您的防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter與儲存叢集MVIP之間、TCP連接埠443、843、8333和9443。連接埠9443用於登錄、可在登錄完成後關閉。如果您已在叢集上啟用虛擬磁碟區功能、請確定TCP連接埠8444也已開啟、可供VASA供應商存取。
 
 
+.關於這項工作
 您必須在需要使用外掛程式的每個vCenter Server上登錄vCenter外掛程式。
 
 在連結模式環境中、您必須在環境中的每個vCenter Server上登錄個別的外掛程式、以保持MOB資料同步、並能夠升級外掛程式。當vSphere Web Client連線至未登錄外掛程式的vCenter Server時、用戶端將看不到外掛程式。
@@ -139,7 +140,7 @@ NOTE: 如果看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_tr
 
 您可以使用NetApp Element 「支援遠端外掛程式」擴充點來新增及管理執行元素軟體的叢集。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 至少必須有一個叢集可用、且其IP或FQDN位址為已知。
 * 叢集的目前完整叢集管理使用者認證。
 * 防火牆規則允許開啟 link:reference_requirements_vcp.html["網路通訊"] 在vCenter和叢集MVIP之間、TCP連接埠443、8333和843。
@@ -148,6 +149,7 @@ NOTE: 如果看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_tr
 
 NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 
+.關於這項工作
 本程序說明如何新增叢集設定檔、以便由外掛程式管理叢集。您無法使用外掛程式修改叢集管理員認證。
 
 請參閱 https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["管理叢集管理員使用者帳戶"^] 以取得變更叢集管理員帳戶認證的指示。
@@ -182,6 +184,7 @@ NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 
 您可以根據儲存I/O控制設定自動服務品質 link:vcp_concept_qossioc.html["（QoSSIOC）"] 適用於由外掛程式控制的個別磁碟區和資料存放區。若要這麼做、您可以設定QoSSIOC和vCenter認證、讓QoSSIOC服務能夠與vCenter通訊。
 
+.關於這項工作
 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成為預設值。QoSSIOC設定會回復到上次已知的有效QoSSIOC設定、直到您為新的管理節點提供有效的QoSSIOC設定為止。在設定新管理節點的QoSSIOC認證之前、您必須先清除已設定管理節點的QoSSIOC設定。
 
 .步驟

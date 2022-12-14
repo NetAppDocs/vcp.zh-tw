@@ -32,7 +32,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 == 設定工作
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]
-*  QoSSIOC automation on datastores
+* <<在資料存放區上啟用QoSSIOC自動化>>
 
 
 
@@ -40,10 +40,10 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 == 管理工作
 
 * link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"^]
-*  QoSSIOC settings
-*  the QoSSIOC service password
-*  QoSSIOC automation for a datastore
-*  QoSSIOC settings
+* <<編輯QoSSIOC設定>>
+* <<變更QoSSIOC服務密碼>>
+* <<停用資料存放區的QoSSIOC自動化>>
+* <<清除QoSSIOC設定>>
 
 
 
@@ -52,12 +52,14 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 啟用外掛程式的QoSSIOC服務之後、您可以啟用QoSSIOC自動化功能、並自訂資料存放區的虛擬機器磁碟（VMDK）效能層級。
 
+.您需要的產品
 您已在「QoSSIOC設定」頁面和「* QoSSIOC狀態*」欄位顯示中設定QoSSIOC服務設定 `UP`。
 
 * link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式5.0及更新版本來設定"]
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["使用Element vCenter外掛程式4.10及更早版本來設定"]
 
 
+.關於這項工作
 QoSSIOC僅適用於標準資料存放區。它不適用於虛擬磁碟區（VVols）。當發生虛擬機器事件（例如開機或關機事件、客體重新啟動或關機、或重新設定活動）時、QosIOC會調整標準元素磁碟區的QoS值。
 
 
@@ -146,11 +148,12 @@ NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成�
 
 您可以使用登錄公用程式UI、在管理節點上變更QoSSIOC服務的密碼。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您的管理節點已開啟電源。
 
 
-此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更  QoSSIOC settings,QoSSIOC設定 頁面。
+.關於這項工作
+此程序僅說明如何變更QoSSIOC密碼。如果您想要變更QoSSIOC使用者名稱、可以從變更 <<編輯QoSSIOC設定,QoSSIOC設定>> 頁面。
 
 .步驟
 . 在vSphere Web Client中、開啟「* QoSSIOC設定*」索引標籤：

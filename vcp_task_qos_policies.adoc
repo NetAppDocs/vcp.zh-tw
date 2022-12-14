@@ -18,11 +18,11 @@ QoS（服務品質）原則可讓您建立及儲存標準化的服務品質設�
 
 使用外掛程式擴充點、您可以完成下列工作來設定及管理QoSSIOC：
 
-*  a QoS policy
-*  a QoS policy to volumes
-*  the QoS policy association of a volume
-*  a QoS policy
-*  a QoS policy
+* <<建立QoS原則>>
+* <<將QoS原則套用至磁碟區>>
+* <<變更Volume的QoS原則關聯>>
+* <<編輯QoS原則>>
+* <<刪除QoS原則>>
 
 
 
@@ -62,7 +62,8 @@ TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個
 
 您可以將現有的QoS原則套用至多個磁碟區。當您想要將原則大量套用至一或多個磁碟區時、請使用此程序。
 
-您想要大量套用的QoS原則已經存在  a QoS policy,已建立。
+.您需要的產品
+您想要大量套用的QoS原則已經存在 <<建立QoS原則,已建立>>。
 
 .步驟
 . 從vCenter外掛程式開啟*管理*索引標籤：
@@ -89,7 +90,8 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 您可以從磁碟區移除QoS原則關聯、或選取不同的QoS原則或自訂QoS。
 
-您要修改的Volume是  a QoS policy to volumes,相關 使用QoS原則。
+.您需要的產品
+您要修改的Volume是 <<將QoS原則套用至磁碟區,相關>> 使用QoS原則。
 
 .步驟
 . 從vCenter外掛程式開啟*管理*索引標籤：

@@ -16,12 +16,13 @@ keywords: netapp, vcp, vcenter, plugin, element, unregister
 [role="lead"]
 您可以NetApp Element 使用下列其中一個程序、從vCenter取消登錄VMware vCenter Server的VMware vCenter外掛程式。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 要取消登錄外掛程式的vCenter管理員角色權限。
 * 管理節點的IP位址。
 * 您要從中取消登錄外掛程式的vCenter URL和認證。
 
 
+.關於這項工作
 對於vSphere 6.7及更早版本、取消登錄外掛程式的效果與停用外掛程式相同、但不會移除本機安裝的所有相關檔案與資料夾。若要移除所有外掛程式檔案、請參閱中的指示 link:task_vcp_remove.html["移除外掛程式"]。
 
 對於vSphere 7.0、在您取消登錄外掛程式之後、所有檔案都會自動移除。

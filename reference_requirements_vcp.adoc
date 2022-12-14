@@ -22,8 +22,10 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 --
 確認您的系統符合Element vCenter外掛程式5.0或更新版本的使用要求。
 
+.VMware vSphere先決條件
 若要使用vCenter元件外掛程式、必須使用VMware vSphere 8.0和7.0、包括vCenter和ESXi（已設定軟體iSCSI介面卡和iSCSI網路）。
 
+.外掛程式支援的VMware vSphere版本
 外掛程式支援下列VMware軟體主要版本：
 
 * vSphere 8.0包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
@@ -38,8 +40,10 @@ IMPORTANT: VMware vSphere 6.5和6.7於2022年10月15日達到支援終止狀態�
 --
 確認您的系統符合Element vCenter外掛程式4．10或更早版本的使用要求。
 
+.VMware vSphere先決條件
 需要VMware vSphere 7.0、6.7或6.5（包括vCenter和ESXi）搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用vCenter元件外掛程式。
 
+.外掛程式支援的VMware vSphere版本
 外掛程式支援下列VMware軟體主要版本：
 
 * vSphere 7.0和7.0 Update 1和2、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區

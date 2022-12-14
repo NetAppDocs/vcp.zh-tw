@@ -10,7 +10,6 @@
   <block id="cd93513d64c6d6959e7d022f866129d5" category="list-text"><block ref="a56321edd021b945639593db06db7789" category="inline-xref-macro-rx"></block></block>
   <block id="2fdfd506efea08144c0794c32ca8250a" category="section-title">建立帳戶</block>
   <block id="421042c6e3e52e47db57054f78dd8f17" category="paragraph">您可以建立唯一的使用者帳戶、以允許存取儲存磁碟區。</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">您需要的是 #8217 ；需要的是什麼</block>
   <block id="2b39b8bb48e01459e34037072a056457" category="list-text">至少必須新增並執行一個叢集。</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步驟</block>
   <block id="2e0a4e14d700b1d5af0b96e64b28b8ac" category="admonition">如果新增兩個或多個叢集、請確定已在導覽列中選取要用於該工作的叢集。</block>
@@ -2645,4 +2644,9 @@
   <block id="74f171bb465a49ebcce88fa91d4562d4" category="sidebar">VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element</block>
   <block id="2abfacd3d0325353cbe289faa9d0d3b1" category="sidebar">安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式</block>
   <block id="e97497d0f5938ed35b2e63e89f51bf3c" category="paragraph">答 <block ref="e64b216761b70bc0cfda4bc4eab1b43a" category="inline-link-macro-rx"></block> 是使用者可使用iSCSI啟動器或FC啟動器存取的磁碟區集合。</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">您需要的產品</block>
+  <block id="65988ccc1e915ab34bd44768f37b0444" category="paragraph-title">元件vCenter外掛程式5.0或更新版本的修正行動</block>
+  <block id="47c4fb98f272f850da400ba07b3981fa" category="paragraph-title">元件vCenter外掛程式4.10或更早版本的修正行動</block>
+  <block id="d495047561c1a08074d3afeeb5b5d172" category="paragraph-title">VMware vSphere先決條件</block>
+  <block id="3903fd261f224ad8af888f893eb71a5e" category="paragraph-title">外掛程式支援的VMware vSphere版本</block>
 </blocks>

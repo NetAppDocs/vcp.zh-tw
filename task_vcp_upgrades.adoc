@@ -23,6 +23,7 @@ keywords: netapp, vcp, vcenter, plugin, element, upgrade
 
 
 ====
+.步驟
 若要升級外掛程式、請依照產品升級文件中的指示進行：
 
 * https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html["升級NetApp HCI 您的系統"^]

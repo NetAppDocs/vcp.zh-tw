@@ -17,20 +17,20 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 [role="lead"]
 您必須瞭解NetApp Element VMware vCenter Server的部分常見問題、以及解決這些問題的步驟。
 
-*  registration successful but icons do not appear in web client
-*  after NetApp Element Plug-in for VMware vCenter Server 4.8 or later upgrade with VMware vCenter Server 6.7U1
-*  registering plug-in using Registration UI
-*  updating plug-in using Registration UI
-*  message that NetApp extension cannot be upgraded
-*  plug-in completes successfully but icons remain
-*  cannot be unregistered or removed after admin password change
-*  management tasks fail or volumes are not accessible to ESXi host
-*  occurs during vCenter Plug-in use on Firefox 59.0.2 browsers
-*  datastore operation fails
-*  pair cannot connect using a pairing key
-*  message for QoSSIOC status
-*  service shown as available but is unavailable
-*  is enabled for datastore but unavailable
+* <<外掛程式登錄成功、但圖示不會出現在Web用戶端中>>
+* <<使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤>>
+* <<使用登錄UI登錄外掛程式時發生錯誤>>
+* <<使用登錄UI更新外掛程式時發生錯誤>>
+* <<無法升級NetApp副檔名的錯誤訊息>>
+* <<移除外掛程式成功完成、但仍有圖示>>
+* <<變更管理密碼後、無法取消註冊或移除外掛程式>>
+* <<外掛程式管理工作失敗、或ESXi主機無法存取磁碟區>>
+* <<在Firefox 59.0.2瀏覽器上使用vCenter外掛程式時發生故障>>
+* <<刪除資料存放區作業失敗>>
+* <<叢集配對無法使用配對金鑰連線>>
+* <<QoSSIOC狀態的錯誤訊息>>
+* <<QoSSIOC服務顯示為可用但無法使用>>
+* <<QoSSIOC已啟用資料存放區、但無法使用>>
 * https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["vCenter外掛程式部署在升級至VMware vSphere 7.0 Update 3之後失敗"^]
 
 
@@ -38,6 +38,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 
 == 外掛程式登錄成功、但圖示不會出現在Web用戶端中
 
+.說明
 註冊顯示為成功、但從vSphere Web Client看不到外掛程式圖示。
 
 .修正動作：NetApp Element 適用於vCenter外掛程式4.10及更早版本
@@ -84,12 +85,14 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 == 使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤
 
+.說明
 使用VMware vCenter Server 6.7U1升級至Element vCenter外掛程式4.8或更新版本之後、您可能會遇到下列問題：
 
 * 叢集未列在外掛程式擴充點的「*叢集*」區段中。
 * 「*叢集*」和「* QoSSIOC設定*」區段中會出現伺服器錯誤。
 
 
+.修正行動
 還原叢集和QoSSIOC設定：
 
 . 登出vCenter。
@@ -106,16 +109,20 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 == 使用登錄UI登錄外掛程式時發生錯誤
 
+.說明
 使用登錄公用程式時、在vCenter伺服器上登錄外掛程式時發生錯誤。已安裝金鑰為「com.solidfire」的外掛程式。
 
+.修正行動
 在註冊公用程式中、使用*更新外掛程式*而非*註冊外掛程式*。
 
 
 
 == 使用登錄UI更新外掛程式時發生錯誤
 
+.說明
 使用登錄公用程式時、針對vCenter伺服器更新外掛程式時發生錯誤。未安裝金鑰為「com.solidfire」的外掛程式來進行更新。
 
+.修正行動
 在註冊公用程式中、使用* Register Plug-In *而非* Update Plug-In *。
 
 
@@ -127,6 +134,7 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 ----
 org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection.
 ----
+.說明
 在從6.0版升級至6.5版的Windows vCenter Server期間、您會看到一則警告訊息、指出NetApp擴充功能無法升級、或無法與新的vCenter Server搭配使用。完成升級並登入vSphere Web Client之後、當您選取vCenter外掛程式擴充點時、就會發生錯誤。發生此錯誤的原因是儲存執行時間資料庫的目錄已從6.0版變更為6.5版。vCenter外掛程式無法建立執行時間所需的檔案。
 
 .修正行動
@@ -141,16 +149,20 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 == 移除外掛程式成功完成、但仍有圖示
 
+.說明
 移除vCenter外掛程式套件檔案成功完成、但外掛程式圖示仍可在vSphere Web Client中看到。
 
+.修正行動
 登出vSphere Web Client、然後重新登入。可能需要關閉並重新開啟瀏覽器。如果登出vSphere Web Client無法解決問題、則可能需要重新啟動vCenter伺服器Web服務。此外、其他使用者可能也有現有的工作階段。所有使用者工作階段都必須關閉。
 
 
 
 == 變更管理密碼後、無法取消註冊或移除外掛程式
 
+.說明
 變更用於登錄外掛程式之vCenter的管理密碼之後、就無法取消登錄或移除vCenter外掛程式。
 
+.修正行動
 若為外掛程式2.6、請前往vCenter外掛程式*登錄*/*取消登錄*頁面。按一下「*更新*」按鈕以變更vCenter IP位址、使用者ID和密碼。
 
 若為外掛程式2.7或更新版本、請在外掛程式的mNode設定中更新vCenter管理員密碼。
@@ -161,6 +173,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 == 外掛程式管理工作失敗、或ESXi主機無法存取磁碟區
 
+.說明
 建立、複製及共用資料存放區工作失敗、或ESXi主機無法存取磁碟區。
 
 .修正行動
@@ -175,32 +188,40 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 == 在Firefox 59.0.2瀏覽器上使用vCenter外掛程式時發生故障
 
+.訊息
 「名稱：http錯誤回應原始訊息：HTTP失敗回應 https://vc6/ui/solidfire-war-4.2.0-SNAPSHOT/rest/vsphere//servers:[] 500內部伺服器錯誤傳回訊息：伺服器錯誤。請再試一次、或聯絡NetApp支援部門
 
+.說明
 此問題發生於使用Firefox的vSphere HTML5 Web用戶端。vSphere Flash用戶端不受影響。
 
+.修正行動
 在瀏覽器URL中使用完整FQDN。VMware需要IP、簡短名稱和FQDN的完整轉送和反轉解析。
 
 
 
 == 刪除資料存放區作業失敗
 
+.說明
 刪除資料存放區作業失敗。
 
+.修正行動
 檢查是否已從資料存放區刪除所有VM。您必須先從資料存放區刪除VM、然後才能刪除資料存放區。
 
 
 
 == 叢集配對無法使用配對金鑰連線
 
+.說明
 使用配對金鑰進行叢集配對時發生連線錯誤。「*建立叢集配對*」對話方塊中的錯誤訊息表示沒有通往主機的路由。
 
+.修正行動
 手動刪除在本機叢集上建立的未設定叢集配對程序、然後再次執行叢集配對。
 
 
 
 == QoSSIOC狀態的錯誤訊息
 
+.說明
 外掛程式的QoSSIOC狀態會顯示警告圖示和錯誤訊息。
 
 .修正行動
@@ -213,18 +234,23 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 == QoSSIOC服務顯示為可用但無法使用
 
+.說明
 QoSSIOC服務設定顯示為「UP」、但QoSSIOC無法使用。
 
+.元件vCenter外掛程式5.0或更新版本的修正行動
 從「還原遠端外掛程式」>「組態」索引標籤的「* QoSSIOC設定*」索引標籤NetApp Element 中、選取「重新整理」按鈕。視需要更新IP位址或使用者驗證資訊。
 
+.元件vCenter外掛程式4.10或更早版本的修正行動
 從「還原組態」擴充點的「* QoSSIOC設定*」索引標籤NetApp Element 中、選取「重新整理」按鈕。視需要更新IP位址或使用者驗證資訊。
 
 
 
 == QoSSIOC已啟用資料存放區、但無法使用
 
+.說明
 已啟用資料存放區的QoSSIOC、但QoSSIOC無法使用。
 
+.修正行動
 檢查資料存放區是否已啟用VMware SIOC：
 
 . 在管理節點上的「/opt/sidfire/sioc/data/logs/」中開啟「sho.log」（在較舊的管理節點上為「/var/log」或「/var/log/solidfire/」）。

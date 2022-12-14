@@ -17,11 +17,11 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 您可以建立一組相關磁碟區的群組快照、以保留每個磁碟區中繼資料的時間點複本。您可以使用群組快照做為備份或復原、將磁碟區群組的狀態還原至所需時間點。
 
 .選項
-*  a group snapshot
-*  group snapshot details
-*  volumes from a group snapshot
-*  back volumes to a group snapshot
-*  a group snapshot
+* <<建立群組快照>>
+* <<檢視群組快照詳細資料>>
+* <<從群組快照複製磁碟區>>
+* <<將磁碟區復原至群組快照>>
+* <<刪除群組快照>>
 
 
 
