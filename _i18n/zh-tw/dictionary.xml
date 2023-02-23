@@ -686,16 +686,9 @@
   <block id="5fca20943e154f5cd73069bcac84613a" category="admonition"><block ref="15098cd863d8945571eb3fa1cb63a7fe" category="inline-link-rx"></block> 提供QoS建議頁面、提供最佳組態和QoS設定的建議。</block>
   <block id="46187ebd73e618b6a92da8ad2b55a01d" category="doc">系統警示清單</block>
   <block id="d93fdf8ab834ec550b9295e94912501e" category="paragraph">下列清單概述不同類型的系統警示。</block>
-  <block id="b77a61cd6988e6c08982332968c82546" category="list-text">*驗證服務預設*：一或多個叢集節點上的驗證服務無法如預期運作。</block>
-  <block id="5598b7fb635d67383dc9570babc8e530" category="paragraph">*若要解決*：請聯絡NetApp支援部門以取得協助。</block>
-  <block id="f4776654d7d51cbcc317206320d6bd7e" category="list-text">*可用的虛擬網路IP位址低*：IP位址區塊中的虛擬網路位址數低。</block>
-  <block id="360d8b7be9d2a6e42c2904ac15a36482" category="paragraph">*解析*：在虛擬網路位址區塊中新增更多IP位址。</block>
-  <block id="19044d6710eab3bdd983360bf7266325" category="list-text">*區塊ClusterFull*：沒有足夠的可用區塊儲存空間來支援單一節點遺失。如需叢集完整度層級的詳細資訊、請參閱GetClusterFullThreshold API方法。此叢集故障表示下列其中一種情況：</block>
   <block id="638768955c5a6f2ab425aae1bce583bc" category="list-text">stage3低（警告）：已超過使用者定義的臨界值。調整叢集完整設定或新增更多節點。</block>
   <block id="66ee2d060cdf84b1fec9ae435d8f1a81" category="list-text">stage4 Critical（錯誤）：沒有足夠的空間可從1節點故障中恢復。不允許建立磁碟區、快照和複本。</block>
   <block id="0e9854d5683c94e98eff290cc17a418d" category="list-text">stage5Completely消耗（嚴重）1；不允許寫入或新的iSCSI連線。將會維持目前的iSCSI連線。寫入作業將會失敗、直到叢集新增更多容量為止。</block>
-  <block id="f10b7215fe62e0d4e21c762a36514a0f" category="paragraph">*解析*：清除或刪除磁碟區、或將另一個儲存節點新增至儲存叢集。</block>
-  <block id="6dbedebfca67a28af1c9192630ebd1b6" category="list-text">*區塊降級*：由於故障、區塊資料不再完整複寫。</block>
   <block id="007cc9547ae8884ad597cd92ba505422" category="cell">嚴重性</block>
   <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">說明</block>
   <block id="0eaadb4fcb48a0a0ed7bc9868be9fbaa" category="cell">警告</block>
@@ -704,216 +697,78 @@
   <block id="6b4a116390b4264598f38f5095478782" category="cell">只能存取區塊資料的單一完整複本。</block>
   <block id="278d01e5af56273bae1bb99a98b370cd" category="cell">關鍵</block>
   <block id="1729e2d7bb4830e4590245d964490747" category="cell">無法存取區塊資料的完整複本。</block>
-  <block id="b139944f8590a78103576799b6748aee" category="admonition">警告狀態只能在三重Helix系統上出現。</block>
-  <block id="e78884e2852b1df8681d3b38a52336ce" category="paragraph">*若要解決*：還原任何離線節點或區塊服務、或聯絡NetApp支援部門尋求協助。</block>
-  <block id="a6d7f0040dda716dddaddabfc6499ce0" category="list-text">* BlockServiceTooFull*：區塊服務佔用太多空間。</block>
-  <block id="d0b983aa0a03f0613ee4318863024796" category="paragraph">*解析*：新增更多已配置的容量。</block>
-  <block id="eead0253ee806cfa178d60d8a7e1f4ff" category="list-text">* BlockServiceUnHealth*：區塊服務偵測為不健全：</block>
   <block id="43f872680fd424e2b1762db257650751" category="list-text">嚴重性=警告：不採取任何行動。此警告期間將以cTimeDuntilBSIsKledMSec=330000毫秒為單位過期。</block>
   <block id="1243ff1c26bd2b3dd66afd02705039aa" category="list-text">嚴重性=錯誤：系統會自動解除委任資料、並將其資料重新複寫至其他正常磁碟機。</block>
   <block id="2ae0b813312f2044fb0000c93b743c18" category="list-text">嚴重性=重大：數個節點上的區塊服務故障、大於或等於複寫數（2個用於雙螺旋曲線）。資料無法使用、且無法完成Bin同步。</block>
-  <block id="64d5b87a0d80106f02ca02a8c2d51e99" category="paragraph">*解決*：檢查網路連線問題和硬體錯誤。如果特定的硬體元件故障、將會發生其他故障。當區塊服務可供存取或服務已停用時、故障將會清除。</block>
-  <block id="b6c5dd9a9468dadfca14f1e934079fda" category="list-text">*時鐘ScewExceedsFault閾 值*：叢集主機與呈現權杖的節點之間的時間偏移超出建議的臨界值。儲存叢集無法自動修正節點之間的時間偏移。</block>
-  <block id="f18971b7665987026d00eed1b94296ce" category="paragraph">*解析*：使用網路內部的NTP伺服器、而非安裝預設值。如果您使用的是內部NTP伺服器、請聯絡NetApp支援部門以取得協助。</block>
-  <block id="61a796d784575cc4c0eefe3713784b7d" category="list-text">*叢集CannotSync*：存在空間不足的情況、離線區塊儲存磁碟機上的資料無法同步至仍在使用中的磁碟機。</block>
-  <block id="30a5b6d75199ef2b739e1e49fe5f6d2d" category="paragraph">*解析*：新增更多儲存設備。</block>
-  <block id="3c396f7366c1ca2d787a7da62b063c09" category="list-text">*叢集Full*：儲存叢集中沒有更多可用的儲存空間。</block>
-  <block id="57b28d3f4e2a40803441a098a64aeb46" category="list-text">*叢集IOPSAreProvisioner*：叢集IOPS過度資源配置。所有最低QoS IOPS的總和大於叢集的預期IOPS。無法同時維護所有磁碟區的最低QoS。</block>
-  <block id="532bae603c79fef518a2f5ba19a230b2" category="paragraph">*解析*：降低磁碟區的最低QoS IOPS設定。</block>
-  <block id="59e3be5e8454cb22c84b24a16a0bb516" category="list-text">* disableDriveSecurity故障*：叢集未設定為啟用磁碟機安全性（閒置時加密）、但至少有一個磁碟機已啟用磁碟機安全性、表示停用這些磁碟機的磁碟機安全性失敗。此故障會以「警告」嚴重性記錄。</block>
-  <block id="5e1db2dfa2df960f2ff4e6e6a4e60492" category="paragraph">*若要解決*：請查看故障詳細資料、瞭解無法停用磁碟機安全性的原因。可能的原因包括：</block>
   <block id="87c8214c4d624147becc5521d4175136" category="list-text">無法取得加密金鑰、請調查金鑰或外部金鑰伺服器的存取問題。</block>
   <block id="c12520b146934cca9f0563beb6c4b386" category="list-text">磁碟機上的停用作業失敗、請判斷是否可能取得錯誤的金鑰。</block>
-  <block id="207979df60452480b4cc127e964f2bb3" category="paragraph">如果這兩個原因都不是故障原因、則可能需要更換磁碟機。即使提供正確的驗證金鑰、您仍可嘗試恢復無法成功停用安全性的磁碟機。若要執行此作業、請將磁碟機移至「Available（可用）」、在磁碟機上執行安全清除、然後將其移回「Active（作用中）」、將其從系統中移除。</block>
-  <block id="d113be0f16b670c5c78f0912c7d2af97" category="list-text">*已中斷連線ClusterPair*：叢集配對已中斷連線或設定不正確。</block>
-  <block id="4d8ae629f9f7ca6bca311363b1d0cf70" category="paragraph">*解析*：檢查叢集之間的網路連線能力。</block>
-  <block id="67dfbd4a5be1831a5711e0487f3a559c" category="list-text">*已中斷連線的RemoteNode*：遠端節點已中斷連線或設定不正確。</block>
-  <block id="c099dbfc11b7a053a45eeea116dd0e24" category="paragraph">*解析*：檢查節點之間的網路連線能力。</block>
-  <block id="521fc14366e90d2106568104de9a9bd5" category="list-text">*已中斷SnapMirrorEndpoint *：遠端SnapMirror端點已中斷連線或設定不正確。</block>
-  <block id="69cc97a986abec94359b1b39371d321d" category="paragraph">*解析*：檢查叢集與遠端SnapMirrorEndpoint之間的網路連線。</block>
-  <block id="cfc6773b3a28188406af7be1c4cd505a" category="list-text">*磁碟可用*：叢集中有一或多個磁碟機可用。一般而言、所有叢集都應該新增所有磁碟機、而在可用狀態下則不新增任何磁碟機。如果此故障意外出現、請聯絡NetApp支援部門。</block>
-  <block id="5cea426834035f7f53348b0e61d47f27" category="paragraph">*解析*：將任何可用的磁碟機新增至儲存叢集。</block>
-  <block id="9828e9a03d5c50eaac06a00ec578dd34" category="list-text">*磁碟機故障*：當一個或多個磁碟機故障時、叢集會傳回此故障、指出下列其中一種情況：</block>
   <block id="95607d1f3bac33fd6ceb0db6eaae24ea" category="list-text">磁碟機管理程式無法存取磁碟機。</block>
   <block id="816b615213a1f571133dbeab11f8be73" category="list-text">Slice或block服務失敗次數過多、可能是因為磁碟機讀取或寫入失敗、而且無法重新啟動。</block>
   <block id="fb3e817b0c8795e02aefa4556e7780dc" category="list-text">磁碟機遺失。</block>
   <block id="1bbb54812222b3924c6bf4c604fa345c" category="list-text">無法存取節點的主要服務（節點中的所有磁碟機均視為遺失/故障）。</block>
   <block id="357055579aee5a54ad7a5eeeaff622af" category="list-text">磁碟機已鎖定、無法取得磁碟機的驗證金鑰。</block>
   <block id="5b0e7d9573ad0e308cbbcaa692388ffa" category="list-text">磁碟機已鎖定、解除鎖定作業失敗。</block>
-  <block id="db6402d510a3f6d1a14d977b90de261a" category="paragraph">*解決*：</block>
   <block id="d573f30ca912851cb2b018b5e162b81e" category="list-text">檢查節點的網路連線能力。</block>
   <block id="eb060d511b605e93f2a2a260b6dbc752" category="list-text">更換磁碟機。</block>
   <block id="c6a23c02f7b414f5c0f52e9a7a75617a" category="list-text">確認驗證金鑰可用。</block>
-  <block id="1969b289e35f6700ca2f827de7bd9f81" category="list-text">*磁碟機HealthFault*：磁碟機未通過智慧型健全狀況檢查、因此磁碟機的功能會降低。此故障的嚴重性等級為「重大」：</block>
   <block id="6b6ada126074585acbda3e3e706375bf" category="list-text">序列磁碟機：插槽中的&lt;序號&gt;：&lt;節點插槽&gt;&lt;磁碟機插槽&gt;未通過智慧型整體健全狀況檢查。</block>
-  <block id="21d7505980612859335cd1182eed2f42" category="paragraph">*若要解決*：請更換磁碟機。</block>
-  <block id="f711a410cfadcd74d3e727bcf29e76ea" category="list-text">磁碟機WearFault*：磁碟機的剩餘壽命已降至低於臨界值、但仍在運作中。此故障有兩種可能的嚴重性等級：「嚴重與警告：</block>
   <block id="450f3e44340f787c8a2402d47b9d8839" category="list-text">具有序列的磁碟機：&lt;序號&gt;位於插槽：&lt;節點插槽&gt;&lt;磁碟機插槽&gt;具有嚴重的磨損等級。</block>
   <block id="bc85c300d6a6164fbbdb72d6f4ad2e6c" category="list-text">具有序號的磁碟機：&lt;序號&gt;位於插槽：&lt;節點插槽&gt;&lt;磁碟機插槽&gt;的磨損保留區不足。</block>
-  <block id="9abb5ddc1addf4d590b5c9fa91e4d43a" category="paragraph">*若要解決*：若要解決此故障、請盡快更換磁碟機。</block>
-  <block id="48128ef6d47ecb690871445333b6491b" category="list-text">*雙工ClusterMasterCandidated*：偵測到多個儲存叢集主要候選項目。</block>
-  <block id="59ab6bdfa6be309755bce41f5d60d462" category="list-text">* enableDriveSecurity故障*：叢集已設定為需要磁碟機安全性（閒置時加密）、但至少一個磁碟機無法啟用磁碟機安全性。此故障會以「警告」嚴重性記錄。</block>
-  <block id="d54e299a64e6acd0f2bf04514e5eb863" category="paragraph">*若要解決*：請查看故障詳細資料、瞭解無法啟用磁碟機安全性的原因。可能的原因包括：</block>
-  <block id="0bc7b1010ae978b18e75b86c87247b1d" category="list-text">磁碟機上的啟用作業失敗、請判斷是否可能取得錯誤的金鑰。</block>
   <block id="e8bd7f29873c064c3b0afe30143a9400" category="paragraph">如果這兩個原因都不是故障原因、則可能需要更換磁碟機。</block>
   <block id="2694c60165d17f45292f0e9b5497681e" category="paragraph">即使提供正確的驗證金鑰、您仍可嘗試恢復無法成功啟用安全性的磁碟機。若要執行此作業、請將磁碟機移至「Available（可用）」、在磁碟機上執行安全清除、然後將其移回「Active（作用中）」、將其從系統中移除。</block>
-  <block id="6d0550ff96dcb445984ba8a0707c9074" category="list-text">*受損的存取*：網路連線或電源已失去至一個或多個頻道群節點。</block>
-  <block id="44e4e9cfd83c1aa882271efeac350416" category="paragraph">*若要解決*：若要解決此問題、請還原網路連線或電源。</block>
-  <block id="387c82f8e8999ac36c4d631ee3bec019" category="list-text">*例外*：報告的故障並非例行故障。這些故障不會自動從故障佇列中清除。</block>
-  <block id="95fccc70956cc0d9a84d29b81c844be9" category="paragraph">*若要解決*請聯絡NetApp支援部門以尋求協助。</block>
-  <block id="69c345b3bb2113f968958254a0a27fb6" category="list-text">*故障空間TooFull*：區塊服務無法回應資料寫入要求。這會導致Slice服務空間不足、無法儲存失敗的寫入。</block>
-  <block id="57279397a0f23c13827f0886a541321d" category="paragraph">*若要解決*：若要解決此故障、請還原區塊服務功能、以允許正常繼續寫入、並從分片服務清除故障空間。</block>
-  <block id="cda76445fe2c308c747b9c1d6f7d4146" category="list-text">*風扇感應器*：風扇感應器故障或遺失。</block>
-  <block id="9c454c61b7a38c67c5a89c1edf48ece4" category="paragraph">*若要解決*：若要解決此故障、請更換任何故障硬體。</block>
-  <block id="00f7721e7b62e96f695375e817d28365" category="list-text">* Fibre ChannelAccessDegraded *：光纖通道節點在儲存設備IP上的一段時間內未回應儲存叢集中的其他節點。在此狀態下、節點將被視為無回應、並產生叢集故障。</block>
-  <block id="5f69b8801c8ef9ca12605d73c17cfbd8" category="paragraph">*解析*：檢查網路連線能力。</block>
-  <block id="4299bc710d3fbceeb54aef2defddd564" category="list-text">* Fibre ChannelAccessUnAvailable *：所有Fibre Channel節點均無回應。隨即顯示節點ID。</block>
-  <block id="be5229786f60214999488193683de994" category="list-text">* fiberChannelActiveIxL*：IXL Nexus數量已接近每個Fibre Channel節點所支援的8000個作用中工作階段上限。</block>
   <block id="afde178f3cdc76e86b358a735370a4ee" category="list-text">最佳實務做法上限為5500。</block>
   <block id="2a89b8bd6f61acaa29e36c53507cdcd9" category="list-text">警告上限為7500。</block>
   <block id="87cec377fddbc2b343c523b1f948a6e2" category="list-text">上限（未強制）為8192。</block>
-  <block id="06a1ad63d7f3de673d8e3b349ae4deba" category="paragraph">*要解決*：請將IXL Nexus數降至低於最佳實務範圍5500。</block>
-  <block id="6200ab5a23b5eb4f8e8a795f6b2ef519" category="list-text">* fiberChannelConfig*：此叢集故障表示下列其中一種情況：</block>
   <block id="eea8c17dfc94cc47441f5d76cd656589" category="list-text">PCI插槽上有非預期的光纖通道連接埠。</block>
   <block id="77f0a06c22e15fd19ec507cc798e4687" category="list-text">發生非預期的Fibre Channel HBA模式。</block>
   <block id="9081496d4343ff2942d3a7ace8927753" category="list-text">Fibre Channel HBA的韌體發生問題。</block>
   <block id="9b6b174ad1439ca86267072c96c6a708" category="list-text">光纖通道連接埠未連線。</block>
   <block id="1a8b25bc838c0110139358395735d6f5" category="list-text">設定Fibre Channel PassthThrough時持續發生問題。</block>
-  <block id="423108a2acc5d064acd9b98422032ec6" category="list-text">* Fibre ChannelIOS*：IOPS總計已接近叢集中Fibre Channel節點的IOPS限制。限制如下：</block>
   <block id="30df86760d85d6e2bce14a346d935d23" category="list-text">FC0025：每個光纖通道節點的4K區塊大小限制為450k IOPS。</block>
   <block id="0601c36d5a717978b7c215c94c397752" category="list-text">FCN001：每個光纖通道節點的4K區塊大小上限為625K OPS。</block>
-  <block id="43dd332c491ee26842dccdd95f3d673a" category="paragraph">*若要解決*：若要解決此故障、請在所有可用的Fibre Channel節點之間平衡負載。</block>
-  <block id="08781f97b9a56608e228a926bbe582a4" category="list-text">* fiberChannelStaticIxL*：IXL Nexus數即將達到每個Fibre Channel節點支援的16000個靜態工作階段上限。</block>
   <block id="d85f1b7e325152ab8b9dc4987156513c" category="list-text">最佳實務做法上限為11000。</block>
   <block id="ecba663b07684c482e30930dbc2c5447" category="list-text">警告上限為15000。</block>
   <block id="0164a04bfac1ebbda38a2e22844ed405" category="list-text">上限（強制）為16384。</block>
-  <block id="7f0f7b3e3c2559bc38fe477912eb7dfd" category="paragraph">*若要解決*：若要解決此故障、請將IXL Nexus數降至低於12000最佳實務做法上限。</block>
-  <block id="dea0db7f2e930824a5b18f6621c75489" category="list-text">*檔案系統容量低*：其中一個檔案系統空間不足。</block>
-  <block id="d4efa4e40167a713afcbc40e708b3782" category="paragraph">*解析*：新增更多容量至檔案系統。</block>
-  <block id="c37c122202aff11f627e79fe242167eb" category="list-text">* FpsDrives失 配*：非FIPS磁碟機已實際插入具有FIPS功能的儲存節點、或FIPS磁碟機已實際插入非FIPS儲存節點。每個節點會產生單一故障、並列出所有受影響的磁碟機。</block>
-  <block id="330fd07f17b9d88a5b6c65287d20e2b0" category="paragraph">*若要解決*：若要解決此故障、請移除或更換有問題的磁碟機。</block>
-  <block id="e1243b17d56e12f3c3df9d665f7b8d9c" category="list-text">* fpsDrivesOutOfCompliance *：系統偵測到在FIPS磁碟機功能啟用後、加密閒置功能已停用。當FIPS磁碟機功能已啟用、且儲存叢集中存在非FIPS磁碟機或節點時、也會產生此故障。</block>
-  <block id="b69bdc017b90d1d051c85c6686412351" category="paragraph">*解析*：在閒置時啟用加密、或從儲存叢集移除非FIPS硬體。</block>
-  <block id="fd0d25048f9ac968637a04b3d7bd0654" category="list-text">* fpsselfTestFailure*：FIPS子系統在自我測試期間偵測到故障。</block>
-  <block id="1d6ead8b27c12748a8d92837f0c53cc6" category="list-text">*硬體組態不符*：此叢集故障表示下列其中一種情況：</block>
   <block id="bf115db5c03e9e532f2c688460f33073" category="list-text">組態與節點定義不符。</block>
   <block id="71af532c4c9766361e01036327838cdd" category="list-text">此類型節點的磁碟機大小不正確。</block>
   <block id="f37083c72cc95f714c6dcccbf50fbae6" category="list-text">偵測到不受支援的磁碟機。可能的原因是安裝的元素版本無法辨識此磁碟機。建議更新此節點上的Element軟體。</block>
   <block id="7adda67a2bab68e6354d45fbda56172d" category="list-text">磁碟機韌體不相符。</block>
   <block id="84235cc0ee8b4a1704e15c4682efed21" category="list-text">磁碟機加密功能狀態與節點不符。</block>
-  <block id="d5a7f18bd5180856298d9b65b13fb67a" category="list-text">* idPCertificateExpiration*：用於協力廠商身分識別供應商（IDP）的叢集服務供應商SSL憑證即將到期或已過期。此故障會根據緊急程度使用下列嚴重性：</block>
   <block id="76664c0be6648ca07148b71896d0b43f" category="cell">憑證將在30天內過期。</block>
   <block id="28465e6d0a7418e305f9cb11dc04a4c1" category="cell">憑證將在7天內過期。</block>
   <block id="61993b64115728d8f5ac3de889d7d5cd" category="cell">憑證將在3天內過期或已過期。</block>
-  <block id="42a775dbc829e1685b50072b5c687f36" category="paragraph">*若要解決*：若要解決此故障、請在SSL憑證過期之前更新。使用「Update IdpConfiguration」API方法搭配「REfreshCertificateExpirationTimes=true」來提供更新的SSL憑證。</block>
-  <block id="308f88c7343bcde5928afc202705f02e" category="list-text">*不一致的BondModes*：缺少VLAN裝置上的連結模式。此故障會顯示預期的債券模式和目前使用的債券模式。</block>
-  <block id="c4b0c56cdcb13f6eb48c16acd3406015" category="list-text">*不一致的Mtus *：此叢集故障表示下列其中一種情況：</block>
   <block id="9c1485d86c325377a29a8d89037f06b2" category="list-text">Bond1G不相符：在Bond1G介面上偵測到不一致的MTU。</block>
   <block id="b9c6a0b1df2e02b3cef9f3c2de4ae589" category="list-text">Bond10G不符：在Bond10G介面上偵測到不一致的MTU。</block>
   <block id="59634c985623b38ef29cbc5c41cdcd71" category="paragraph">此故障會顯示有問題的節點、以及相關的MTU值。</block>
-  <block id="620daeadf483244c04416e434f2e4d13" category="list-text">*不一致RoutingRules *：此介面的路由規則不一致。</block>
-  <block id="6003e673b4f47d2faaa859225da1d825" category="list-text">*不一致SubnetMask*：VLAN裝置上的網路遮罩與VLAN內部記錄的網路遮罩不符。此故障會顯示預期的網路遮罩和目前使用的網路遮罩。</block>
-  <block id="4473a3fae64fa050af714307a3d7b1aa" category="list-text">*不可修正的BondPortCount*：連結連接埠數量不正確。</block>
-  <block id="cc5e0286c94c3e6a13bf7d8e041a5504" category="list-text">* invalidConfiguredFibre ChannelNodeCount*：兩個預期的光纖通道節點連線之一已降級。僅連接一個光纖通道節點時、就會出現此故障。</block>
-  <block id="4ec9e40a68235575d44c72919c32ed58" category="paragraph">*若要解決*：檢查叢集網路連線和網路纜線、並檢查是否有故障的服務。如果沒有網路或服務問題、請聯絡NetApp支援部門以更換光纖通道節點。</block>
-  <block id="dc5f232ad0b1caa101175e3e4dab8506" category="list-text">* irqBalanceFailed*：嘗試平衡中斷時發生異常。</block>
-  <block id="67e09365eaa9e6552f93e08f7dac1c39" category="list-text">* kmipCertificateFault*：</block>
   <block id="a83063b29bf44cba1572eff98be835ac" category="list-text">根憑證授權單位（CA）憑證即將到期。</block>
-  <block id="73b7366ae126318687a660f1ed3b5278" category="paragraph">*若要解決*：若要解決此錯誤、請從根CA取得到期日至少30天的新憑證、並使用ModifyKeyServerKmip提供更新的根CA憑證。</block>
   <block id="675218367716da949fbd1f666ae7a0b8" category="list-text">用戶端憑證即將到期。</block>
-  <block id="be01cf17e213530523b7b0ad0205710a" category="paragraph">*若要解決*：若要解決此錯誤、請使用GetClientCertificateSigningRequest建立新的CSR、並簽署以確保新的到期日至少已超過30天、然後使用ModifyKeyServerKmip將到期的KMIP用戶端憑證取代為新的憑證。</block>
   <block id="c7ba1181d7c73f8ae44eb82564f844e1" category="list-text">根憑證授權單位（CA）憑證已過期。</block>
   <block id="7bcb86f53cf99e8fee971fd42ab8522c" category="list-text">用戶端憑證已過期。</block>
-  <block id="0e55cc7d9c3fbf1fb064368e517acda6" category="paragraph">*若要解決*：若要解決此錯誤、請使用「GetClientCertificateSigningRequest」建立新的CSR、並簽署以確保新的到期日至少已超過30天、然後使用「ModifyKeyServerKmip」以新的憑證取代過期的KMIP用戶端憑證。</block>
   <block id="c715de23293d88a895e3f9db11924437" category="list-text">根憑證授權單位（CA）憑證錯誤。</block>
-  <block id="cfbcd481e1c862016166f35836afbb55" category="paragraph">*若要解決*：若要解決此錯誤、請檢查是否提供正確的憑證、並視需要從根CA重新取得憑證。使用「ModifyKeyServerKmip」安裝正確的KMIP用戶端憑證。</block>
   <block id="f177df8fc231b491022233727b0c0050" category="list-text">用戶端憑證錯誤。</block>
-  <block id="8580fb02572d7828a3c0476e1bf90ec4" category="paragraph">*若要解決*：若要解決此故障、請檢查是否安裝了正確的KMIP用戶端憑證。用戶端憑證的根CA應安裝在EKS上。使用「ModifyKeyServerKmip」安裝正確的KMIP用戶端憑證。</block>
-  <block id="cea89a6577e3bd6d3d76b1252a452fdc" category="list-text">* kmipServerFault*：</block>
   <block id="75c3b3bb89bde01f9166a94cbfa98588" category="list-text">連線失敗</block>
-  <block id="eb5df70634c59ed45d3f1f75d81ef6d7" category="paragraph">*若要解決*：若要解決此故障、請檢查外部金鑰伺服器是否可透過網路連線及存取。使用「TestKeyServerKimp」和「TestKeyProviderKmip」來測試連線。</block>
   <block id="986de67b1de46a65e6d7064b31760807" category="list-text">驗證失敗</block>
-  <block id="0a8df59f6ac0b33d9b36e48646700b89" category="paragraph">*若要解決*：若要解決此錯誤、請檢查是否使用正確的根CA和KMIP用戶端憑證、以及私密金鑰和KMIP用戶端憑證是否相符。</block>
   <block id="731e024ead4b1b6cdedeb8e74373c451" category="list-text">伺服器錯誤</block>
-  <block id="3a84361bee7613c2f9b32f4fe3d818dd" category="paragraph">*若要解決*：若要解決此故障、請查看錯誤的詳細資料。根據傳回的錯誤、可能需要在外部金鑰伺服器上進行疑難排解。</block>
-  <block id="bd75d4ced964c295529a509f21f1ca2f" category="list-text">*記憶體EccThreshold *：偵測到大量可修正或不可修正的ECC錯誤。傳回錯誤類型嚴重性時、可能是因為DIMM故障。</block>
-  <block id="ea2cfe992f7259d96b132eb68e90b066" category="list-text">*記憶體使用率臨界值*：記憶體使用率高於正常值。此故障會根據緊急程度使用下列嚴重性：</block>
-  <block id="9b9100297a58b5b6701a8d3cab0b9441" category="admonition">如需故障的詳細資訊、請參閱詳細資料標題。</block>
   <block id="c83ee67f36ad5027c76f0cc2d7c1c6b5" category="cell">系統記憶體不足。</block>
   <block id="9b99febffdc6bdc6ad5931f3424b99e7" category="cell">系統記憶體非常不足。</block>
   <block id="f0c41738998b4e7c8da03ee30be0e125" category="cell">系統記憶體已完全耗用。</block>
-  <block id="d6109352c16d0a87b3bffb8a4fd562a7" category="list-text">* metadata ClusterFull*：沒有足夠的可用中繼資料儲存空間來支援單一節點遺失。如需叢集完整度層級的詳細資訊、請參閱「GetClusterFullThreshold」API方法。此叢集故障表示下列其中一種情況：</block>
   <block id="cb5b46f0ba19f5a116bf29e63d30a1cc" category="list-text">stage5Completely消耗（嚴重）1；不允許寫入或新的iSCSI連線。將會維持目前的iSCSI連線。寫入作業將會失敗、直到叢集新增更多容量為止。清除或刪除資料、或新增更多節點。</block>
-  <block id="f31a9d9d3c0727ac62def022d0bed3dc" category="list-text">* mtuChecksum故障*：網路裝置未設定適當的MTU大小。</block>
-  <block id="8a2dc0486d7b1ebd541373618bd1e95c" category="paragraph">*解析*：確保所有網路介面和交換器連接埠均設定為巨型框架（MTU大小高達9000位元組）。</block>
-  <block id="260012cf7c246cd7b2e8546c318d77fc" category="list-text">*網路組態*：此叢集故障表示下列其中一種情況：</block>
   <block id="9f7d0d58efdf92487c79aa73770cf27a" category="list-text">預期介面不存在。</block>
   <block id="1034f427f692ffaeb3c342ef7af5a6d1" category="list-text">存在重複的介面。</block>
   <block id="b8edcaaaa4084c689bfac36d5cb428a6" category="list-text">已設定的介面已關閉。</block>
   <block id="e475633cda3cbb184cee43276947ca84" category="list-text">需要重新啟動網路。</block>
-  <block id="d2382b214eed0b5437f0d701c5cf1d7d" category="list-text">*無可用虛擬網路IP位址*：IP位址區塊中沒有可用的虛擬網路位址。</block>
-  <block id="caf33b4965ca5d62bc0006f2de92e23c" category="list-text">*節點硬體預設（網路介面&lt;name&gt;當機或纜線拔下）*：網路介面關閉或纜線拔下。</block>
-  <block id="a147298dce83816e8fef754e9a019795" category="paragraph">*解析*：檢查節點或節點的網路連線能力。</block>
-  <block id="dfb229ee4b41e66cf4d93454b3ce28ea" category="list-text">*節點硬體預設（磁碟機加密功能狀態與插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;*中磁碟機的節點加密功能狀態不相符）*：磁碟機與安裝的儲存節點不相符。</block>
-  <block id="1f2ff8eb7987e06eed6cae34807c4382" category="list-text">*節點硬體磁碟機（此節點類型的磁碟機大小&lt;實際大小&gt;不正確、插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;的磁碟機大小-預期&lt;預期大小&gt;*）*：儲存節點包含的磁碟機大小不正確。</block>
-  <block id="b5eb7397616afe9154dad6b8ba699aa0" category="list-text">*節點硬體預設（在插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;中偵測到不受支援的磁碟機；磁碟機統計資料與健全狀況資訊將無法使用）*：儲存節點包含不支援的磁碟機。</block>
-  <block id="3bff90946d5c523cc029a2d3277de0fc" category="list-text">*節點硬體預設（插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;中的磁碟機應使用韌體版本&lt;預期版本&gt;、但使用不支援的版本&lt;實際版本&gt;*）：儲存節點包含執行不支援韌體版本的磁碟機。</block>
-  <block id="f44cef85dc1d0fe9f53d7d29edd50d26" category="list-text">*節點維護模式*：節點已置於維護模式。此故障會根據緊急程度使用下列嚴重性：</block>
   <block id="89acd6f6db6fbcc9df11b53320f0e951" category="cell">表示節點仍處於維護模式。</block>
   <block id="c0aace1177c81afddfae94211c14d139" category="cell">表示維護模式無法停用、很可能是因為執行中的標準失敗。</block>
-  <block id="ecfcac64cb9e091560a72c9988f838cd" category="paragraph">*若要解決*：維護完成後、請停用維護模式。如果錯誤層級故障持續發生、請聯絡NetApp支援部門以尋求協助。</block>
-  <block id="88226ac21c080b6003f57a3a683e5f92" category="list-text">*節點離線*：元素軟體無法與指定節點通訊。檢查網路連線能力。</block>
-  <block id="163d7d95d40a785cc0f29c88c21aecd2" category="list-text">*註釋使用LACPBondMode*：未設定LACP連結模式。</block>
-  <block id="bb7561e0d84aa5ae90420603e7a721e9" category="paragraph">*若要解決*：部署儲存節點時使用LACP連結；如果未啟用且未正確設定LACP、用戶端可能會遇到效能問題。</block>
-  <block id="3e38c237bbc2a5fdc541d5ed818c0b3d" category="list-text">* ntpServerUnreachable *：儲存叢集無法與指定的NTP伺服器通訊。</block>
-  <block id="92a600ace7dfb6f92283702dce0041cd" category="paragraph">*解析*：檢查NTP伺服器、網路和防火牆的組態。</block>
-  <block id="40db72535616e3184e05cd67679aeeae" category="list-text">*ntpTimezNotInSync*：儲存叢集時間與指定NTP伺服器時間之間的差異太大。儲存叢集無法自動修正差異。</block>
-  <block id="3c6d0ac0ec237cac345a19d90713b0a3" category="paragraph">*解析*：使用網路內部的NTP伺服器、而非安裝預設值。如果您使用的是內部NTP伺服器、但問題仍然存在、請聯絡NetApp支援部門以尋求協助。</block>
-  <block id="de63893c8609bb7e56e0dec56ae70eb9" category="list-text">* nvramDevice狀態*：NVRAM裝置發生錯誤、故障或故障。此故障具有下列嚴重性：</block>
-  <block id="4fce1d4db7770329afd2f91e39e0ce18" category="cell">硬體偵測到警告。這種情況可能是暫時性的、例如溫度警告。* nvmLifetime錯誤* nvmLifetimeStatus * energySourceLifetimeStatus * energySourceTemperatureStatus * warningThresholdexeed</block>
-  <block id="ac79f26b492a5c0d08665f4d558be081" category="cell">硬體偵測到錯誤或嚴重狀態。叢集主要會嘗試從作業中移除分片磁碟機（這會產生磁碟機移除事件）。如果次要Slice服務無法使用、則不會移除磁碟機。除了「警告層級」錯誤以外、傳回的錯誤：* NVRAM裝置掛載點不存在。* NVRAM裝置分割區不存在。*存在NVRAM裝置分割區、但未掛載。</block>
-  <block id="c2998542a9fb59195193c4fa281a4ea5" category="cell">硬體偵測到錯誤或嚴重狀態。叢集主要會嘗試從作業中移除分片磁碟機（這會產生磁碟機移除事件）。如果次要Slice服務無法使用、則不會移除磁碟機。*持續性Lost * armStatus SaveNArmed * cSaveStatus錯誤</block>
-  <block id="a3abfed3a2ffb64539c0b69c9124deaa" category="paragraph">*若要解決*：請更換節點中任何故障的硬體。如果這無法解決問題、請聯絡NetApp支援部門以尋求協助。</block>
-  <block id="9504a69c88376dc1e6a4d43ff8ac4578" category="list-text">*電源供應錯誤*：此叢集故障表示下列其中一種情況：</block>
   <block id="1aada3eca1e3ebdad5bf568c00f6618a" category="list-text">電源供應器不存在。</block>
   <block id="e3843a30f99965f6bf0fe2f2727273d3" category="list-text">電源供應器故障。</block>
   <block id="a23d1fa9eb45a4686b769b2b24c1ad79" category="list-text">電源供應器輸入遺失或超出範圍。</block>
-  <block id="d919fc2acd7cfac0636df577c97774c3" category="paragraph">*解析*：驗證是否已將備援電源供應給所有節點。如需協助、請聯絡NetApp支援部門。</block>
-  <block id="65306cc0919388991ada89e601eceba3" category="list-text">*資源配置空間TooFull*：叢集的整體資源配置容量太滿。</block>
-  <block id="579331cf6f36846c3088277e08ff6a59" category="paragraph">*解析*：新增更多已配置空間、或刪除及清除磁碟區。</block>
-  <block id="a46406a6cc4c9540981cd49c66c90aea" category="list-text">*遠端回應非同步延遲*：已超過設定的非同步延遲複寫。檢查叢集之間的網路連線能力。</block>
-  <block id="3fe884dac4dc35ae958497e1cdb67d99" category="list-text">* remoteReplClusterFull*：由於目標儲存叢集太滿、因此磁碟區已暫停遠端複寫。</block>
-  <block id="e1593645fd1d05b9403fe3940b7fe5ba" category="paragraph">*解析*：釋放目標儲存叢集上的部分空間。</block>
-  <block id="7a61765fa4ec81faae60a35076835fc6" category="list-text">*遠端回應SnapshotClusterFull*：由於目標儲存叢集太滿、因此磁碟區已暫停快照的遠端複寫。</block>
-  <block id="3e567b80ae1f72f86c8f6013655e4e37" category="list-text">*遠端回應SnapshotsExceeedLimit*：由於目標儲存叢集磁碟區已超過快照限制、因此磁碟區已暫停遠端複寫快照。</block>
-  <block id="0bb34439d1cec4a82e7a074a0a8bcd04" category="paragraph">*若要解決*：增加目標儲存叢集的快照限制。</block>
-  <block id="ca55763fbc1c344898240d08faefd207" category="list-text">*排程行動錯誤*：一或多個排程活動已執行、但失敗。如果排程的活動再次執行並成功、排程的活動已刪除、或活動已暫停並恢復、則會清除故障。</block>
-  <block id="eadcd5d07ba15628707e7892baee7e24" category="list-text">*感應器讀取失敗*：基礎板管理控制器（BMC）自我測試失敗、或感應器無法與BMC通訊。</block>
-  <block id="5007bccb447bd749f365258124c14746" category="list-text">*服務未執行*：所需的服務未執行。</block>
-  <block id="368faa16b576b6911afcdc773b6af115" category="list-text">*交叉分析eServiceTooFull*：一個分片服務指派給它的資源配置太少。</block>
-  <block id="f3272af6f360485cdd94dcb40a6a35e0" category="list-text">*交叉分析eServiceUnheal*：系統偵測到某個分割服務不健全、並自動將其停用。</block>
   <block id="37b556315ca9e4d0bf96bfbb72a90068" category="list-text">嚴重性=警告：不採取任何行動。此警告期間將於6分鐘後到期。</block>
-  <block id="5546ecaa357fbd0dfbbc2422d0d9e25e" category="paragraph">*解決*：檢查網路連線問題和硬體錯誤。如果特定的硬體元件故障、將會發生其他故障。當可存取Slice服務或服務已停用時、故障將會清除。</block>
-  <block id="952b7fe3b8c0f559b1cf73cf603c9207" category="list-text">* sshEnabled*：SSH服務會在儲存叢集中的一個或多個節點上啟用。</block>
-  <block id="2299b4932097c60c6b5137a7855698e9" category="paragraph">*若要解決*：停用適當節點或節點上的SSH服務、或聯絡NetApp支援部門尋求協助。</block>
-  <block id="18d7157b4f09edafbf336849e92f6e8b" category="list-text">* slCertificateExpiration*：與此節點相關的SSL憑證即將到期或已過期。此故障會根據緊急程度使用下列嚴重性：</block>
-  <block id="24337d5c53a250380f9f025eabcd877d" category="paragraph">*若要解決*：續約SSL憑證。如有需要、請聯絡NetApp支援部門以取得協助。</block>
-  <block id="b10f2f2b7f0de84924c35cf78fe313cb" category="list-text">* strandedCapacity *：單一節點佔儲存叢集容量的一半以上。為了維持資料備援、系統會減少最大節點的容量、使部分區塊容量無法使用（未使用）。</block>
-  <block id="48f9b130ed193960a70c0842c20c7754" category="paragraph">*解析*：將更多磁碟機新增至現有的儲存節點、或將儲存節點新增至叢集。</block>
-  <block id="5803726e8d3e39b54f26c2e025925d9c" category="list-text">* Tempdens感 測器*：溫度感測器報告的溫度高於正常溫度。此故障可與PowerSupplyError或FanSensor故障一起觸發。</block>
-  <block id="8f5913b1030e06205949819afb5e4b4e" category="paragraph">*若要解決*：檢查儲存叢集附近是否有氣流障礙。如有需要、請聯絡NetApp支援部門以取得協助。</block>
-  <block id="cc63e8b7a4dd8a19e39b671cfc9f964f" category="list-text">*升級*：升級已進行24小時以上。</block>
-  <block id="b3c8fa9306244bc646dde8f6d37da607" category="paragraph">*若要解決*：繼續升級或聯絡NetApp支援部門以尋求協助。</block>
-  <block id="5504d9bc03b73838a5ba1b045a71fe98" category="list-text">*不負責服務*：服務已無回應。</block>
-  <block id="29c84b8dff5f6363d5768dff67270b2f" category="list-text">*虛擬網路組態*：此叢集故障表示下列其中一種情況：</block>
   <block id="55bf2ffa334770172eb139c1cde366a6" category="list-text">介面不存在。</block>
   <block id="766b86c37ad51ee486163aec0a9fcc9b" category="list-text">介面上的命名空間不正確。</block>
   <block id="48766e2b79a5b9849011f867e2a4543b" category="list-text">網路遮罩不正確。</block>
   <block id="9ade69268a715c1a417af433fedcd21e" category="list-text">IP位址不正確。</block>
   <block id="0a2b48020b48f8fbcf311a98dace5d74" category="list-text">介面未啟動且未執行。</block>
   <block id="9672f91e71f82d57d55bef9837c3723c" category="list-text">節點上有多餘的介面。</block>
-  <block id="555e9b90387cad0f45f64515bdf10601" category="list-text">*磁碟區降級*：次要磁碟區尚未完成複寫與同步處理。同步完成時、訊息會清除。</block>
-  <block id="6420fe8780e3511f4fd0db14a3eb7f23" category="list-text">*磁碟區離線*：儲存叢集中的一個或多個磁碟區已離線。也會出現Volume Degraded故障。</block>
   <block id="f9e26bd19461fc83af1498b26ef82773" category="summary">即時複寫可快速建立Volume資料的遠端複本。</block>
   <block id="2dac088d1b366882d185fe8aedb97392" category="doc">在叢集之間執行遠端複寫</block>
   <block id="dd7c09181cc59b11de6dcd61ac047027" category="paragraph">對於執行NetApp Element Real-Software的叢集、即時複寫功能可讓您快速建立Volume資料的遠端複本。您可以將儲存叢集與最多四個其他儲存叢集配對。</block>
@@ -2649,4 +2504,261 @@
   <block id="47c4fb98f272f850da400ba07b3981fa" category="paragraph-title">元件vCenter外掛程式4.10或更早版本的修正行動</block>
   <block id="d495047561c1a08074d3afeeb5b5d172" category="paragraph-title">VMware vSphere先決條件</block>
   <block id="3903fd261f224ad8af888f893eb71a5e" category="paragraph-title">外掛程式支援的VMware vSphere版本</block>
+  <block id="b329e1366594104100e84e0fe2d3e122" category="list-text">*驗證服務預設*</block>
+  <block id="3d4a279e1c8f0e33967406751cad4d98" category="paragraph">一或多個叢集節點上的驗證服務無法如預期運作。</block>
+  <block id="0ff1ab125d3221f1a56e3d2e6d4d386d" category="paragraph">如需協助、請聯絡NetApp支援部門。</block>
+  <block id="d3f3bc83a262e647c0ad5aef78184380" category="list-text">*可用虛擬網路IP位址低*</block>
+  <block id="06d462fe4791521583aa1bf7b83f92a3" category="paragraph">IP位址區塊中的虛擬網路位址數目很低。</block>
+  <block id="8f5617c015bbe493df6b7e19808435ea" category="paragraph">若要解決此故障、請在虛擬網路位址區塊中新增更多IP位址。</block>
+  <block id="aecf304b365c556b9a8747ab26167ed4" category="list-text">*區塊叢集完整*</block>
+  <block id="1b3b2f72f429aa6470095a49affa4ebc" category="paragraph">可用區塊儲存空間不足、無法支援單一節點遺失。如需叢集完整度層級的詳細資訊、請參閱GetClusterFullThreshold API方法。此叢集故障表示下列其中一種情況：</block>
+  <block id="3db1b2b278c0d698957be3ed18d42de5" category="paragraph">若要解決此故障、請清除或刪除磁碟區、或將另一個儲存節點新增至儲存叢集。</block>
+  <block id="d224dcc4acfd1590ca54fc5fcc706716" category="list-text">*區塊降級*</block>
+  <block id="4121923b447abdbd7a192a5ef89111dc" category="paragraph">由於故障、區塊資料不再完整複寫。</block>
+  <block id="a88586630cec9d0f71da40e80ad27de9" category="paragraph">*附註：*警告狀態只能在三重Helix系統上發生。</block>
+  <block id="51a501fd73ea9d25413ddaac25474218" category="paragraph">若要解決此故障、請還原任何離線節點或區塊服務、或聯絡NetApp支援部門以尋求協助。</block>
+  <block id="458e92b0146b80dcf940c4767572c87a" category="list-text">* BlockServiceTooFull*</block>
+  <block id="4aa346025bbf13f024d8c2a129322102" category="paragraph">區塊服務使用太多空間。</block>
+  <block id="c3e08cc4728f0335f4e0126487555186" category="paragraph">若要解決此故障、請新增更多已配置的容量。</block>
+  <block id="440a9a79248761de7d7303ea47a0c2ca" category="list-text">*封鎖服務不健全*</block>
+  <block id="76c3f3974c0bb69705ba25d138d9a599" category="paragraph">區塊服務偵測為不健全：</block>
+  <block id="5f0cbed0ef8a3bd7e904fa0b7d66df2a" category="paragraph">檢查網路連線問題和硬體錯誤。如果特定的硬體元件故障、將會發生其他故障。當區塊服務可供存取或服務已停用時、故障將會清除。</block>
+  <block id="efe7c0d4ed04341756689674a3fb46c4" category="list-text">* BMCselfTestFailed*</block>
+  <block id="e14ad5a8fd8d67543e771552b5287d65" category="paragraph">基礎板管理控制器（BMC）自我測試失敗。</block>
+  <block id="f13985a4689ae985836f2d3e56cd1a5f" category="paragraph">如需協助、請聯絡NetApp支援部門。</block>
+  <block id="b1ac6637f319a778daa4b7822c1798b5" category="paragraph">在升級至Element 12.5或更新版本期間<block ref="e481e4f410d1414c62832507e5ec787b" prefix=" " category="inline-code"></block> 如果節點的BMC已存在故障、或是節點的BMC在升級期間故障、則不會產生故障。在升級期間未通過自我測試的BMC將會發出A<block ref="e481e4f410d1414c62832507e5ec787b" prefix=" " category="inline-code"></block> 整個叢集完成升級後發生警告故障。</block>
+  <block id="799dde904a69e8b3fcf523b6166fba1f" category="list-text">*時鐘ScewExceedsFault閾 值*</block>
+  <block id="e81a409bc10ef4f9e8f7f0a560b3a8df" category="paragraph">叢集主節點與呈現權杖的節點之間的時間偏差超過建議的臨界值。儲存叢集無法自動修正節點之間的時間偏移。</block>
+  <block id="735738d3bd7e45f7b009dc755262bf43" category="paragraph">若要解決此故障、請使用網路內部的NTP伺服器、而非安裝預設值。如果您使用的是內部NTP伺服器、請聯絡NetApp支援部門以取得協助。</block>
+  <block id="b5a7f7143405043d487707705c781e73" category="list-text">*叢集CannotSync*</block>
+  <block id="37fe998b916de03392c1aadbf0c82317" category="paragraph">存在空間不足的情況、離線區塊儲存磁碟機上的資料無法同步至仍在使用中的磁碟機。</block>
+  <block id="d75057c89facefaff72318b33c8ce093" category="paragraph">若要解決此問題、請新增更多儲存設備。</block>
+  <block id="a8de45c5e7348a2069c0e71dd8cf55bd" category="list-text">*叢集完整*</block>
+  <block id="ca7e4275e7d79d35a3873ca295254e8f" category="paragraph">儲存叢集中沒有更多可用的儲存空間。</block>
+  <block id="5a010e945d70de19b50f1707de988f80" category="list-text">*叢集IOPSAreOverProvisions*</block>
+  <block id="adf652dfe07aab8085b7a01d174cf9e0" category="paragraph">叢集IOPS已過度配置。所有最低QoS IOPS的總和大於叢集的預期IOPS。無法同時維護所有磁碟區的最低QoS。</block>
+  <block id="44572f314d1ad2072acfc6a26b1e91ca" category="paragraph">若要解決此問題、請降低磁碟區的最低QoS IOPS設定。</block>
+  <block id="45a258c05276cacb5b1d7863b0d316e4" category="list-text">* CpuThermalEvent閾 值*</block>
+  <block id="2e83559dc365c7e917e7fba7009ec948" category="paragraph">一個或多個CPU上的CPU散熱事件數超過設定的臨界值。</block>
+  <block id="b045aebb370ef7c237c48505464a66fe" category="paragraph">如果在十分鐘內未偵測到新的CPU熱事件、則警告將自行解決。</block>
+  <block id="733bd1b33340bdd3eab07dabd26ad1eb" category="list-text">*已禁用DriveSecurity失敗*</block>
+  <block id="550957ff4e127baf9356e53acd6bec29" category="paragraph">叢集未設定為啟用磁碟機安全性（閒置時加密）、但至少有一個磁碟機已啟用磁碟機安全性、表示停用這些磁碟機的磁碟機安全性失敗。此故障會以「警告」嚴重性記錄。</block>
+  <block id="9b7fe003823e01b6d191cd130cac6e23" category="paragraph">若要解決此故障、請查看故障詳細資料、瞭解無法停用磁碟機安全性的原因。可能的原因包括：</block>
+  <block id="c7dbd3edb899d383f271fbaddff857c9" category="paragraph">即使提供正確的驗證金鑰、您仍可嘗試恢復無法成功停用安全性的磁碟機。若要執行此作業、請將磁碟機移至「Available（可用）」、在磁碟機上執行安全清除、然後將其移回「Active（作用中）」、將其從系統中移除。</block>
+  <block id="5f195070878aa77d5ab08b4ac4a54f3d" category="list-text">*已中斷連線ClusterPair *</block>
+  <block id="ca505a259b750fe5a33a46d3a0b1380e" category="paragraph">叢集配對中斷連線或設定不正確。</block>
+  <block id="0e5226fbc6080c457c2049fae2c59580" category="paragraph">檢查叢集之間的網路連線能力。</block>
+  <block id="3fd928a4db83d2fce8a6a22ae18c96e5" category="list-text">*已中斷RemoteNode"</block>
+  <block id="19fc4b6eefc66be47a1245164a1e0a30" category="paragraph">遠端節點已中斷連線或設定不正確。</block>
+  <block id="bda8d7e202992031643b7f0dd34f95b6" category="paragraph">檢查節點之間的網路連線能力。</block>
+  <block id="c0ab26c4daa61064202eea521001fd78" category="list-text">*不連線SnapMirrorEndpoint *</block>
+  <block id="d295ddb65575ec2f7c53600c865abb3f" category="paragraph">遠端SnapMirror端點已中斷連線或設定不正確。</block>
+  <block id="20d0ab0df11b1d6b1906d3ba602b7a60" category="paragraph">檢查叢集與遠端SnapMirrorEndpoint之間的網路連線能力。</block>
+  <block id="306920e20dd0fe16e804aba58ddd2916" category="list-text">*磁碟可用*</block>
+  <block id="ae53472bfa7653cba79cb2a0c97df1b7" category="paragraph">叢集中有一或多個磁碟機可供使用。一般而言、所有叢集都應該新增所有磁碟機、而在可用狀態下則不新增任何磁碟機。如果此故障意外出現、請聯絡NetApp支援部門。</block>
+  <block id="931adb816c53335ac4fa33d4806e546b" category="paragraph">若要解決此故障、請將任何可用的磁碟機新增至儲存叢集。</block>
+  <block id="e44d27844a03d47017ba17a39a9b084b" category="list-text">*磁碟機故障*</block>
+  <block id="8de5bd92861e635fcf73e7132320b13e" category="paragraph">當一個或多個磁碟機發生故障時、叢集會傳回此故障、指出下列其中一種情況：</block>
+  <block id="4d76376d1fdfa802843702a2b8cfb46f" category="paragraph">若要解決此問題：</block>
+  <block id="e9d2d415045856f2ca7f232b17779252" category="list-text">*磁碟機健全狀況*</block>
+  <block id="ed77497765047a5cf8d5a44d362b2e87" category="paragraph">磁碟機未通過智慧型健全狀況檢查、因此磁碟機的功能會降低。此故障的嚴重性等級為「重大」：</block>
+  <block id="58b8e7725ad2228baeb985d92f7b7d73" category="paragraph">若要解決此故障、請更換磁碟機。</block>
+  <block id="56b8d37bfe2dd64bbdf23e1e3f2f7ea7" category="list-text">*磁碟WearFault*</block>
+  <block id="e675bb0d238256c785eec015e9bb8114" category="paragraph">磁碟機的剩餘壽命已降至低於臨界值、但仍在運作中。此故障有兩種可能的嚴重性等級：「嚴重」和「警告」：</block>
+  <block id="8f0cd9a07c4f987dbf40bc8ac46d0623" category="paragraph">若要解決此故障、請盡快更換磁碟機。</block>
+  <block id="6bb4a8aa55442d93640dd64e3af9591b" category="list-text">*雙工叢集MasterCandidate*</block>
+  <block id="6c6cd406a169110c850887e787bf23b5" category="paragraph">偵測到多個儲存叢集主要候選對象。</block>
+  <block id="3f881480536a97ff08a0d4e8479d95f8" category="list-text">* enableDriveSecurity失敗*</block>
+  <block id="6fade1bd2a365206b6a213e2b5b00c62" category="paragraph">叢集已設定為需要磁碟機安全性（閒置時加密）、但無法在至少一個磁碟機上啟用磁碟機安全性。此故障會以「警告」嚴重性記錄。</block>
+  <block id="8019ecfd9e8dbe87d5f5d4dc8e47f11d" category="paragraph">若要解決此故障、請查看故障詳細資料、瞭解無法啟用磁碟機安全性的原因。可能的原因包括：</block>
+  <block id="764076ccbd76ed5a3cfb4019ee6c76a3" category="list-text">磁碟機上的啟用作業失敗、請判斷是否可能取得錯誤的金鑰。如果這兩個原因都不是故障原因、則可能需要更換磁碟機。</block>
+  <block id="5aa2818b67b277b20181651d7f984bac" category="list-text">*「受損」*</block>
+  <block id="3b3e099ccd971f57b43b46533613607d" category="paragraph">一或多個頻道群節點的網路連線或電力中斷。</block>
+  <block id="56c3dd0e50c6cf4993350d6aeac7f9bd" category="paragraph">若要解決此問題、請還原網路連線或電源。</block>
+  <block id="9a7ee3317b3f58ab912aa398126464fc" category="list-text">*例外*</block>
+  <block id="f876d0eee683cd78e680d10a4e6544ac" category="paragraph">報告的故障並非例行故障。這些故障不會自動從故障佇列中清除。</block>
+  <block id="1252af204b6a81b333395f05ae66d195" category="list-text">*故障空間TooFull*</block>
+  <block id="2fd17e6f1ee2875e5116bdddb35a4bdb" category="paragraph">區塊服務未回應資料寫入要求。這會導致Slice服務空間不足、無法儲存失敗的寫入。</block>
+  <block id="7d5092acb3ccf2843e39faff0e6f93c8" category="paragraph">若要解決此故障、請還原區塊服務功能、以允許正常繼續寫入、並從分片服務清除故障空間。</block>
+  <block id="cdf72a6b22d3388918f3843825a6e821" category="list-text">*風扇感應器*</block>
+  <block id="f027e93cb191c3a34b63d2380336aa2f" category="paragraph">風扇感測器故障或遺失。</block>
+  <block id="7820c1d9ad4697a94c323676b62aef9c" category="paragraph">若要解決此故障、請更換任何故障硬體。</block>
+  <block id="d46186bf1074b548dc7e656292fe9d79" category="list-text">*光纖通道存取降級*</block>
+  <block id="c1dbe321100df10efa6ed1cb882091dc" category="paragraph">Fibre Channel節點在一段時間內未回應儲存叢集中的其他節點。在此狀態下、節點將被視為無回應、並產生叢集故障。</block>
+  <block id="92f4ebeef8956a175af4d3e1ec7b1c15" category="paragraph">檢查網路連線能力。</block>
+  <block id="010012bcf587a096a5299b7b1a55e19e" category="list-text">*光纖通道存取不可用*</block>
+  <block id="bf67c87d37b9233d02e142302836fd57" category="paragraph">所有Fibre Channel節點均無回應。隨即顯示節點ID。</block>
+  <block id="9a239bb37b76456edd6beae3f86996bf" category="list-text">* fiberChannelActiveIxL*</block>
+  <block id="7b1e90f542ce632a3d53bd8584b6d818" category="paragraph">IXL Nexus數量已接近每個光纖通道節點所支援的8000個作用中工作階段上限。</block>
+  <block id="7d8bc88f1f8ee937dacd85baa429de19" category="paragraph">若要解決此故障、請將IXL Nexus數降至低於最佳實務做法的5500上限。</block>
+  <block id="bb8e93e925fd43a4aea012f3ee50c111" category="list-text">* fiberChannelConfig*</block>
+  <block id="6894d61b116b1aed9a5f537bbf47060f" category="paragraph">此叢集故障表示下列其中一種情況：</block>
+  <block id="b9e3ca72a9c87848342ca9f2c269ea2d" category="list-text">*光纖通道IOPS *</block>
+  <block id="1920210ab5977cb3b8fbce0d869553e7" category="paragraph">IOPS總數已接近叢集中光纖通道節點的IOPS限制。限制如下：</block>
+  <block id="0bcb81681e0f1dd4a80519a70edf9f0e" category="paragraph">若要解決此故障、請在所有可用的Fibre Channel節點之間平衡負載。</block>
+  <block id="6675d019f3da60337f04e5cbade63637" category="list-text">* fiberChannel靜態IxL*</block>
+  <block id="fcebb97bf64928933388bc235f02631d" category="paragraph">IXL Nexus數量已接近每個光纖通道節點支援的16000個靜態工作階段上限。</block>
+  <block id="2d89e20951d3587ba7465143c06aaed8" category="paragraph">若要解決此故障、請將IXL Nexus數降至低於1000的最佳實務做法上限。</block>
+  <block id="1732cf9a398a21acc054d31275c3e4bb" category="list-text">*檔案系統容量低*</block>
+  <block id="813d286021d5006aabfe635f27b246a1" category="paragraph">其中一個檔案系統空間不足。</block>
+  <block id="fe98c55781fece742fe24f76102b689e" category="paragraph">若要解決此故障、請在檔案系統中新增更多容量。</block>
+  <block id="fd755336ba3702c8d419343da5efb6d6" category="list-text">*檔案系統IsReadOnly*</block>
+  <block id="ed734a928c08d6cb25fc1abe2d4e0c3a" category="paragraph">檔案系統已移至唯讀模式。</block>
+  <block id="5f1fcf528df0559c0c163e896dc72660" category="list-text">* FpsDrives失 配*</block>
+  <block id="96ed4629ccb5564ac27ae76d12178e30" category="paragraph">非FIPS磁碟機已實際插入具有FIPS功能的儲存節點、或FIPS磁碟機已實際插入非FIPS儲存節點。每個節點會產生單一故障、並列出所有受影響的磁碟機。</block>
+  <block id="082f13006de0717f192a481c84b22cbc" category="paragraph">若要解決此故障、請移除或更換有問題的磁碟機。</block>
+  <block id="49df85c8f45ea1b4767845c5d3f3d75a" category="list-text">* FpsDrivesOutOfCompliance *</block>
+  <block id="110730347629920aa950558bf5dce6c1" category="paragraph">系統偵測到在FIPS磁碟機功能啟用後、加密閒置功能已停用。當FIPS磁碟機功能已啟用、且儲存叢集中存在非FIPS磁碟機或節點時、也會產生此故障。</block>
+  <block id="bb748fce4f28e679df6a1f3042e69e11" category="paragraph">若要解決此故障、請在閒置時啟用加密、或從儲存叢集移除非FIPS硬體。</block>
+  <block id="96ec70b38290cc8fc3a07d4bd0c90905" category="list-text">* fpsselfTestFailure*</block>
+  <block id="4c0799c572d6eac1532665b1049b4ea9" category="paragraph">FIPS子系統在自我測試期間偵測到故障。</block>
+  <block id="5f9f64c586668d8ddd863f77bba4c987" category="list-text">*硬體組態不符*</block>
+  <block id="f333ac88b43f31babae53274c15bc06a" category="list-text">* idPCertificateExpiration*</block>
+  <block id="a17d48e8302e765f05d40934bd23fb08" category="paragraph">用於協力廠商身分識別供應商（IDP）的叢集服務供應商SSL憑證即將到期或已過期。此故障會根據緊急程度使用下列嚴重性：</block>
+  <block id="70bcdf013a13b0190ab271d9007ad2aa" category="paragraph">若要解決此故障、請在SSL憑證過期之前更新。使用Update IdpConfiguration API方法<block ref="06bb6d2580744ecfa0d59d6bf1cdec6d" prefix=" " category="inline-code"></block> 以提供更新的SSL憑證。</block>
+  <block id="08e26e7bfc701688316e0238370278ee" category="list-text">*不一致的BondModes *</block>
+  <block id="b475deeed44bd779162bd430e996d375" category="paragraph">VLAN裝置上的連結模式遺失。此故障會顯示預期的債券模式和目前使用的債券模式。</block>
+  <block id="fda27fd12d2000d1a0b9936573376fa0" category="list-text">*不一致的Mttus *</block>
+  <block id="c11e78a17f64007d25b6de5ae396d1d4" category="list-text">*不一致的RoutingRules *</block>
+  <block id="af06857975f05b4ba140f81c535ca3ca" category="paragraph">此介面的路由規則不一致。</block>
+  <block id="926a2c4cb3cf87fae9e13dfa3e2caa73" category="list-text">*不一致的SubnetMask*</block>
+  <block id="7d1e9c594e53a8f43fd2e85f37ade107" category="paragraph">VLAN裝置上的網路遮罩與內部記錄的VLAN網路遮罩不符。此故障會顯示預期的網路遮罩和目前使用的網路遮罩。</block>
+  <block id="b7936e3535e0b5f9eaeeb75006994355" category="list-text">*不可修正的BondPortCount*</block>
+  <block id="292bed6bf2c62fc06abbb69ceb5c05e5" category="paragraph">連結連接埠數量不正確。</block>
+  <block id="f2c2819b516d693d039a7aa32af8d3dc" category="list-text">*不驗證配置dFibreChannelNodeCount*</block>
+  <block id="402a374a3248e0f96e09fc2d10cebe37" category="paragraph">兩個預期的光纖通道節點連線之一已降級。僅連接一個光纖通道節點時、就會出現此故障。</block>
+  <block id="eb04be0e68b7d63ff43f8385efd1fb3d" category="paragraph">若要解決此故障、請檢查叢集網路連線和網路纜線、並檢查是否有故障的服務。如果沒有網路或服務問題、請聯絡NetApp支援部門以更換光纖通道節點。</block>
+  <block id="197ea048759cf2a3c28fe1b3ad5922dc" category="list-text">* irqBalanceFailed*</block>
+  <block id="75cb1f37fd7e04e43857a812aa410867" category="paragraph">嘗試平衡中斷時發生例外狀況。</block>
+  <block id="cf537f1b6bdcbe2e937d858c2ad9a440" category="list-text">* kmipCertificateFault*</block>
+  <block id="21fcdd098f6b0aaa9762573a47aed4be" category="paragraph">若要解決此錯誤、請從根CA取得到期日至少30天的新憑證、並使用ModifyKeyServerKmip提供更新的根CA憑證。</block>
+  <block id="e4382147a31ec107999ed17309321c22" category="paragraph">若要解決此錯誤、請使用GetClientCertificateSigningRequest建立新的CSR、並簽署以確保新的到期日至少為30天、然後使用ModifyKeyServerKmip以新的憑證取代即將到期的KMIP用戶端憑證。</block>
+  <block id="692efdc83e3f60469159d3d2a4f23801" category="paragraph">若要解決此錯誤、請使用GetClientCertificateSigningRequest建立新的CSR、並簽署以確保新的到期日至少為30天、然後使用ModifyKeyServerKmip以新的憑證取代過期的KMIP用戶端憑證。</block>
+  <block id="aca824d91fb33344ae485f3f13f440e3" category="paragraph">若要解決此錯誤、請檢查是否提供正確的憑證、並視需要從根CA重新取得憑證。使用ModifyKeyServerKmip安裝正確的KMIP用戶端憑證。</block>
+  <block id="d861038fc3060d1bbabcf494d478b761" category="paragraph">若要解決此故障、請檢查是否安裝了正確的KMIP用戶端憑證。用戶端憑證的根CA應安裝在EKS上。使用ModifyKeyServerKmip安裝正確的KMIP用戶端憑證。</block>
+  <block id="68be3e3cd70668c002c914e87fae724a" category="list-text">* kmipServerFault*</block>
+  <block id="298ae445d03338ffd36d24840568df53" category="paragraph">若要解決此故障、請檢查外部金鑰伺服器是否可透過網路連線及存取。使用TestKeyServerKimp和TestKeyProviderKmip來測試連線。</block>
+  <block id="75ad399b81baf329f32312a75248f39d" category="paragraph">若要解決此錯誤、請檢查是否使用正確的根CA和KMIP用戶端憑證、以及私密金鑰和KMIP用戶端憑證是否相符。</block>
+  <block id="0a7826f994a67c3fe12ec1cc7549b660" category="paragraph">若要解決此故障、請查看錯誤的詳細資料。根據傳回的錯誤、可能需要在外部金鑰伺服器上進行疑難排解。</block>
+  <block id="430f6ca7f8269bc443b8e6baabf2aa91" category="list-text">*記憶體EccThreshold *</block>
+  <block id="bc12408d2cd3de02ad50a7b6841e78cc" category="paragraph">偵測到大量可修正或不可修正的ECC錯誤。此故障會根據緊急程度使用下列嚴重性：</block>
+  <block id="a4ecfc70574394990cf17bd83df499f7" category="cell">活動</block>
+  <block id="2e92b13906d0b8919ccbb1b6f5ce9381" category="paragraph">單一DIMM cErrorCount達到cDimmCorrectable勘 誤表錯誤臨界值。</block>
+  <block id="94d5076dcfede299eae04854a590c2da" category="paragraph">DIMM上可修正的ECC記憶體錯誤超過臨界值：&lt;Processor &gt;&lt;DIMM插槽&gt;</block>
+  <block id="5733fc5b1aa809f593fc2c1525d86aa1" category="paragraph">在cErrorFaultTimers過期之前、單一DIMM cErrorCount會維持在cDimmCorrectable勘 誤表臨界值以上。</block>
+  <block id="172720f00aa034be8a4594c7a801a19d" category="paragraph">DIMM上可修正的ECC記憶體錯誤超過臨界值：&lt;Processor &gt;&lt;DIMM&gt;</block>
+  <block id="95da3b1a384dc32cc42e33ce7add2650" category="paragraph">記憶體控制器報告cErrorCount高於cMemrCorrectable勘 誤表WarnThreshold、並指定cMemrCorrectable勘 誤表時間長度。</block>
+  <block id="15d070ed1ae552e2416fe3e1fead2b86" category="paragraph">記憶體控制器上可修正的ECC記憶體錯誤超過臨界值：&lt;Processor&gt;&lt;Memory Controller&gt;</block>
+  <block id="4bc2dc6d2162475920644ed5103d6abd" category="paragraph">記憶體控制器會回報cErrorCount高於cMemrCorrectable勘 誤表臨界值、直到記憶體控制器的cErrorFaultTimers過期為止。</block>
+  <block id="b7e06a925e58265e0342bc68a0273de1" category="paragraph">單一DIMM報告uErrorCount高於零、但小於cDimmUnrectable勘 誤錯誤臨界值。</block>
+  <block id="eae81a94445a3f0188634b97f58deede" category="paragraph">在DIMM上偵測到不可修正的ECC記憶體錯誤：&lt;Processor（處理器）&gt;&lt;DIMM插槽&gt;</block>
+  <block id="fe651ebe06fb5bea1a06190580520eda" category="paragraph">單一DIMM報告的uErrorCount至少為cDimmUnrectable勘 誤錯誤臨界值。</block>
+  <block id="dd5743b468d1c3cf195f7bf4870fb10c" category="paragraph">記憶體控制器回報uErrorCount大於零、但小於cMemcableErrFaultThreshold。</block>
+  <block id="3358a6f07cbdbed280775b6c335ee35f" category="paragraph">在記憶體控制器上偵測到不可修正的ECC記憶體錯誤：&lt;Processor（處理器）&gt;&lt;Memory Controller（記憶體控制器）&gt;</block>
+  <block id="b6eaf833a71a38e16510efe6d7ac28fd" category="paragraph">記憶體控制器報告的uErrorCount至少為cMemCtlrUnrectable勘 誤錯誤臨界值。</block>
+  <block id="b536f12749487252151429f05be5bce4" category="paragraph">若要解決此故障、請聯絡NetApp支援部門以尋求協助。</block>
+  <block id="a357eae814cc326f4898ab86efcbed71" category="list-text">*記憶體使用臨界值*</block>
+  <block id="bcfae02b8180b40c78fc229d8645b34e" category="paragraph">記憶體使用量高於正常值。此故障會根據緊急程度使用下列嚴重性：</block>
+  <block id="0b8ba1f933203a827db5d85f3e613d70" category="admonition">如需故障類型的詳細資訊、請參閱錯誤故障中的*詳細資料*標題。</block>
+  <block id="de54af49388227db08b3aed3c76f21b2" category="list-text">* metadata ClusterFull*</block>
+  <block id="a6e65ad071757627d1787887e0f732ed" category="paragraph">可用的中繼資料儲存空間不足、無法支援單一節點遺失。如需叢集完整度層級的詳細資訊、請參閱GetClusterFullThreshold API方法。此叢集故障表示下列其中一種情況：</block>
+  <block id="e71f12b026ae4fcf06c49eb9f0469a1f" category="list-text">* mtuChecksum故障*</block>
+  <block id="ac9e3e7c4730a02619836ba5e86f7e87" category="paragraph">網路裝置未設定適當的MTU大小。</block>
+  <block id="6b5c51f1e1330cd58c5c189b5c3cd67a" category="paragraph">若要解決此故障、請確定所有網路介面和交換器連接埠均已設定為巨型框架（MTU大小高達9000位元組）。</block>
+  <block id="ce18b56e3c254dc5f0cd45590a351b23" category="list-text">*網路組態*</block>
+  <block id="c8dfa7e973e5dfd88b07c9ea8f39d5c1" category="list-text">*無可用虛擬網路IP位點*</block>
+  <block id="5a1b0770161278deb085c70d18081459" category="paragraph">IP位址區塊中沒有可用的虛擬網路位址。</block>
+  <block id="4eda4adc3d0ab81d7babf172a3dff251" category="list-text">虛擬網路ID #標記（\##）沒有可用的儲存IP位址。無法將其他節點新增至叢集。</block>
+  <block id="2c351c3e6b16ecda4ee3c5b07bf92f86" category="list-text">*節點硬體預設（網路介面&lt;name&gt;當機或纜線拔下）*</block>
+  <block id="550b9a0d94cd045f1d5953d97983f335" category="paragraph">網路介面已關閉或纜線已拔下。</block>
+  <block id="6cc9733e0e3716a18c7fe043f52abced" category="paragraph">若要解決此故障、請檢查節點或節點的網路連線能力。</block>
+  <block id="ad620b4dca446130f6593e9988ea8f30" category="list-text">*節點硬體預設（磁碟機加密功能狀態與插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;*中磁碟機的節點加密功能狀態不符）*</block>
+  <block id="6a91a1d787918f3f9ae1c543b91f9466" category="paragraph">磁碟機的加密功能與安裝的儲存節點不符。</block>
+  <block id="bd1b6aa0d6833fd4ec321303f56d8f41" category="list-text">此節點類型的磁碟機插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;的磁碟機大小&lt;實際大小&gt;不正確-預期&lt;預期大小&gt;*</block>
+  <block id="397b2c4b3b61273d746bcf27ad61ab57" category="paragraph">儲存節點所含的磁碟機大小不正確。</block>
+  <block id="de485633c36c8e047bac927eddd40fdc" category="list-text">*節點硬體預設（在插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;中偵測到不受支援的磁碟機；磁碟機統計資料與健全狀況資訊將無法使用）*</block>
+  <block id="248f552af5446435c1bfc5abafbd029f" category="paragraph">儲存節點包含不支援的磁碟機。</block>
+  <block id="a12a44924b74fedf111c5122bb4d34cd" category="list-text">*節點硬體預設（插槽&lt;節點插槽&gt;&lt;磁碟機插槽&gt;中的磁碟機應使用韌體版本&lt;預期版本&gt;、但使用不支援的版本&lt;實際版本&gt;*）</block>
+  <block id="957a13390c9db28634c574b933171a4e" category="paragraph">儲存節點包含執行不受支援韌體版本的磁碟機。</block>
+  <block id="7e46cff334a9ec2bafbf21e945eb274e" category="list-text">*節點維護模式*</block>
+  <block id="afc8a5749d33a041342563816b445d53" category="paragraph">節點已置於維護模式。此故障會根據緊急程度使用下列嚴重性：</block>
+  <block id="f4b9c51c9c4bdf5ce1b7692c99ac1280" category="paragraph">若要解決此故障、請在維護完成後停用維護模式。如果錯誤層級故障持續發生、請聯絡NetApp支援部門以尋求協助。</block>
+  <block id="3306167889beac8fadae76b0ce2e0510" category="list-text">*節點離線*</block>
+  <block id="192392da56cb9b90231b5d31829c6588" category="paragraph">Element軟體無法與指定節點通訊。檢查網路連線能力。</block>
+  <block id="837c7c3f00ecba44ec7b4f2f0492998d" category="list-text">*註釋使用LACPBondMode*</block>
+  <block id="8b29d5bb02a9e10275109982b80461bd" category="paragraph">未設定LACP連結模式。</block>
+  <block id="ad1785e671add94e452d4824bb5914ea" category="paragraph">若要解決此問題、請在部署儲存節點時使用LACP連結；如果未啟用LACP並未正確設定、用戶端可能會遇到效能問題。</block>
+  <block id="f495dc5aca33718ad5cdf71c2dbd93b0" category="list-text">* ntpServerUnreachable *</block>
+  <block id="a763c9980ecb885ba27727bb75f436d0" category="paragraph">儲存叢集無法與指定的NTP伺服器通訊。</block>
+  <block id="7849b37c0365a04085bcdf54379c97cf" category="paragraph">若要解決此故障、請檢查NTP伺服器、網路和防火牆的組態。</block>
+  <block id="85c997bac8323416225b1a226e3ac461" category="list-text">* ntpTimezNotInSync*</block>
+  <block id="48e71317d93284937648a039774ad795" category="paragraph">儲存叢集時間與指定NTP伺服器時間之間的差異過大。儲存叢集無法自動修正差異。</block>
+  <block id="860cd4684266af39daa708d75d845dd9" category="paragraph">若要解決此故障、請使用網路內部的NTP伺服器、而非安裝預設值。如果您使用的是內部NTP伺服器、但問題仍然存在、請聯絡NetApp支援部門以尋求協助。</block>
+  <block id="b9bedd870ccf4150494291727c531d4b" category="list-text">* nvramDevice狀態*</block>
+  <block id="4222ced73e37d6b5c3e63f3be7a4ccb8" category="paragraph">NVRAM裝置發生錯誤、故障或故障。此故障具有下列嚴重性：</block>
+  <block id="a8b1f1e0aaba442d75ccdb8cf03670d1" category="paragraph">硬體偵測到警告。這種情況可能是暫時性的、例如溫度警告。</block>
+  <block id="69e42b773555f263f8cc61feb3e7b8ab" category="list-text">nvmLifestime錯誤</block>
+  <block id="08eeb0c76a0a1dba001d5454fdb07a4d" category="list-text">nvmLifestimeStatus</block>
+  <block id="a29de22938d6ded784ad9112dee45e83" category="list-text">energySourceLifestimeStatus</block>
+  <block id="f326b407f910d926b3effaac709c558b" category="list-text">energySourceTemperatureStatus</block>
+  <block id="85d9729a5663a87d2018275e5cafc656" category="list-text">warningTholdExceeded</block>
+  <block id="29d4e52a540789c74a37cfc9f72fbe99" category="paragraph">硬體偵測到錯誤或嚴重狀態。叢集主要會嘗試從作業中移除分片磁碟機（這會產生磁碟機移除事件）。如果次要Slice服務無法使用、則不會移除磁碟機。除了「警告層級錯誤：</block>
+  <block id="1577b77477f62fbf298211d66ee3a2b7" category="list-text">NVRAM裝置掛載點不存在。</block>
+  <block id="53c460ccb9f73148bb3b6f9783cba892" category="list-text">NVRAM裝置分割區不存在。</block>
+  <block id="11b7ec6555cf84f3841a790160657271" category="list-text">存在NVRAM設備分區、但未掛載。</block>
+  <block id="91d3748dd71fe45ee53217f1232d1f2b" category="paragraph">硬體偵測到錯誤或嚴重狀態。叢集主要會嘗試從作業中移除分片磁碟機（這會產生磁碟機移除事件）。如果次要Slice服務無法使用、則不會移除磁碟機。</block>
+  <block id="c376c17ace572f50fa4df1ab7220da7c" category="list-text">持續性</block>
+  <block id="074f89aefeed9da0dd83a7ea169576de" category="list-text">ArmStatusSaveNArmed</block>
+  <block id="3f86ac702bc2b2979ddc90fa39368220" category="list-text">cSaveStatus錯誤</block>
+  <block id="3e5bf931970ddc7a022fe00a2e283df9" category="paragraph">更換節點中任何故障的硬體。如果這無法解決問題、請聯絡NetApp支援部門以尋求協助。</block>
+  <block id="106147765d484e9d580a4ffb4aecd320" category="list-text">*電源供應錯誤*</block>
+  <block id="9fe5420d18a5c8643739c1442185b688" category="paragraph">若要解決此故障、請確認所有節點均已提供備援電源。如需協助、請聯絡NetApp支援部門。</block>
+  <block id="173645bdc5529260f13137fc1a0b972e" category="list-text">*資源配置空間TooFull*</block>
+  <block id="64c6b1920eb7741d6bfcc0679fbd5ad6" category="paragraph">叢集的整體已配置容量太滿。</block>
+  <block id="3412e2f46d96ab7c4a5565eaf7540202" category="paragraph">若要解決此故障、請新增更多已配置空間、或刪除和清除磁碟區。</block>
+  <block id="dcb1be32c338463a0810defeb11ad54c" category="list-text">*移除其他同步延遲*</block>
+  <block id="be6e4c0701757ae3bb6b5ac34074bd8d" category="paragraph">已超過設定的非同步複寫延遲。檢查叢集之間的網路連線能力。</block>
+  <block id="64a1a7780e8cf27fb3187031269b62a1" category="list-text">* remoteReplClusterFull*</block>
+  <block id="eddf4f28e084e8a6fc31187db18565b0" category="paragraph">由於目標儲存叢集太滿、因此磁碟區已暫停遠端複寫。</block>
+  <block id="33e1069d22be73f1abba84d9f1cd3a3d" category="paragraph">若要解決此故障、請釋放目標儲存叢集上的部分空間。</block>
+  <block id="9eed23ab29e54febcc6dcc3ac78d0865" category="list-text">*遠端修復SnapshotClusterFull*</block>
+  <block id="db297a7639cf474a957759440be40f1f" category="paragraph">由於目標儲存叢集太滿、因此磁碟區已暫停遠端複寫快照。</block>
+  <block id="f3d38c9f3135c44b0b21923ea08f25d3" category="list-text">*遠端服務重新快照所激發的限制*</block>
+  <block id="b2c481163da8ba85a387dcc0235d2894" category="paragraph">由於目標儲存叢集磁碟區已超過快照限制、因此磁碟區已暫停遠端複寫快照。</block>
+  <block id="493d9544d54ab782dd6844edfd4231a5" category="paragraph">若要解決此故障、請增加目標儲存叢集的快照限制。</block>
+  <block id="5628a01df224cf0fb92647e1d80a3852" category="list-text">*排程行動錯誤*</block>
+  <block id="9500ebd19c4da1257cd28e00477de660" category="paragraph">一或多個排程活動已執行、但失敗。</block>
+  <block id="9de6e03c9f8d0ba909a57aef2119c7d7" category="paragraph">如果排程的活動再次執行並成功、排程的活動已刪除、或活動已暫停並恢復、則會清除故障。</block>
+  <block id="ac94a0d9b18bc5b75c35adcecdfe387b" category="list-text">* sensorReadingFailed*</block>
+  <block id="fe4a2f5b3e95e18b53005e6372e24cb3" category="paragraph">感應器無法與基礎板管理控制器（BMC）通訊。</block>
+  <block id="36132f09cafa0470dccbcaaf7c59c33f" category="list-text">*服務未執行*</block>
+  <block id="ac64cbfb9f707df1f32da61bec8d7a71" category="paragraph">所需的服務未執行。</block>
+  <block id="8a5b1e9990a7cc7d457a1d9e261d373b" category="list-text">*交叉分析eServiceTooFull*</block>
+  <block id="40f1007f3b4c8d69593980c8384f0775" category="paragraph">分片服務的已配置容量太少、無法分配給它。</block>
+  <block id="b0537d36b3091b7e8e1d1a8f59a8f8eb" category="list-text">*交叉分析eServiceUnHealth*</block>
+  <block id="abe34aeb4fb1207c0198415cbbaa59f2" category="paragraph">系統偵測到Slice服務不健全、並正在自動解除委任。</block>
+  <block id="2f2028a01cc26368c3f4daa01753e427" category="paragraph">檢查網路連線問題和硬體錯誤。如果特定的硬體元件故障、將會發生其他故障。當可存取Slice服務或服務已停用時、故障將會清除。</block>
+  <block id="77a9bdbc36212768a8fa68cd2fa5b2df" category="list-text">* shEnabled*</block>
+  <block id="c0dcf8bdd514b88aa2f4e08c9146ee43" category="paragraph">SSH服務會在儲存叢集中的一個或多個節點上啟用。</block>
+  <block id="08859561c22bfd25c836ab28ea73e205" category="paragraph">若要解決此故障、請停用適當節點或節點上的SSH服務、或聯絡NetApp支援部門以尋求協助。</block>
+  <block id="6fa452a48ae3e5199d91b33a8f65eb28" category="list-text">* slCertificateExpiration*</block>
+  <block id="d9f6904ddbb9c19e8370acbe8c58e32e" category="paragraph">與此節點相關的SSL憑證即將到期或已過期。此故障會根據緊急程度使用下列嚴重性：</block>
+  <block id="647df7046e2f128b4110e4e39a5c8675" category="paragraph">若要解決此問題、請更新SSL憑證。如有需要、請聯絡NetApp支援部門以取得協助。</block>
+  <block id="8f9822d686babb0303596fbaf521da4b" category="list-text">* strandedCapacity *</block>
+  <block id="7b4a10014d03b8bda5b03c1e89a8460b" category="paragraph">單一節點佔儲存叢集容量的一半以上。</block>
+  <block id="43209525998ebedf376a99d3c089406b" category="paragraph">為了維持資料備援、系統會減少最大節點的容量、使部分區塊容量無法使用（未使用）。</block>
+  <block id="d7e0e607a6b5422c4de6d6b520ada79f" category="paragraph">若要解決此故障、請將更多磁碟機新增至現有的儲存節點、或將儲存節點新增至叢集。</block>
+  <block id="f32c360a8e8805a23db9e9503541e353" category="list-text">*誘惑感測器*</block>
+  <block id="9c2a373e9db5f2db337160f2bb1f699e" category="paragraph">溫度感測器報告的溫度高於正常溫度。此故障可與PowerSupplyError或FanSensor故障一起觸發。</block>
+  <block id="c4db6be37f68c3d45398133d7edc70d0" category="paragraph">若要解決此故障、請檢查儲存叢集附近是否有氣流障礙。如有需要、請聯絡NetApp支援部門以取得協助。</block>
+  <block id="92018782133eb660d9128d1342172fb9" category="list-text">*升級*</block>
+  <block id="fd406b4623b781b31f258a0879276c93" category="paragraph">升級已進行24小時以上。</block>
+  <block id="19ea2f91b3ae961be9e609088755c628" category="paragraph">若要解決此問題、請繼續升級、或聯絡NetApp支援部門以尋求協助。</block>
+  <block id="ee6e3166109a6358fc272981bf9bd6cb" category="list-text">*不負責服務*</block>
+  <block id="5e4d14c3be61157b20827e4a7845df94" category="paragraph">服務變得無回應。</block>
+  <block id="732cb524681f74d8b6ed83b31dd8fdfb" category="list-text">*虛擬化網路組態*</block>
+  <block id="85a491c87fd77350bc3bd38a726fd168" category="list-text">*卷降級*</block>
+  <block id="9451a3dfb762350c7cbcbe9ee518b8af" category="paragraph">次要磁碟區尚未完成複寫與同步處理。同步完成時、訊息會清除。</block>
+  <block id="f18e735235d5a307ceb3e60d3161fa15" category="list-text">* Volume離線*</block>
+  <block id="bd0e78ee6b3a04179ae19c5baa7233f3" category="paragraph">儲存叢集中的一個或多個磁碟區已離線。也會出現* Volume Degraded*故障。</block>
 </blocks>
