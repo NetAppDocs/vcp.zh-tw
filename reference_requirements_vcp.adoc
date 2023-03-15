@@ -10,11 +10,13 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]
 在使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware vCenter或SolidFire VMware全快閃陣列儲存設備之前、您必須先確認系統符合外掛程式使用需求。
+
+對於vCenter Server 8.0和7.0、您可以 <<create_vcp_role,在vCenter中建立「VCP角色」>> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。
 
 [role="tabbed-block"]
 ====
@@ -96,6 +98,90 @@ IMPORTANT: VMware vSphere 6.0於2020年3月12日達到支援終止狀態。從Ne
 == 網路連接埠需求
 
 您需要允許某些TCP連接埠通過資料中心的邊緣防火牆、以便從遠端管理系統、並允許資料中心外部的用戶端連線至資源。如需NetApp HCI 完整的連接埠清單、請SolidFire 參閱此 link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["頁面"]。
+
+
+
+== （選用）在vCenter中建立「VCP角色」
+
+對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。
+
+.步驟
+. 以系統管理員身分登入vSphere Web Client。
+. 選擇*管理*。
+. 選擇*單一登入*>*使用者與群組*。
+. 選取*使用者*索引標籤、然後從*網域*清單中選取目標網域。
+. 選取*「Add*」。
+. 填寫「*新增使用者*」畫面中的欄位、然後選取「*新增*」。
++
+image:vcp_add_user.PNG["新增使用者欄位的快照"]
+
+. 選取*存取控制*>*角色*、然後選取*新增*。
+. 在「*新角色*」畫面中、完成下列步驟：
++
+.. 在*角色名稱*下、輸入「VProle」。
+.. 請說明。
+.. 從*顯示*清單中、選取vCenter Server版本的權限：
++
+... 選取vCenter Server 8.0的權限：
++
+**** 密碼編譯作業>登錄VM
+**** 資料存放區>全選
+**** 延伸>全選
+**** 主機>組態>變更設定
+**** 主機>組態>連線
+**** 主機>組態>維護
+**** 主機>組態>儲存分割區組態
+**** 主機>組態>系統管理
+**** 主機>組態>系統資源
+**** privation.Task.Update：Task.Update：label> privation.Task.Update：工作更新。標籤
+**** 工作>全選
+**** 虛擬機器>編輯庫存>註冊
+**** VM儲存原則> VM儲存原則檢視權限> View VM儲存原則
+
+
+... 選取vCenter Server 7.x的權限：
++
+**** 密碼編譯作業>登錄VM
+**** 資料存放區>全選
+**** 延伸>全選
+**** 主機>組態>變更設定
+**** 主機>組態>連線
+**** 主機>組態>維護
+**** 主機>組態>儲存分割區組態
+**** 主機>組態>系統管理
+**** 主機>組態>系統資源
+**** 外掛程式>全選
+**** 排程工作>全選
+**** 儲存檢視>全選
+**** 工作>全選
+
+
+
+
+.. 選擇* Create *（建立*）。
+
+
++
+image:vcp_create_vcprole.PNG["「新角色」欄位的快照"]
+
+. 選擇* Global Permission*（全局權限），然後選擇* Add*（添加*）。
+. 在「*新增權限*」畫面中、完成下列步驟：
++
+--
+.. 從*網域*清單中選取目標網域。
+.. 在*使用者/群組*欄位中、輸入元素外掛程式使用者ID。
+.. 從*角色*清單中選取* VCEProle*。
+.. 選擇* Propagate to子項*並選擇* OK*。
+
+
+--
++
+image:vcp_assign_vcprole.PNG["新增權限欄位的快照"]
+
++
+您現在可以使用「vcpuser」帳戶登入vSphere Web Client。
+
+
 
 
 

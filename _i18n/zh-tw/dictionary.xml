@@ -2761,4 +2761,52 @@
   <block id="9451a3dfb762350c7cbcbe9ee518b8af" category="paragraph">次要磁碟區尚未完成複寫與同步處理。同步完成時、訊息會清除。</block>
   <block id="f18e735235d5a307ceb3e60d3161fa15" category="list-text">* Volume離線*</block>
   <block id="bd0e78ee6b3a04179ae19c5baa7233f3" category="paragraph">儲存叢集中的一個或多個磁碟區已離線。也會出現* Volume Degraded*故障。</block>
+  <block id="644c5c3e42ab1df305052c80680df2ca" category="inline-xref">在vCenter中建立「VCP角色」</block>
+  <block id="d64a2b92e4ea6060988dc03f5e5113fa" category="paragraph">對於vCenter Server 8.0和7.0、您可以 <block ref="80e1b054839423dbd44653f6cd7557e3" category="inline-xref-macro-rx"></block> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
+  <block id="7cc7fd4493e163c595e2dabf484d9c9a" category="section-title">（選用）在vCenter中建立「VCP角色」</block>
+  <block id="050119bbf4fa875736755d8256c34fed" category="paragraph">對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
+  <block id="d5bb073b6bd682a668721b757a9e61de" category="list-text">以系統管理員身分登入vSphere Web Client。</block>
+  <block id="8524fc8052d7c8f5a5557839d96cd0f7" category="list-text">選擇*管理*。</block>
+  <block id="bc729d3b22ea3e08238255fb733b75e4" category="list-text">選擇*單一登入*&gt;*使用者與群組*。</block>
+  <block id="ebd11e76c0b736dd6dc24addd8e6608f" category="list-text">選取*使用者*索引標籤、然後從*網域*清單中選取目標網域。</block>
+  <block id="fa12509cfb8e8ccded16e2a254e988c4" category="list-text">選取*「Add*」。</block>
+  <block id="09166198be13ed464f3dba33744e2b11" category="list-text">填寫「*新增使用者*」畫面中的欄位、然後選取「*新增*」。</block>
+  <block id="7f0e45b2a7b37d33b8e5ec6012c42841" category="inline-image-macro">新增使用者欄位的快照</block>
+  <block id="e0cecd6609fe5cb500562692e5b44586" category="paragraph"><block ref="e0cecd6609fe5cb500562692e5b44586" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cbf6f433c2146e5cb893afde836b7584" category="list-text">選取*存取控制*&gt;*角色*、然後選取*新增*。</block>
+  <block id="f34080b41d0f41a6c1144b3336935b25" category="list-text">在「*新角色*」畫面中、完成下列步驟：</block>
+  <block id="23a1a1c1bda77f4c3673f7fbe4ca2878" category="list-text">在*角色名稱*下、輸入「VProle」。</block>
+  <block id="8051682eea92ae27fbd88fda94829d22" category="list-text">請說明。</block>
+  <block id="cbef7f3bcab72196c6bc5c548e2ed7f7" category="list-text">從*顯示*清單中、選取vCenter Server版本的權限：</block>
+  <block id="45db17c966a6c26ef47a4ba1c610215f" category="list-text">選取vCenter Server 8.0的權限：</block>
+  <block id="74f62e29bec771603bb7251042c8ded8" category="list-text">密碼編譯作業&gt;登錄VM</block>
+  <block id="5014a958f399385be4f44a0520625edd" category="list-text">資料存放區&gt;全選</block>
+  <block id="bd14c779d6a491d4992aebb056db7d55" category="list-text">延伸&gt;全選</block>
+  <block id="61249cd3896c13e946979764cc0c9063" category="list-text">主機&gt;組態&gt;變更設定</block>
+  <block id="0b23b0d39406a9b3915a59b194bf63e5" category="list-text">主機&gt;組態&gt;連線</block>
+  <block id="256d33dbb5c1c290b364b11571a9d57f" category="list-text">主機&gt;組態&gt;維護</block>
+  <block id="092c601502be0f60d8c97c58fe469f3f" category="list-text">主機&gt;組態&gt;儲存分割區組態</block>
+  <block id="e722e18169e2f876c6e8b936c2ee4c57" category="list-text">主機&gt;組態&gt;系統管理</block>
+  <block id="1ec37c60f04ba576cbdb4dc7597a3a62" category="list-text">主機&gt;組態&gt;系統資源</block>
+  <block id="d79c90f48cef0babeb322f302fa6191f" category="list-text">privation.Task.Update：Task.Update：label&gt; privation.Task.Update：工作更新。標籤</block>
+  <block id="294ef7232b74c7e7748074ee0e298862" category="list-text">工作&gt;全選</block>
+  <block id="7de295a163b1ed913ab7bcbcfee0029a" category="list-text">虛擬機器&gt;編輯庫存&gt;註冊</block>
+  <block id="c1165f36f2062c025c4da87ce3b31703" category="list-text">VM儲存原則&gt; VM儲存原則檢視權限&gt; View VM儲存原則</block>
+  <block id="77cd5b8cd461de562694a99ba9dee580" category="list-text">選取vCenter Server 7.x的權限：</block>
+  <block id="cb63c230d719fa24116203b496dee10d" category="list-text">主機&gt;組態&gt;系統資源</block>
+  <block id="5dc59e217df09f6415678f6607f5df72" category="list-text">外掛程式&gt;全選</block>
+  <block id="9af128212a39b4bf7fbdef0570e64c29" category="list-text">排程工作&gt;全選</block>
+  <block id="117fe7a1900288d871a49853a8b64f59" category="list-text">儲存檢視&gt;全選</block>
+  <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">選擇* Create *（建立*）。</block>
+  <block id="138f8f5d73de2cb5fb20f743a7f5dc45" category="inline-image-macro">「新角色」欄位的快照</block>
+  <block id="f45b7593c255832f87fd8eff35a580ac" category="paragraph"><block ref="f45b7593c255832f87fd8eff35a580ac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f7d1490dda99e395678a3cf9e7c62a8" category="list-text">選擇* Global Permission*（全局權限），然後選擇* Add*（添加*）。</block>
+  <block id="fdd8b6bb99fb0bd050cf23d180fa409d" category="list-text">在「*新增權限*」畫面中、完成下列步驟：</block>
+  <block id="91c619d30319a7c8737a0afb04770a94" category="list-text">從*網域*清單中選取目標網域。</block>
+  <block id="e63d96af7b54d58a62c992b3f3beea69" category="list-text">在*使用者/群組*欄位中、輸入元素外掛程式使用者ID。</block>
+  <block id="37518f126d566dda3513459fc2d4a601" category="list-text">從*角色*清單中選取* VCEProle*。</block>
+  <block id="b1b266d490da6f5aec9dc67b1ef044d7" category="list-text">選擇* Propagate to子項*並選擇* OK*。</block>
+  <block id="94ca762adece646829ae29b252ee07c1" category="inline-image-macro">新增權限欄位的快照</block>
+  <block id="5e636586f9af12688faa4fc928306db1" category="paragraph"><block ref="5e636586f9af12688faa4fc928306db1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="091b350d4631df39f5b5dc80970dd512" category="paragraph">您現在可以使用「vcpuser」帳戶登入vSphere Web Client。</block>
 </blocks>
