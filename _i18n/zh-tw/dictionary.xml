@@ -1501,7 +1501,6 @@
   <block id="2ec6f218bc83c2a96b3b46b4129035ce" category="list-text">管理節點的IP位址。</block>
   <block id="fed10c03fd9268ddc7b341e40d9c715c" category="list-text">您要從中取消登錄外掛程式的vCenter URL和認證。</block>
   <block id="5617def599e541c405b22ef75873704d" category="inline-link-macro">移除外掛程式</block>
-  <block id="cd708195daf8513502a5c6123fefd3c6" category="paragraph">對於vSphere 6.7及更早版本、取消登錄外掛程式的效果與停用外掛程式相同、但不會移除本機安裝的所有相關檔案與資料夾。若要移除所有外掛程式檔案、請參閱中的指示 <block ref="fa2a18d6b355d33b924c5f0014a5db48" category="inline-link-macro-rx"></block>。</block>
   <block id="813c5122bf2d07b9b768db0d36befa54" category="paragraph">對於vSphere 7.0、在您取消登錄外掛程式之後、所有檔案都會自動移除。</block>
   <block id="784cf7d40eae83cddfd178b52d838922" category="list-text">若要取消登錄外掛程式、請依照安裝版本的程序進行：</block>
   <block id="e1d6ab3742be1ecd22328a3e8fd20c7d" category="list-text">若為vCenter Plug-in 3.0或更新版本、請使用vCenter外掛程式登錄公用程式取消登錄外掛程式：</block>
@@ -2203,8 +2202,6 @@
   <block id="abf7eef6bed0197895c3bf534495b705" category="list-text">對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《支援管理》&gt;「叢集*」。</block>
   <block id="cffb1f002f64dfacc3e64e76675874ca" category="paragraph">您可以使用叢集索引標籤「磁碟機」頁面的「作用中」檢視、從外掛程式擴充點檢視叢集中的作用中磁碟機清單。您可以使用下拉式篩選器選取可用的選項、以變更檢視。</block>
   <block id="fbde2570c577c83970a1770f2bbb6b86" category="paragraph">您可以使用外掛程式擴充點從叢集移除磁碟機。您可以在減少叢集容量或準備更換即將結束服務壽命的磁碟機時執行此動作。移除磁碟機會使磁碟機離線。磁碟機上的任何資料都會在磁碟機從叢集移除之前、移除並移轉到叢集中的其他磁碟機。視叢集的容量使用率和作用中I/O而定、資料移轉至系統中其他作用中磁碟機可能需要幾分鐘到一小時的時間。</block>
-  <block id="abb08438372677f826c66c2cf08946ee" category="paragraph">本文件也適用於NetApp Element 版本5.0之前的VMware vCenter Server版本。</block>
-  <block id="aa6c9b02197698bcb50fa64860739d2c" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於Element vCenter外掛程式5.0、也包含版本4.6、4.7、4.8、4.9和4.10。</block>
   <block id="30dcb9c22f4d8eee8411cf243edfe0c6" category="cell">4.10.</block>
   <block id="d4b8b3b5c408146a8aaffd739bb70e85" category="cell"><block ref="d4b8b3b5c408146a8aaffd739bb70e85" category="inline-link-rx"></block></block>
   <block id="cdac12e8444404de524af6aed2665f45" category="inline-link">2.21</block>
@@ -2284,9 +2281,7 @@
   <block id="41850a9e782a9a5deffba88f60da5f86" category="paragraph">您可以NetApp Element 使用外掛程式擴充點、從一個或多個叢集中刪除一個或多個Volume。</block>
   <block id="11e419c2947b7d06f69508696bb8366b" category="summary">您可以使用vCenter外掛程式擴充點來管理儲存叢集。</block>
   <block id="3b0772681519f05a669fc19a78db2094" category="paragraph">從外掛程式擴充點的叢集索引標籤、您可以檢視及變更整個叢集的設定、並針對磁碟機、節點和VLAN執行叢集專屬的工作。</block>
-  <block id="f4c3b5c3b03a03813a4efc0d9b5c4948" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。除了Element和發行版之外、還提供vCenter外掛程式5.0、作為管理服務套裝組合的一部分。NetApp Element NetApp HCI</block>
   <block id="9a4f689e4a76aad8186d3bc65ad401fb" category="list-text">從Element Plug-in for vCenter 5.0開始、僅支援VMware vSphere 8.0和7.0。</block>
-  <block id="8ca6efece2cd741765d7545cfba33f66" category="list-text">當您從Element Plug-in for vCenter 4.x升級至5.0時、已使用外掛程式設定的叢集將會遺失、因為資料無法從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機升級至遠端外掛程式的一次性活動。</block>
   <block id="6b777567daa827d5b0665b94c630539f" category="inline-link">vCenter Plug-in 5.0版本說明</block>
   <block id="0e051271241f0648ba45a8ad135d030c" category="list-text"><block ref="0e051271241f0648ba45a8ad135d030c" category="inline-link-rx"></block></block>
   <block id="c1117ceebc72342e257fe6e0c4bc9865" category="paragraph">您可以使用外掛程式來新增<block ref="63488b15d8c0b0f8bf9dc0423b45e226" category="inline-link-rx"></block> 當建立叢集或需要更多儲存設備時。您也可以新增執行Element軟體的儲存節點。您必須在NetApp HCI vSphere的外掛程式之外新增不必要的運算節點。</block>
@@ -2301,7 +2296,6 @@
   <block id="703b4a90cb83eeedcd9f21fb666993cf" category="list-text">vCenter外掛程式4.0到4.10.</block>
   <block id="13730b6c187c8aa8f92956aeb6cd01e2" category="paragraph">使用外掛程式擴充點、您可以完成下列工作來設定及管理QoSSIOC：</block>
   <block id="15829086740e5d8d6ada7649920234b9" category="list-text">監控* Overview（概覽）*頁面上的資料。</block>
-  <block id="1e001803864a5eeb813e6a85e53f7e2b" category="paragraph">vCenter Server 5.0版的VMware vCenter外掛程式包含遠端外掛程式架構、可將外掛程式功能整合至vSphere Client、而無需在vCenter Server內部執行。NetApp Element遠端架構支援外掛隔離、並可橫向擴充在大型vSphere環境中運作的外掛程式。遠端元素外掛程式會部署在管理節點內部的Docker容器中、以及管理服務。 <block ref="2629dee4a3682efc27bf42f47699460e" category="inline-link-macro-rx"></block></block>
   <block id="c5d233b22f0e1d750ac78f2bfaa4bf45" category="paragraph">Element vCenter外掛程式5.0支援VMware vSphere 8.0、7.0及7.0 Update 1、2及3、包括vCenter Server、ESXi及vSphere HTML5 Web Client。</block>
   <block id="ceec7b007b80cc66468eacb4ee0fa069" category="inline-link">管理服務版本說明2.21.61</block>
   <block id="e0527e4365aa99f086c41c1e111702c3" category="paragraph">Element vCenter外掛程式5.0隨2.22.7版的管理服務一起提供。如果您不使用外掛程式、這是選擇性升級、因為所有其他服務和功能都與2.21.61版相同。如需最新管理服務更新的資訊、請參閱<block ref="f3a45f13dd8f4769c4d441aacd935790" category="inline-link-rx"></block>。</block>
@@ -2410,7 +2404,6 @@
   <block id="eb56b88cdd81d40633d568a23d3857eb" category="paragraph">需要VMware vSphere 7.0、6.7或6.5（包括vCenter和ESXi）搭配軟體iSCSI介面卡和已設定iSCSI網路的功能、才能使用vCenter元件外掛程式。</block>
   <block id="d97bbd8656e24ccefc431a8efa7d71b1" category="admonition">外掛程式與適用於vCenter 4.6、4.7和4.8的Element外掛程式6.5版不相容。</block>
   <block id="2485371e710ec4ea8989c22e13c02067" category="list-text"><block ref="2485371e710ec4ea8989c22e13c02067" category="inline-link-rx"></block></block>
-  <block id="6e965491616fff846a7ae36b0c989a99" category="list-text"><block ref="0e051271241f0648ba45a8ad135d030c" category="inline-link-rx"></block> _新_</block>
   <block id="e15eb9592751e0df97c69e856ffc178a" category="list-text"><block ref="e15eb9592751e0df97c69e856ffc178a" category="inline-link-rx"></block></block>
   <block id="e8158506d71c28d8d821c3acbeb0f97d" category="list-text"><block ref="e8158506d71c28d8d821c3acbeb0f97d" category="inline-link-rx"></block></block>
   <block id="bfc8310ead2967e2e87ebf3b95c4457e" category="list-text">從vCenter外掛程式中、開啟* Protection（保護）*索引標籤：</block>
@@ -2762,9 +2755,7 @@
   <block id="f18e735235d5a307ceb3e60d3161fa15" category="list-text">* Volume離線*</block>
   <block id="bd0e78ee6b3a04179ae19c5baa7233f3" category="paragraph">儲存叢集中的一個或多個磁碟區已離線。也會出現* Volume Degraded*故障。</block>
   <block id="644c5c3e42ab1df305052c80680df2ca" category="inline-xref">在vCenter中建立「VCP角色」</block>
-  <block id="d64a2b92e4ea6060988dc03f5e5113fa" category="paragraph">對於vCenter Server 8.0和7.0、您可以 <block ref="80e1b054839423dbd44653f6cd7557e3" category="inline-xref-macro-rx"></block> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
   <block id="7cc7fd4493e163c595e2dabf484d9c9a" category="section-title">（選用）在vCenter中建立「VCP角色」</block>
-  <block id="050119bbf4fa875736755d8256c34fed" category="paragraph">對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
   <block id="d5bb073b6bd682a668721b757a9e61de" category="list-text">以系統管理員身分登入vSphere Web Client。</block>
   <block id="8524fc8052d7c8f5a5557839d96cd0f7" category="list-text">選擇*管理*。</block>
   <block id="bc729d3b22ea3e08238255fb733b75e4" category="list-text">選擇*單一登入*&gt;*使用者與群組*。</block>
@@ -2809,4 +2800,21 @@
   <block id="94ca762adece646829ae29b252ee07c1" category="inline-image-macro">新增權限欄位的快照</block>
   <block id="5e636586f9af12688faa4fc928306db1" category="paragraph"><block ref="5e636586f9af12688faa4fc928306db1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="091b350d4631df39f5b5dc80970dd512" category="paragraph">您現在可以使用「vcpuser」帳戶登入vSphere Web Client。</block>
+  <block id="b66c8a9d68bd0aeaa399e0f8ae04a674" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。作爲管理服務套裝組合的一部分、可在Element和發行版之外使用VMware vCenter外掛程式5.1 NetApp HCI NetApp Element 。</block>
+  <block id="9fbd9fb1c98fdc3b7aeb8cf30510365b" category="list-text">當您從Element Plug-in for vCenter 4.x升級至5.x時、已使用外掛程式設定的叢集將會遺失、因為無法將資料從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機升級至遠端外掛程式的一次性活動。</block>
+  <block id="54db42757b5d75d2f660dc70f35850cf" category="inline-link">vCenter Plug-in 5.1版本說明</block>
+  <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
+  <block id="a03e0fc189a20ac61004659572cb08f7" category="paragraph">對於vSphere 6.7及更早版本、取消登錄外掛程式的效果與停用外掛程式相同、但不會移除本機安裝的所有相關檔案與資料夾。若要移除所有外掛程式檔案、請參閱中的指示 <block ref="fa2a18d6b355d33b924c5f0014a5db48" category="inline-link-macro-rx"></block>。</block>
+  <block id="892ff8e8ba8a88084fa51c3657a81ab8" category="paragraph">本文件也適用於NetApp Element VMware vCenter Server適用的《VMware vCenter外掛程式》5.1版之前的版本。</block>
+  <block id="5fd41756fdaa6f29377e51f411e6ef7b" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於Element vCenter外掛程式5.1、也包含版本4.6、4.7、4.8、4.9、4.10、 和5.0。</block>
+  <block id="336669dbe720233ed5577ddf81b653d3" category="cell">5.0</block>
+  <block id="ccdedb9c7dac93213366653d125b0ffe" category="cell"><block ref="ccdedb9c7dac93213366653d125b0ffe" category="inline-link-rx"></block></block>
+  <block id="33417a1ff438d871e2168ee3476b8b19" category="cell"><block ref="33417a1ff438d871e2168ee3476b8b19" category="inline-link-rx"></block></block>
+  <block id="db26a1619b3544de39b9ae935f1f5853" category="paragraph">對於vCenter Server 8.0和7.0、您可以 <block ref="80e1b054839423dbd44653f6cd7557e3" category="inline-xref-macro-rx"></block> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
+  <block id="905117ce83c2d95fd055b77e296e775c" category="paragraph">對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
+  <block id="61ad36f15eb6ab7927cdc50f6e089a98" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block> _新_</block>
+  <block id="d59048f21fd887ad520398ce677be586" category="inline-link">深入瞭解</block>
+  <block id="29d500d8439e3dd944e651a8cafac013" category="paragraph">vCenter Server 5.1的支援程式可提升安全性和效能NetApp Element 。<block ref="8f4569e0d2bf7d4026fc97d3aaa16f27" category="inline-link-rx"></block>。</block>
+  <block id="91b1f6d002234f22dafb0acd912c78a9" category="section-title">vCenter Server 5.0版的支援NetApp Element</block>
+  <block id="1f9b4aab4a12232cc23a810bf4cafc23" category="paragraph">vCenter Server 5.0版的VMware vCenter外掛程式包含遠端外掛程式架構、可將外掛程式功能整合至vSphere Client、而無需在vCenter Server內部執行。NetApp Element遠端架構支援外掛隔離、並可橫向擴充在大型vSphere環境中運作的外掛程式。遠端元素外掛程式會部署在管理節點內部的Docker容器中、以及管理服務。 <block ref="87219cf69889d249e3cece46c871efe3" category="inline-link-macro-rx"></block>。</block>
 </blocks>
