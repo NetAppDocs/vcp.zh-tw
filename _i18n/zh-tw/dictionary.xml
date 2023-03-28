@@ -2817,4 +2817,6 @@
   <block id="29d500d8439e3dd944e651a8cafac013" category="paragraph">vCenter Server 5.1的支援程式可提升安全性和效能NetApp Element 。<block ref="8f4569e0d2bf7d4026fc97d3aaa16f27" category="inline-link-rx"></block>。</block>
   <block id="91b1f6d002234f22dafb0acd912c78a9" category="section-title">vCenter Server 5.0版的支援NetApp Element</block>
   <block id="1f9b4aab4a12232cc23a810bf4cafc23" category="paragraph">vCenter Server 5.0版的VMware vCenter外掛程式包含遠端外掛程式架構、可將外掛程式功能整合至vSphere Client、而無需在vCenter Server內部執行。NetApp Element遠端架構支援外掛隔離、並可橫向擴充在大型vSphere環境中運作的外掛程式。遠端元素外掛程式會部署在管理節點內部的Docker容器中、以及管理服務。 <block ref="87219cf69889d249e3cece46c871efe3" category="inline-link-macro-rx"></block>。</block>
+  <block id="bddb591f0b60efba3de48f954b55f287" category="inline-link-macro">管理服務2.23.64注意事項（NetApp Element VMware vCenter Server 5.1.12適用的VMware vCenter外掛程式）</block>
+  <block id="c427a8a16f088c999b45d089d225b2dc" category="list-text"><block ref="c427a8a16f088c999b45d089d225b2dc" category="inline-link-macro-rx"></block></block>
 </blocks>
