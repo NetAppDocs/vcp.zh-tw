@@ -2809,7 +2809,6 @@
   <block id="5fd41756fdaa6f29377e51f411e6ef7b" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於Element vCenter外掛程式5.1、也包含版本4.6、4.7、4.8、4.9、4.10、 和5.0。</block>
   <block id="336669dbe720233ed5577ddf81b653d3" category="cell">5.0</block>
   <block id="ccdedb9c7dac93213366653d125b0ffe" category="cell"><block ref="ccdedb9c7dac93213366653d125b0ffe" category="inline-link-rx"></block></block>
-  <block id="33417a1ff438d871e2168ee3476b8b19" category="cell"><block ref="33417a1ff438d871e2168ee3476b8b19" category="inline-link-rx"></block></block>
   <block id="db26a1619b3544de39b9ae935f1f5853" category="paragraph">對於vCenter Server 8.0和7.0、您可以 <block ref="80e1b054839423dbd44653f6cd7557e3" category="inline-xref-macro-rx"></block> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
   <block id="905117ce83c2d95fd055b77e296e775c" category="paragraph">對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
   <block id="61ad36f15eb6ab7927cdc50f6e089a98" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block> _新_</block>
@@ -2819,4 +2818,6 @@
   <block id="1f9b4aab4a12232cc23a810bf4cafc23" category="paragraph">vCenter Server 5.0版的VMware vCenter外掛程式包含遠端外掛程式架構、可將外掛程式功能整合至vSphere Client、而無需在vCenter Server內部執行。NetApp Element遠端架構支援外掛隔離、並可橫向擴充在大型vSphere環境中運作的外掛程式。遠端元素外掛程式會部署在管理節點內部的Docker容器中、以及管理服務。 <block ref="87219cf69889d249e3cece46c871efe3" category="inline-link-macro-rx"></block>。</block>
   <block id="bddb591f0b60efba3de48f954b55f287" category="inline-link-macro">管理服務2.23.64注意事項（NetApp Element VMware vCenter Server 5.1.12適用的VMware vCenter外掛程式）</block>
   <block id="c427a8a16f088c999b45d089d225b2dc" category="list-text"><block ref="c427a8a16f088c999b45d089d225b2dc" category="inline-link-macro-rx"></block></block>
+  <block id="ad41aa2859a132db9cf718e61c22ab93" category="inline-link">2.22.7</block>
+  <block id="36a97520aa8ddf67c082684be7bcb6be" category="cell"><block ref="36a97520aa8ddf67c082684be7bcb6be" category="inline-link-rx"></block></block>
 </blocks>

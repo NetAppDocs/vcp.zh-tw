@@ -24,7 +24,7 @@ NOTE: 這 link:index.html["文件連結"] 對於Element vCenter外掛程式5.1�
 | 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
 
 
-| 5.0 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["2.21"^] | link:index.html["連結"] 
+| 5.0 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["2.22.7"^] | link:index.html["連結"] 
 
 
 | 4.10. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["2.21"^] | link:index.html["連結"] 
