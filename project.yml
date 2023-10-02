@@ -128,16 +128,14 @@ homepage:
   tiles:
   - title: 開始使用
     links:
+    - title: 版本資訊
+      url: "/rn_relatedrn_vcp.html"
+    - title: 新增功能
+      url: "/rn_whatsnew_vcp.html"
     - title: 產品總覽
       url: "/concept_vcp_product_overview.html"
     - title: 安裝及部署外掛程式
-      url: "/vcp_task_getstarted.html"
-  - title: 瞭解
-    links:
-    - title: 新增功能
-      url: "/rn_whatsnew_vcp.html"
-    - title: 版本資訊
-      url: "/rn_relatedrn_vcp.html"
+      url: "/vcp_task_getstarted_5_0.html"
   - title: 全快閃儲存系統SolidFire
     links:
     - title: 更新功能NetApp Element
@@ -148,6 +146,8 @@ homepage:
       url: https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all_vsphere.html
   - title: 系統NetApp HCI
     links:
+    - title: 更新功能NetApp HCI
+      url: https://docs.netapp.com/us-en/hci/docs/rn_whatsnew.html
     - title: 升級Element外掛程式
       url: https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html
     - title: 升級vSphere元件

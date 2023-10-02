@@ -14,6 +14,16 @@ keywords: netapp, vcp, vcenter, plugin, element, new, whats new
 
 
 [role="lead"]
+適用於 vCenter Server 5.2 的 NetApp Element 外掛程式包含可支援性的改良功能、以及自訂保護網域顯示的增強功能。
+
+在 5.2 版中、當在元件軟體叢集上設定自訂保護網域時、外掛程式會顯示自訂保護網域健全狀況資訊。 link:vcp_task_reports_overview.html#reporting-overview-page-data["深入瞭解"]。
+
+Element vCenter 外掛程式 5.2 隨附於 2.24.40 版管理服務。
+
+
+
+== 適用於 vCenter Server 5.1 的 NetApp Element 外掛程式
+
 vCenter Server 5.1的支援程式可提升安全性和效能NetApp Element 。 https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["深入瞭解"^]。
 
 

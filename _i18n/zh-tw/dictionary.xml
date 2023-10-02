@@ -2077,7 +2077,6 @@
   <block id="1953a2d6d8fb71b3d3f05d7ab9aa523c" category="inline-link-macro">管理服務注意事項2.20.69（NetApp Element VMware vCenter Server 4.9.14適用的VMware vCenter外掛程式）</block>
   <block id="ba9eae25d558175b3670fa75219d16c1" category="list-text"><block ref="ba9eae25d558175b3670fa75219d16c1" category="inline-link-macro-rx"></block></block>
   <block id="1dea56720635d200a6c7b3a71efca6ab" category="inline-link">《軟件》第12版發行說明NetApp Element</block>
-  <block id="3e51721b09445e45502532be5e6096fc" category="list-text"><block ref="939f531b35412529043c2c302552fa24" category="inline-link-rx"></block> _新_</block>
   <block id="6a881248d046a90f573e41d5ebe1362e" category="list-text"><block ref="6a881248d046a90f573e41d5ebe1362e" category="inline-link-rx"></block></block>
   <block id="1de1fa776d5e13c615b89966caf040ca" category="section-title">VMware vCenter Server的VMware vCenter外掛程式NetApp Element</block>
   <block id="90e7c2277ee69a3d3ecf30fa1fe61ab1" category="inline-link">vCenter外掛程式4.10版本說明</block>
@@ -2141,7 +2140,6 @@
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
   <block id="4b983fff716674f120176e09551dd445" category="sidebar">產品總覽</block>
   <block id="5aa6ea991a62f7c634596fc6b1987052" category="sidebar">安裝及部署外掛程式</block>
-  <block id="2f1a3e62508d88ddc31f1aa72a8334d4" category="sidebar">瞭解</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">版本資訊</block>
   <block id="09a3438150481f613a24e724fafccaaa" category="sidebar">全快閃儲存系統SolidFire</block>
@@ -2392,7 +2390,6 @@
   <block id="99743f19cae906ba996350c449e1c983" category="paragraph">在使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式來管理NetApp HCI 您的VMware vCenter或SolidFire VMware全快閃陣列儲存設備之前、您必須先確認系統符合外掛程式使用需求。</block>
   <block id="ec039d5a9609896b1378c280f9eb795e" category="paragraph">確認您的系統符合Element vCenter外掛程式5.0或更新版本的使用要求。</block>
   <block id="87e51067c2a7529e01c8fa57d7d29919" category="paragraph">若要使用vCenter元件外掛程式、必須使用VMware vSphere 8.0和7.0、包括vCenter和ESXi（已設定軟體iSCSI介面卡和iSCSI網路）。</block>
-  <block id="a293a3d51c53fc838afbc761865ddaa8" category="list-text">vSphere 8.0包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
   <block id="9cf493ed2f9140046fab3919844fdd27" category="list-text">vSphere 7.0和7.0 Update 1、2和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區</block>
   <block id="92a2b5cb9c6906035c2864fa225e1940" category="inline-link">文章</block>
   <block id="1400ae8c17045a12d78fd12af11a1d4c" category="admonition">VMware vSphere 6.5和6.7於2022年10月15日達到支援終止狀態。從Element外掛程式5.0開始、vSphere 6.5和6.7不再受支援。如需詳細資訊、請參閱<block ref="6a2f70d2ba0033763d7682575dc0f9df" category="inline-link-rx"></block>。</block>
@@ -2796,18 +2793,14 @@
   <block id="94ca762adece646829ae29b252ee07c1" category="inline-image-macro">新增權限欄位的快照</block>
   <block id="5e636586f9af12688faa4fc928306db1" category="paragraph"><block ref="5e636586f9af12688faa4fc928306db1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="091b350d4631df39f5b5dc80970dd512" category="paragraph">您現在可以使用「vcpuser」帳戶登入vSphere Web Client。</block>
-  <block id="b66c8a9d68bd0aeaa399e0f8ae04a674" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。作爲管理服務套裝組合的一部分、可在Element和發行版之外使用VMware vCenter外掛程式5.1 NetApp HCI NetApp Element 。</block>
   <block id="9fbd9fb1c98fdc3b7aeb8cf30510365b" category="list-text">當您從Element Plug-in for vCenter 4.x升級至5.x時、已使用外掛程式設定的叢集將會遺失、因為無法將資料從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機升級至遠端外掛程式的一次性活動。</block>
   <block id="54db42757b5d75d2f660dc70f35850cf" category="inline-link">vCenter Plug-in 5.1版本說明</block>
   <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
   <block id="a03e0fc189a20ac61004659572cb08f7" category="paragraph">對於vSphere 6.7及更早版本、取消登錄外掛程式的效果與停用外掛程式相同、但不會移除本機安裝的所有相關檔案與資料夾。若要移除所有外掛程式檔案、請參閱中的指示 <block ref="fa2a18d6b355d33b924c5f0014a5db48" category="inline-link-macro-rx"></block>。</block>
-  <block id="892ff8e8ba8a88084fa51c3657a81ab8" category="paragraph">本文件也適用於NetApp Element VMware vCenter Server適用的《VMware vCenter外掛程式》5.1版之前的版本。</block>
-  <block id="5fd41756fdaa6f29377e51f411e6ef7b" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於Element vCenter外掛程式5.1、也包含版本4.6、4.7、4.8、4.9、4.10、 和5.0。</block>
   <block id="336669dbe720233ed5577ddf81b653d3" category="cell">5.0</block>
   <block id="ccdedb9c7dac93213366653d125b0ffe" category="cell"><block ref="ccdedb9c7dac93213366653d125b0ffe" category="inline-link-rx"></block></block>
   <block id="db26a1619b3544de39b9ae935f1f5853" category="paragraph">對於vCenter Server 8.0和7.0、您可以 <block ref="80e1b054839423dbd44653f6cd7557e3" category="inline-xref-macro-rx"></block> 針對元素外掛程式使用者帳戶、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
   <block id="905117ce83c2d95fd055b77e296e775c" category="paragraph">對於vCenter Server 8.0和7.0、您可以在vCenter中為元素外掛使用者帳戶建立「VCP角色」、並指派權限來登錄或升級vCenter Server的元素外掛程式、以及執行元素外掛程式管理工作。</block>
-  <block id="61ad36f15eb6ab7927cdc50f6e089a98" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block> _新_</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link">深入瞭解</block>
   <block id="29d500d8439e3dd944e651a8cafac013" category="paragraph">vCenter Server 5.1的支援程式可提升安全性和效能NetApp Element 。<block ref="8f4569e0d2bf7d4026fc97d3aaa16f27" category="inline-link-rx"></block>。</block>
   <block id="91b1f6d002234f22dafb0acd912c78a9" category="section-title">vCenter Server 5.0版的支援NetApp Element</block>
@@ -2824,4 +2817,32 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="c383a818c3a85c8ddf42d50823c74c87" category="list-text">* 自訂保護網域健全狀況 * ：在叢集上設定自訂保護網域時、顯示叢集的自訂保護網域健全狀況狀態。</block>
+  <block id="e8337edeb04bc8a7d5079c3ae42aca9e" category="paragraph">下列資料指出可防止叢集其中一個自訂保護網域故障的保護措施。</block>
+  <block id="1b15621f73b7acf776f4bab322f48c37" category="list-text">* 保護層級 * ：指出整體保護層級狀態。</block>
+  <block id="e953d3ede945712963b8633a34a16147" category="list-text">* 區塊容量 * ：指出區塊服務子系統目前的保護層級狀態。</block>
+  <block id="0903e7a25b6fe3c4c1c292bfb50b6305" category="paragraph">它也會指出恢復能力遺失的總容量臨界值。</block>
+  <block id="3def03a8540a1fa0cd5fddb64be14a52" category="list-text">* 中繼資料容量 * ：指出中繼資料服務子系統目前的保護層級狀態。</block>
+  <block id="9055d5b4f435ab7f0fd544794b6cd19f" category="list-text">* 疊合節點 * ：表示疊合成員子系統目前的保護層級狀態。</block>
+  <block id="939f531b35412529043c2c302552fa24" category="list-text"><block ref="939f531b35412529043c2c302552fa24" category="inline-link-rx"></block></block>
+  <block id="ce397f79b5032c3e327db3efe5a6048a" category="inline-link">vCenter Plug-in 5.2 版本資訊</block>
+  <block id="4718467fa890cd0dcf159b3d461cedbe" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block> _新_</block>
+  <block id="0d8e7da83905e55b509122516259e079" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。NetApp Element vCenter 外掛程式 5.2 可在 Element 和 NetApp HCI 版本之外取得、作為管理服務套件的一部分。</block>
+  <block id="6bd87cf3d55c2ead3ab585e965bea4db" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block></block>
+  <block id="ce4da9d1400f05b36779b0eb51082347" category="inline-link">深入瞭解自訂保護網域</block>
+  <block id="c671ce05a947b4fc3538276dc92df5bc" category="paragraph"><block ref="94416f01b8f87d5b898c4987d363cee6" category="inline-link-rx"></block>。</block>
+  <block id="93fa53865774995b6cd95dfc1939095f" category="list-text">vSphere 8.0 Update 1 包括 vCenter Server 、 ESXi 、 VMFS5 和 VMFS6 資料存放區</block>
+  <block id="faf6c38631911f7840c3498b4ec9f746" category="inline-link-macro">管理服務 2.24.40 注意事項（適用於 VMware vCenter Server 5.2.12 的 NetApp Element 外掛程式）</block>
+  <block id="25ca5b0e8a707ce2e66aeb1f6f90e710" category="list-text"><block ref="25ca5b0e8a707ce2e66aeb1f6f90e710" category="inline-link-macro-rx"></block></block>
+  <block id="fb7ee1da3ef0eafb228b5df1bc76e51a" category="paragraph">也可取得早於 NetApp Element Plug-in for VMware vCenter Server 5.2 版的版本說明文件。</block>
+  <block id="514f715e57edd4343e805d5f5384b20e" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於 Element vCenter 外掛程式 5.2 、也包括 5.1 、 5.0 、 4.10 、 4.9 、 4.8 、 4.7 和 4.6 。</block>
+  <block id="43ff194f410f3e93a8680bef5ba51e50" category="cell">5.1.</block>
+  <block id="8ef365dbc309c214b67cabb8e4667395" category="cell"><block ref="8ef365dbc309c214b67cabb8e4667395" category="inline-link-rx"></block></block>
+  <block id="f8d3d7b8669323aed37a5ab85af833f2" category="inline-link">23.64</block>
+  <block id="6770db097fe40e46c77f186c92635e8d" category="cell"><block ref="6770db097fe40e46c77f186c92635e8d" category="inline-link-rx"></block></block>
+  <block id="5c6a9de58feba2a173cb8abb3af2ec85" category="paragraph">適用於 vCenter Server 5.2 的 NetApp Element 外掛程式包含可支援性的改良功能、以及自訂保護網域顯示的增強功能。</block>
+  <block id="c43b3da83b1c4add892ede9398b1570e" category="paragraph">在 5.2 版中、當在元件軟體叢集上設定自訂保護網域時、外掛程式會顯示自訂保護網域健全狀況資訊。 <block ref="a4fc86d509d3502936ee9fca7d20341d" category="inline-link-macro-rx"></block>。</block>
+  <block id="cc3e6fea6638b2b1b2791804af52ec8c" category="paragraph">Element vCenter 外掛程式 5.2 隨附於 2.24.40 版管理服務。</block>
+  <block id="910e8449099d39f06d7f2cd8d6feea1c" category="section-title">適用於 vCenter Server 5.1 的 NetApp Element 外掛程式</block>
+  <block id="6b51db420393cbff0d9f09dfeb229ecb" category="sidebar">更新功能NetApp HCI</block>
 </blocks>
