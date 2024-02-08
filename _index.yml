@@ -1,0 +1,46 @@
+---
+indexpage:
+  lead: NetApp Element Plug-in for VMware vCenter Server 為 VMware vSphere 介面提供外掛程式、讓您能夠管理及監控執行
+    NetApp Element 軟體的儲存叢集。您可以使用此文件網站來瞭解及使用外掛程式。此 DOC 站台可解決 vCenter 5.0 及更新版本的遠端元素外掛程式、以及
+    vCenter 4.6 至 4.10 的本機元素外掛程式。
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 版本資訊
+      url: "/rn_relatedrn_vcp.html"
+    - title: 新增功能
+      url: "/rn_whatsnew_vcp.html"
+    - title: 產品總覽
+      url: "/concept_vcp_product_overview.html"
+    - title: 安裝及部署外掛程式
+      url: "/vcp_task_getstarted_5_0.html"
+  - title: 全快閃儲存系統SolidFire
+    links:
+    - title: 更新功能NetApp Element
+      url: https://docs.netapp.com/us-en/element-software/concepts/concept_rn_whats_new_element.html
+    - title: 升級Element外掛程式
+      url: https://docs.netapp.com/us-en/element-software/upgrade/task_vcp_upgrade_plugin.html
+    - title: 升級vSphere元件
+      url: https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all_vsphere.html
+  - title: 系統NetApp HCI
+    links:
+    - title: 更新功能NetApp HCI
+      url: https://docs.netapp.com/us-en/hci/docs/rn_whatsnew.html
+    - title: 升級Element外掛程式
+      url: https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html
+    - title: 升級vSphere元件
+      url: https://docs.netapp.com/us-en/hci/docs/task_hci_upgrade_all_vsphere.html
+  - title: 舊版
+    links:
+    - title: 不適用於4.5或更早版本的外掛程式文件NetApp Element
+      url: "/reference_earlier_versions.html"
+  - title: 更多資源
+    links:
+    - title: 零件與元件文件資源SolidFire
+      url: https://www.netapp.com/data-storage/solidfire/documentation
+    - title: 支援的文件資源NetApp HCI
+      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+    - title: NetApp混合雲控制與管理服務版本說明KB
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes
+    - title: NetApp 產品文件
+      url: https://www.netapp.com/support-and-training/documentation/

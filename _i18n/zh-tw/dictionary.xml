@@ -2845,4 +2845,5 @@
   <block id="cc3e6fea6638b2b1b2791804af52ec8c" category="paragraph">Element vCenter 外掛程式 5.2 隨附於 2.24.40 版管理服務。</block>
   <block id="910e8449099d39f06d7f2cd8d6feea1c" category="section-title">適用於 vCenter Server 5.1 的 NetApp Element 外掛程式</block>
   <block id="6b51db420393cbff0d9f09dfeb229ecb" category="sidebar">更新功能NetApp HCI</block>
+  <block id="bf2765efb2720c4592beeec5c6bf386c" category="sidebar">NetApp Element Plug-in for VMware vCenter Server 為 VMware vSphere 介面提供外掛程式、讓您能夠管理及監控執行 NetApp Element 軟體的儲存叢集。您可以使用此文件網站來瞭解及使用外掛程式。此 DOC 站台可解決 vCenter 5.0 及更新版本的遠端元素外掛程式、以及 vCenter 4.6 至 4.10 的本機元素外掛程式。</block>
 </blocks>
