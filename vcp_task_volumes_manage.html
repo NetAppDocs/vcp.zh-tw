@@ -1,0 +1,3342 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>管理磁碟區</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="管理磁碟區" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html" />
+	<meta property="og:description" content="使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/vcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。">
+  <meta name="keywords" content=" netapp, volumes, vcp, vcenter, element,"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/vcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vcp/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/zh-tw/vcp/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/vcp/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/vcp/vcp_task_volumes_manage.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/vcp/js/na-search.js'></script><script src='/zh-tw/vcp/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/zh-tw/vcp/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/vcp/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/vcp/js/jszip.min.js'></script><script src='/zh-tw/vcp/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/zh-tw/vcp/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/tw">
+                <image id="ie-header-logo" src="/zh-tw/vcp/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/support-and-training/documentation/">文件</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/zh-tw/vcp/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">繁體中文</span>
+                    <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/zh-tw/vcp/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">所有 NetApp</span>
+                    <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">支援</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">知識庫</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">訓練</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/zh-tw/vcp/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/zh-tw/vcp/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">所有文件</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/zh-tw/vcp/">-->
+      VCP
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/zh-tw/vcp/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/zh-tw/vcp/search.html" 
+        data-type="widget"
+        data-placeholder="搜尋說明文件"
+        data-no-results-found="找不到 {query} 的結果"
+        data-did-you-mean="搜尋 {suggestion}。"
+        data-no-results-found-did-you-mean="找不到 {query} 的結果。您的意思是 {suggestion} 嗎？"
+        data-results-found="找到 {hitCount} 個結果"
+        data-error-message="發生錯誤。請再試一次。"
+        data-error-reset="重設搜尋"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/index.html">
+        VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vCenter Server產品概述的適用外掛程式NetApp Element"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/concept_vcp_product_overview.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/concept_vcp_product_overview.html">
+        VMware vCenter Server產品概述的適用外掛程式NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="版本資訊"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 版本資訊</div>-->
+         版本資訊
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vCenter Server的更新功能NetApp Element"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/rn_whatsnew_vcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/rn_whatsnew_vcp.html">
+        VMware vCenter Server的更新功能NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="其他版本資訊"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/rn_relatedrn_vcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/rn_relatedrn_vcp.html">
+        其他版本資訊
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概念"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 概念</div>-->
+         概念
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vCenter Server 5.0或更新版本的適用插件NetApp Element"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VMware vCenter Server 5.0或更新版本的適用插件NetApp Element</div>-->
+         VMware vCenter Server 5.0或更新版本的適用插件NetApp Element
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="遠端外掛程式架構總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_remote_plugin_architecture.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vcp/vcp_concept_remote_plugin_architecture.html">
+        遠端外掛程式架構總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="指遠端外掛程式擴充點NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_remote_plugin_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vcp/vcp_concept_remote_plugin_extension_point.html">
+        指遠端外掛程式擴充點NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element</div>-->
+         VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部分組態擴充點NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_config_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vcp/vcp_concept_config_extension_point.html">
+        部分組態擴充點NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="解決方案管理擴充點NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_management_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vcp/vcp_concept_management_extension_point.html">
+        解決方案管理擴充點NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用者帳戶"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_concept_accounts.html">
+        使用者帳戶
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護網域"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_protection_domains.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_concept_protection_domains.html">
+        保護網域
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="連結模式和vCenter外掛程式"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_linkedmode.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_concept_linkedmode.html">
+        連結模式和vCenter外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="QoSSIOC"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_concept_qossioc.html">
+        QoSSIOC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="虛擬磁碟區（vVols）"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_vvols.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_concept_vvols.html">
+        虛擬磁碟區（vVols）
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署前需求"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/reference_requirements_vcp.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/reference_requirements_vcp.html">
+        部署前需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式</div>-->
+         安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="為vCenter Server 7.0及更新版本安裝及設定Element Plug-in 5.0及更新版本"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_getstarted_5_0.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_getstarted_5_0.html">
+        為vCenter Server 7.0及更新版本安裝及設定Element Plug-in 5.0及更新版本
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝及設定Element Plug-in 4.10及更早版本"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_getstarted.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_getstarted.html">
+        安裝及設定Element Plug-in 4.10及更早版本
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級外掛程式"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_upgrades.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/task_vcp_upgrades.html">
+        升級外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用vCenter外掛程式管理儲存設備"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用vCenter外掛程式管理儲存設備</div>-->
+         使用vCenter外掛程式管理儲存設備
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理叢集"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_clusters_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_clusters_manage.html">
+        管理叢集
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理資料存放區"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_datastores_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_datastores_manage.html">
+        管理資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理磁碟區"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_volumes_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_volumes_manage.html">
+        管理磁碟區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理使用者帳戶"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_user_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_create_manage_user_accounts.html">
+        建立及管理使用者帳戶
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理存取群組"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_access_groups.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_create_manage_access_groups.html">
+        建立及管理存取群組
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理啟動器"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_initiators.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_create_manage_initiators.html">
+        建立及管理啟動器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="為元素磁碟區和VMware資料存放區設定及管理QoSSIOC"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_qossioc.html">
+        為元素磁碟區和VMware資料存放區設定及管理QoSSIOC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理Volume QoS原則"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_qos_policies.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_qos_policies.html">
+        建立及管理Volume QoS原則
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理叢集硬體和虛擬網路"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理叢集硬體和虛擬網路</div>-->
+         管理叢集硬體和虛擬網路
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理叢集硬體與虛擬網路總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_manage_cluster_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_manage_cluster_overview.html">
+        管理叢集硬體與虛擬網路總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新增及管理磁碟機"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_add_manage_drive.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_add_manage_drive.html">
+        新增及管理磁碟機
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新增及管理節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_add_manage_nodes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_add_manage_nodes.html">
+        新增及管理節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理虛擬網路"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_vlans.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_create_manage_vlans.html">
+        建立及管理虛擬網路
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控系統效能"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 監控系統效能</div>-->
+         監控系統效能
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用報告選項監控系統效能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_intro.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_intro.html">
+        使用報告選項監控系統效能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在「總覽」頁面上監控整體叢集健全狀況"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_overview.html">
+        在「總覽」頁面上監控整體叢集健全狀況
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控系統警示"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_alerts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_alerts.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 監控系統警示</div>-->
+         監控系統警示
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="系統警示清單"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_reference_reports_alert_errors.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vcp/vcp_reference_reports_alert_errors.html">
+        系統警示清單
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控事件記錄以進行疑難排解"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_event_logs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_event_logs.html">
+        監控事件記錄以進行疑難排解
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控Volume效能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_volume_performance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_volume_performance.html">
+        監控Volume效能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控iSCSI工作階段以判斷連線狀態"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_iscsi.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_iscsi.html">
+        監控iSCSI工作階段以判斷連線狀態
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用QOSSIOC事件監控VM效能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_reports_qossioc.html">
+        利用QOSSIOC事件監控VM效能
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用vCenter外掛程式保護資料"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用vCenter外掛程式保護資料</div>-->
+         使用vCenter外掛程式保護資料
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用vCenter外掛程式總覽保護資料"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_protect_overview.html">
+        利用vCenter外掛程式總覽保護資料
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理Volume快照"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_volume.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_protect_snapshots_volume.html">
+        建立及管理Volume快照
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理群組快照"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_group.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_protect_snapshots_group.html">
+        建立及管理群組快照
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立快照排程"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_schedules.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_protect_snapshots_schedules.html">
+        建立快照排程
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在叢集之間執行遠端複寫"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_remote_replication.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vcp/vcp_task_protect_remote_replication.html">
+        在叢集之間執行遠端複寫
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用vCenter外掛程式設定及管理虛擬磁碟區"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_configure_manage_vvols.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/vcp_task_configure_manage_vvols.html">
+        使用vCenter外掛程式設定及管理虛擬磁碟區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="取消註冊外掛程式"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_unregister.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/task_vcp_unregister.html">
+        取消註冊外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="移除外掛程式"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_remove.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/task_vcp_remove.html">
+        移除外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="疑難排解外掛程式"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_reference_troubleshoot_vcp.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/vcp_reference_troubleshoot_vcp.html">
+        疑難排解外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="舊版NetApp Element 的不整合外掛程式文件"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/reference_earlier_versions.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/reference_earlier_versions.html">
+        舊版NetApp Element 的不整合外掛程式文件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法律聲明"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vcp/legal-notices.html">
+        法律聲明
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/zh-tw/vcp"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/zh-tw/vcp"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/zh-tw/vcp/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">管理磁碟區</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2022-12-14 18:06:57 +0000">12/14/2022</time>
+        
+    
+    
+        <span>貢獻者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/zh-tw/vcp/images/discuss-sm.svg" alt="" class="github-icon" />建議變更</span>
+        <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/zh-tw/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/vcp.zh-tw/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html&page-title=管理磁碟區" class="page-nav-contribute-link" role="button">請求文件變更</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/vcp/blob/main/vcp_task_volumes_manage.adoc" class="page-nav-contribute-link" role="button">編輯本頁</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >瞭解如何貢獻</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/zh-tw/vcp/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/zh-tw/vcp/pdfs/fullsite-sidebar/VMware_vCenter_Server的VMware_vCenter外掛程式文件NetApp_Element.pdf" >
+                    <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>此文件 PDF 的網站</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/版本資訊.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            版本資訊
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            概念
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/VMware_vCenter_Server_5_0或更新版本的適用插件NetApp_Element.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VMware vCenter Server 5.0或更新版本的適用插件NetApp Element
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/VMware_vCenter_Server_4_10或更早版本的VMware_vCenter外掛程式NetApp_Element.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VMware vCenter Server 4．10或更早版本的VMware vCenter外掛程式NetApp Element
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/安裝及設定NetApp_Element_vCenter_Server的VMware_vCenter外掛程式.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            安裝及設定NetApp Element vCenter Server的VMware vCenter外掛程式
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式管理儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用vCenter外掛程式管理儲存設備
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/管理叢集硬體和虛擬網路.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理叢集硬體和虛擬網路
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統效能.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            監控系統效能
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/監控系統警示.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            監控系統警示
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vcp/pdfs/sidebar/使用vCenter外掛程式保護資料.pdf" 
+            
+          >
+            <img src="/zh-tw/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用vCenter外掛程式保護資料
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/zh-tw/vcp/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>個別的 PDF 文件集合<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>使用NetApp Element VMware vCenter Serverr的VMware vCenter外掛程式、您可以建立、檢視、編輯、刪除、 複製、備份或還原使用者帳戶的磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。</p>
+</div>
+<div class="ulist">
+<div class="title">選項</div>
+<ul>
+<li>
+<p><a href="#建立volume">建立Volume</a></p>
+</li>
+<li>
+<p><a href="#檢視volume詳細資料">檢視Volume詳細資料</a></p>
+</li>
+<li>
+<p><a href="#編輯volume">編輯Volume</a></p>
+</li>
+<li>
+<p><a href="#複製磁碟區">複製磁碟區</a></p>
+</li>
+<li>
+<p><a href="#備份或還原磁碟區">備份或還原磁碟區</a></p>
+</li>
+<li>
+<p><a href="#刪除volume">刪除Volume</a></p>
+</li>
+<li>
+<p><a href="#清除volume">清除Volume</a></p>
+</li>
+<li>
+<p><a href="#還原刪除的磁碟區">還原刪除的磁碟區</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="建立volume">建立Volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以建立新的Volume、並將該磁碟區與指定帳戶建立關聯（每個Volume都必須與帳戶建立關聯）。此關聯可讓帳戶使用CHAP認證、透過iSCSI啟動器存取磁碟區。您也可以在建立期間指定Volume的QoS設定。</p>
+</div>
+<div class="paragraph">
+<p>VMware需要512e的磁碟資源。如果未啟用512e、則無法建立VMFS。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的產品</div>
+<ul>
+<li>
+<p>至少必須新增並執行一個叢集。</p>
+</li>
+<li>
+<p>已建立使用者帳戶。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取您要用於該工作的叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、選取* Create Volume *。</p>
+</li>
+<li>
+<p>輸入磁碟區名稱。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>輸入您要建立的磁碟區總大小。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+預設的Volume大小選項為GB。您可以使用以GB或GiB測量的大小來建立磁碟區：1GB = 1000 000 000位元組1GiB = 1 073 741 824位元組
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+根據預設、所有新磁碟區的512位元組模擬設定為「開啟」。VMware需要512e的磁碟資源。如果未啟用512e、則無法建立VMFS。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>從*帳戶*清單中選取使用者帳戶。</p>
+</li>
+<li>
+<p>在*服務品質*區域中、執行下列其中一項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>在* Policy*下、選取現有的QoS原則（若有）。</p>
+</li>
+<li>
+<p>在*自訂設定*下、設定IOPS的自訂最小、最大和尖峰值、或使用預設的QoS值。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。啟用資料存放區QoSSIOC設定之後、磁碟區層級的任何QoS設定都會被覆寫。如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="檢視volume詳細資料">檢視Volume詳細資料</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以檢閱外掛程式擴充點中叢集上所有作用中磁碟區的一般資訊。您也可以查看每個作用中磁碟區的詳細資料、包括效率、效能、QoS、以及相關的快照。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>按一下「* Volumes <strong>（*磁碟區</strong>）」子</p>
+<div class="paragraph">
+<p>顯示有關作用中磁碟區的一般資訊。</p>
+</div>
+</li>
+<li>
+<p>檢查特定Volume。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取*檢視詳細資料*。</p>
+</li>
+<li>
+<p>檢閱下列資訊：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* Volume ID*：系統產生的Volume ID。</p>
+</li>
+<li>
+<p>* Volume Name*：指派給磁碟區的名稱。</p>
+</li>
+<li>
+<p><strong>帳戶</strong>：指派給磁碟區的帳戶名稱。</p>
+</li>
+<li>
+<p><strong>存取群組</strong>：磁碟區所屬的磁碟區存取群組名稱。</p>
+</li>
+<li>
+<p><strong>存取</strong>：建立磁碟區時指派給該磁碟區的存取類型。</p>
+<div class="paragraph">
+<p>可能值：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>「讀取/寫入」：所有讀取和寫入均被接受。</p>
+</li>
+<li>
+<p>「唯讀」：允許所有讀取活動；不允許寫入。</p>
+</li>
+<li>
+<p>「鎖定」：僅允許系統管理員存取。</p>
+</li>
+<li>
+<p>「ReplicationTarget」：指定為複寫Volume配對中的目標Volume。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>* Volume配對*：指出Volume是否為Volume配對的一部分。</p>
+</li>
+<li>
+<p><strong>大小（GB）</strong>：磁碟區的總大小（GB）。</p>
+</li>
+<li>
+<p>* Snapshot *：為磁碟區建立的快照數量。</p>
+</li>
+<li>
+<p>* QoS原則*：使用者定義的QoS原則名稱。</p>
+</li>
+<li>
+<p>* 512e*：識別是否已在磁碟區上啟用512e。此值可以是「是」或「否」</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>請參閱以下各節所列特定Volume的詳細資料：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;&lt;「一般詳細資料」區段&gt;&gt;</p>
+</li>
+<li>
+<p><a href="#效率區段">效率區段</a></p>
+</li>
+<li>
+<p><a href="#效能區段">效能區段</a></p>
+</li>
+<li>
+<p><a href="#服務品質區段">服務品質區段</a></p>
+</li>
+<li>
+<p><a href="#snapshot區段">Snapshot區段</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="一般詳細資料區段">「一般詳細資料」區段</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>名稱</strong>：指派給磁碟區的名稱。</p>
+</li>
+<li>
+<p>* Volume ID*：系統產生的Volume ID。</p>
+</li>
+<li>
+<p>* IQN*：磁碟區的iSCSI合格名稱。</p>
+</li>
+<li>
+<p><strong>帳戶ID</strong>：關聯帳戶的唯一帳戶ID。</p>
+</li>
+<li>
+<p><strong>帳戶</strong>：指派給磁碟區的帳戶名稱。</p>
+</li>
+<li>
+<p><strong>存取群組</strong>：磁碟區所屬的磁碟區存取群組名稱。</p>
+</li>
+<li>
+<p><strong>大小</strong>：磁碟區的總大小（以位元組為單位）。</p>
+</li>
+<li>
+<p>* Volume配對*：指出Volume是否為Volume配對的一部分。</p>
+</li>
+<li>
+<p>* SCSI EUi裝置ID*：磁碟區的全域唯一SCSI裝置識別碼、格式為EUI-64、16位元組。</p>
+</li>
+<li>
+<p>* SCSI NAA裝置ID*：NAA IEEE註冊延伸格式之傳輸協定端點的全域唯一SCSI裝置識別碼。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="效率區段">效率區段</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>壓縮</strong>：磁碟區的壓縮效率分數。</p>
+</li>
+<li>
+<p><strong>重複資料刪除</strong>：磁碟區的重複資料刪除效率分數。</p>
+</li>
+<li>
+<p><strong>精簡配置</strong>：磁碟區的精簡配置效率分數。</p>
+</li>
+<li>
+<p><strong>上次更新</strong>：上次效率分數的日期與時間。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="效能區段">效能區段</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>帳戶ID</strong>：關聯帳戶的唯一帳戶ID。</p>
+</li>
+<li>
+<p>*實際IOPS *：在過去500毫秒內、磁碟區的目前實際IOPS。</p>
+</li>
+<li>
+<p><strong>非同步延遲</strong>：磁碟區上次與遠端叢集同步以來的時間長度。</p>
+</li>
+<li>
+<p><strong>平均IOP大小</strong>：最近500毫秒內磁碟區的I/O平均大小（以位元組為單位）。</p>
+</li>
+<li>
+<p><strong>爆發IOPS大小</strong>：使用者可用的IOP點數總數。當磁碟區未使用最高IOPS時、會累積點數。</p>
+</li>
+<li>
+<p><strong>用戶端佇列深度</strong>：未完成的磁碟區讀寫作業數。</p>
+</li>
+<li>
+<p><strong>上次更新</strong>：上次效能更新的日期與時間。</p>
+</li>
+<li>
+<p><strong>延遲usec</strong>：在過去500毫秒內完成磁碟區作業的平均時間（以微秒為單位）。「0」（零）值表示磁碟區沒有I/O。</p>
+</li>
+<li>
+<p><strong>非零區塊</strong>：上一次垃圾回收作業完成後、含有資料的4KiB區塊總數。</p>
+</li>
+<li>
+<p><strong>效能使用率</strong>：叢集IOPS使用率的百分比。例如、以100K IOPS執行的250K IOP叢集會顯示40%的使用量。</p>
+</li>
+<li>
+<p><strong>讀取位元組</strong>：自磁碟區建立以來、從磁碟區讀取的累計位元組總數。</p>
+</li>
+<li>
+<p><strong>讀取延遲usec</strong>：在過去500毫秒內完成磁碟區讀取作業的平均時間（以微秒為單位）。</p>
+</li>
+<li>
+<p><strong>讀取作業</strong>：自磁碟區建立以來、磁碟區的讀取作業總計。</p>
+</li>
+<li>
+<p><strong>精簡配置</strong>：磁碟區的精簡配置效率分數。</p>
+</li>
+<li>
+<p>* Thrott*：介於0和1之間的浮動值、代表系統因為資料重新複寫、暫時性錯誤和快照而將用戶端節流到低於最大IOPS的程度。</p>
+</li>
+<li>
+<p><strong>總延遲usec</strong>：完成磁碟區讀寫作業的時間（以微秒為單位）。</p>
+</li>
+<li>
+<p><strong>未對齊讀取</strong>：對於512e磁碟區、非4K磁碟區邊界的讀取作業數量。大量未對齊的讀取可能表示分區對齊不正確。</p>
+</li>
+<li>
+<p><strong>未對齊寫入</strong>：對於512e磁碟區、非4K磁碟區邊界的寫入作業數量。大量未對齊的寫入作業可能表示分割區對齊不正確。</p>
+</li>
+<li>
+<p><strong>已用容量</strong>：已用容量的百分比。</p>
+</li>
+<li>
+<p>* Volume ID*：系統產生的Volume ID。</p>
+</li>
+<li>
+<p>* Vol Access Group*：與磁碟區相關聯的Volume存取群組ID。</p>
+</li>
+<li>
+<p>* Volume使用率*：用來說明用戶端使用Volume的百分比值。可能值：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0：用戶端未使用磁碟區。</p>
+</li>
+<li>
+<p>100：用戶端使用的最大值</p>
+</li>
+<li>
+<p>&gt;100：用戶端正在使用連拍。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>寫入位元組</strong>：自磁碟區建立以來寫入磁碟區的累積位元組總數。</p>
+</li>
+<li>
+<p><strong>寫入延遲usec</strong>：在過去500毫秒內完成磁碟區寫入作業的平均時間（以微秒為單位）。</p>
+</li>
+<li>
+<p><strong>寫入作業</strong>：自磁碟區建立以來、磁碟區的累計寫入作業總計。</p>
+</li>
+<li>
+<p><strong>零區塊</strong>：上一輪垃圾回收作業完成後、無資料的4KiB區塊總數。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="服務品質區段">服務品質區段</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>原則</strong>：指派給磁碟區的QoS原則名稱。</p>
+</li>
+<li>
+<p>* I/O大小*：IOPS的大小（以KB為單位）。</p>
+</li>
+<li>
+<p>*最小IOPS *：叢集提供給磁碟區的每秒持續輸入與輸出（IOPS）最小數量。為磁碟區設定的最小IOPS是保證磁碟區效能的等級。效能不會低於此等級。</p>
+</li>
+<li>
+<p>*最大IOPS *：叢集提供給磁碟區的最大持續IOPS數。當叢集IOPS等級極高時、不會超過此等級的IOPS效能。</p>
+</li>
+<li>
+<p>*爆發IOPS *：短時間爆發案例中允許的最大IOPS數。如果某個磁碟區的執行量低於最大IOPS、則會累積大量資源。當效能等級變得非常高、並推升至最大層級時、磁碟區上就會允許短暫的IOPS突發。</p>
+</li>
+<li>
+<p><strong>最大頻寬</strong>：系統處理較大區塊大小所允許的最大頻寬。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="snapshot區段">Snapshot區段</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>* Snapshot ID*：系統產生的快照ID。</p>
+</li>
+<li>
+<p>* Snapshot Name*：使用者定義的快照名稱。</p>
+</li>
+<li>
+<p><strong>建立日期</strong>：建立快照的日期與時間。</p>
+</li>
+<li>
+<p><strong>到期日</strong>：刪除快照的日期與時間。</p>
+</li>
+<li>
+<p><strong>大小</strong>：使用者定義的快照大小（以GB為單位）。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="編輯volume">編輯Volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以變更Volume屬性、例如QoS值、Volume大小、以及計算位元組值的計量單位。您也可以變更存取層級、以及哪些帳戶可以存取磁碟區。您也可以修改帳戶存取、以供複寫使用或限制對磁碟區的存取。</p>
+</div>
+<div class="paragraph">
+<p>如果您將持續磁碟區與管理節點搭配使用、請勿修改持續磁碟區的名稱。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>按一下「* Volumes <strong>（*磁碟區</strong>）」子</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*編輯*。</p>
+</li>
+<li>
+<p><strong>選用</strong>：在* Volume Size*欄位中、輸入以GB或GiB為單位的不同Volume大小。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+您可以增加（但不能減少）Volume的大小。如果您要調整複寫的磁碟區大小、應該先增加指派為複寫目標的磁碟區大小。然後您可以調整來源Volume的大小。目標Volume的大小可以大於或等於來源Volume、但不能變小。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>選用</strong>：選擇不同的使用者帳戶。</p>
+</li>
+<li>
+<p><strong>選用</strong>：選擇下列其中一種不同的存取層級：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>讀取/寫入</p>
+</li>
+<li>
+<p>唯讀</p>
+</li>
+<li>
+<p>已鎖定</p>
+</li>
+<li>
+<p>複寫目標</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在*服務品質*區域中、執行下列其中一項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>在原則下、選取現有的QoS原則（如果可用）。</p>
+</li>
+<li>
+<p>在「自訂設定」下、為IOPS設定自訂的最小、最大和尖峰值、或使用預設的QoS值。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+<strong>最佳實務做法</strong>：當您變更IOPS值時、請使用以十或數百為單位的遞增量。輸入值需要有效的整數。設定具有極高突發值的磁碟區。這可讓系統更快處理偶爾發生的大型區塊循序工作負載、同時仍會限制磁碟區的持續IOPS。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。自訂QoSSIOC自動化最適合輕度使用的VM、例如虛擬桌面或專用的kios-type VM、這些VM可能每天重新開機、開機或關機數次。QoSSIOC自動化和QoS原則不應一起使用。</p>
+</div>
+<div class="paragraph">
+<p>啟用資料存放區QoSSIOC設定之後、磁碟區層級的任何QoS設定都會被覆寫。</p>
+</div>
+<div class="paragraph">
+<p>如果磁碟區的IOPS值大於20、000 IOPS、則可能需要高佇列深度或多個工作階段、才能在單一磁碟區上達到此IOPS等級。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="複製磁碟區">複製磁碟區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以建立磁碟區的複本、以製作資料的時間點複本。當您複製磁碟區時、系統會建立磁碟區的快照、然後建立快照所參照資料的複本。這是一個非同步程序、程序所需的時間長短取決於您要複製的磁碟區大小和目前的叢集負載。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的產品</div>
+<ul>
+<li>
+<p>至少必須新增並執行一個叢集。</p>
+</li>
+<li>
+<p>必須至少建立一個Volume。</p>
+</li>
+<li>
+<p>必須至少建立一個使用者帳戶。</p>
+</li>
+<li>
+<p>可用的未配置空間必須等於或大於來源Volume大小。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">關於這項工作</div>
+<p>叢集一次最多可支援兩個執行中的每個Volume複製要求、一次最多可支援8個作用中Volume複製作業。超過這些限制的要求會排入佇列、以供日後處理。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+複製的磁碟區不會從來源磁碟區繼承Volume存取群組成員資格。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>作業系統在處理複製磁碟區的方式上各不相同。ESXi會將複製的Volume視為Volume複本或Snapshot Volume。磁碟區將是可用來建立新資料存放區的可用裝置。如需掛載複製磁碟區及處理快照LUN的詳細資訊、請參閱VMware相關文件 <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html" target="_blank" rel="noopener">"掛載VMFS資料存放區複本"</a> 和 <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html" target="_blank" rel="noopener">"管理重複的VMFS資料存放區"</a>。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>檢查您要複製的磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇* Clone（克隆）*。</p>
+</li>
+<li>
+<p>輸入新複製Volume的Volume名稱。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+使用描述性命名最佳實務做法。如果您的環境中使用多個叢集或vCenter Server、這點特別重要。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選取複製磁碟區的大小（以GB或GIB為單位）。</p>
+<div class="paragraph">
+<p>預設的Volume大小選項為GB。您可以使用以GB或GiB為單位的大小來建立磁碟區：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1GB = 1000、000位元組</p>
+</li>
+<li>
+<p>1GiB = 1 073 741 824位元組</p>
+<div class="paragraph">
+<p>增加實體複本的磁碟區大小、會在磁碟區結尾處產生額外可用空間的新磁碟區。視磁碟區的使用方式而定、您可能需要擴充磁碟分割區、或在可用空間中建立新的磁碟分割區、才能使用磁碟區。</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>選取要與新複製的Volume建立關聯的帳戶。</p>
+</li>
+<li>
+<p>針對新複製的Volume、選取下列其中一種存取類型：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>讀取/寫入</p>
+</li>
+<li>
+<p>唯讀</p>
+</li>
+<li>
+<p>已鎖定</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如有需要、請調整512e設定。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+根據預設、所有新磁碟區都會啟用512位元組模擬。VMware需要512e的磁碟資源。如果未啟用512e、則無法建立VMFS、而且磁碟區詳細資料會呈現灰色。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>選擇*確定*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+完成複製作業的時間會受到磁碟區大小和目前叢集負載的影響。如果複製的Volume未出現在Volume清單中、請重新整理頁面。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="備份或還原磁碟區">備份或還原磁碟區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以設定系統、將磁碟區的內容備份及還原至物件儲存容器、該容器是以NetApp Element 軟體為基礎的外部儲存設備。</p>
+</div>
+<div class="paragraph">
+<p>您也可以在遠端NetApp Element 的以軟體為基礎的系統上備份及還原資料。您一次最多可在磁碟區上執行兩個備份或還原程序。</p>
+</div>
+<div class="sect2">
+<h3 id="備份磁碟區">備份磁碟區</h3>
+<div class="paragraph">
+<p>您可以將NetApp Element 支援物件的磁碟區備份到元素儲存設備、以及與Amazon S3或OpenStack Swift相容的次要物件儲存區。</p>
+</div>
+<div class="sect3">
+<h4 id="將磁碟區備份至amazon-s3物件存放區">將磁碟區備份至Amazon S3物件存放區</h4>
+<div class="paragraph">
+<p>您可以將NetApp Element 支援的實體磁碟區備份到與Amazon S3相容的外部物件存放區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*備份至*。</p>
+</li>
+<li>
+<p>在*備份磁碟區至*下、選取* Amazon S三*。</p>
+</li>
+<li>
+<p>選取下列資料格式下的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在*主機名稱*欄位中、輸入用於存取物件存放區的主機名稱。</p>
+</li>
+<li>
+<p>在*存取金鑰ID*欄位中、輸入帳戶的存取金鑰ID。</p>
+</li>
+<li>
+<p>在*秘密存取金鑰*欄位中、輸入帳戶的秘密存取金鑰。</p>
+</li>
+<li>
+<p>在「* Amazon S3 Bucket *」欄位中、輸入儲存備份的S3儲存區。</p>
+</li>
+<li>
+<p><strong>選用</strong>：在*前置字元*欄位中、輸入備份磁碟區名稱的前置字元。</p>
+</li>
+<li>
+<p><strong>選用</strong>：在*名稱標籤*欄位中、輸入要附加至前置字元的名稱標籤。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="將磁碟區備份到openstack-swift物件存放區">將磁碟區備份到OpenStack Swift物件存放區</h4>
+<div class="paragraph">
+<p>您可以將NetApp Element OpenStack Volume備份到與OpenStack Swift相容的外部物件存放區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*備份至*。</p>
+</li>
+<li>
+<p>在*備份Volume to <strong>下、選取</strong> OpenStack Swift *。</p>
+</li>
+<li>
+<p>選取下列資料格式下的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在「* URL*」欄位中、輸入用來存取物件存放區的URL。</p>
+</li>
+<li>
+<p>在*使用者名稱*欄位中、輸入帳戶的使用者名稱。</p>
+</li>
+<li>
+<p>在*驗證金鑰*欄位中、輸入帳戶的驗證金鑰。</p>
+</li>
+<li>
+<p>在「* Container *」欄位中、輸入要儲存備份的容器。</p>
+</li>
+<li>
+<p><strong>選用</strong>：在*前置字元*欄位中、輸入備份磁碟區名稱的前置字元。</p>
+</li>
+<li>
+<p><strong>選用</strong>：在*名稱標籤*欄位中、輸入要附加至前置字元的名稱標籤。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="將磁碟區備份到執行element軟體的叢集">將磁碟區備份到執行Element軟體的叢集</h4>
+<div class="paragraph">
+<p>您可以將位於執行NetApp Element 支援功能的叢集上的磁碟區備份到遠端元件叢集。</p>
+</div>
+<div class="paragraph">
+<p>當從一個叢集備份或還原至另一個叢集時、系統會產生金鑰、作為叢集之間的驗證。</p>
+</div>
+<div class="paragraph">
+<p>此大量Volume寫入金鑰可讓來源叢集驗證目的地叢集、在寫入目的地Volume時提供安全性。在備份或還原程序中、您需要先從目的地Volume產生大量Volume寫入金鑰、然後再開始作業。</p>
+</div>
+<div class="paragraph">
+<p>此程序分為兩部分：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>（目的地）設定備份磁碟區</p>
+</li>
+<li>
+<p>（來源）備份Volume</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">設定備份磁碟區</div>
+<ol class="arabic">
+<li>
+<p>從您要放置Volume備份的vCenter和叢集、開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取*還原自*。</p>
+</li>
+<li>
+<p>在*還原來源*下、選取* NetApp Element 還原*。</p>
+</li>
+<li>
+<p>選取下列資料格式下的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>按一下「<strong>產生金鑰</strong>」、為目的地磁碟區產生大量磁碟區寫入金鑰。</p>
+</li>
+<li>
+<p>將大量Volume寫入金鑰複製到剪貼簿、以套用至來源叢集的後續步驟。</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">備份Volume</div>
+<ol class="arabic">
+<li>
+<p>從包含要用於備份之來源磁碟區的vCenter和叢集、開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*備份至*。</p>
+</li>
+<li>
+<p>在*備份Volume to <strong>下、選取</strong> NetApp Element 還原*。</p>
+</li>
+<li>
+<p>使用下列資料格式選取與目的地叢集相同的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在*遠端叢集MVIP*欄位中、輸入目的地Volume叢集的管理虛擬IP位址。</p>
+</li>
+<li>
+<p>在*遠端叢集使用者名稱*欄位中、輸入目的地叢集的叢集管理員使用者名稱。</p>
+</li>
+<li>
+<p>在*遠端叢集使用者密碼*欄位中、輸入目的地叢集的叢集管理員密碼。</p>
+</li>
+<li>
+<p>在*大量磁碟區寫入機碼*欄位中、貼上您在目的地叢集上產生的機碼。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="還原磁碟區">還原磁碟區</h3>
+<div class="paragraph">
+<p>從物件存放區（例如OpenStack Swift或Amazon S3）的備份還原磁碟區時、您需要原始備份程序的資訊清單資訊。如果您要還原NetApp Element 在NetApp元件型儲存系統上備份的現象磁碟區、則不需要資訊清單資訊。您可以在「報告」索引標籤的「事件記錄」中、找到從Swift和S3還原所需的資訊清單資訊。</p>
+</div>
+<div class="sect3">
+<h4 id="從amazon-s3物件存放區的備份還原磁碟區">從Amazon S3物件存放區的備份還原磁碟區</h4>
+<div class="paragraph">
+<p>您可以使用外掛程式、從Amazon S3物件存放區的備份還原磁碟區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式中、開啟「<strong>報告</strong>」索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「報告」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）&gt;「Report報」（報告）*。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取*事件記錄*子索引標籤。</p>
+</li>
+<li>
+<p>選取建立您需要還原之備份的備份事件。</p>
+</li>
+<li>
+<p>選取*詳細資料*作為活動。</p>
+</li>
+<li>
+<p>選取*檢視詳細資料*。</p>
+</li>
+<li>
+<p>將資訊清單資訊複製到剪貼簿。</p>
+</li>
+<li>
+<p>選取*管理&gt;磁碟區*。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取*還原自*。</p>
+</li>
+<li>
+<p>在「<strong>還原自</strong>」下、選取「* Amazon S3 *」。</p>
+</li>
+<li>
+<p>選取下列資料格式的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在*主機名稱*欄位中、輸入用於存取物件存放區的主機名稱。</p>
+</li>
+<li>
+<p>在*存取金鑰ID*欄位中、輸入帳戶的存取金鑰ID。</p>
+</li>
+<li>
+<p>在*秘密存取金鑰*欄位中、輸入帳戶的秘密存取金鑰。</p>
+</li>
+<li>
+<p>在「* Amazon S3 Bucket *」欄位中、輸入儲存備份的S3儲存區。</p>
+</li>
+<li>
+<p>將資訊清單資訊貼到*資訊清單*欄位。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="從openstack-swift物件存放區的備份還原磁碟區">從OpenStack Swift物件存放區的備份還原磁碟區</h4>
+<div class="paragraph">
+<p>您可以使用外掛程式、從OpenStack Swift物件存放區的備份還原磁碟區。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式中、開啟「<strong>報告</strong>」索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「報告」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（英文）&gt;「Report報」（報告）*。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取*事件記錄*子索引標籤。</p>
+</li>
+<li>
+<p>選取建立您需要還原之備份的備份事件。</p>
+</li>
+<li>
+<p>選取*詳細資料*作為活動。</p>
+</li>
+<li>
+<p>選取*檢視詳細資料*。</p>
+</li>
+<li>
+<p>將資訊清單資訊複製到剪貼簿。</p>
+</li>
+<li>
+<p>選取*管理&gt;磁碟區*。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取*還原自*。</p>
+</li>
+<li>
+<p>在*還原來源*下、選取* OpenStack Swift *。</p>
+</li>
+<li>
+<p>選取下列資料格式的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在「* URL*」欄位中、輸入用來存取物件存放區的URL。</p>
+</li>
+<li>
+<p>在*使用者名稱*欄位中、輸入帳戶的使用者名稱。</p>
+</li>
+<li>
+<p>在*驗證金鑰*欄位中、輸入帳戶的驗證金鑰。</p>
+</li>
+<li>
+<p>在* Container *欄位中、輸入儲存備份的容器名稱。</p>
+</li>
+<li>
+<p>將資訊清單資訊貼到*資訊清單*欄位。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="在執行element軟體的叢集上從備份還原磁碟區">在執行Element軟體的叢集上、從備份還原磁碟區</h4>
+<div class="paragraph">
+<p>您可以在執行NetApp Element 支援功能的叢集上、從備份還原磁碟區。當從一個叢集備份或還原至另一個叢集時、系統會產生金鑰、作為叢集之間的驗證。此大量Volume寫入金鑰可讓來源叢集驗證目的地叢集、在寫入目的地Volume時提供安全性。在備份或還原程序中、您需要先從目的地Volume產生大量Volume寫入金鑰、然後再開始作業。</p>
+</div>
+<div class="paragraph">
+<p>此程序分為兩部分：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>（目的地叢集）選取要用於還原的磁碟區</p>
+</li>
+<li>
+<p>（來源叢集）還原磁碟區</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">選取要用於還原的磁碟區</div>
+<ol class="arabic">
+<li>
+<p>從您要還原磁碟區的vCenter和叢集、開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選取*還原自*。</p>
+</li>
+<li>
+<p>在*還原來源*下、選取* NetApp Element 還原*。</p>
+</li>
+<li>
+<p>選取下列資料格式下的選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>按一下「<strong>產生金鑰</strong>」、為目的地磁碟區產生大量磁碟區寫入金鑰。</p>
+</li>
+<li>
+<p>將大量Volume寫入金鑰複製到剪貼簿、以套用至來源叢集的後續步驟。</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">還原磁碟區</div>
+<ol class="arabic">
+<li>
+<p>從包含要用於還原之來源磁碟區的vCenter和叢集、開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>從* Active*檢視中、檢查磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*備份至*。</p>
+</li>
+<li>
+<p>在*備份Volume to <strong>下、選取</strong> NetApp Element 還原*。</p>
+</li>
+<li>
+<p>選取符合下列資料格式的備份選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>原生：只NetApp Element 有以軟體為基礎的儲存系統才能讀取壓縮格式。</p>
+</li>
+<li>
+<p>未壓縮：與其他系統相容的未壓縮格式。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>在*遠端叢集MVIP*欄位中、輸入目的地Volume叢集的管理虛擬IP位址。</p>
+</li>
+<li>
+<p>在*遠端叢集使用者名稱*欄位中、輸入目的地叢集的叢集管理員使用者名稱。</p>
+</li>
+<li>
+<p>在*遠端叢集使用者密碼*欄位中、輸入目的地叢集的叢集管理員密碼。</p>
+</li>
+<li>
+<p>在*大量磁碟區寫入機碼*欄位中、貼上您在目的地叢集上產生的機碼。</p>
+</li>
+<li>
+<p>選擇*確定*。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="刪除volume">刪除Volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以NetApp Element 使用外掛程式擴充點、從一個或多個叢集中刪除一個或多個Volume。</p>
+</div>
+<div class="paragraph">
+<p>系統不會立即清除刪除的Volume。刪除的Volume可還原約八小時。</p>
+</div>
+<div class="paragraph">
+<p>您可以在系統清空磁碟區之前還原磁碟區、或從*管理*&gt;*磁碟區*的刪除檢視中手動清除磁碟區。當您還原磁碟區時、磁碟區會恢復連線、iSCSI連線也會恢復。</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+與管理服務相關的持續磁碟區會在安裝或升級期間建立並指派給新帳戶。如果您使用的是持續磁碟區、請勿修改或刪除磁碟區或其相關帳戶。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果刪除用於建立快照的磁碟區、其相關的快照會列在「Protection（保護）」&gt;「Snapshots（快照）」頁面的「Inactive（非使用中）」檢視中。當刪除的來源磁碟區被清除時、非使用中檢視中的快照也會從系統中移除。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>刪除一或多個磁碟區：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>從* Active*檢視中、檢查您要刪除的磁碟區。</p>
+</li>
+<li>
+<p>選取*「動作*」。</p>
+</li>
+<li>
+<p>選擇*刪除*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+外掛程式不允許刪除具有資料存放區的磁碟區。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>確認行動。</p>
+<div class="paragraph">
+<p>Volume會從「作用中」檢視移至「Volume」頁面中的「刪除」檢視。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="清除volume">清除Volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以在刪除磁碟區之後手動清除這些磁碟區。</p>
+</div>
+<div class="paragraph">
+<p>系統會在刪除八小時後自動清除刪除的磁碟區。不過、如果您想要在排程的清料時間之前清空Volume、可以使用下列步驟執行手動清料。</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="重要">
+</td>
+<td class="content">
+當磁碟區被清除時、就會立即且永久地從系統中移除該磁碟區。磁碟區中的所有資料都會遺失。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>選取檢視篩選器、然後從清單中選取*刪除*。</p>
+</li>
+<li>
+<p>選取一或多個您要清除的Volume。</p>
+</li>
+<li>
+<p>選擇*清除*。</p>
+</li>
+<li>
+<p>確認行動。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="還原刪除的磁碟區">還原刪除的磁碟區</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果已NetApp Element 刪除但尚未清除、您可以在還原系統中還原磁碟區。</p>
+</div>
+<div class="paragraph">
+<p>系統會在磁碟區刪除約八小時後自動清除。如果系統已清除該磁碟區、您將無法還原該磁碟區。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="註">
+</td>
+<td class="content">
+如果刪除磁碟區然後還原、ESXi將無法偵測還原的磁碟區（如果有資料存放區）。從ESXi iSCSI介面卡移除靜態目標、然後重新掃描介面卡。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>從vCenter外掛程式開啟*管理*索引標籤：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>從Element vCenter外掛程式5.0開始、選取* NetApp Element 《遠端外掛程式》&gt;「管理」&gt;「管理」*。</p>
+</li>
+<li>
+<p>對於Element vCenter外掛程式4.10及更早版本、請選取* NetApp Element 《Management》（<strong>《管理》）&gt;「Management」（管理）</strong>。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果新增兩個以上的叢集、請在導覽列中選取該叢集。</p>
+</li>
+<li>
+<p>選取* Volumes（磁碟區）*子索引標籤。</p>
+</li>
+<li>
+<p>選取檢視篩選器、然後從清單中選取*刪除*。</p>
+</li>
+<li>
+<p>選取一或多個您要還原的磁碟區。</p>
+</li>
+<li>
+<p>選擇*還原*。</p>
+</li>
+<li>
+<p>選取檢視篩選器、然後從清單中選取* Active *。</p>
+</li>
+<li>
+<p>確認已還原磁碟區或磁碟區及所有連線。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="如需詳細資訊請參閱">如需詳細資訊、請參閱</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hci/index.html" target="_blank" rel="noopener">"資訊文件NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/data-storage/solidfire/documentation" target="_blank" rel="noopener">"「元件與元素資源」頁面SolidFire"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/zh-tw/vcp/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/zh-tw/vcp/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">在本頁</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">使用條款</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隱私權政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">傳送有關本網頁的意見反應</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/vcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/vcp/js/ie-tabbed-blocks.js'></script>
+    <script src='/zh-tw/vcp/js/ie-sidebar.js'></script>
+  </body>
+
+</html>

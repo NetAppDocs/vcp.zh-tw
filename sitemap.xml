@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+    
+    
+  
+
+  
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/concept_vcp_product_overview.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/</loc>
+        
+      
+      <lastmod>2024-02-08T14:00:48+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/legal-notices.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/reference_earlier_versions.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/reference_requirements_vcp.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/rn_relatedrn_vcp.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/rn_whatsnew_vcp.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp//search.html</loc>
+        
+      
+      <lastmod>2024-02-08T14:01:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/task_vcp_remove.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/task_vcp_unregister.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/task_vcp_upgrades.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_accounts.html</loc>
+        
+      
+      <lastmod>2022-10-20T11:50:16+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_config_extension_point.html</loc>
+        
+      
+      <lastmod>2022-10-20T11:50:16+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_linkedmode.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_management_extension_point.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_protection_domains.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_qossioc.html</loc>
+        
+      
+      <lastmod>2022-10-20T11:50:16+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_remote_plugin_architecture.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_remote_plugin_extension_point.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_concept_vvols.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_reference_reports_alert_errors.html</loc>
+        
+      
+      <lastmod>2023-02-23T19:56:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_reference_troubleshoot_vcp.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_add_manage_drive.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_add_manage_nodes.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_clusters_manage.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_configure_manage_vvols.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_create_manage_access_groups.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_create_manage_initiators.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_create_manage_user_accounts.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_create_manage_vlans.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_datastores_manage.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_getstarted.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_getstarted_5_0.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_manage_cluster_overview.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_overview.html</loc>
+        
+      
+      <lastmod>2022-10-20T11:50:16+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_remote_replication.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_snapshots_group.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_snapshots_schedules.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_protect_snapshots_volume.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_qos_policies.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_qossioc.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_alerts.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_event_logs.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_intro.html</loc>
+        
+      
+      <lastmod>2022-10-20T11:50:16+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_iscsi.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_overview.html</loc>
+        
+      
+      <lastmod>2023-10-02T16:48:25+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_qossioc.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_reports_volume_performance.html</loc>
+        
+      
+      <lastmod>2022-11-15T13:46:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html</loc>
+        
+      
+      <lastmod>2022-12-14T18:06:57+00:00</lastmod>
+      
+    </url>
+  
+
+  
+  
+</urlset>
