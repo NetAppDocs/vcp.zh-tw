@@ -30,8 +30,8 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 .外掛程式支援的VMware vSphere版本
 外掛程式支援下列VMware軟體主要版本：
 
-* vSphere 8.0 Update 1 包括 vCenter Server 、 ESXi 、 VMFS5 和 VMFS6 資料存放區
-* vSphere 7.0和7.0 Update 1、2和3、包括vCenter Server、ESXi、VMFS5和VMFS6資料存放區
+* vSphere 8.0 Update 1 和 2 、包括 vCenter Server 、 ESXi 、 VMFS5 和 VMFS6 資料存放區
+* vSphere 7.0 和 7.0 Update 1 、 2 和 3 、包括 vCenter Server 、 ESXi 、 VMFS5 和 VMFS6 資料存放區
 
 
 
