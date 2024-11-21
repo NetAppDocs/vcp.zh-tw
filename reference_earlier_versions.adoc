@@ -14,14 +14,17 @@ summary: 本文件適用於NetApp Element 版本4.6之前的VMware vCenter Serve
 
 
 [role="lead"]
-也可取得早於版本 5.3 的 NetApp Element Plug-in for VMware vCenter Server 文件。
+也可取得早於版本 5.4 的 NetApp Element Plug-in for VMware vCenter Server 文件。
 
 
-NOTE: 這 link:index.html["文件連結"] 對於 Element vCenter 外掛程式 5.3 、也包括 5.2 、 5.1 、 5.0 、 4.10 、 4.9 、 4.8 、 4.7 和 4.6 。
+NOTE: 此link:index.html["文件連結"]適用於 Element vCenter 外掛程式 5.4 ，也包括版本 5.3 ， 5.2 ， 5.1 ， 5.0 ， 4.10 ， 4.9 ， 4.8 ， 4.7 和 4.6 。
 
 [cols="4*"]
 |===
 | 版本 | 外掛程式版本說明 | 管理服務版本說明 | 使用指南 
+
+
+| 5.3 | https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["2.25.42."^] | link:index.html["連結"] 
 
 
 | 5.2. | https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["2.24.40"^] | link:index.html["連結"] 

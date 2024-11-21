@@ -2839,9 +2839,6 @@
   <block id="6b51db420393cbff0d9f09dfeb229ecb" category="sidebar">更新功能NetApp HCI</block>
   <block id="bf2765efb2720c4592beeec5c6bf386c" category="sidebar">NetApp Element Plug-in for VMware vCenter Server 為 VMware vSphere 介面提供外掛程式、讓您能夠管理及監控執行 NetApp Element 軟體的儲存叢集。您可以使用此文件網站來瞭解及使用外掛程式。此 DOC 站台可解決 vCenter 5.0 及更新版本的遠端元素外掛程式、以及 vCenter 4.6 至 4.10 的本機元素外掛程式。</block>
   <block id="d3c4a89052a32dd9783dd119f30d6d47" category="inline-link">vCenter Plug-in 5.3 版本資訊</block>
-  <block id="0c21440ced3ddae10d1eea32870fdf02" category="list-text"><block ref="ce90fd614158a5c7e0a42a5908fa1cd7" category="inline-link-rx"></block> _新_</block>
-  <block id="724cde13f8f34ec9a75aa3a5949a7bae" category="paragraph">也可取得早於版本 5.3 的 NetApp Element Plug-in for VMware vCenter Server 文件。</block>
-  <block id="b91ca928498ebf0173fb7e3d48992a66" category="admonition">這 <block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block> 對於 Element vCenter 外掛程式 5.3 、也包括 5.2 、 5.1 、 5.0 、 4.10 、 4.9 、 4.8 、 4.7 和 4.6 。</block>
   <block id="d3fc3e6e42d7ebd71ce2e5001c965277" category="cell">5.2.</block>
   <block id="a87975cd874f3995aa0f5b8e9914d6ac" category="cell"><block ref="a87975cd874f3995aa0f5b8e9914d6ac" category="inline-link-rx"></block></block>
   <block id="1b96174d42a2f1a016196aced05ce205" category="inline-link">2.24.40</block>
@@ -2867,6 +2864,20 @@
   <block id="4dc24cec9c06f3bd0c6f458b16afede8" category="paragraph">NetApp Element Plug-in for vCenter Server 5.3 可改善安全性與效能。<block ref="ca5ac7a1ab671f72eb64321851616ed9" category="inline-link-rx"></block>。</block>
   <block id="04f2e4cbd56c4588624b04a1aa9d7bf7" category="paragraph">Element vCenter 外掛程式 5.3 隨附於 2.25.42 版的管理服務中。</block>
   <block id="7d85b43ddb7107e1d89d5c5b6d8d7f2a" category="section-title">適用於 vCenter Server 5.2 的 NetApp Element 外掛程式</block>
-  <block id="85cde91596c6febafca64baa345a0163" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。NetApp Element vCenter 外掛程式 5.3 可在 Element 和 NetApp HCI 版本之外取得、作為管理服務套件的一部分。</block>
   <block id="ce90fd614158a5c7e0a42a5908fa1cd7" category="list-text"><block ref="ce90fd614158a5c7e0a42a5908fa1cd7" category="inline-link-rx"></block></block>
+  <block id="c4891769f65182d5fc5a37494844c496" category="inline-link">vCenter Plug-in 5.4 版本資訊</block>
+  <block id="230e88f97688d3fb971fe1a76f5b2a13" category="list-text"><block ref="912995e99772bb097b2c7b32940725bb" category="inline-link-rx"></block>_new_</block>
+  <block id="6f00c58e2f26b2ef4542eb663cdb651d" category="inline-link-macro">管理服務 2.26.30 注意事項（適用於 VMware vCenter Server 5.4.1 的 NetApp Element 外掛程式）</block>
+  <block id="259fc2bd6b04fc8a21b613b56a906692" category="list-text"><block ref="259fc2bd6b04fc8a21b613b56a906692" category="inline-link-macro-rx"></block></block>
+  <block id="1ecb042cd2d9b7c6155b611ddef0aadb" category="paragraph">也可取得早於版本 5.4 的 NetApp Element Plug-in for VMware vCenter Server 文件。</block>
+  <block id="171b8232112384b5a3a5a57c0e78fcf7" category="admonition">此<block ref="f85d5f4f47d1b49f55d365d260fa53d2" category="inline-link-macro-rx"></block>適用於 Element vCenter 外掛程式 5.4 ，也包括版本 5.3 ， 5.2 ， 5.1 ， 5.0 ， 4.10 ， 4.9 ， 4.8 ， 4.7 和 4.6 。</block>
+  <block id="02e299f5ec237798b763a1565169ed12" category="cell">5.3</block>
+  <block id="7c7819454c75ce386e388573f32eef41" category="cell"><block ref="7c7819454c75ce386e388573f32eef41" category="inline-link-rx"></block></block>
+  <block id="459e2f01e24235345878cd014c3c9359" category="inline-link">2.25.42.</block>
+  <block id="daa279b52678c9d3b826eed668f69813" category="cell"><block ref="daa279b52678c9d3b826eed668f69813" category="inline-link-rx"></block></block>
+  <block id="20231df9fd53e3950c8610c2e563490d" category="paragraph">Element vCenter 外掛程式 5.4 版本中沒有新的增強功能。</block>
+  <block id="de5ac3881c3498b47f9d93eb49e3fbfe" category="paragraph">Element vCenter 外掛程式 5.4 隨附於 2.26.30 版的管理服務中。 <block ref="ead5713b1da2c7d4ae63ee6ef1fd469b" category="inline-link-macro-rx"></block></block>
+  <block id="7cf6790535f5cb85bde6ce82d5227fce" category="section-title">適用於 vCenter Server 5.3 的 NetApp Element 外掛程式</block>
+  <block id="e6282772fca5835069b1c98cf6db2c43" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。NetApp Element vCenter 外掛程式 5.4 可在 Element 和 NetApp HCI 版本之外取得、作為管理服務套件的一部分。</block>
+  <block id="912995e99772bb097b2c7b32940725bb" category="list-text"><block ref="912995e99772bb097b2c7b32940725bb" category="inline-link-rx"></block></block>
 </blocks>
