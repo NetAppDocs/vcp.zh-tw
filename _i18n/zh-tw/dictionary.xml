@@ -1737,7 +1737,6 @@
   <block id="eacfad1499ca901255b178282af10724" category="paragraph">如果您要同時重新啟動多個節點、您已停止I/O並中斷所有iSCSI工作階段的連線。</block>
   <block id="056633f97280a78a0b53f18470ad585a" category="paragraph">若要重新啟動叢集、您可以選取所有叢集節點並執行重新啟動。</block>
   <block id="d98cefed931537819de0b2f9849667b3" category="admonition">此方法會重新啟動節點上的所有網路服務、導致網路連線暫時中斷。</block>
-  <block id="54901669f6ee1692cfa5c4342dec9cf6" category="admonition">此功能無法在SolidFire 「企業版SDS叢集」中使用。</block>
   <block id="d12b0c2106484859adaa58fb0301d427" category="list-text">從* Active*檢視中、選取您要重新啟動之每個節點的核取方塊。</block>
   <block id="f07022f87adadf12f55f40e181ebf796" category="list-text">選擇*重新啟動*。</block>
   <block id="48048c421be5676de2414b58f2b6aa50" category="section-title">關閉節點</block>
@@ -2880,4 +2879,6 @@
   <block id="7cf6790535f5cb85bde6ce82d5227fce" category="section-title">適用於 vCenter Server 5.3 的 NetApp Element 外掛程式</block>
   <block id="e6282772fca5835069b1c98cf6db2c43" category="paragraph">您可以依照安裝說明的步驟來升級NetApp Element vCenter Server的VMware vCenter外掛程式。NetApp Element vCenter 外掛程式 5.4 可在 Element 和 NetApp HCI 版本之外取得、作為管理服務套件的一部分。</block>
   <block id="912995e99772bb097b2c7b32940725bb" category="list-text"><block ref="912995e99772bb097b2c7b32940725bb" category="inline-link-rx"></block></block>
+  <block id="6db7dd4182be7a1979ad403111fa8618" category="inline-link">NetApp Element 軟體 12.8 版本資訊</block>
+  <block id="7d776811219f8ebb17adecaa976bd578" category="list-text"><block ref="53e04163346326834efd61306c0800b5" category="inline-link-rx"></block>_new_</block>
 </blocks>
