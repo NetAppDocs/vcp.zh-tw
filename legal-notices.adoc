@@ -47,6 +47,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。
 
+* link:media/mgmt_svcs_2.27_notice.pdf["管理服務 2.27.40 版通知（適用於 VMware vCenter Server 5.5.16 的NetApp Element插件）"^]
 * link:media/mgmt_svcs_2.26_notice.pdf["管理服務 2.26.30 注意事項（適用於 VMware vCenter Server 5.4.1 的 NetApp Element 外掛程式）"^]
 * link:media/mgmt_svcs_2.25_notice.pdf["管理服務 2.25.42 注意事項（適用於 VMware vCenter Server 5.2.9 的 NetApp Element 外掛程式）"^]
 * link:media/mgmt_svcs_2.24_notice.pdf["管理服務 2.24.40 注意事項（適用於 VMware vCenter Server 5.2.12 的 NetApp Element 外掛程式）"^]

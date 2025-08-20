@@ -37,9 +37,9 @@ indexpage:
   - title: 更多資源
     links:
     - title: 零件與元件文件資源SolidFire
-      url: https://www.netapp.com/data-storage/solidfire/documentation
+      url: https://docs.netapp.com/us-en/element-software/index.html
     - title: 支援的文件資源NetApp HCI
-      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+      url: https://docs.netapp.com/us-en/hci/index.html
     - title: NetApp混合雲控制與管理服務版本說明KB
       url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes
     - title: NetApp 產品文件
