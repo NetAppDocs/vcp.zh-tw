@@ -1,5 +1,11 @@
 ---
 indexpage:
+  title: VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element
+  summary: NetApp Element Plug-in for VMware vCenter Server 為 VMware vSphere 介面提供外掛程式、讓您能夠管理及監控執行
+    NetApp Element 軟體的儲存叢集。您可以使用此文件網站來瞭解及使用外掛程式。此 DOC 站台可解決 vCenter 5.0 及更新版本的遠端元素外掛程式、以及
+    vCenter 4.6 至 4.10 的本機元素外掛程式。
+  keywords: vcp, netapp, element, plug-in, vmware, vcenter, server documentation,
+    storage clusters, element software, deployment, install
   lead: NetApp Element Plug-in for VMware vCenter Server 為 VMware vSphere 介面提供外掛程式、讓您能夠管理及監控執行
     NetApp Element 軟體的儲存叢集。您可以使用此文件網站來瞭解及使用外掛程式。此 DOC 站台可解決 vCenter 5.0 及更新版本的遠端元素外掛程式、以及
     vCenter 4.6 至 4.10 的本機元素外掛程式。
