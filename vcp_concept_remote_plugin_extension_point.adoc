@@ -26,12 +26,14 @@ keywords: netapp, vcp, element, plugin, plug-in, management, extension point, re
 
 
 
+[[getting-started]]
 == 快速入門
 
 「使用入門」索引標籤介紹外掛程式的擴充點、以及可執行的動作。您可以從每個頁面隱藏「入門」頁面、或從*「關於」索引標籤還原頁面。
 
 
 
+[[configuration]]
 == 組態
 
 「*組態*」索引標籤可讓您新增及管理叢集、以及設定QoSSIOC的管理節點設定。
@@ -50,6 +52,7 @@ image::vcp_config_tab.png[組態索引標籤]
 
 
 
+[[management]]
 == 管理
 
 使用*管理*索引標籤、您可以執行下列活動：
@@ -83,6 +86,7 @@ image::vcp_management_tab.png[管理索引標籤]
 
 
 
+[[about]]
 == 關於
 
 顯示外掛程式版本資訊、並提供服務套件下載選項。

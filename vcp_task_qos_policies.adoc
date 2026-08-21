@@ -27,6 +27,7 @@ QoS（服務品質）原則可讓您建立及儲存標準化的服務品質設�
 
 
 
+[[create-a-qos-policy]]
 == 建立QoS原則
 
 您可以建立QoS原則、並將其套用至應有同等效能的磁碟區。
@@ -58,6 +59,7 @@ TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個
 
 
 
+[[apply-a-qos-policy-to-volumes]]
 == 將QoS原則套用至磁碟區
 
 您可以將現有的QoS原則套用至多個磁碟區。當您想要將原則大量套用至一或多個磁碟區時、請使用此程序。
@@ -86,6 +88,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[change-the-qos-policy-association-of-a-volume]]
 == 變更Volume的QoS原則關聯
 
 您可以從磁碟區移除QoS原則關聯、或選取不同的QoS原則或自訂QoS。
@@ -119,6 +122,7 @@ NOTE: 您也可以按一下*重設預設QoS*來還原預設IOPS值。
 
 
 
+[[edit-a-qos-policy]]
 == 編輯QoS原則
 
 您可以變更現有QoS原則的名稱、或編輯與原則相關的值。變更QoS原則效能值會影響與原則相關聯之所有磁碟區的QoS。
@@ -155,6 +159,7 @@ NOTE: 您也可以按一下「重設預設QoS」來還原預設IOPS值。
 
 
 
+[[delete-a-qos-policy]]
 == 刪除QoS原則
 
 您可以刪除不再需要的QoS原則。刪除QoS原則時、與原則相關聯的所有磁碟區都會保留先前由原則定義的QoS值、但會保留個別Volume QoS值。與刪除的QoS原則的任何關聯都會移除。
@@ -179,6 +184,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -52,6 +52,7 @@ NOTE: 您必須至少新增一個叢集、才能使用外掛程式擴充點功�
 
 
 
+[[view-cluster-details]]
 == 檢視叢集詳細資料
 
 您可以從vCenter外掛程式擴充點檢視叢集詳細資料。
@@ -101,6 +102,7 @@ NOTE: 您必須至少新增一個叢集、才能使用外掛程式擴充點功�
 
 
 
+[[edit-a-cluster-profile]]
 == 編輯叢集設定檔
 
 您可以從外掛程式擴充點變更叢集使用者ID和密碼。
@@ -133,6 +135,7 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 
 
 
+[[remove-a-cluster-profile]]
 == 移除叢集設定檔
 
 您可以使用外掛程式擴充點、從vCenter外掛程式移除不想再管理的叢集設定檔。
@@ -161,6 +164,7 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 
 
 
+[[enable-encryption-at-rest]]
 == 啟用靜止加密
 
 您可以使用外掛擴充點、手動啟用靜止（Ear）加密功能。
@@ -180,6 +184,7 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 
 
 
+[[disable-encryption-at-rest]]
 == 停用靜止加密
 
 您可以使用外掛擴充點、手動停用靜止（Ear）加密功能。
@@ -199,6 +204,7 @@ NOTE: 新增叢集後、您無法變更叢集的IP位址或FQDN。您也無法�
 
 
 
+[[enable-ssh]]
 == 啟用SSH
 
 您可以使用外掛程式擴充點手動啟用安全Shell（SSH）工作階段。啟用SSH可讓NetApp技術支援工程師存取儲存節點、以便在您決定的期間內進行疑難排解。
@@ -223,6 +229,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[change-the-ssh-time-limit]]
 == 變更SSH時間限制
 
 您可以輸入SSH工作階段的新持續時間。
@@ -250,6 +257,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[disable-ssh]]
 == 停用SSH
 
 您可以使用外掛程式擴充點、手動停用安全Shell（SSH）存取儲存叢集中的節點。
@@ -269,6 +277,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[set-protection-domain-monitoring]]
 == 設定保護網域監控
 
 您可以手動啟用 link:vcp_concept_protection_domains.html["保護網域監控"] 使用外掛程式擴充點。您可以根據節點或機箱網域選取保護網域臨界值。
@@ -301,6 +310,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[shut-down-a-cluster]]
 == 關閉叢集
 
 您可以使用外掛程式擴充點、手動關閉儲存叢集中的所有作用中節點。
@@ -325,6 +335,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[expand-your-netapp-hci-infrastructure]]
 == 擴充NetApp HCI 您的需求基礎架構
 
 您可以NetApp HCI 透過NetApp HCI 使用無法更新的功能來新增節點、以手動擴充您的無法更新基礎架構。從外掛程式擴充點提供指向用於擴充系統的UUI連結NetApp HCI 。
@@ -349,6 +360,7 @@ NOTE: 若要繼續、您需要輸入一個值。
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

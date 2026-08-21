@@ -24,6 +24,7 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 
 
 
+[[create-a-virtual-network]]
 == 建立虛擬網路
 
 您可以將新的虛擬網路新增至叢集組態。
@@ -104,6 +105,7 @@ NOTE: IP位址總數必須符合儲存叢集中的節點數。
 
 
 
+[[view-virtual-network-details]]
 == 檢視虛擬網路詳細資料
 
 您可以從外掛程式擴充點、在叢集索引標籤的「網路」頁面上檢視VLAN的網路資訊。
@@ -129,6 +131,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[edit-a-virtual-network]]
 == 編輯虛擬網路
 
 您可以變更VLAN屬性、例如VLAN名稱、網路遮罩和IP位址區塊大小。
@@ -158,6 +161,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[delete-a-virtual-network]]
 == 刪除虛擬網路
 
 您可以永久刪除VLAN物件及其IP區塊。指派給VLAN的位址區塊會與虛擬網路失去關聯、並可重新指派給其他虛擬網路。

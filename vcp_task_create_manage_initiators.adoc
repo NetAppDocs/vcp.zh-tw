@@ -27,6 +27,7 @@ keywords: netapp, storage, inititators, vcp, vcenter, element
 
 
 
+[[create-an-initiator]]
 == 建立啟動器
 
 您可以建立iSCSI或Fibre Channel啟動器、並選擇性地指派別名。
@@ -85,6 +86,7 @@ iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
 
 
 
+[[edit-an-initiator]]
 == 編輯啟動器
 
 您可以變更現有啟動器的別名、或是新增別名（如果別名不存在）。
@@ -110,6 +112,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[add-initiators-to-an-access-group]]
 == 將啟動器新增至存取群組
 
 您可以將啟動器新增至存取群組、以允許存取Volume存取群組中的磁碟區、而不需要CHAP驗證。當您將啟動器新增至Volume存取群組時、啟動器可存取該Volume存取群組中的所有Volume。
@@ -135,6 +138,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[delete-an-initiator]]
 == 刪除啟動器
 
 您可以在不再需要啟動器之後刪除它。刪除啟動器時、系統會將其從任何相關的Volume存取群組中移除。使用啟動器的任何連線都會維持有效、直到連線重設為止。
@@ -159,6 +163,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -9,6 +9,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[netapp-hci]]
 == NetApp HCI
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2882194["《》（英文NetApp HCI"^]
@@ -21,6 +22,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[netapp-element-software]]
 == 軟件NetApp Element
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3362264["NetApp Element軟體 12.9 發行說明"^]_新的_
@@ -40,6 +42,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[management-services]]
 == 管理服務
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本說明KB"^]
@@ -47,6 +50,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[netapp-element-plug-in-for-vmware-vcenter-server]]
 == VMware vCenter Server的VMware vCenter外掛程式NetApp Element
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3344864["vCenter 外掛程式 5.5 發行說明"^]
@@ -67,6 +71,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[compute-firmware]]
 == 運算韌體
 
 * https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.146.html["運算韌體套裝組合2.146版本說明"^]
@@ -77,6 +82,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 
 
 
+[[storage-firmware]]
 == 儲存韌體
 
 * https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.146.html["儲存韌體產品組合2.146版本說明"^]

@@ -32,6 +32,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, clust
 
 
 
+[[volume-performance-data]]
 == Volume效能資料
 
 * *名稱*：磁碟區建立時的名稱。
@@ -59,6 +60,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, clust
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -28,6 +28,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report
 
 
 
+[[reporting-overview-page-data]]
 == 報告總覽頁面資料
 
 下列資料會出現在「報告總覽」頁面上：
@@ -106,6 +107,7 @@ NOTE: 例如、如果叢集中有四個磁碟區、每個磁碟區的IOPS下限�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

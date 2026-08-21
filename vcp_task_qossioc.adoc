@@ -29,6 +29,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 
 
+[[setup-tasks]]
 == 設定工作
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"]
@@ -37,6 +38,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 
 
+[[management-tasks]]
 == 管理工作
 
 * link:vcp_task_reports_qossioc.html["利用QoSSIOC事件監控VM效能分層"^]
@@ -48,6 +50,7 @@ NOTE: 您無法啟用虛擬磁碟區（VVols）功能、或使用QoSSIOC設定�
 
 
 
+[[enabling-qossioc-automation-on-datastores]]
 == 在資料存放區上啟用QoSSIOC自動化
 
 啟用外掛程式的QoSSIOC服務之後、您可以啟用QoSSIOC自動化功能、並自訂資料存放區的虛擬機器磁碟（VMDK）效能層級。
@@ -106,6 +109,7 @@ TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大�
 
 
 
+[[edit-qossioc-settings]]
 == 編輯QoSSIOC設定
 
 您可以變更作用中元素管理節點的QoSSIOC和vCenter認證。
@@ -125,7 +129,7 @@ TIP: 根據預設、SIOC磁碟共用的上限設為「無限」。在VDI等大�
 ** * QoSSIOC密碼*：元素QoSSIOC服務的密碼。QoSSIOC服務的預設密碼為SolidFire 「SESS'」。如果您尚未建立自訂密碼、可以從登錄公用程式UI（「https://[management節點IP」：9443）建立自訂密碼。
 +
 
-NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp HCI若要判斷密碼、請參閱本文件中的程序4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 文章：
+NOTE: 對於 NetApp HCI 部署，預設密碼在安裝期間隨機產生。若要確定密碼，請參閱本文中的步驟 4 https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^]。
 
 ** * vCenter使用者ID*：vCenter管理員擁有完整管理員角色權限的使用者名稱。
 ** * vCenter密碼*：vCenter管理員擁有完整管理員角色權限的密碼。
@@ -134,7 +138,7 @@ NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp H
 . 選擇*確定*。「QoSSIOC狀態」欄位隨即顯示 `UP` 當外掛程式能夠與服務成功通訊時。
 +
 
-NOTE: 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 若要疑難排解狀態是否為下列任一項目：*「診斷」：未啟用QoSSIOC。*「未設定」：尚未設定QoSSIOC設定。*「網路中斷」：vCenter無法與網路上的QoSSIOC服務通訊。mNode和SIOC服務可能仍在執行中。
+NOTE: 如果狀態出現以下任何情況，請參閱 https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^]進行疑難排解：* `Down`：QoSSIOC 未啟用。* `Not Configured`：QoSSIOC 設定尚未設定。* `Network Down`：vCenter 無法與網路上的 QoSSIOC 服務通訊。mNode 與 SIOC 服務可能仍在運作。
 
 +
 
@@ -144,6 +148,7 @@ NOTE: 為管理節點設定有效的QoSSIOC設定之後、這些設定就會成�
 
 
 
+[[change-the-qossioc-service-password]]
 == 變更QoSSIOC服務密碼
 
 您可以使用登錄公用程式UI、在管理節點上變更QoSSIOC服務的密碼。
@@ -180,7 +185,7 @@ image::vcp_registration_ui_qossioc.png[vCenter Server登錄公用程式功能表
 .. *舊密碼*：QoSSIOC服務的目前密碼。如果您尚未設定密碼、請輸入預設密碼SolidFire 「/sf2」。
 +
 
-NOTE: 針對零星部署、預設密碼會在安裝期間隨機產生。NetApp HCI若要判斷密碼、請參閱本文件中的程序4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] 文章：
+NOTE: 對於 NetApp HCI 部署，預設密碼在安裝期間隨機產生。若要確定密碼，請參閱本文中的步驟 4 https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^]。
 
 .. *新密碼*：QoSSIOC服務的新密碼。
 .. *確認密碼*：再次輸入新密碼。
@@ -203,6 +208,7 @@ NOTE: 在您提交變更後、QoSSIOC服務會自動重新啟動。
 
 
 
+[[disable-qossioc-automation-for-a-datastore]]
 == 停用資料存放區的QoSSIOC自動化
 
 您可以停用資料存放區的QoSSIOC整合。
@@ -228,6 +234,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[clear-qossioc-settings]]
 == 清除QoSSIOC設定
 
 您可以清除元素儲存管理節點（mNode）的QoSSIOC組態詳細資料。在設定新管理節點的認證或變更QoSSIOC服務密碼之前、您必須先清除已設定管理節點的設定。清除QoSSIOC設定會從vCenter、叢集和資料存放區移除作用中的QoSSIOC。
@@ -249,6 +256,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

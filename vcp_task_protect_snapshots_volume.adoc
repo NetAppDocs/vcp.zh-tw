@@ -29,6 +29,7 @@ keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup,
 
 
 
+[[create-a-volume-snapshot]]
 == 建立磁碟區快照
 
 您可以建立作用中磁碟區的快照、隨時保留磁碟區映像。
@@ -78,6 +79,7 @@ NOTE: 當您設定保留期間時、請選取從目前時間開始的期間。�
 
 
 
+[[view-volume-snapshot-details]]
 == 檢視Volume Snapshot詳細資料
 
 您可能需要驗證是否已新增快照。
@@ -106,6 +108,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[clone-a-volume-from-a-snapshot]]
 == 從快照複製磁碟區
 
 您可以從磁碟區的快照建立新的磁碟區。執行此操作時、系統會使用快照資訊、使用建立快照時所包含的磁碟區資料來複製新的磁碟區。此程序也會在新建立的磁碟區中儲存磁碟區其他快照的相關資訊。
@@ -162,6 +165,7 @@ TIP: 如有需要、請重新整理頁面。
 
 
 
+[[roll-back-a-volume-to-a-snapshot]]
 == 將磁碟區復原為快照
 
 您可以隨時將磁碟區復原為快照。這會復原自建立快照以來對磁碟區所做的任何變更。
@@ -198,6 +202,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[back-up-a-volume-snapshot-to-an-external-object-store]]
 == 將磁碟區快照備份到外部物件存放區
 
 您可以使用整合式備份功能來備份磁碟區快照。您可以將快照從執行NetApp Element 支援功能的叢集備份到外部物件存放區或其他元件型叢集。
@@ -211,6 +216,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[back-up-a-volume-snapshot-to-an-amazon-s3-object-store]]
 === 將磁碟區快照備份到Amazon S3物件存放區
 
 您可以將NetApp Element 「不支援的快照」備份到與Amazon S3相容的外部物件存放區。
@@ -252,6 +258,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[back-up-a-volume-snapshot-to-an-openstack-swift-object-store]]
 === 將Volume Snapshot備份到OpenStack Swift物件存放區
 
 您可以將NetApp Element 無法更新的快照備份到與OpenStack Swift相容的次要物件存放區。
@@ -293,6 +300,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[back-up-a-volume-snapshot-to-a-cluster-running-element-software]]
 === 將磁碟區快照備份到執行Element軟體的叢集
 
 您可以將位於執行NetApp Element 支援的叢集上的Volume Snapshot備份到遠端元素叢集。
@@ -355,6 +363,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[delete-a-volume-snapshot]]
 == 刪除磁碟區快照
 
 您可以NetApp Element 使用外掛程式擴充點、從執行不實軟體的叢集刪除Volume Snapshot。刪除快照時、系統會立即將其移除。
@@ -389,6 +398,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取您�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

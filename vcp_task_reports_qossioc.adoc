@@ -44,6 +44,7 @@ QoSSIOC事件會從本機新增的叢集顯示。在連結模式環境中、登�
 
 
 
+[[qossioc-event-data]]
 == QoSSIOC事件資料
 
 * *日期*：QoSSIOC活動的日期與時間。
@@ -58,6 +59,7 @@ QoSSIOC事件會從本機新增的叢集顯示。在連結模式環境中、登�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

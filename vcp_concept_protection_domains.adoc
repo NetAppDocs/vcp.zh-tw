@@ -26,6 +26,7 @@ https://docs.netapp.com/us-en/element-software/concepts/concept_solidfire_concep
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

@@ -7,7 +7,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 = 疑難排解vCenter外掛程式
 :hardbreaks:
 :allow-uri-read: 
-:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:url-peak: https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -18,7 +18,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 您必須瞭解NetApp Element VMware vCenter Server的部分常見問題、以及解決這些問題的步驟。
 
 * <<外掛程式登錄成功、但圖示不會出現在Web用戶端中>>
-* <<使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤>>
+* <<error_vcp48_67u1,使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤>>
 * <<使用登錄UI登錄外掛程式時發生錯誤>>
 * <<使用登錄UI更新外掛程式時發生錯誤>>
 * <<無法升級NetApp副檔名的錯誤訊息>>
@@ -36,6 +36,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 
 
 
+[[plug-in-registration-successful-but-icons-do-not-appear-in-web-client]]
 == 外掛程式登錄成功、但圖示不會出現在Web用戶端中
 
 .說明
@@ -83,6 +84,8 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 
 
+[[errors-after-netapp-element-plug-in-for-vmware-vcenter-server-4-8-or-later-upgrade-with-vmware-vcenter-server-6-7u1]]
+[[error_vcp48_67u1]]
 == 使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤
 
 .說明
@@ -107,6 +110,7 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 
 
+[[error-registering-plug-in-using-registration-ui]]
 == 使用登錄UI登錄外掛程式時發生錯誤
 
 .說明
@@ -117,6 +121,7 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 
 
+[[error-updating-plug-in-using-registration-ui]]
 == 使用登錄UI更新外掛程式時發生錯誤
 
 .說明
@@ -127,6 +132,7 @@ NOTE: 您可能需要修正無法連線或不良的URL。更新外掛程式登�
 
 
 
+[[error-message-that-netapp-extension-cannot-be-upgraded]]
 == 無法升級NetApp副檔名的錯誤訊息
 
 .訊息
@@ -147,6 +153,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[removing-plug-in-completes-successfully-but-icons-remain]]
 == 移除外掛程式成功完成、但仍有圖示
 
 .說明
@@ -157,6 +164,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[plug-in-cannot-be-unregistered-or-removed-after-admin-password-change]]
 == 變更管理密碼後、無法取消註冊或移除外掛程式
 
 .說明
@@ -171,6 +179,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[plug-in-management-tasks-fail-or-volumes-are-not-accessible-to-esxi-host]]
 == 外掛程式管理工作失敗、或ESXi主機無法存取磁碟區
 
 .說明
@@ -186,6 +195,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[failure-occurs-during-vcenter-plug-in-use-on-firefox-59-0-2-browsers]]
 == 在Firefox 59.0.2瀏覽器上使用vCenter外掛程式時發生故障
 
 .訊息
@@ -199,6 +209,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[delete-datastore-operation-fails]]
 == 刪除資料存放區作業失敗
 
 .說明
@@ -209,6 +220,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[cluster-pair-cannot-connect-using-a-pairing-key]]
 == 叢集配對無法使用配對金鑰連線
 
 .說明
@@ -219,6 +231,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[error-message-for-qossioc-status]]
 == QoSSIOC狀態的錯誤訊息
 
 .說明
@@ -232,6 +245,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 
 
 
+[[qossioc-service-shown-as-available-but-is-unavailable]]
 == QoSSIOC服務顯示為可用但無法使用
 
 .說明
@@ -245,6 +259,7 @@ QoSSIOC服務設定顯示為「UP」、但QoSSIOC無法使用。
 
 
 
+[[qossioc-is-enabled-for-datastore-but-unavailable]]
 == QoSSIOC已啟用資料存放區、但無法使用
 
 .說明
@@ -260,5 +275,5 @@ QoSSIOC服務設定顯示為「UP」、但QoSSIOC無法使用。
 ----
 SIOC is not enabled
 ----
-. 請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["本文"] 針對您的問題採取的修正行動。
+. 請參閱 https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["本文"]，以瞭解針對您問題的具體修正行動。
 

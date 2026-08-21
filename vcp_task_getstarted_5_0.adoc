@@ -7,7 +7,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 = 為vCenter Server 7.0及更新版本安裝及設定Element Plug-in 5.0及更新版本
 :hardbreaks:
 :allow-uri-read: 
-:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:url-peak: https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -33,12 +33,14 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 
 
+[[prepare-for-installation]]
 == 準備安裝
 
 開始安裝之前、請先檢閱 link:reference_requirements_vcp.html["部署前需求"]。
 
 
 
+[[install-the-management-node]]
 == 安裝管理節點
 
 您可以手動進行 https://docs.netapp.com/us-en/hci/docs/task_mnode_install.html["安裝管理節點"^] 針對執行NetApp Element 的叢集、請使用適合您組態的適當映像。
@@ -47,6 +49,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 
 
 
+[[register-the-plug-in-with-vcenter]]
 == 向vCenter登錄外掛程式
 
 在vSphere Web Client中部署vCenter外掛程式套件時、需要將套件登錄為vCenter Server上的擴充功能。註冊完成後、任何連線至vSphere環境的vSphere Web Client都可以使用外掛程式。
@@ -125,6 +128,7 @@ NOTE: 您輸入的使用者名稱和密碼認證必須是具有vCenter Administr
 
 
 
+[[access-the-plug-in-and-verify-successful-installation]]
 == 存取外掛程式並驗證安裝是否成功
 
 成功安裝或升級後NetApp Element 、側板vSphere Web Client的「捷徑」索引標籤會顯示「還原遠端外掛程式」擴充點。
@@ -136,6 +140,7 @@ NOTE: 如果看不到vCenter外掛程式圖示、請參閱 link:vcp_reference_tr
 
 
 
+[[add-storage-clusters-for-use-with-the-plug-in]]
 == 新增儲存叢集以搭配外掛程式使用
 
 您可以使用NetApp Element 「支援遠端外掛程式」擴充點來新增及管理執行元素軟體的叢集。
@@ -180,6 +185,7 @@ NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 
 
 
+[[configure-qossioc-settings-using-the-plug-in]]
 == 使用外掛程式設定QoSSIOC設定
 
 您可以根據儲存I/O控制設定自動服務品質 link:vcp_concept_qossioc.html["（QoSSIOC）"] 適用於由外掛程式控制的個別磁碟區和資料存放區。若要這麼做、您可以設定QoSSIOC和vCenter認證、讓QoSSIOC服務能夠與vCenter通訊。
@@ -223,12 +229,14 @@ NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 
 
 
+[[configure-user-accounts]]
 == 設定使用者帳戶
 
 若要啟用對磁碟區的存取、您必須至少建立一個磁碟區 link:vcp_task_create_manage_user_accounts.html#create-an-account["使用者帳戶"]。
 
 
 
+[[create-datastores-and-volumes]]
 == 建立資料存放區和磁碟區
 
 您可以建立 link:vcp_task_datastores_manage.html#create-a-datastore["資料存放區和元素磁碟區"] 開始分配儲存設備。
@@ -237,6 +245,5 @@ NOTE: 您必須至少新增一個叢集、才能使用管理功能。
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["「資源」頁面NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件文件資源SolidFire"^]
 

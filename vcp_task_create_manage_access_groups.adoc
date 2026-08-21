@@ -28,6 +28,7 @@ keywords: netapp, storage, access groups, vcp, vcenter, element
 
 
 
+[[create-an-access-group]]
 == 建立存取群組
 
 您可以使用一或多個啟動器建立Volume存取群組。將光纖通道（WWPN）或iSCSI（IQN）用戶端啟動器對應至Volume存取群組中的磁碟區、可在網路與磁碟區之間實現安全的資料I/O。
@@ -60,6 +61,7 @@ NOTE: 建立磁碟區存取群組之後、可以新增或刪除啟動器。
 
 
 
+[[edit-an-access-group]]
 == 編輯存取群組
 
 您可以編輯Volume存取群組名稱、或從外掛程式擴充點新增或移除啟動器。
@@ -94,6 +96,7 @@ NOTE: 如果您要移除啟動器、請按一下垃圾桶圖示予以移除。�
 
 
 
+[[add-volumes-to-an-access-group]]
 == 新增磁碟區至存取群組
 
 您可以將磁碟區新增至磁碟區存取群組。每個Volume可屬於多個Volume存取群組、您可以從「Active Volumes」（作用中Volume）檢視中查看每個Volume所屬的群組。
@@ -125,6 +128,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[remove-volumes-from-an-access-group]]
 == 從存取群組移除磁碟區
 
 您可以從存取群組移除磁碟區。
@@ -154,6 +158,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[delete-an-access-group]]
 == 刪除存取群組
 
 您可以使用外掛程式擴充點刪除Volume存取群組。刪除群組之前、您不需要刪除啟動器ID或取消磁碟區與磁碟區存取群組的關聯。刪除存取群組之後、群組對磁碟區的存取將會中斷。
@@ -178,6 +183,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

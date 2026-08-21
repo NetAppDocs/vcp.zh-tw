@@ -29,6 +29,7 @@ keywords: netapp, volumes, vcp, vcenter, element,
 
 
 
+[[create-a-volume]]
 == 建立Volume
 
 您可以建立新的Volume、並將該磁碟區與指定帳戶建立關聯（每個Volume都必須與帳戶建立關聯）。此關聯可讓帳戶使用CHAP認證、透過iSCSI啟動器存取磁碟區。您也可以在建立期間指定Volume的QoS設定。
@@ -80,6 +81,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[view-volume-details]]
 == 檢視Volume詳細資料
 
 您可以檢閱外掛程式擴充點中叢集上所有作用中磁碟區的一般資訊。您也可以查看每個作用中磁碟區的詳細資料、包括效率、效能、QoS、以及相關的快照。
@@ -136,6 +138,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[general-details-section]]
 === 「一般詳細資料」區段
 
 * *名稱*：指派給磁碟區的名稱。
@@ -152,6 +155,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[efficiency-section]]
 === 效率區段
 
 * *壓縮*：磁碟區的壓縮效率分數。
@@ -162,6 +166,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[performance-section]]
 === 效能區段
 
 * *帳戶ID*：關聯帳戶的唯一帳戶ID。
@@ -200,6 +205,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[quality-of-service-section]]
 === 服務品質區段
 
 * *原則*：指派給磁碟區的QoS原則名稱。
@@ -212,6 +218,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[snapshots-section]]
 === Snapshot區段
 
 * * Snapshot ID*：系統產生的快照ID。
@@ -223,6 +230,7 @@ IMPORTANT: QoS原則最適合服務環境、例如資料庫、應用程式或基
 
 
 
+[[edit-a-volume]]
 == 編輯Volume
 
 您可以變更Volume屬性、例如QoS值、Volume大小、以及計算位元組值的計量單位。您也可以變更存取層級、以及哪些帳戶可以存取磁碟區。您也可以修改帳戶存取、以供複寫使用或限制對磁碟區的存取。
@@ -280,6 +288,7 @@ QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構�
 
 
 
+[[clone-a-volume]]
 == 複製磁碟區
 
 您可以建立磁碟區的複本、以製作資料的時間點複本。當您複製磁碟區時、系統會建立磁碟區的快照、然後建立快照所參照資料的複本。這是一個非同步程序、程序所需的時間長短取決於您要複製的磁碟區大小和目前的叢集負載。
@@ -297,7 +306,7 @@ QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構�
 
 NOTE: 複製的磁碟區不會從來源磁碟區繼承Volume存取群組成員資格。
 
-作業系統在處理複製磁碟區的方式上各不相同。ESXi會將複製的Volume視為Volume複本或Snapshot Volume。磁碟區將是可用來建立新資料存放區的可用裝置。如需掛載複製磁碟區及處理快照LUN的詳細資訊、請參閱VMware相關文件 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html["掛載VMFS資料存放區複本"^] 和 https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html["管理重複的VMFS資料存放區"^]。
+不同的作業系統對 Clone Volume 的處理方式有所不同。ESXi 會將 Clone Volume 視為 Volume 複本或快照 Volume。該 Volume 將作為可用裝置，用於建立新的資料存放區。有關掛載 Clone Volume 及處理快照 LUN 的詳細資訊，請參閱 VMware 文件，了解 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage/working-with-datastores-in-vsphere-storage-environment/vsphere-vmfs-datastore-copies-and-datastore-resignaturing/resignature-a-vmfs-datastore-copy-in-the-vsphere-web-client.html["掛載VMFS資料存放區複本"^]和 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage/working-with-datastores-in-vsphere-storage-environment/vsphere-vmfs-datastore-copies-and-datastore-resignaturing.html["管理重複的VMFS資料存放區"^]。
 
 .步驟
 . 從vCenter外掛程式開啟*管理*索引標籤：
@@ -349,6 +358,7 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 
+[[back-up-or-restore-volumes]]
 == 備份或還原磁碟區
 
 您可以設定系統、將磁碟區的內容備份及還原至物件儲存容器、該容器是以NetApp Element 軟體為基礎的外部儲存設備。
@@ -357,6 +367,7 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 
+[[back-up-volumes]]
 === 備份磁碟區
 
 您可以將NetApp Element 支援物件的磁碟區備份到元素儲存設備、以及與Amazon S3或OpenStack Swift相容的次要物件儲存區。
@@ -494,6 +505,7 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 
+[[restore-volumes]]
 === 還原磁碟區
 
 從物件存放區（例如OpenStack Swift或Amazon S3）的備份還原磁碟區時、您需要原始備份程序的資訊清單資訊。如果您要還原NetApp Element 在NetApp元件型儲存系統上備份的現象磁碟區、則不需要資訊清單資訊。您可以在「報告」索引標籤的「事件記錄」中、找到從Swift和S3還原所需的資訊清單資訊。
@@ -635,6 +647,7 @@ NOTE: 完成複製作業的時間會受到磁碟區大小和目前叢集負載�
 
 
 
+[[delete-volumes]]
 == 刪除Volume
 
 您可以NetApp Element 使用外掛程式擴充點、從一個或多個叢集中刪除一個或多個Volume。
@@ -677,6 +690,7 @@ Volume會從「作用中」檢視移至「Volume」頁面中的「刪除」檢�
 
 
 
+[[purge-volumes]]
 == 清除Volume
 
 您可以在刪除磁碟區之後手動清除這些磁碟區。
@@ -703,6 +717,7 @@ IMPORTANT: 當磁碟區被清除時、就會立即且永久地從系統中移除
 
 
 
+[[restore-deleted-volumes]]
 == 還原刪除的磁碟區
 
 如果已NetApp Element 刪除但尚未清除、您可以在還原系統中還原磁碟區。
@@ -730,6 +745,7 @@ NOTE: 如果刪除磁碟區然後還原、ESXi將無法偵測還原的磁碟區�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

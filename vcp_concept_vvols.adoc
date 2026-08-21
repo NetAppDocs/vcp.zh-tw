@@ -18,12 +18,14 @@ vSphere虛擬磁碟區是VMware的儲存模式、可將vSphere的大部分儲存
 
 
 
+[[bindings]]
 == 綁定
 
 此VMware ESXi叢集會選擇最佳的傳輸協定端點、建立關聯ESXi主機和虛擬Volume與傳輸協定端點的連結、並傳回與ESXi主機的連結。NetApp Element綁定之後、ESXi主機就能對繫結的虛擬Volume執行I/O作業。
 
 
 
+[[protocol-endpoints]]
 == 傳輸協定端點
 
 VMware ESXi主機使用邏輯I/O Proxy（稱為傳輸協定端點）與虛擬磁碟區通訊。ESXi主機會將虛擬磁碟區繫結至傳輸協定端點、以執行I/O作業。當主機上的虛擬機器執行I/O作業時、相關的傳輸協定端點會將I/O導向與其配對的虛擬磁碟區。
@@ -38,6 +40,7 @@ iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳�
 
 
 
+[[storage-containers]]
 == 儲存容器
 
 儲存容器是對應NetApp Element 至不二帳戶的邏輯架構、可用於報告和資源分配。它們會將儲存系統可提供的原始儲存容量或集合式儲存功能集合在一起、以供虛擬磁碟區使用。在vSphere中建立的VVOL資料存放區會對應至個別的儲存容器。根據預設、單一儲存容器具有NetApp Element 來自於該叢集的所有可用資源。如果需要更精細的多租戶治理、則可建立多個儲存容器。
@@ -52,6 +55,7 @@ iSCSI是NetApp Element 唯一支援的支援功能。不支援Fibre Channel傳�
 
 
 
+[[vasa-provider]]
 == VASA供應商
 
 為了讓vSphere知曉NetApp Element VMware vCenter上的VVol功能、vSphere管理員必須向NetApp Element vCenter登錄《VMware VASA Provider》。VASA供應商是vSphere與元素叢集之間的頻外控制路徑。IT負責代表vSphere在元素叢集上執行要求、例如建立VM、讓vSphere可使用VM、以及向vSphere通告儲存功能。
@@ -66,9 +70,9 @@ NOTE: 如果您已向vCenter註冊VASA供應商、則最多可將10個vCenter的
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["「資源」頁面NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["「元件與元素資源」頁面SolidFire"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件文件資源SolidFire"^]
 

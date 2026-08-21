@@ -24,6 +24,7 @@ link:vcp_concept_accounts.html["使用者帳戶"] 用於控制NetApp Element 對
 
 
 
+[[create-an-account]]
 == 建立帳戶
 
 您可以建立唯一的使用者帳戶、以允許存取儲存磁碟區。
@@ -65,6 +66,7 @@ NOTE: 啟動器和目標機密必須不同。如果這些欄位保留空白、�
 
 
 
+[[edit-an-account]]
 == 編輯帳戶
 
 您可以編輯使用者帳戶來變更狀態或CHAP機密。變更CHAP設定可能會導致主機與其相關磁碟區之間的連線中斷。
@@ -106,6 +108,7 @@ NOTE: 如果您不變更認證、則認證資料會維持不變。如果您將�
 
 
 
+[[delete-an-account]]
 == 刪除帳戶
 
 您可以使用外掛程式擴充點刪除使用者帳戶。
@@ -136,6 +139,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

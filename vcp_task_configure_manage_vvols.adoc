@@ -23,6 +23,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 
 
 
+[[setup-tasks]]
 == 設定工作
 
 您必須執行初始組態步驟、才能使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式中的虛擬Volume（VVols）。
@@ -35,6 +36,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 
 
 
+[[management-tasks]]
 == 管理工作
 
 * <<監控虛擬Volume資源>>
@@ -44,6 +46,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 
 
 
+[[enable-virtual-volumes-functionality-on-the-netapp-element-cluster]]
 == 在NetApp Element 叢集上啟用虛擬Volume功能
 
 您必須使用外掛程式擴充點手動啟用vSphere虛擬磁碟區（VVols）功能。Element系統預設會停用VVols功能、而且不會在新安裝或升級時自動啟用。啟用VVols功能是一次性的組態工作。
@@ -75,6 +78,7 @@ NOTE: 啟用VVols功能時、元素叢集會啟動VASA Provider、開啟VASA流�
 
 
 
+[[register-the-vasa-provider-with-vcenter]]
 == 向vCenter註冊VASA供應商
 
 您必須在NetApp Element vCenter中登錄「VMware VASA供應商」、vCenter才能識別叢集上的VVOL功能。向vCenter登錄VASA供應商是一次性的組態工作。
@@ -123,6 +127,7 @@ NOTE: 如有必要、請重新整理儲存供應商、以在第一次登錄供�
 
 
 
+[[create-a-storage-container-and-associated-vvol-datastore]]
 == 建立儲存容器及相關的VVOL資料存放區
 
 您可以從外掛程式擴充點的VVols索引標籤建立儲存容器。您必須至少建立一個儲存容器、才能開始配置VVOL備份的虛擬機器。
@@ -176,6 +181,7 @@ NOTE: 如果您使用vCenter連結模式、則只有指派叢集的vCenter Serve
 
 
 
+[[monitor-virtual-volume-resources]]
 == 監控虛擬Volume資源
 
 您可以從外掛程式擴充點檢閱虛擬Volume元件的效能和設定：
@@ -187,6 +193,7 @@ NOTE: 如果您使用vCenter連結模式、則只有指派叢集的vCenter Serve
 
 
 
+[[monitoring-vvols]]
 === 監控VVols
 
 您可以檢閱叢集上所有作用中虛擬磁碟區的一般資料、或是每個虛擬磁碟區的詳細資料。外掛程式會追蹤虛擬Volume效率、效能、事件和QoS、以及相關的快照、VM和繫結。
@@ -214,6 +221,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[monitoring-storage-containers]]
 === 監控儲存容器
 
 您可以檢閱叢集上所有作用中儲存容器的一般資料、或是每個儲存容器的詳細資料。外掛程式可追蹤儲存容器的效率、效能及相關的虛擬磁碟區。
@@ -237,6 +245,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[monitoring-protocol-endpoints]]
 === 監控傳輸協定端點
 
 您可以檢閱叢集上所有傳輸協定端點的一般資料。
@@ -260,6 +269,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[create-a-vvol-datastore-for-a-storage-container]]
 == 為儲存容器建立VVOL資料存放區
 
 建立儲存容器之後、您也必須建立虛擬Volume資料存放區、以代表NetApp Element vCenter中的VMware叢集上的儲存容器。此程序可做為從建立資料存放區的替代方法 <<建立儲存容器及相關的VVOL資料存放區,建立儲存Container>> 精靈：您必須至少建立一個VVOL資料存放區、才能開始配置VVOL備份的虛擬機器。
@@ -288,6 +298,7 @@ NOTE: 您不需要手動建立傳輸協定端點（PE）LUN。建立資料存放
 
 
 
+[[delete-a-storage-container]]
 == 刪除儲存容器
 
 您可以從外掛程式擴充點刪除儲存容器。
@@ -317,6 +328,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

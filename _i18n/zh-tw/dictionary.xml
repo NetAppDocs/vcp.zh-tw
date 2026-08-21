@@ -87,10 +87,8 @@
   <block id="f8bae8de9baa8395a6a8ec2d860c337f" category="list-text">* QoSSIOC使用者ID *：QoSSIOC服務的使用者ID。QoSSIOC服務的預設使用者ID為「admin」。對於僅供使用的部分、使用者ID與使用NetApp部署引擎安裝期間輸入的ID相同。NetApp HCI</block>
   <block id="65f72105c8eac4133f65e860a7673a84" category="list-text">* QoSSIOC密碼*：元素QoSSIOC服務的密碼。QoSSIOC服務的預設密碼為SolidFire 「SESS'」。如果您尚未建立自訂密碼、可以從登錄公用程式UI（「https://[management節點IP」：9443）建立自訂密碼。</block>
   <block id="ab57fd0432e25d5b3013133a1c910d56" category="inline-link">KB</block>
-  <block id="cad792ab45ca62879a629f687945067c" category="admonition">針對零星部署、預設密碼會在安裝期間隨機產生。NetApp HCI若要判斷密碼、請參閱本文件中的程序4<block ref="73c985feae38ab11c72c32983286b317" category="inline-link-rx"></block> 文章：</block>
   <block id="bbf245717bbf4beb394b424cc95d9ea8" category="list-text">* vCenter使用者ID*：vCenter管理員擁有完整管理員角色權限的使用者名稱。</block>
   <block id="923230f5f1040a80034468b15292c0fb" category="list-text">* vCenter密碼*：vCenter管理員擁有完整管理員角色權限的密碼。</block>
-  <block id="18d6e8678d9b6ffeb8e937c46930d1ee" category="admonition">請參閱<block ref="73c985feae38ab11c72c32983286b317" category="inline-link-rx"></block> 若要疑難排解狀態是否為下列任一項目：*「診斷」：未啟用QoSSIOC。*「未設定」：尚未設定QoSSIOC設定。*「網路中斷」：vCenter無法與網路上的QoSSIOC服務通訊。mNode和SIOC服務可能仍在執行中。</block>
   <block id="1aa8ee5bd0ad9be51ccd5fe9d6d27aa9" category="admonition">為管理節點設定有效的QoSSIOC設定之後、這些設定就會成為預設值。QoSSIOC設定會回復到上次已知的有效QoSSIOC設定、直到您為新的管理節點提供有效的QoSSIOC設定為止。在設定新管理節點的QoSSIOC認證之前、您必須先清除已設定管理節點的QoSSIOC設定。</block>
   <block id="fa56630b6219bb590988e3850ac6bf23" category="section-title">變更QoSSIOC服務密碼</block>
   <block id="8209f42f47120008b0d3d7d32da6ae59" category="paragraph">您可以使用登錄公用程式UI、在管理節點上變更QoSSIOC服務的密碼。</block>
@@ -1026,8 +1024,6 @@
   <block id="a59c51fc1ad210c1bec14d4848238667" category="paragraph">為了讓vSphere知曉NetApp Element VMware vCenter上的VVol功能、vSphere管理員必須向NetApp Element vCenter登錄《VMware VASA Provider》。VASA供應商是vSphere與元素叢集之間的頻外控制路徑。IT負責代表vSphere在元素叢集上執行要求、例如建立VM、讓vSphere可使用VM、以及向vSphere通告儲存功能。</block>
   <block id="01ef303b25d3281cb33cd13014af3226" category="paragraph">VASA提供者在Element軟體中作為叢集主機的一部分執行。叢集主機是高可用度的服務、可視需要容錯移轉至叢集中的任何節點。如果叢集主機容錯移轉、VASA供應商會隨之移轉、確保VASA供應商的高可用度。所有的資源配置和儲存管理工作都使用VASA供應商來處理元素叢集上所需的任何變更。</block>
   <block id="5709d7946cfaf2f2c04b03412834dd73" category="admonition">如果您已向vCenter註冊VASA供應商、則最多可將10個vCenter的VASA支援作為升級修補程式。若要安裝、請遵循VSA39資訊清單中的指示、並從下載.tar.gz檔案 <block ref="4efcd63a00c3a5e6a73880f24942f8e7" category="inline-link-macro-rx"></block> 網站。該供應商使用NetApp認證。NetApp Element有了這個修補程式、vCenter便會使用未經修改的憑證來支援VASA和VVols使用的多個vCenter。請勿修改憑證。VASA不支援自訂SSL憑證。</block>
-  <block id="c93817bbfc3fab71f5f7ca740a11c847" category="inline-link">「資源」頁面NetApp HCI</block>
-  <block id="db44bd4317aeddd12845bd1fdbf8738c" category="list-text"><block ref="db44bd4317aeddd12845bd1fdbf8738c" category="inline-link-rx"></block></block>
   <block id="6bde8427d243711530e47035165075a8" category="summary">您可以使用外掛程式新增在元素磁碟區上建立的管理資料存放區。</block>
   <block id="1b8a04f09ff55290753a17988fd53c2a" category="doc">管理資料存放區</block>
   <block id="fee03a90bfc424cd6ea94a6cc22746e8" category="list-text">若要建立及管理資料存放區、您必須先建立至少一個使用者帳戶。</block>
@@ -1180,7 +1176,6 @@
   <block id="54bf2caed918291b3771a8543d667f6c" category="list-text">*叢集*：新增及管理磁碟機和節點。您也可以建立及管理VLAN。</block>
   <block id="53c3fa82359c8c96c0034060741a24ad" category="list-text">* VVols *：管理虛擬磁碟區及其相關的儲存容器、傳輸協定端點和繫結。</block>
   <block id="ca55ce9e6e52d3c2adce10bd8af25702" category="inline-link-macro">部分組態擴充點NetApp Element</block>
-  <block id="c384eab57dc664d0f5f58e4f009f0b6a" category="list-text"><block ref="c384eab57dc664d0f5f58e4f009f0b6a" category="inline-link-macro-rx"></block></block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等存取權限。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版權</block>
@@ -1613,7 +1608,6 @@
   <block id="4fb0bbac8ed9dc001c6bd394776c58b9" category="list-text">在管理節點上的「/opt/sidfire/sioc/data/logs/」中開啟「sho.log」（在較舊的管理節點上為「/var/log」或「/var/log/solidfire/」）。</block>
   <block id="8776a0f7728d2804b6638746068901d5" category="list-text">搜尋此文字：</block>
   <block id="8acadeccb90bf205135348e4902b9c20" category="inline-link">本文</block>
-  <block id="6827a947857f77989cf06bb0f67a6085" category="list-text">請參閱<block ref="fcb81063f72d7cb08144faa25942e149" category="inline-link-rx"></block> 針對您的問題採取的修正行動。</block>
   <block id="0ffff7a37fbfc4f2d38407e8bb1bc84a" category="paragraph">使用者帳戶可控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。在建立磁碟區之前、至少需要一個使用者帳戶。</block>
   <block id="89a1e2c5ed36e2253339857240ea7a91" category="paragraph">當您建立Volume時、該磁碟區會指派給帳戶。如果您已建立虛擬磁碟區、則帳戶就是儲存容器。帳戶包含存取指派給它的磁碟區所需的CHAP驗證。</block>
   <block id="7f856222f7f24b0e9d969f548462f963" category="paragraph">帳戶最多可指派2000個磁碟區、但一個磁碟區只能屬於一個帳戶。</block>
@@ -1989,7 +1983,6 @@
   <block id="a4c87fceeca93beb148602bece77fca6" category="list-text">* QoSSIOC設定*：在管理節點上設定您的QoSSIOC服務認證、以便與vCenter通訊。</block>
   <block id="17214f3da5f4fde025ab6bff02b1e131" category="list-text">* QoSSIOC事件*：顯示所有偵測到的QoSSIOC事件資訊。</block>
   <block id="7859d016cf7f2b5a5e2abf89cdedf206" category="list-text">*關於*：顯示外掛程式版本資訊、並提供服務套裝組合下載選項。</block>
-  <block id="d05470d1480aa89ff09b30647c509081" category="list-text"><block ref="d05470d1480aa89ff09b30647c509081" category="inline-link-macro-rx"></block></block>
   <block id="304409dfde6a422986bbfa38b7258895" category="doc">移除vCenter外掛程式</block>
   <block id="c8b75cd98521813bb646f8e59e1660fa" category="list-text">vSphere 6.7或更早版本</block>
   <block id="7024db6aaf8e0fac22cd773f9b87f6bd" category="inline-link-macro">未註冊</block>
@@ -2124,14 +2117,12 @@
   <block id="baf751cfa98ca2f74ceb6948fcda780b" category="inline-link-macro">VMware vCenter Server適用的外掛程式總覽NetApp Element</block>
   <block id="63cc63082dc63dbd2008d199a2bbc40f" category="list-text"><block ref="63cc63082dc63dbd2008d199a2bbc40f" category="inline-link-macro-rx"></block></block>
   <block id="8c685412580675b6fc94b6d9884c2190" category="paragraph">您必須瞭解NetApp Element VMware vCenter Server的部分常見問題、以及解決這些問題的步驟。</block>
-  <block id="f379f8e66e1db17bdc8c224d43f3435a" category="list-text"><block ref="59dc4ba83e500318a7037078449a4c75" category="inline-xref-macro-rx"></block></block>
   <block id="c3441035a5fc5df8f56c371510235cc0" category="section-title">使用VMware vCenter Server 6.7U1升級VMware vCenter Server 4.8或更新版本之後發生NetApp Element 錯誤</block>
   <block id="41c092fb7a927ae7d39aa5ea193ab8a5" category="paragraph">使用VMware vCenter Server 6.7U1升級至Element vCenter外掛程式4.8或更新版本之後、您可能會遇到下列問題：</block>
   <block id="c9a65a128a505a58d4d567963f8c5eef" category="summary">使用適用於VMware vCenter Server的NNetApp Element外掛程式的「報告」頁面、檢視叢集元件和效能的相關資訊。</block>
   <block id="698d667d11b7e38537ec61866ca4211e" category="paragraph">您可以從NetApp Element VMware vCenter Server的「VMware vCenter Server的VMware vCenter Plug-in」的「報告」延伸點之「報告」索引標籤的「總覽」頁面、檢視所選叢集的高層叢集資訊、包括整體容量、效率和效能NetApp Element 。</block>
   <block id="2152f196efbe56dd4b6ed7ebdf60184e" category="summary">您可以從NetApp Element vCenter取消登錄VMware vCenter Server的VMware vCenter外掛程式。</block>
   <block id="0e2cb9099b297835fc679a9e70a9f01b" category="paragraph">您可以NetApp Element 使用下列其中一個程序、從vCenter取消登錄VMware vCenter Server的VMware vCenter外掛程式。</block>
-  <block id="7c385748f57d5138e7a7e04224b0094d" category="summary">使用NetApp Element VMware vCenter Server的VMware vCenter外掛程式（VMware vSphere介面的外掛程式）來管理及監控執行NetApp Element VMware軟體的儲存叢集。</block>
   <block id="64224a57594a94e207c3cc3f117b9b4c" category="doc">VMware vCenter Server的VMware vCenter外掛程式文件NetApp Element</block>
   <block id="96c1d0016bb846b8879188911653c245" category="sidebar">VMware vCenter Server的更新功能NetApp Element</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
@@ -2264,7 +2255,6 @@
   <block id="94341c12e51edbf7ac6e5b4caa8737ac" category="list-text">從vCenter外掛程式開啟*管理*索引標籤：</block>
   <block id="013aff1f14a63a87888a1ec1cef40e97" category="paragraph">您可以檢閱外掛程式擴充點中叢集上所有作用中磁碟區的一般資訊。您也可以查看每個作用中磁碟區的詳細資料、包括效率、效能、QoS、以及相關的快照。</block>
   <block id="6515ee9060e70353f9e70cfdc1b81f05" category="paragraph">啟用資料存放區QoSSIOC設定之後、磁碟區層級的任何QoS設定都會被覆寫。</block>
-  <block id="ab5a2e1182407c1415e14a4d40a00d1e" category="paragraph">作業系統在處理複製磁碟區的方式上各不相同。ESXi會將複製的Volume視為Volume複本或Snapshot Volume。磁碟區將是可用來建立新資料存放區的可用裝置。如需掛載複製磁碟區及處理快照LUN的詳細資訊、請參閱VMware相關文件<block ref="be550d2037a470ce38c4e9b1205adbd3" category="inline-link-rx"></block> 和<block ref="e78925c5281376a20450a24207e06cd4" category="inline-link-rx"></block>。</block>
   <block id="4db0281ff6074c3720c0e60c2f519f67" category="list-text">從您要放置Volume備份的vCenter和叢集、開啟*管理*索引標籤：</block>
   <block id="a62b6b895ee3a8cd131047be0ebb39f7" category="list-text">從包含要用於備份之來源磁碟區的vCenter和叢集、開啟*管理*索引標籤：</block>
   <block id="6f3512a5ff8ddd30db3f705929fc9002" category="list-text">從您要還原磁碟區的vCenter和叢集、開啟*管理*索引標籤：</block>
@@ -2899,4 +2889,11 @@
   <block id="0f0dd8ebb47c876fc4d83cd4c503304a" category="list-text"><block ref="65f476025a11aaf16dc58328cfd02319" category="inline-link-rx"></block>_新的_</block>
   <block id="53e04163346326834efd61306c0800b5" category="list-text"><block ref="53e04163346326834efd61306c0800b5" category="inline-link-rx"></block></block>
   <block id="19934d197d6821fc66160fdecbaaf499" category="list-text"><block ref="19934d197d6821fc66160fdecbaaf499" category="inline-link-rx"></block></block>
+  <block id="7ee2c1d45d5ea0b3b627e776551e0a66" category="list-text"><block ref="7ee2c1d45d5ea0b3b627e776551e0a66" category="inline-link-rx"></block></block>
+  <block id="ddfcc4a211e4d4aeb8858fcf7023db79" category="list-text"><block ref="ddfcc4a211e4d4aeb8858fcf7023db79" category="inline-link-macro-rx"></block></block>
+  <block id="946a456b3340bab5444f7fdd2d1668a6" category="list-text"><block ref="81a91a7b2e7c16e9382a3b4102c75dd6" category="inline-xref-macro-rx"></block></block>
+  <block id="576fdcfbd453ff81e50ed038bbd75080" category="list-text">請參閱<block ref="b1809f417eab8dd7bd52c5b130b213a1" category="inline-link-rx"></block>，以瞭解針對您問題的具體修正行動。</block>
+  <block id="49e5955799c1635bb234348ec3e98e8d" category="admonition">對於 NetApp HCI 部署，預設密碼在安裝期間隨機產生。若要確定密碼，請參閱本文中的步驟 4<block ref="6eec7bea3d46c7ec2c72cd0ab5ecde7c" category="inline-link-rx"></block>。</block>
+  <block id="2547d26c583559d66bf10554cc96e8c0" category="admonition">如果狀態出現以下任何情況，請參閱<block ref="6eec7bea3d46c7ec2c72cd0ab5ecde7c" category="inline-link-rx"></block>進行疑難排解：*<block ref="08a38277b0309070706f6652eeae9a53" prefix=" " category="inline-code"></block>：QoSSIOC 未啟用。*<block ref="ac10863a89ea5da5d78b29ab7d8d4db9" prefix=" " category="inline-code"></block>：QoSSIOC 設定尚未設定。*<block ref="8e8acaa1cba651ded0d5a7427cba69ac" prefix=" " category="inline-code"></block>：vCenter 無法與網路上的 QoSSIOC 服務通訊。mNode 與 SIOC 服務可能仍在運作。</block>
+  <block id="8ffbbcee166c0ec6044df97dd87b1511" category="paragraph">不同的作業系統對 Clone Volume 的處理方式有所不同。ESXi 會將 Clone Volume 視為 Volume 複本或快照 Volume。該 Volume 將作為可用裝置，用於建立新的資料存放區。有關掛載 Clone Volume 及處理快照 LUN 的詳細資訊，請參閱 VMware 文件，了解<block ref="f96e603cc6ab65c475c668cd9e36a0f1" category="inline-link-rx"></block>和<block ref="1504d644b8dbc81b76b400084d9988fb" category="inline-link-rx"></block>。</block>
 </blocks>

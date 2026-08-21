@@ -25,6 +25,7 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 
 
 
+[[add-a-node-to-a-cluster]]
 == 新增節點至叢集
 
 您可以使用vCenter外掛程式將儲存節點新增至叢集。
@@ -71,6 +72,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[view-node-details]]
 == 檢視節點詳細資料
 
 您可以從外掛程式擴充點、在叢集索引標籤的節點頁面上、檢視叢集中的節點清單。您必須選取「作用中」檢視、才能查看作用中節點的清單。您可以選取以變更檢視 `Pending`、 `PendingActive`和 `All` 使用下拉式篩選器的選項。
@@ -96,6 +98,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[restart-a-node]]
 == 重新啟動節點
 
 您可以使用外掛程式擴充點、重新啟動叢集中的一或多個作用中節點。
@@ -132,6 +135,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[shut-down-a-node]]
 == 關閉節點
 
 您可以使用外掛程式擴充點來關閉叢集中的一或多個作用中節點。若要關閉叢集、您可以選取所有叢集節點、並執行同步關機。
@@ -165,6 +169,7 @@ NOTE: 如果在任何關機情況下、節點停機時間超過5.5分鐘、NetAp
 
 
 
+[[remove-a-node-from-a-cluster]]
 == 從叢集移除節點
 
 您可以在不再需要儲存設備或需要維護時、從叢集移除節點、而不中斷服務。
@@ -202,6 +207,7 @@ NOTE: 如果新增兩個或多個叢集、請確定已在導覽列中選取要�
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]

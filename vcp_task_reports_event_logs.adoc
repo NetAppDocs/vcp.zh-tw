@@ -36,6 +36,7 @@ keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, clust
 
 
 
+[[event-types]]
 == 事件類型
 
 系統會報告多種類型的事件；每個事件都是系統已完成的作業。事件可以是例行事件、一般事件或需要系統管理員注意的事件。「事件記錄」頁面上的「事件類型」欄會指出事件發生在系統的哪個部分。
@@ -97,6 +98,7 @@ NOTE: 系統不會在事件記錄中記錄唯讀API命令。
 
 
 
+[[find-more-information]]
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/hci/index.html["資訊文件NetApp HCI"^]
